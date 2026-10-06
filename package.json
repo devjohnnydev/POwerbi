@@ -1,0 +1,12 @@
+{
+  "name": "curso-powerbi",
+  "version": "1.0.0",
+  "description": "Projeto Curso PowerBI",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -p $PORT -s ."
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
