@@ -4,7 +4,7 @@
   "description": "Projeto Curso PowerBI",
   "main": "index.html",
   "scripts": {
-    "start": "serve -p $PORT -s ."
+    "start": "serve -p $PORT ."
   },
   "dependencies": {
     "serve": "^14.2.4"
