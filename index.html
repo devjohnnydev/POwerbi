@@ -3,36 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso PowerBI</title>
+    <title>Curso Avançado de Power BI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        :root {
+            --primary: #F2C811; /* Power BI Yellow */
+            --primary-hover: #D1A908;
+            --bg-dark: #121212;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --text-light: #F3F4F6;
+            --text-muted: #9CA3AF;
+        }
+
+        * {
             margin: 0;
-            background-color: #f3f2f1;
-            color: #333;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container {
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(47, 87%, 51%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(47, 87%, 51%, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        header {
             text-align: center;
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 60px 20px 40px;
         }
+
         h1 {
-            color: #F2C811; /* PowerBI Yellow */
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px 25px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3),
+                        0 0 20px rgba(242, 200, 17, 0.1);
+            border-color: rgba(242, 200, 17, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-footer span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-footer svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-footer svg {
+            transform: translateX(5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+
+    <header>
+        <h1>Aulas de Power BI</h1>
+        <p class="subtitle">Acesse as videoaulas e os relatórios interativos. Selecione uma aula abaixo para começar.</p>
+    </header>
+
     <div class="container">
-        <h1>Projeto Curso PowerBI</h1>
-        <p>A aplicação está no ar com sucesso no Railway!</p>
-        <p>Em breve, os relatórios serão adicionados aqui.</p>
+        <div class="grid">
+            <!-- Aula 1 -->
+            <a href="#" class="card">
+                <div class="card-icon">📊</div>
+                <h2 class="card-title">Módulo 1: Introdução</h2>
+                <p class="card-desc">Conhecendo a interface do Power BI e entendendo os conceitos básicos de Business Intelligence.</p>
+                <div class="card-footer">
+                    <span>Acessar Aula <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <!-- Aula 2 -->
+            <a href="#" class="card">
+                <div class="card-icon">🗄️</div>
+                <h2 class="card-title">Módulo 2: Importação e ETL</h2>
+                <p class="card-desc">Conectando fontes de dados diversas e transformando dados utilizando o Power Query.</p>
+                <div class="card-footer">
+                    <span>Acessar Aula <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <!-- Aula 3 -->
+            <a href="#" class="card">
+                <div class="card-icon">📈</div>
+                <h2 class="card-title">Módulo 3: Modelagem (DAX)</h2>
+                <p class="card-desc">Criando relacionamentos entre tabelas e desenvolvendo as primeiras medidas com linguagem DAX.</p>
+                <div class="card-footer">
+                    <span>Acessar Aula <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <!-- Aula 4 -->
+            <a href="#" class="card">
+                <div class="card-icon">🎨</div>
+                <h2 class="card-title">Módulo 4: Visualização</h2>
+                <p class="card-desc">Construindo dashboards profissionais, interativos e aplicando boas práticas de design e storytelling.</p>
+                <div class="card-footer">
+                    <span>Acessar Aula <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+            
+            <!-- Aula 5 -->
+            <a href="#" class="card">
+                <div class="card-icon">🚀</div>
+                <h2 class="card-title">Módulo 5: Publicação</h2>
+                <p class="card-desc">Publicando relatórios no Power BI Service, compartilhando com a equipe e agendando atualizações.</p>
+                <div class="card-footer">
+                    <span>Acessar Aula <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+        </div>
     </div>
+
 </body>
 </html>
