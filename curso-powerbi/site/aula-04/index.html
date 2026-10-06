@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 04 · Relacionamentos no Power BI</title><meta name="description" content="Você vai juntar as três bases de vendas numa só, entender tabela fato, tabela dimensão, chave primária e chave estrangeira, ligar as tabelas na Exibição de Modelo e ver os gráficos passarem a cruzar informações de tabelas diferentes."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-04"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-03/index.html">← Anterior</a><a href="../aula-05/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 04</p><ol><li><a href="#problema"><span>01</span>O problema</a></li><li><a href="#unificar"><span>02</span>Acrescentar consultas</a></li><li><a href="#conceitos"><span>03</span>Fato, dimensão, chaves</a></li><li><a href="#criar"><span>04</span>Criar relacionamentos</a></li><li><a href="#dashboard"><span>05</span>Dashboard executivo</a></li><li><a href="#erros"><span>06</span>Erros comuns</a></li><li><a href="#atividades"><span>07</span>Atividades</a></li><li><a href="#resumo"><span>08</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 04 de 13</div><h1>Relacionamentos: o <em>coração</em> de um dashboard inteligente</h1><p class="lead">Você vai juntar as três bases de vendas numa só, entender tabela fato, tabela dimensão, chave primária e chave estrangeira, ligar as tabelas na Exibição de Modelo e ver os gráficos passarem a cruzar informações de tabelas diferentes.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Básico</span></dd><dt>Duração</dt><dd>3 horas</dd><dt>Você vai precisar</dt><dd>Power BI Desktop (gratuito, Windows)</dd><dt>Conteúdos</dt><dd><span class="tag">Acrescentar Consultas</span><span class="tag">Habilitar carga</span><span class="tag">Tabela Fato</span><span class="tag">Tabela Dimensão</span><span class="tag">Chave Primária</span><span class="tag">Chave Estrangeira</span><span class="tag">Cardinalidade 1:*</span><span class="tag">Modelo estrela</span></dd></dl></header><section id="problema"><h2><span class="n">01</span>Por que as empresas usam várias tabelas</h2><p class="sub">“Um dashboard bonito chama atenção. Um dashboard com relacionamentos corretos gera informação confiável.”</p>
+<p>Você já tem vendas, clientes e produtos no Power BI. Tente montar um gráfico de <b>Faturamento por Marca</b> ou <b>Quantidade vendida por Gênero</b>: ainda não funciona. Antes, você precisa <b>relacionar</b> as tabelas.</p>
+<h3>Imagine tudo numa única planilha</h3>
+<div class="tbl"><table>
+<thead><tr><th>Cliente</th><th>Sexo</th><th>Idade</th><th>Produto</th><th>Marca</th><th>Preço</th><th>Data</th><th>Qtd</th></tr></thead>
+<tbody>
+<tr><td>João</td><td>Masculino</td><td>35</td><td>Smart TV</td><td>Samsung</td><td>3.000</td><td>05/01/2024</td><td>1</td></tr>
+<tr><td>João</td><td>Masculino</td><td>35</td><td>Notebook</td><td>Dell</td><td>4.500</td><td>07/01/2024</td><td>1</td></tr>
+<tr><td>João</td><td>Masculino</td><td>35</td><td>Mouse</td><td>Logitech</td><td>120</td><td>08/01/2024</td><td>2</td></tr>
+</tbody></table></div>
+<p>Nome, sexo e idade do João se repetem em cada compra. Com milhões de vendas, isso gera arquivos enormes, desperdício de espaço, dificuldade para atualizar (se o João mudar de cidade, você altera mil linhas) e mais chance de erro.</p>
+<p>A solução é dividir em tabelas menores, cada uma sobre um assunto:</p>
+<div class="tbl"><table>
+<thead><tr><th>Tabela</th><th>Assunto</th><th>Cada linha é…</th></tr></thead>
+<tbody>
+<tr><td>CadastroClientes</td><td>Quem compra</td><td>um cliente (aparece uma única vez)</td></tr>
+<tr><td>CadastroProdutos</td><td>O que é vendido</td><td>um produto (aparece uma única vez)</td></tr>
+<tr><td>BaseVendas</td><td>O que aconteceu</td><td>um item vendido (só com códigos: SKU, ID Cliente, quantidade, data)</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="unificar"><h2><span class="n">02</span>Unificando as bases de 2020, 2021 e 2022</h2><p class="sub">Uma única tabela de vendas: uma medida de faturamento, todos os anos no mesmo gráfico.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que juntar</b><p>Com uma tabela por ano, você precisaria de uma medida para cada tabela, não conseguiria comparar anos no mesmo gráfico e o modelo ficaria difícil de manter. Em projetos profissionais existe <b>uma</b> tabela de vendas, a Tabela Fato.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-1"><label for="s1-1"><span class="k">Passo 1.1</span>Confira as três consultas no Power Query</label></div><p>Abra <span class="ui">Transformar dados</span>. No painel de consultas devem existir <code>BaseVendas2020</code>, <code>BaseVendas2021</code> e <code>BaseVendas2022</code>, com as mesmas colunas: <code>Data da Venda</code>, <code>Ordem de Compra</code>, <code>SKU</code>, <code>ID Cliente</code>, <code>Qtd Vendida</code>, <code>ID Loja</code>.</p>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>As colunas precisam ter <b>exatamente</b> o mesmo nome nas três. “Qtd Vendida” e “Qtd vendida” viram duas colunas diferentes, cheias de null.</p></div></div></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-2"><label for="s1-2"><span class="k">Passo 1.2</span>Acrescentar Consultas como Nova</label></div><ol>
+<li>Em <span class="ui">Página Inicial</span>, clique na <b>setinha ▼</b> de <span class="ui">Acrescentar Consultas</span>.</li>
+<li>Escolha <span class="ui">Acrescentar Consultas como Nova</span>.</li>
+<li>Marque <b>Três ou mais tabelas</b>.</li>
+<li>Adicione as três bases de vendas à direita e clique em <span class="ui">OK</span>.</li>
+</ol>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que “como Nova”</b><p>Ela cria uma consulta nova e preserva as originais. Se você clicar só em Acrescentar Consultas, a consulta selecionada é modificada.</p></div></div>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>Não acrescente CadastroClientes, CadastroProdutos ou CadastroLojas: cadastros não se empilham com vendas.</p></div></div><figure class="shot "><div class="frame"><img src="img/a04-01.jpg" alt="Janela Acrescentar com Três ou mais tabelas e as vendas de 2020, 2021 e 2022 à direita." loading="lazy"></div><figcaption><b>Print real.</b> Janela Acrescentar com Três ou mais tabelas e as vendas de 2020, 2021 e 2022 à direita.</figcaption></figure></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-3"><label for="s1-3"><span class="k">Passo 1.3</span>Renomeie para BaseVendas</label></div><p>A nova consulta nasce como <code>Acrescentar1</code>. Renomeie para <code>BaseVendas</code>. O código dela é curto:</p>
+<div class="code"><div class="bar"><span>M · BaseVendas</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte = Table.Combine({BaseVendas2020, BaseVendas2021, BaseVendas2022})
+in
+    Fonte</pre></div></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-4"><label for="s1-4"><span class="k">Passo 1.4</span>Desabilite a carga das bases anuais</label></div><p>As bases anuais só servem para alimentar a BaseVendas. Clique com o botão direito em cada uma e desmarque <span class="ui">Habilitar carga</span>. O nome fica em itálico.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Sem isso, o modelo teria as mesmas vendas duas vezes (nas anuais e na BaseVendas), pesando o arquivo e confundindo quem monta os gráficos.</p></div></div>
+<p>Clique em <span class="ui">Fechar e Aplicar</span>. No modelo devem aparecer só: CadastroClientes, CadastroProdutos, CadastroLojas, CadastroLocalidades, BaseDevolucoes e <b>BaseVendas</b>.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>Ano que vem chegou <code>Base Vendas - 2023.xlsx</code>? Importe, acrescente à BaseVendas e todos os gráficos passam a considerar 2023.</p></div></div><figure class="shot "><div class="frame"><img src="img/a04-02.jpg" alt="Botão direito na consulta → desmarcar Habilitar carga." loading="lazy"></div><figcaption><b>Print real.</b> Botão direito na consulta → desmarcar Habilitar carga.</figcaption></figure></div></div>
+</section>
+
+<section id="conceitos"><h2><span class="n">03</span>Fato, dimensão e chaves</h2><p class="sub">Os quatro conceitos que você vai usar em todo projeto de BI.</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th>Tabela Fato</th><th>Tabela Dimensão</th></tr></thead>
+<tbody>
+<tr><td>Registra</td><td>Acontecimentos (vendas, devoluções)</td><td>Características (cliente, produto)</td></tr>
+<tr><td>Tamanho</td><td>Grande, cresce todo dia</td><td>Pequena, muda pouco</td></tr>
+<tr><td>Contém</td><td>Números e códigos</td><td>Descrições</td></tr>
+<tr><td>Responde</td><td>Quanto? Quando? Quantas unidades?</td><td>Quem? O quê? Onde?</td></tr>
+<tr><td>Exemplo</td><td>BaseVendas</td><td>CadastroClientes, CadastroProdutos</td></tr>
+</tbody></table></div>
+<h3>Chave primária (PK)</h3>
+<p>A coluna que identifica cada registro de uma dimensão, <b>sem repetição</b>. Nunca existirão dois produtos com o mesmo SKU nem dois clientes com o mesmo ID Cliente.</p>
+<h3>Chave estrangeira (FK)</h3>
+<p>A mesma coluna na tabela fato, onde ela <b>pode repetir</b>: o produto HL1005 aparece em todas as vendas dele. A chave estrangeira aponta para a chave primária.</p>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Teste rápido</b><p>Existe repetição na coluna? Se não, provavelmente é chave primária. Se sim, é chave estrangeira.</p></div></div>
+<p>Como o Power BI sabe quem comprou? Na BaseVendas aparece <code>ID Cliente = 11015</code>. Ele procura 11015 em CadastroClientes, encontra “Caio Caldas” e entende que a venda é dele. O mesmo com o SKU e o produto. Tudo em milissegundos.</p>
+</section>
+
+<section id="criar"><h2><span class="n">04</span>Criando os relacionamentos</h2>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-1"><label for="s2-1"><span class="k">Passo 2.1</span>Abra a Exibição de Modelo</label></div><p>Clique no terceiro ícone da barra esquerda, <b>Modelo</b>. As tabelas aparecem como cartões, ainda sem ligação.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>Organize: dimensões em cima, fato embaixo. Não muda o funcionamento, mas facilita muito a leitura.</p></div></div><figure class="shot "><div class="frame"><img src="img/a04-03.jpg" alt="Exibição de Modelo com as tabelas ainda soltas." loading="lazy"></div><figcaption><b>Print real.</b> Exibição de Modelo com as tabelas ainda soltas.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-2"><label for="s2-2"><span class="k">Passo 2.2</span>Ligue clientes: arraste ID Cliente até ID Cliente</label></div><p>Clique em <code>ID Cliente</code> no cartão de CadastroClientes e arraste até <code>ID Cliente</code> da BaseVendas. Confira na janela:</p>
+<ul>
+<li><b>Da tabela</b>: CadastroClientes, coluna ID Cliente;</li>
+<li><b>Para a tabela</b>: BaseVendas, coluna ID Cliente;</li>
+<li><b>Cardinalidade</b>: Um para muitos (1:*);</li>
+<li><b>Direção do filtro cruzado</b>: Único;</li>
+<li><b>Ativar este relacionamento</b>: marcado.</li>
+</ul>
+<p>Clique em <span class="ui">Salvar</span>. “1 para muitos” significa: um cliente aparece uma vez no cadastro e pode ter muitas compras.</p><figure class="shot "><div class="frame"><img src="img/a04-04.jpg" alt="Janela Novo relacionamento: CadastroClientes → BaseVendas, Um para muitos (1:*), direção Único." loading="lazy"></div><figcaption><b>Print real.</b> Janela Novo relacionamento: CadastroClientes → BaseVendas, Um para muitos (1:*), direção Único.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-3"><label for="s2-3"><span class="k">Passo 2.3</span>Ligue produtos: SKU com SKU</label></div><p>Faça o mesmo de <code>CadastroProdutos[SKU]</code> para <code>BaseVendas[SKU]</code>. Mais uma vez, 1:*: um produto é cadastrado uma vez e vendido milhares de vezes.</p><figure class="shot "><div class="frame"><img src="img/a04-05.jpg" alt="Novo relacionamento: CadastroProdutos[SKU] → BaseVendas[SKU]." loading="lazy"></div><figcaption><b>Print real.</b> Novo relacionamento: CadastroProdutos[SKU] → BaseVendas[SKU].</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-4"><label for="s2-4"><span class="k">Passo 2.4</span>Confira o modelo</label></div><p>Agora existem linhas ligando as tabelas, com <b>1</b> do lado da dimensão e <b>*</b> do lado da fato. Clique numa linha para ver as propriedades no painel à direita.</p>
+<div class="diagram" role="img" aria-label="Modelo estrela: CadastroClientes e CadastroProdutos ligados à BaseVendas por relações um para muitos">
+<svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg"><g style="font-size:12.5px">
+<rect x="30" y="20" width="200" height="80" rx="8" style="fill:var(--blue-soft);stroke:var(--blue)"/>
+<text x="46" y="46" style="fill:var(--blue);font-weight:600">CadastroClientes</text><text x="46" y="70" style="fill:var(--ink)">PK  ID Cliente</text>
+<rect x="470" y="20" width="200" height="80" rx="8" style="fill:var(--blue-soft);stroke:var(--blue)"/>
+<text x="486" y="46" style="fill:var(--blue);font-weight:600">CadastroProdutos</text><text x="486" y="70" style="fill:var(--ink)">PK  SKU</text>
+<rect x="250" y="150" width="200" height="90" rx="8" style="fill:var(--paper);stroke:var(--ink-3)"/>
+<text x="266" y="176" style="fill:var(--ink);font-weight:600">BaseVendas</text><text x="266" y="200" style="fill:var(--ink-2)">FK  ID Cliente</text><text x="266" y="220" style="fill:var(--ink-2)">FK  SKU · Qtd · Data</text>
+<path d="M130 100 L300 148 M570 100 L400 148" style="stroke:var(--ink-3);stroke-width:2;fill:none"/>
+<text x="138" y="118" style="fill:var(--accent-ink);font-weight:600">1</text><text x="282" y="142" style="fill:var(--accent-ink);font-weight:600">*</text>
+<text x="552" y="118" style="fill:var(--accent-ink);font-weight:600">1</text><text x="410" y="142" style="fill:var(--accent-ink);font-weight:600">*</text>
+</g></svg></div><figure class="shot "><div class="frame"><img src="img/a04-06.jpg" alt="Modelo com as duas linhas de relacionamento e o painel Propriedades da relação." loading="lazy"></div><figcaption><b>Print real.</b> Modelo com as duas linhas de relacionamento e o painel Propriedades da relação.</figcaption></figure></div></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">O que muda na prática</b><p>Antes do relacionamento, um gráfico de Faturamento por Marca repetia o mesmo valor (o total) em todas as marcas. Depois, cada marca mostra o seu valor, mesmo com a marca numa tabela e as vendas em outra.</p></div></div>
+</section>
+
+<section id="dashboard"><h2><span class="n">05</span>Primeiro dashboard com tabelas relacionadas</h2><p class="sub">Imagine que você é o gerente comercial e quer ver o desempenho do negócio de relance.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-1"><label for="s3-1"><span class="k">Passo 3.1</span>Quantidade vendida por categoria</label></div><p>Volte para <b>Relatório</b>. Insira um <b>Gráfico de barras clusterizado</b>: Eixo Y = <code>CadastroProdutos[Categoria]</code>; Eixo X = <code>BaseVendas[Qtd Vendida]</code>.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Mostra quais categorias saem mais. A categoria vem de uma tabela e a quantidade de outra; só funciona por causa do relacionamento SKU.</p></div></div><figure class="shot "><div class="frame"><img src="img/a04-07.jpg" alt="Gráfico de barras: Eixo Y = Categoria (CadastroProdutos), Eixo X = Soma de Qtd Vendida (BaseVendas)." loading="lazy"></div><figcaption><b>Print real.</b> Gráfico de barras: Eixo Y = Categoria (CadastroProdutos), Eixo X = Soma de Qtd Vendida (BaseVendas).</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-2"><label for="s3-2"><span class="k">Passo 3.2</span>Clientes por gênero</label></div><p>Insira um <b>Gráfico de pizza</b>: Legenda = <code>CadastroClientes[Genero]</code>; Valores = <code>BaseVendas[ID Cliente]</code> (mude para <b>Contagem</b>). Em <span class="ui">Formato</span> → <b>Rótulos de detalhe</b>, aumente a fonte.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Mostra o perfil do público comprador e ajuda a direcionar campanhas.</p></div></div><figure class="shot "><div class="frame"><img src="img/a04-08.jpg" alt="Gráfico de pizza: Legenda = Genero, Valores = Contagem de ID Cliente; em vermelho, a formatação dos rótulos." loading="lazy"></div><figcaption><b>Print real.</b> Gráfico de pizza: Legenda = Genero, Valores = Contagem de ID Cliente; em vermelho, a formatação dos rótulos.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-3"><label for="s3-3"><span class="k">Passo 3.3</span>Vendas ao longo do tempo</label></div><p>Insira um <b>Gráfico de área</b> ou <b>de linhas</b>: Eixo X = <code>BaseVendas[Data da Venda]</code>; Eixo Y = <code>Qtd Vendida</code>. O Power BI cria a hierarquia Ano → Trimestre → Mês → Dia.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Mostra a tendência: as vendas estão crescendo ou caindo? É a primeira pergunta de qualquer diretor.</p></div></div><figure class="shot "><div class="frame"><img src="img/a04-09.jpg" alt="Gráfico de área: Eixo X = Data da Venda (hierarquia Ano), Eixo Y = Soma de Qtd Vendida." loading="lazy"></div><figcaption><b>Print real.</b> Gráfico de área: Eixo X = Data da Venda (hierarquia Ano), Eixo Y = Soma de Qtd Vendida.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-4"><label for="s3-4"><span class="k">Passo 3.4</span>Quantidade por marca</label></div><p>Mais um gráfico de barras: Eixo Y = <code>CadastroProdutos[Marca]</code>; Eixo X = <code>Qtd Vendida</code>. Classifique em ordem decrescente.</p><figure class="shot "><div class="frame"><img src="img/a04-10.jpg" alt="Gráfico de barras com Marca no Eixo Y." loading="lazy"></div><figcaption><b>Print real.</b> Gráfico de barras com Marca no Eixo Y.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-5"><label for="s3-5"><span class="k">Passo 3.5</span>Título e teste de interação</label></div><p>Insira uma <b>Caixa de texto</b> com o título <code>Dashboard Executivo de Vendas</code>. Agora clique numa marca, numa fatia da pizza ou numa categoria: todos os gráficos se filtram juntos. Isso é um <b>dashboard dinâmico</b>.</p>
+<h4>Sugestão de cores para os cartões (aula 5)</h4>
+<ul>
+<li>Total de Vendas: <b style="color:#2563EB">azul</b> (confiança, visão geral);</li>
+<li>Faturamento: <b style="color:#16A34A">verde</b> (receita, crescimento);</li>
+<li>Clientes: <b style="color:#EA580C">laranja</b> (chama atenção para a base);</li>
+<li>Produtos vendidos: <b style="color:#7C3AED">roxo</b> (diferencia o indicador).</li>
+</ul><figure class="shot "><div class="frame"><img src="img/a04-11.jpg" alt="Dashboard Executivo de Vendas com os quatro visuais." loading="lazy"></div><figcaption><b>Print real.</b> Dashboard Executivo de Vendas com os quatro visuais.</figcaption></figure></div></div>
+</section>
+
+<section id="erros"><h2><span class="n">06</span>Erros comuns</h2>
+<details><summary>O gráfico repete o mesmo número em todas as barras</summary><div class="in"><p>Falta relacionamento entre a tabela do eixo e a da medida, ou ele está inativo (linha tracejada). Confira em <span class="ui">Página Inicial</span> → <span class="ui">Gerenciar relações</span>.</p></div></details>
+<details><summary>O Power BI criou uma relação Muitos para muitos</summary><div class="in"><p>A coluna da dimensão tem valores repetidos (SKU duplicado no cadastro, por exemplo). Volte ao Power Query, selecione a coluna e use <span class="ui">Remover Linhas</span> → <span class="ui">Remover Duplicadas</span> na dimensão, depois refaça a relação.</p></div></details>
+<details><summary>A relação não aparece ao arrastar</summary><div class="in"><p>Os tipos das colunas são diferentes (texto de um lado, número do outro). Deixe os dois iguais no Power Query.</p></div></details>
+<details><summary>As vendas aparecem em dobro</summary><div class="in"><p>Você esqueceu de desabilitar a carga das bases anuais e está somando BaseVendas2020 + BaseVendas.</p></div></details>
+</section>
+
+<section id="atividades"><h2><span class="n">07</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Lojas</h4><span class="lvl b">Básico</span></div><p>Relacione <code>CadastroLojas</code> com a <code>BaseVendas</code> pela coluna do ID da loja. Qual é a chave primária e qual é a estrangeira?</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Gráfico entre 3 tabelas</h4><span class="lvl m">Intermediário</span></div><p>Crie uma matriz com Marca nas linhas, Genero nas colunas e Qtd Vendida nos valores. Responda: qual marca vende mais para clientes do sexo feminino?</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Localidades</h4><span class="lvl m">Intermediário</span></div><p>Abra CadastroLojas e CadastroLocalidades e descubra qual coluna liga as duas. Crie esse relacionamento e faça um gráfico de quantidade vendida por cidade ou estado.</p><details><summary>Pense</summary><div class="in"><p>Agora o filtro vai de Localidades → Lojas → Vendas. Esse encadeamento de dimensões é chamado de <b>floco de neve</b> (snowflake).</p></div></details></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Devoluções</h4><span class="lvl a">Desafio</span></div><p>Importe (se ainda não importou) a Base Devoluções, identifique as chaves estrangeiras e relacione com as dimensões. Monte um gráfico de quantidade devolvida por categoria.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">08</span>Resumo da aula</h2>
+<ul>
+<li>Use <b>Acrescentar Consultas como Nova</b> para empilhar bases de mesmo formato.</li>
+<li>Desabilite a carga das consultas que só servem de insumo.</li>
+<li>Fato registra acontecimentos; dimensão descreve.</li>
+<li>Chave primária não se repete; estrangeira se repete e aponta para a primária.</li>
+<li>O relacionamento mais comum é <b>1:*</b> com filtro <b>Único</b>, da dimensão para a fato.</li>
+<li>80% da qualidade de um dashboard está no modelo; 20% no visual.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-03/index.html"><small>← Aula anterior</small>Atualizando os dados no Power BI</a><a class="nx" href="../aula-05/index.html"><small>Próxima aula →</small>Primeiros passos com DAX</a></nav><div class="footer">Material base: Notion “06 - Relacionamentos no Power BI: O Coração de um Dashboard Inteligente” · Braga Treinamentos.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

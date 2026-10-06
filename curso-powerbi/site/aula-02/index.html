@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 02 · Importando dados do Excel e o Power Query</title><meta name="description" content="Você vai importar o pacote de bases da empresa fictícia, conhecer o Editor do Power Query e fazer as primeiras limpezas: remover colunas e linhas vazias, promover cabeçalhos, acertar tipos de dados e mesclar colunas."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-02"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-01/index.html">← Anterior</a><a href="../aula-03/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 02</p><ol><li><a href="#material"><span>01</span>Material da aula</a></li><li><a href="#importar"><span>02</span>Obter dados e Navegador</a></li><li><a href="#editor"><span>03</span>O Editor do Power Query</a></li><li><a href="#limpeza"><span>04</span>Limpeza passo a passo</a></li><li><a href="#codigo"><span>05</span>Código M da consulta</a></li><li><a href="#demais"><span>06</span>Demais planilhas</a></li><li><a href="#atividades"><span>07</span>Atividades</a></li><li><a href="#resumo"><span>08</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 02 de 13</div><h1>Importando do Excel e dando um <em>banho nos dados</em> no Power Query</h1><p class="lead">Você vai importar o pacote de bases da empresa fictícia, conhecer o Editor do Power Query e fazer as primeiras limpezas: remover colunas e linhas vazias, promover cabeçalhos, acertar tipos de dados e mesclar colunas.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Básico</span></dd><dt>Duração</dt><dd>3 horas</dd><dt>Você vai precisar</dt><dd>Power BI Desktop (gratuito, Windows)</dd><dt>Conteúdos</dt><dd><span class="tag">Obter Dados</span><span class="tag">Navegador</span><span class="tag">Carregar x Transformar</span><span class="tag">Power Query</span><span class="tag">null</span><span class="tag">Etapas Aplicadas</span><span class="tag">Tipos de dados</span><span class="tag">Localidade</span><span class="tag">Qualidade da coluna</span><span class="tag">Mesclar colunas</span></dd></dl></header><section id="material"><h2><span class="n">01</span>Baixando e organizando o material</h2><p class="sub">Dados bem guardados evitam 90% dos erros de atualização.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-1"><label for="s1-1"><span class="k">Passo 1.1</span>Baixe o pacote de bases</label></div><p>Baixe o arquivo <code>Aula_1_-_Importando_Base_de_Dados_1.zip</code>. Ele traz as planilhas de uma empresa fictícia de varejo que você vai usar até a aula 13.</p>
+<div class="files"><a class="file" href="../arquivos/Aula_1_-_Importando_Base_de_Dados_1.zip" download><span class="ext zip">ZIP</span><span><b>Pacote de bases (ZIP)</b><small>8 planilhas da empresa fictícia</small></span></a></div>
+<div class="callout tip"><div class="ico">i</div><div><p>Se o link não funcionar, peça o arquivo ao professor. Ele é o mesmo usado nas aulas 2 a 6 e 9 a 13.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-2"><label for="s1-2"><span class="k">Passo 1.2</span>Extraia o ZIP numa pasta fixa</label></div><ol>
+<li>Localize o ZIP em <b>Downloads</b>.</li>
+<li>Clique com o botão direito → <span class="ui">Extrair Tudo…</span></li>
+<li>Escolha <code>Documentos\PowerBI_Vendas\Bases</code> e clique em <span class="ui">Extrair</span>.</li>
+</ol>
+<p>Você terá estes arquivos. Cada planilha é uma tabela do nosso “banco de dados”:</p>
+<div class="tbl"><table>
+<thead><tr><th>Arquivo</th><th>O que guarda</th><th>Tipo de tabela</th></tr></thead>
+<tbody>
+<tr><td>Base Vendas - 2020, 2021, 2022</td><td>Cada linha é um item vendido</td><td>Fato (eventos)</td></tr>
+<tr><td>Base Devoluções</td><td>Itens devolvidos</td><td>Fato (eventos)</td></tr>
+<tr><td>Cadastro Clientes</td><td>Quem é cada cliente</td><td>Dimensão (cadastro)</td></tr>
+<tr><td>Cadastro Produtos</td><td>Produto, marca, categoria, preço e custo</td><td>Dimensão</td></tr>
+<tr><td>Cadastro Lojas</td><td>Dados de cada loja</td><td>Dimensão</td></tr>
+<tr><td>Cadastro Localidades</td><td>Cidades, estados e regiões</td><td>Dimensão</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que uma pasta fixa</b><p>O Power BI guarda o <b>caminho</b> de cada arquivo. Se você deixar as bases em Downloads e depois limpar a pasta, todas as consultas quebram. Pasta fixa = atualização sem dor de cabeça.</p></div></div></div></div>
+</section>
+
+<section id="importar"><h2><span class="n">02</span>Importando a primeira planilha</h2>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-1"><label for="s2-1"><span class="k">Passo 2.1</span>Abra um relatório em branco e clique em Importar dados do Excel</label></div><p>Abra o Power BI Desktop, clique em <span class="ui">Relatório em branco</span> e depois em <span class="ui">Importar dados do Excel</span> (ou <span class="ui">Página Inicial</span> → <span class="ui">Obter dados</span> → <span class="ui">Excel</span>).</p>
+<p>Vamos começar pela planilha <b>Cadastro Clientes</b>: localize o arquivo na pasta <code>Bases</code> e clique em <span class="ui">Abrir</span>.</p><figure class="shot "><div class="frame"><img src="img/a02-01.jpg" alt="Atalho Importar dados do Excel no centro da tela." loading="lazy"></div><figcaption><b>Print real.</b> Atalho Importar dados do Excel no centro da tela.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-2"><label for="s2-2"><span class="k">Passo 2.2</span>Entenda a janela Navegador</label></div><p>O <b>Navegador</b> mostra o arquivo (em vermelho) e, dentro dele, as planilhas e tabelas (em verde). Clique em <b>Plan1</b> para ver a prévia.</p>
+<p>Embaixo há dois botões que mudam tudo:</p>
+<div class="tbl"><table>
+<thead><tr><th>Botão</th><th>O que faz</th><th>Quando usar</th></tr></thead>
+<tbody>
+<tr><td><span class="ui">Carregar</span></td><td>Importa a planilha do jeito que está</td><td>Só quando a base já está perfeita</td></tr>
+<tr><td><span class="ui">Transformar Dados</span></td><td>Abre o Power Query para limpar antes de carregar</td><td><b>Sempre</b>, neste curso</td></tr>
+</tbody></table></div>
+<p>Clique em <span class="ui">Transformar Dados</span>.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que sempre Transformar</b><p>Entre 70% e 80% do tempo de um analista de dados vai para limpar e preparar dados. Gráfico bonito em cima de dado sujo dá decisão errada. Por isso, dominar o Power Query é uma das habilidades mais valiosas do Power BI.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/a02-02.jpg" alt="Navegador: em vermelho o arquivo, em verde as planilhas disponíveis." loading="lazy"></div><figcaption><b>Print real.</b> Navegador: em vermelho o arquivo, em verde as planilhas disponíveis.</figcaption></figure></div>
+</section>
+
+<section id="editor"><h2><span class="n">03</span>Conhecendo o Editor do Power Query</h2><p class="sub">Pense no Power Query como uma oficina: a tabela chegou suja do Excel e você vai dar um banho nela.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-1"><label for="s3-1"><span class="k">Passo 3.1</span>As quatro áreas da tela</label></div><ol>
+<li><b>Painel de Consultas</b> (esquerda): lista as tabelas importadas. Por enquanto, só uma.</li>
+<li><b>Área de dados</b> (centro): a tabela, com as mudanças em tempo real.</li>
+<li><b>Barra de fórmulas</b>: mostra o código <b>M</b> que cada clique gera. Você não precisa escrever M agora; o Power Query escreve por você.</li>
+<li><b>Configurações da Consulta</b> (direita): o <b>Nome</b> da tabela e as <b>Etapas Aplicadas</b>.</li>
+</ol>
+<p>Repare nos problemas desta base: as duas primeiras linhas são <code>null</code>, as colunas se chamam <code>Column1</code>, <code>Column2</code>… e o cabeçalho real está na linha 3.</p><figure class="shot "><div class="frame"><img src="img/a02-03.jpg" alt="Editor do Power Query: faixa de opções (topo), consultas (esquerda), dados (centro) e Configurações da Consulta (direita)." loading="lazy"></div><figcaption><b>Print real.</b> Editor do Power Query: faixa de opções (topo), consultas (esquerda), dados (centro) e Configurações da Consulta (direita).</figcaption></figure></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-2"><label for="s3-2"><span class="k">Passo 3.2</span>Entenda o null</label></div><p><code>null</code> significa que <b>não existe valor</b> naquela célula. Não é a palavra “null” digitada: é um valor especial que representa ausência de informação.</p>
+<p>Aparece quando a planilha tem linhas em branco no topo, espaços vazios entre os dados, colunas sem informação ou dados incompletos.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-3"><label for="s3-3"><span class="k">Passo 3.3</span>Renomeie a consulta</label></div><p>Em <b>Propriedades</b> → <b>Nome</b>, troque <code>Plan1</code> por <code>CadastroClientes</code>.</p>
+<div class="tbl"><table>
+<thead><tr><th>Evite</th><th>Prefira</th></tr></thead>
+<tbody>
+<tr><td>Cadastro Clientes</td><td>CadastroClientes</td></tr>
+<tr><td>Cadastro de Produtos</td><td>CadastroProdutos</td></tr>
+<tr><td>Vendas - 2022</td><td>BaseVendas2022</td></tr>
+</tbody></table></div>
+<p>Regras: sem espaços, sem acentos, sem ç, sem caracteres especiais (@ # % &amp;) e sempre o mesmo padrão no projeto inteiro.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-4"><label for="s3-4"><span class="k">Passo 3.4</span>Conheça as guias</label></div><div class="tbl"><table>
+<thead><tr><th>Guia</th><th>Para que serve</th><th>Exemplos</th></tr></thead>
+<tbody>
+<tr><td><b>Página Inicial</b></td><td>Tarefas do dia a dia</td><td>Fechar e Aplicar, Nova Fonte, Remover Colunas/Linhas, Mesclar e Acrescentar Consultas</td></tr>
+<tr><td><b>Transformar</b></td><td><b>Modifica</b> uma coluna que já existe</td><td>Tipo de dado, Substituir valores, Dividir coluna, Formatar texto, Preencher</td></tr>
+<tr><td><b>Adicionar Coluna</b></td><td><b>Cria</b> uma coluna nova sem mexer na original</td><td>Coluna personalizada, condicional, de exemplos, extrair ano/mês</td></tr>
+<tr><td><b>Exibição</b></td><td>Controla o que aparece na tela</td><td>Barra de fórmulas, Qualidade, Distribuição e Perfil da coluna</td></tr>
+<tr><td><b>Ferramentas</b></td><td>Recursos avançados</td><td>Diagnóstico de consultas</td></tr>
+</tbody></table></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Para memorizar</b><p>Transformar <b>altera</b> o que existe. Adicionar Coluna <b>cria</b> algo novo.</p></div></div></div></div>
+</section>
+
+<section id="limpeza"><h2><span class="n">04</span>Primeiras limpezas</h2><p class="sub">Cada clique vira uma etapa. Ao atualizar, o Power Query repete todas, na mesma ordem.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-1"><label for="s4-1"><span class="k">Passo 4.1</span>Remova as colunas vazias</label></div><p>As colunas <code>Column11</code> e <code>Column12</code> estão completamente vazias. Selecione a primeira, segure <kbd>Ctrl</kbd>, clique na segunda e pressione <kbd>Delete</kbd> (ou botão direito → <span class="ui">Remover Colunas</span>).</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Quanto menos dados inúteis, mais leve e rápido fica o relatório.</p></div></div>
+<div class="callout tip"><div class="ico">i</div><div><b class="t">Fiz besteira, e agora?</b><p>No Power Query o <kbd>Ctrl</kbd>+<kbd>Z</kbd> não é o caminho. Vá em <b>Etapas Aplicadas</b> e clique no <b>X</b> ao lado da etapa errada. Ela some e a tabela volta ao estado anterior.</p></div></div><figure class="shot "><div class="frame"><img src="img/a02-04.jpg" alt="Etapa Colunas Removidas registrada em Etapas Aplicadas." loading="lazy"></div><figcaption><b>Print real.</b> Etapa Colunas Removidas registrada em Etapas Aplicadas.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-2"><label for="s4-2"><span class="k">Passo 4.2</span>Remova as linhas em branco</label></div><p>Linhas não se apagam com Delete. Vá em <span class="ui">Página Inicial</span> → grupo <b>Reduzir Linhas</b> → <span class="ui">Remover Linhas</span> → <span class="ui">Remover Linhas em Branco</span>.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Numa base com milhares de linhas, pode haver linha vazia no começo, no meio e no fim. Esse comando procura todas, inclusive as que chegarem nas próximas atualizações.</p></div></div><figure class="shot "><div class="frame"><img src="img/a02-05.jpg" alt="Página Inicial → Remover Linhas → Remover Linhas em Branco." loading="lazy"></div><figcaption><b>Print real.</b> Página Inicial → Remover Linhas → Remover Linhas em Branco.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-3"><label for="s4-3"><span class="k">Passo 4.3</span>Use a primeira linha como cabeçalho</label></div><p>Agora a primeira linha contém os nomes reais. Clique em <span class="ui">Página Inicial</span> → <span class="ui">Usar a Primeira Linha como Cabeçalho</span>.</p>
+<p>Antes: <code>Column1, Column2, Column3…</code><br>Depois: <code>ID Cliente, Primeiro Nome, Sobrenome, Email, Genero, Data Nascimento…</code></p><figure class="shot "><div class="frame"><img src="img/a02-06.jpg" alt="Botão Usar a Primeira Linha como Cabeçalho (destacado em laranja)." loading="lazy"></div><figcaption><b>Print real.</b> Botão Usar a Primeira Linha como Cabeçalho (destacado em laranja).</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-4"><label for="s4-4"><span class="k">Passo 4.4</span>Revise os tipos de dados</label></div><p>Ao promover os cabeçalhos, o Power Query cria a etapa <b>Tipo Alterado</b>, tentando adivinhar o tipo de cada coluna. Ele quase sempre acerta, mas não sempre. Apague essa etapa (X) e defina os tipos você mesmo, clicando no ícone à esquerda do nome da coluna:</p>
+<div class="tbl"><table>
+<thead><tr><th>Coluna</th><th>Tipo</th></tr></thead>
+<tbody>
+<tr><td>ID Cliente</td><td>Número Inteiro</td></tr>
+<tr><td>Primeiro Nome, Sobrenome, Email, Genero</td><td>Texto</td></tr>
+<tr><td>Data Nascimento</td><td>Data (usando a localidade, veja o próximo passo)</td></tr>
+<tr><td>Documento</td><td><b>Texto</b></td></tr>
+<tr><td>Num Filhos</td><td>Número Inteiro</td></tr>
+</tbody></table></div>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">CPF, RG, CEP e documentos são TEXTO</b><p>Se o Power Query tratar <code>01234567890</code> como número, ele apaga o zero da esquerda e o documento vira <code>1234567890</code>. Documento não se soma: é sempre Texto.</p></div></div><figure class="shot "><div class="frame"><img src="img/a02-07.jpg" alt="Menu de tipos no ícone da coluna, com a opção Usando a Localidade…" loading="lazy"></div><figcaption><b>Print real.</b> Menu de tipos no ícone da coluna, com a opção Usando a Localidade…</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-5"><label for="s4-5"><span class="k">Passo 4.5</span>Datas no padrão americano: Usando a Localidade</label></div><p>A coluna Data Nascimento vem como <code>4/8/1966</code> (mês/dia/ano, padrão americano). Se você converter direto para Data num Windows em português, o Power BI entende 4 de agosto em vez de 8 de abril, e datas como <code>2/27/1979</code> viram erro.</p>
+<p>Clique no ícone de tipo da coluna → <span class="ui">Usando a Localidade…</span> → Tipo <b>Data</b> e Localidade <b>Inglês (Estados Unidos)</b> → <span class="ui">OK</span>.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Você está dizendo ao Power Query “este texto foi escrito por um americano”. Ele converte certo, e no relatório a data aparece no formato brasileiro.</p></div></div>
+<div class="code"><div class="bar"><span>M · etapa gerada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>= Table.TransformColumnTypes(#&quot;Cabeçalhos Promovidos&quot;, {{&quot;Data Nascimento&quot;, type date}}, &quot;en-US&quot;)</pre></div><figure class="shot "><div class="frame"><img src="img/a02-08.jpg" alt="Alterar Tipo com Localidade: Data + Inglês (Estados Unidos)." loading="lazy"></div><figcaption><b>Print real.</b> Alterar Tipo com Localidade: Data + Inglês (Estados Unidos).</figcaption></figure></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-6"><label for="s4-6"><span class="k">Passo 4.6</span>Una Primeiro Nome e Sobrenome</label></div><p>Queremos uma única coluna <code>NomeCliente</code>. Como não vamos precisar das colunas separadas, usamos <b>Transformar</b> (que substitui) em vez de Adicionar Coluna (que duplicaria):</p>
+<ol>
+<li>Selecione <code>Primeiro Nome</code>, segure <kbd>Ctrl</kbd> e clique em <code>Sobrenome</code>.</li>
+<li><span class="ui">Transformar</span> → <span class="ui">Mesclar Colunas</span>.</li>
+<li>Separador: <b>Espaço</b> (senão vira “JOÃOSILVA”).</li>
+<li>Nome da nova coluna: <code>NomeCliente</code> → <span class="ui">OK</span>.</li>
+</ol>
+<p>Depois, com <code>NomeCliente</code> selecionada: <span class="ui">Transformar</span> → <span class="ui">Formatar</span> → <span class="ui">Cada Palavra em Maiúscula</span>. “JOÃO SILVA” vira “João Silva”, muito mais agradável num relatório.</p>
+<div class="callout tip"><div class="ico">i</div><div><b class="t">Menos etapas, consulta mais limpa</b><p>Criar uma coluna nova e depois excluir as duas antigas dá o mesmo resultado com três etapas. Mesclar direto faz em uma. Em bases com milhões de linhas, isso pesa no tempo de atualização.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-7"><label for="s4-7"><span class="k">Passo 4.7</span>Verifique a qualidade dos dados</label></div><p>Em <span class="ui">Exibição</span>, marque <b>Qualidade da Coluna</b>. Acima de cada coluna aparece uma barra:</p>
+<ul>
+<li><b style="color:var(--green)">Verde, Válido</b>: dados corretos para o tipo definido;</li>
+<li><b style="color:var(--red)">Vermelho, Erro</b>: valor que não conseguiu ser convertido (texto numa coluna de número, data inválida);</li>
+<li><b>Cinza, Vazio</b>: célula sem informação.</li>
+</ul>
+<p>Se aparecer erro, volte à etapa de tipo e descubra a causa. Também marque <b>Perfil da Coluna</b> e, no rodapé, troque para “Criação de perfil com base em todo o conjunto de dados” para avaliar a base inteira, e não só as 1.000 primeiras linhas.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Coluna com erro gera gráfico errado, indicador inconsistente e decisão ruim. Resolver aqui é muito mais fácil do que descobrir depois que o relatório já foi apresentado.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-8"><label for="s4-8"><span class="k">Passo 4.8</span>Fechar e Aplicar</label></div><p>Clique em <span class="ui">Página Inicial</span> → <span class="ui">Fechar e Aplicar</span>. O Power BI executa todas as etapas e carrega a tabela limpa. Ela fica disponível nas exibições <b>Relatório</b>, <b>Tabela</b> e <b>Modelo</b>.</p>
+<p>Precisa ajustar algo depois? <span class="ui">Página Inicial</span> → <span class="ui">Transformar dados</span> reabre o Power Query. O Excel original nunca é alterado.</p></div></div>
+</section>
+
+<section id="codigo"><h2><span class="n">05</span>A consulta completa em M</h2><p class="sub">Você não precisa decorar, mas ler o código ajuda a entender o que cada clique fez.</p>
+<p>Em <span class="ui">Página Inicial</span> → <span class="ui">Editor Avançado</span> você vê todas as etapas juntas. Ajuste o caminho do arquivo para o seu computador:</p>
+<div class="code"><div class="bar"><span>M · CadastroClientes</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte = Excel.Workbook(File.Contents(&quot;C:\Users\SeuUsuario\Documents\PowerBI_Vendas\Bases\Cadastro Clientes.xlsx&quot;), null, true),
+    Plan1_Sheet = Fonte{[Item=&quot;Plan1&quot;, Kind=&quot;Sheet&quot;]}[Data],
+    #&quot;Colunas Removidas&quot; = Table.RemoveColumns(Plan1_Sheet, {&quot;Column11&quot;, &quot;Column12&quot;}),
+    #&quot;Linhas em Branco Removidas&quot; = Table.SelectRows(#&quot;Colunas Removidas&quot;,
+        each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {&quot;&quot;, null}))),
+    #&quot;Cabeçalhos Promovidos&quot; = Table.PromoteHeaders(#&quot;Linhas em Branco Removidas&quot;, [PromoteAllScalars=true]),
+    #&quot;Tipo Alterado&quot; = Table.TransformColumnTypes(#&quot;Cabeçalhos Promovidos&quot;, {
+        {&quot;ID Cliente&quot;, Int64.Type}, {&quot;Primeiro Nome&quot;, type text}, {&quot;Sobrenome&quot;, type text},
+        {&quot;Email&quot;, type text}, {&quot;Genero&quot;, type text}, {&quot;Documento&quot;, type text}, {&quot;Num Filhos&quot;, Int64.Type}}),
+    #&quot;Data com Localidade&quot; = Table.TransformColumnTypes(#&quot;Tipo Alterado&quot;, {{&quot;Data Nascimento&quot;, type date}}, &quot;en-US&quot;),
+    #&quot;Colunas Mescladas&quot; = Table.CombineColumns(#&quot;Data com Localidade&quot;, {&quot;Primeiro Nome&quot;, &quot;Sobrenome&quot;},
+        Combiner.CombineTextByDelimiter(&quot; &quot;, QuoteStyle.None), &quot;NomeCliente&quot;),
+    #&quot;Texto Formatado&quot; = Table.TransformColumns(#&quot;Colunas Mescladas&quot;, {{&quot;NomeCliente&quot;, Text.Proper, type text}})
+in
+    #&quot;Texto Formatado&quot;</pre></div>
+<div class="callout tip"><div class="ico">i</div><div><p>Os nomes das colunas precisam ser idênticos aos da sua planilha. Se der erro “coluna não encontrada”, confira acentos e espaços no cabeçalho do Excel.</p></div></div>
+</section>
+
+<section id="demais"><h2><span class="n">06</span>Importe as demais planilhas</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s5-1"><label for="s5-1"><span class="k">Passo 5.1</span>Repita o processo para cada arquivo</label></div><p>No Power Query, use <span class="ui">Página Inicial</span> → <span class="ui">Nova Fonte</span> → <span class="ui">Pasta de Trabalho do Excel</span> para cada planilha. Renomeie assim:</p>
+<div class="tbl"><table>
+<thead><tr><th>Arquivo</th><th>Nome da consulta</th><th>Cuidados</th></tr></thead>
+<tbody>
+<tr><td>Base Vendas - 2020/2021/2022</td><td>BaseVendas2020, BaseVendas2021, BaseVendas2022</td><td>Data da Venda = Data; Ordem de Compra e SKU = Texto</td></tr>
+<tr><td>Base Devoluções</td><td>BaseDevolucoes</td><td>Confira datas e quantidades</td></tr>
+<tr><td>Cadastro Produtos</td><td>CadastroProdutos</td><td>Preço e custo vêm como texto com ponto: use Localidade Inglês (EUA) (aula 6)</td></tr>
+<tr><td>Cadastro Lojas</td><td>CadastroLojas</td><td>IDs como Número Inteiro</td></tr>
+<tr><td>Cadastro Localidades</td><td>CadastroLocalidades</td><td>Textos padronizados</td></tr>
+</tbody></table></div>
+<p>Ao final, clique em <span class="ui">Fechar e Aplicar</span>. Salve como <code>Vendas.pbix</code> na pasta <code>PowerBI_Vendas</code>.</p></div></div>
+</section>
+
+<section id="atividades"><h2><span class="n">07</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Diagnóstico</h4><span class="lvl b">Básico</span></div><p>Para cada planilha importada, anote: quantas linhas, quantas colunas, se tinha linhas vazias e se alguma coluna teve erro na Qualidade da Coluna.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Gênero por extenso</h4><span class="lvl b">Básico</span></div><p>Em CadastroClientes, substitua <code>M</code> por <code>Masculino</code> e <code>F</code> por <code>Feminino</code> na coluna Genero (botão direito → <span class="ui">Substituir Valores</span>).</p>
+<details><summary>Cuidado</summary><div class="in"><p>Abra <b>Opções avançadas</b> e marque <b>Coincidir conteúdo da célula inteira</b>. Sem isso, um texto como “MF” viraria “MasculinoF”.</p></div></details></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Idade</h4><span class="lvl m">Intermediário</span></div><p>Use <span class="ui">Adicionar Coluna</span> → <span class="ui">Data</span> → <span class="ui">Idade</span> na coluna Data Nascimento. Depois transforme a duração em anos: <span class="ui">Transformar</span> → <span class="ui">Duração</span> → <span class="ui">Total de Anos</span> e arredonde para baixo.</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Leia o código</h4><span class="lvl m">Intermediário</span></div><p>Abra o Editor Avançado de CadastroClientes e explique, com suas palavras, o que cada etapa faz.</p></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Base suja de verdade</h4><span class="lvl a">Desafio</span></div><p>Crie no Excel uma planilha propositalmente bagunçada (linhas vazias, títulos na linha 4, datas americanas, CPF com zero à esquerda) e entregue para um colega limpar no Power Query.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">08</span>Resumo da aula</h2>
+<ul>
+<li>No Navegador, prefira <b>Transformar Dados</b> a Carregar.</li>
+<li><code>null</code> é ausência de valor.</li>
+<li>Etapas Aplicadas são a receita da consulta; o X desfaz uma etapa.</li>
+<li>Documentos são Texto; datas americanas pedem <b>Usando a Localidade</b>.</li>
+<li>Transformar altera a coluna; Adicionar Coluna cria outra.</li>
+<li>Ative Qualidade da Coluna sempre que importar uma base nova.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-01/index.html"><small>← Aula anterior</small>Power BI para Business Intelligence</a><a class="nx" href="../aula-03/index.html"><small>Próxima aula →</small>Atualizando os dados no Power BI</a></nav><div class="footer">Material base: Notion “02 - Importando Dados do Excel para o Power BI” · Braga Treinamentos.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

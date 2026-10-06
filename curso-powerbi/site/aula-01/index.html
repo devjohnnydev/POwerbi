@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 01 · Power BI para Business Intelligence</title><meta name="description" content="Nesta aula você entende o que é Business Intelligence, por que as empresas investem nisso, instala o Power BI Desktop, conhece cada área da tela e faz a sua primeira importação de dados do Excel."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-01"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a href="../aula-02/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 01</p><ol><li><a href="#conceitos"><span>01</span>BI, Big Data e Data Science</a></li><li><a href="#instalar"><span>02</span>Instalação</a></li><li><a href="#janela"><span>03</span>A interface</a></li><li><a href="#importar"><span>04</span>Conectores de dados</a></li><li><a href="#atualizar-salvar"><span>05</span>Atualizar e salvar</a></li><li><a href="#primeira-analise"><span>06</span>Primeira análise</a></li><li><a href="#atividades"><span>07</span>Atividades</a></li><li><a href="#resumo"><span>08</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 01 de 13</div><h1>O que é BI e seus <em>primeiros cliques</em> no Power BI</h1><p class="lead">Nesta aula você entende o que é Business Intelligence, por que as empresas investem nisso, instala o Power BI Desktop, conhece cada área da tela e faz a sua primeira importação de dados do Excel.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Básico</span></dd><dt>Duração</dt><dd>2 horas</dd><dt>Você vai precisar</dt><dd>Power BI Desktop (gratuito, Windows)</dd><dt>Conteúdos</dt><dd><span class="tag">Business Intelligence</span><span class="tag">Big Data</span><span class="tag">Data Science</span><span class="tag">Instalação</span><span class="tag">Interface</span><span class="tag">Importar Excel</span><span class="tag">Tabela x Intervalo</span></dd></dl></header><section id="conceitos"><h2><span class="n">01</span>O que é Business Intelligence</h2><p class="sub">Antes de abrir qualquer programa, você precisa entender o problema que ele resolve.</p>
+<p><b>Business Intelligence (BI)</b> é o conjunto de técnicas e ferramentas que transforma dados em informação útil para tomar decisões. Com BI você junta dados de várias fontes, cria relatórios e painéis e acompanha indicadores (os famosos <b>KPIs</b>) para enxergar tendências e oportunidades.</p>
+<p>Normalmente o BI olha para o <b>passado</b> para entender o que aconteceu. São perguntas como:</p>
+<ul>
+<li>Qual foi o volume de vendas por estado?</li>
+<li>Qual produto vendeu mais em cada dia da semana?</li>
+<li>Quais lojas tiveram o melhor desempenho?</li>
+</ul>
+<h3>Onde o BI aparece no dia a dia das empresas</h3>
+<div class="tbl"><table>
+<thead><tr><th>Área</th><th>O que se analisa</th><th>Decisão que o BI ajuda a tomar</th></tr></thead>
+<tbody>
+<tr><td>Finanças</td><td>Receita, despesas, lucro</td><td>Onde economizar e onde investir</td></tr>
+<tr><td>Vendas</td><td>Volume, faturamento, margem</td><td>Quais produtos e regiões merecem atenção</td></tr>
+<tr><td>Operações</td><td>Tempo de produção, defeitos, disponibilidade</td><td>Onde está o gargalo da fábrica</td></tr>
+<tr><td>RH</td><td>Rotatividade, tempo de casa, desempenho</td><td>Problemas de clima ou de treinamento</td></tr>
+<tr><td>Saúde</td><td>Histórico, exames, tratamentos</td><td>Apoio à decisão clínica e à gestão do hospital</td></tr>
+</tbody></table></div>
+
+<h3>BI, Big Data e Data Science: qual a diferença?</h3>
+<p><b>Big Data</b> é o volume enorme de dados que as empresas geram hoje: transações, redes sociais, sensores, logs de sites. Muitos desses dados são <b>não estruturados</b> (textos, eventos, cliques), e bancos de dados tradicionais não foram feitos para eles. Por isso surgiram os <b>Data Lakes</b>.</p>
+<p><b>Data Science</b> combina matemática, estatística e computação para extrair conhecimento desses dados: prever demanda, segmentar clientes, detectar fraudes com Machine Learning.</p>
+<p>O <b>BI</b> usa os dados (inclusive os de Big Data) para mostrar o que aconteceu de forma clara. Quando BI e Data Science se encontram, temos o que o mercado chama de <b>Big Data Analytics</b>.</p>
+<div class="diagram" role="img" aria-label="Diagrama: fontes de dados alimentam o BI, que gera painéis e decisões; Data Science usa os mesmos dados para previsões">
+<svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+<g style="font-size:12.5px">
+<rect x="10" y="40" width="150" height="120" rx="10" style="fill:var(--soft);stroke:var(--line)"/>
+<text x="24" y="66" style="fill:var(--ink);font-weight:600">Fontes de dados</text>
+<text x="24" y="90" style="fill:var(--ink-2)">Excel, ERP, CRM</text>
+<text x="24" y="110" style="fill:var(--ink-2)">Bancos SQL, APIs</text>
+<text x="24" y="130" style="fill:var(--ink-2)">Redes sociais</text>
+<rect x="250" y="20" width="200" height="70" rx="10" style="fill:var(--accent-soft);stroke:var(--accent-ink)"/>
+<text x="266" y="48" style="fill:var(--accent-ink);font-weight:600">Business Intelligence</text>
+<text x="266" y="70" style="fill:var(--ink-2)">o que aconteceu?</text>
+<rect x="250" y="110" width="200" height="70" rx="10" style="fill:var(--blue-soft);stroke:var(--blue)"/>
+<text x="266" y="138" style="fill:var(--blue);font-weight:600">Data Science</text>
+<text x="266" y="160" style="fill:var(--ink-2)">o que vai acontecer?</text>
+<rect x="540" y="60" width="170" height="80" rx="10" style="fill:var(--green-soft);stroke:var(--green)"/>
+<text x="556" y="90" style="fill:var(--green);font-weight:600">Decisão melhor</text>
+<text x="556" y="112" style="fill:var(--ink-2)">painéis e previsões</text>
+<path d="M160 100 L246 55 M160 100 L246 145 M450 55 L536 95 M450 145 L536 105" style="stroke:var(--ink-3);stroke-width:2;fill:none"/>
+</g></svg></div>
+
+<h3>O que é o Microsoft Power BI</h3>
+<p>O <b>Power BI</b> é a plataforma de BI da Microsoft. Com ele você:</p>
+<ol>
+<li><b>Conecta</b> dados de planilhas, bancos, serviços na nuvem e sites;</li>
+<li><b>Limpa e transforma</b> esses dados no <b>Power Query</b>, sem programar;</li>
+<li><b>Modela</b> os dados, ligando tabelas e criando cálculos em <b>DAX</b>;</li>
+<li><b>Visualiza</b> em gráficos de colunas, barras, pizza, linhas, cartões, mapas, tabelas e matrizes que filtram uns aos outros;</li>
+<li><b>Compartilha</b> no Power BI Service (versão online, com licença).</li>
+</ol>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que aprender Power BI</b><p>É a ferramenta de BI mais usada nas empresas brasileiras, o Desktop é gratuito e ela conversa com o Excel, que você já conhece. Em vagas de analista de dados, “Power BI” aparece em quase todas as descrições.</p></div></div>
+</section>
+
+<section id="instalar"><h2><span class="n">02</span>Instalando o Power BI Desktop</h2>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-1"><label for="s1-1"><span class="k">Passo 1.1</span>Acesse a página oficial de download</label></div><p>Entre no Centro de Download da Microsoft:</p>
+<p><a href="https://www.microsoft.com/pt-br/download/details.aspx?id=58494" target="_blank" rel="noopener">microsoft.com/pt-br/download/details.aspx?id=58494</a></p>
+<p>Confira se o idioma está em <b>Português (Brasil)</b> e clique em <span class="ui">Baixar</span>.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>Outra opção é instalar pela <b>Microsoft Store</b> (busque “Power BI Desktop”). Pela Store, ele se atualiza sozinho todo mês.</p></div></div><figure class="shot "><div class="frame"><img src="img/a01-03.jpg" alt="Centro de Download da Microsoft com o botão Baixar." loading="lazy"></div><figcaption><b>Print real.</b> Centro de Download da Microsoft com o botão Baixar.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-2"><label for="s1-2"><span class="k">Passo 1.2</span>Escolha a versão de 64 bits e instale</label></div><p>Na lista de arquivos, marque a versão <b>x64</b> (64 bits), que é a de quase todo computador atual. O arquivo <code>PBIDesktopSetup_x64.exe</code> vai para a pasta <b>Downloads</b>.</p>
+<p>Dê dois cliques no instalador e siga o assistente: <span class="ui">Avançar</span> → aceite os termos → <span class="ui">Instalar</span> → <span class="ui">Concluir</span>.</p>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>O Power BI Desktop só existe para <b>Windows</b>. Em Mac, use uma máquina virtual com Windows ou o Power BI Service no navegador (que é mais limitado para criar relatórios).</p></div></div></div><figure class="shot "><div class="frame"><img src="img/a01-04.jpg" alt="O instalador PBIDesktopSetup_x64.exe na pasta Downloads." loading="lazy"></div><figcaption><b>Print real.</b> O instalador PBIDesktopSetup_x64.exe na pasta Downloads.</figcaption></figure></div>
+</section>
+
+<section id="janela"><h2><span class="n">03</span>Conhecendo a janela do Power BI</h2><p class="sub">Saber o nome de cada área faz você seguir qualquer tutorial sem se perder.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-1"><label for="s2-1"><span class="k">Passo 2.1</span>A tela inicial</label></div><p>Ao abrir o Power BI, aparece a tela inicial. Nela você pode abrir um arquivo recente, começar por uma fonte de dados ou criar um relatório em branco.</p><figure class="shot "><div class="frame"><img src="img/a01-05.jpg" alt="Tela inicial do Power BI Desktop." loading="lazy"></div><figcaption><b>Print real.</b> Tela inicial do Power BI Desktop.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-2"><label for="s2-2"><span class="k">Passo 2.2</span>Entre com sua conta (opcional)</label></div><p>Se você tem conta Microsoft 365 da escola ou do trabalho, clique em <span class="ui">Entrar</span> no canto superior direito, digite o e-mail, clique em <span class="ui">Continuar</span> e depois informe a senha.</p>
+<p>Depois do login, seu nome aparece no canto superior direito.</p>
+<div class="callout tip"><div class="ico">i</div><div><b class="t">Tenha em mente</b><p>O login é recomendado se você for publicar relatórios no Power BI Service (aula 13), mas <b>não é obrigatório</b> para criar relatórios no Desktop.</p></div></div><figure class="shot "><div class="frame"><img src="img/a01-06.jpg" alt="Janela de login com e-mail." loading="lazy"></div><figcaption><b>Print real.</b> Janela de login com e-mail.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-3"><label for="s2-3"><span class="k">Passo 2.3</span>Crie um relatório em branco</label></div><p>Clique em <span class="ui">Relatório em branco</span>. Essa será a área de trabalho de todo o curso.</p><figure class="shot "><div class="frame"><img src="img/a01-09.jpg" alt="O botão Relatório em branco na tela inicial." loading="lazy"></div><figcaption><b>Print real.</b> O botão Relatório em branco na tela inicial.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-4"><label for="s2-4"><span class="k">Passo 2.4</span>A área de trabalho e a faixa de opções</label></div><p>No topo fica a <b>barra de título</b>, com o nome do arquivo (“Sem título” enquanto você não salvar) e, à esquerda, os botões <b>Salvar</b>, <b>Desfazer</b> e <b>Refazer</b>.</p>
+<p>Logo abaixo, a <b>faixa de opções</b>, igual à do Excel, com as guias <span class="ui">Página Inicial</span>, <span class="ui">Inserir</span>, <span class="ui">Modelagem</span>, <span class="ui">Exibição</span>, <span class="ui">Otimizar</span> e <span class="ui">Ajuda</span>. Guias extras aparecem quando você seleciona um gráfico (por exemplo <span class="ui">Formato</span>).</p><figure class="shot "><div class="frame"><img src="img/a01-10.jpg" alt="Relatório em branco com a faixa de opções Página Inicial." loading="lazy"></div><figcaption><b>Print real.</b> Relatório em branco com a faixa de opções Página Inicial.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-5"><label for="s2-5"><span class="k">Passo 2.5</span>A guia Arquivo</label></div><p>A guia <span class="ui">Arquivo</span> não mexe na tela de trabalho: ela reúne as operações com o arquivo, como <b>Salvar como</b>, <b>Exportar</b> (PDF, por exemplo) e <b>Publicar</b>. Para voltar, clique na seta ← no canto superior esquerdo.</p><figure class="shot "><div class="frame"><img src="img/a01-12.jpg" alt="Guia Arquivo: Salvar como, Compartilhar, Obter dados, Importar, Exportar e Publicar." loading="lazy"></div><figcaption><b>Print real.</b> Guia Arquivo: Salvar como, Compartilhar, Obter dados, Importar, Exportar e Publicar.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-6"><label for="s2-6"><span class="k">Passo 2.6</span>A tela (o “tapete”) e as páginas</label></div><p>A área cinza central é a <b>tela</b>, também chamada de tapete, página ou painel. É onde você monta os gráficos.</p>
+<p>No rodapé ficam as <b>abas das páginas</b>. O botão <span class="ui">+</span> cria uma página nova. Um relatório pode ter várias páginas, como um arquivo do Excel tem várias planilhas.</p><figure class="shot "><div class="frame"><img src="img/a01-15.jpg" alt="Abas das páginas no rodapé, com o botão + para criar novas." loading="lazy"></div><figcaption><b>Print real.</b> Abas das páginas no rodapé, com o botão + para criar novas.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-7"><label for="s2-7"><span class="k">Passo 2.7</span>Renomear, duplicar ou ocultar uma página</label></div><p>Clique com o botão direito sobre a aba da página para <b>Renomear</b>, <b>Duplicar</b>, <b>Excluir</b> ou <b>Ocultar</b>.</p>
+<p>Renomeie a <b>Página 1</b> para <code>Visão Geral</code>. Dar nome às páginas é o primeiro hábito de um relatório profissional.</p><figure class="shot "><div class="frame"><img src="img/a01-16.jpg" alt="Menu de contexto da aba da página." loading="lazy"></div><figcaption><b>Print real.</b> Menu de contexto da aba da página.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-8"><label for="s2-8"><span class="k">Passo 2.8</span>Os painéis da direita</label></div><p>Do lado direito ficam os painéis. Cada um abre ou fecha pelos ícones da coluna mais à direita:</p>
+<ul>
+<li><b>Filtros</b>: aplica filtros a um visual, à página ou ao relatório inteiro;</li>
+<li><b>Compilar</b> (antigo Visualizações): onde você escolhe o tipo de gráfico e os campos;</li>
+<li><b>Formato</b>: cores, títulos, rótulos, bordas do visual selecionado;</li>
+<li><b>Dados</b>: lista as tabelas e colunas importadas.</li>
+</ul></div><figure class="shot "><div class="frame"><img src="img/a01-17.jpg" alt="Painéis Formato, Personalizar tema, Compilar e Dados, com os ícones para abrir e fechar cada um." loading="lazy"></div><figcaption><b>Print real.</b> Painéis Formato, Personalizar tema, Compilar e Dados, com os ícones para abrir e fechar cada um.</figcaption></figure></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-9"><label for="s2-9"><span class="k">Passo 2.9</span>Painel de Filtros</label></div><p>Clique na seta dupla <kbd>«</kbd> para expandir o painel <b>Filtros</b>. Você verá as áreas “Filtros nesta página” e “Filtros em todas as páginas”.</p><figure class="shot "><div class="frame"><img src="img/a01-18.jpg" alt="Painel Filtros aberto: filtros nesta página e em todas as páginas." loading="lazy"></div><figcaption><b>Print real.</b> Painel Filtros aberto: filtros nesta página e em todas as páginas.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-10"><label for="s2-10"><span class="k">Passo 2.10</span>Painel Compilar</label></div><p>Cada ícone da galeria é um tipo de visual: colunas, barras, linhas, pizza, cartão, tabela, matriz, mapa. Você vai usar esse painel em todas as aulas.</p><figure class="shot "><div class="frame"><img src="img/a01-19.jpg" alt="Galeria de visuais do painel Compilar." loading="lazy"></div><figcaption><b>Print real.</b> Galeria de visuais do painel Compilar.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-11"><label for="s2-11"><span class="k">Passo 2.11</span>Painel Dados</label></div><p>Como ainda não importamos nada, o painel <b>Dados</b> está vazio. Assim que a primeira tabela entrar, ele mostra o nome dela e as colunas.</p></div><figure class="shot "><div class="frame"><img src="img/a01-20.jpg" alt="Painel Dados ainda vazio: “Você ainda não carregou nenhum dado”." loading="lazy"></div><figcaption><b>Print real.</b> Painel Dados ainda vazio: “Você ainda não carregou nenhum dado”.</figcaption></figure></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-12"><label for="s2-12"><span class="k">Passo 2.12</span>As três exibições: Relatório, Tabela e Modelo</label></div><p>Na barra da esquerda há três ícones principais:</p>
+<ol>
+<li><b>Relatório</b>: onde você cria os gráficos (é onde passará mais tempo);</li>
+<li><b>Tabela</b>: mostra as linhas e colunas de cada tabela importada, como uma planilha;</li>
+<li><b>Modelo</b>: mostra as tabelas como caixinhas e as ligações entre elas (aula 4).</li>
+</ol><figure class="shot "><div class="frame"><img src="img/a01-22.jpg" alt="Exibição de tabela, com o painel Dados à direita." loading="lazy"></div><figcaption><b>Print real.</b> Exibição de tabela, com o painel Dados à direita.</figcaption></figure></div></div>
+</section>
+
+<section id="importar"><h2><span class="n">04</span>Importando dados</h2><p class="sub">Para criar qualquer relatório, primeiro você precisa se conectar a uma fonte de dados.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">O Power BI não edita a fonte</b><p>No Power BI, os dados importados ficam em <b>modo de leitura</b>. Para incluir, excluir ou alterar registros, você altera o arquivo de origem (o Excel, por exemplo). Dentro do Power BI você analisa e transforma (com o Power Query), mas não “digita” dados.</p></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-1"><label for="s3-1"><span class="k">Passo 3.1</span>Conectores na própria tela</label></div><p>Com o relatório vazio, a tela já mostra atalhos para importar do <b>Excel</b>, do <b>SQL Server</b>, colar dados numa tabela em branco ou usar dados de amostra.</p><figure class="shot "><div class="frame"><img src="img/a01-24.jpg" alt="Atalhos da tela vazia: Excel, SQL Server, colar dados, dados de amostra e Obter dados de outra fonte." loading="lazy"></div><figcaption><b>Print real.</b> Atalhos da tela vazia: Excel, SQL Server, colar dados, dados de amostra e Obter dados de outra fonte.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-2"><label for="s3-2"><span class="k">Passo 3.2</span>Pela guia Página Inicial</label></div><p>Em <span class="ui">Página Inicial</span>, no grupo <b>Dados</b>, há atalhos como <span class="ui">Pasta de trabalho do Excel</span>. Clique na setinha de <span class="ui">Obter dados</span> para ver mais fontes: Texto/CSV, Web, SQL Server, Consulta em branco…</p></div><figure class="shot "><div class="frame"><img src="img/a01-26.jpg" alt="Menu Obter dados com as fontes mais comuns e a opção Mais…" loading="lazy"></div><figcaption><b>Print real.</b> Menu Obter dados com as fontes mais comuns e a opção Mais…</figcaption></figure></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-3"><label for="s3-3"><span class="k">Passo 3.3</span>Todos os conectores</label></div><p>Se a fonte não estiver na lista, clique em <span class="ui">Mais…</span>. Abre a janela com <b>todos os conectores</b> (são centenas). Use a busca, selecione o conector e clique em <span class="ui">Conectar</span>.</p><figure class="shot "><div class="frame"><img src="img/a01-27.jpg" alt="Janela Obter Dados com a busca de conectores." loading="lazy"></div><figcaption><b>Print real.</b> Janela Obter Dados com a busca de conectores.</figcaption></figure></div></div>
+
+<h3>Planilha, intervalo ou tabela: qual importar?</h3>
+<p>Um arquivo do Excel pode chegar ao Power BI de três jeitos:</p>
+<div class="tbl"><table>
+<thead><tr><th>Opção</th><th>Como aparece no Navegador</th><th>Problema</th></tr></thead>
+<tbody>
+<tr><td><b>Planilha</b> inteira</td><td>Nome da aba (ex.: <code>CURSOS</code>)</td><td>Importa tudo o que estiver na aba, até anotações soltas. Os dados precisam começar em A1.</td></tr>
+<tr><td><b>Intervalo nomeado</b></td><td>Nome do intervalo (ex.: <code>R_CURSOS</code>)</td><td>Se entrarem linhas abaixo do fim do intervalo, elas ficam de fora.</td></tr>
+<tr><td><b>Tabela</b> do Excel</td><td>Nome da tabela (ex.: <code>T_CURSOS</code>)</td><td>Nenhum: a tabela cresce sozinha quando você inclui linhas.</td></tr>
+</tbody></table></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Regra prática</b><p>Sempre que puder, transforme os dados em <b>Tabela</b> no Excel (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd>) e dê um nome que comece com <code>T_</code>. É a importação mais segura.</p></div></div>
+
+<h3>Conhecendo a base 01 BD CURSOS</h3>
+<p>A planilha registra cursos vendidos a clientes, ministrados por professores e vendidos por comerciais. Cada linha é um curso:</p>
+<div class="tbl"><table>
+<thead><tr><th>Coluna</th><th>Significado</th></tr></thead>
+<tbody>
+<tr><td>CÓD CURSO</td><td>Código do curso vendido</td></tr>
+<tr><td>CURSO</td><td>Matéria (Word, Excel, Access…)</td></tr>
+<tr><td>DURAÇÃO</td><td>Duração em horas</td></tr>
+<tr><td>CLIENTE / IMPORTE CLIENTE</td><td>Quem comprou e quanto pagou</td></tr>
+<tr><td>PROFESSOR / IMPORTE PROFESSOR</td><td>Quem ministrou e quanto recebeu</td></tr>
+<tr><td>DATA DO CURSO</td><td>Data de término</td></tr>
+<tr><td>TURNO DO CURSO</td><td>Manhã, Tarde ou Noite</td></tr>
+<tr><td>COMERCIAL / IMPORTE COMERCIAL</td><td>Vendedor e comissão</td></tr>
+<tr><td>PAGAMENTO CLIENTE / PAGAMENTO COMERCIAL</td><td>Se o cliente pagou / se a comissão foi paga</td></tr>
+<tr><td>PAÍS / CIDADE</td><td>Onde o curso aconteceu</td></tr>
+</tbody></table></div>
+<div class="files"><a class="file" href="../arquivos/01 BD CURSOS.xlsx" download><span class="ext xlsx">XLSX</span><span><b>01 BD CURSOS.xlsx</b><small>Base da aula · tabela T_CURSOS</small></span></a></div>
+
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-4"><label for="s3-4"><span class="k">Passo 3.4</span>Clique em Pasta de trabalho do Excel</label></div><p>Com o relatório em branco aberto, vá em <span class="ui">Página Inicial</span> → <span class="ui">Pasta de trabalho do Excel</span> (ou clique em <span class="ui">Importar dados do Excel</span> no meio da tela).</p><figure class="shot "><div class="frame"><img src="img/a01-35.jpg" alt="Dois caminhos para o mesmo conector: faixa de opções ou atalho da tela." loading="lazy"></div><figcaption><b>Print real.</b> Dois caminhos para o mesmo conector: faixa de opções ou atalho da tela.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-5"><label for="s3-5"><span class="k">Passo 3.5</span>Localize o arquivo e clique em Abrir</label></div><p>Navegue até a pasta onde você salvou <code>01 BD CURSOS.xlsx</code>, selecione o arquivo e clique em <span class="ui">Abrir</span>.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>Crie uma pasta fixa para o curso, por exemplo <code>Documentos\Curso Power BI</code>, e guarde todas as bases ali. O Power BI lembra o caminho do arquivo; se você mover o arquivo de lugar, a atualização quebra (aula 3).</p></div></div><figure class="shot "><div class="frame"><img src="img/a01-36.jpg" alt="Janela Abrir com o arquivo 01 BD CURSOS.xlsx selecionado." loading="lazy"></div><figcaption><b>Print real.</b> Janela Abrir com o arquivo 01 BD CURSOS.xlsx selecionado.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-6"><label for="s3-6"><span class="k">Passo 3.6</span>No Navegador, marque T_CURSOS e clique em Carregar</label></div><p>O <b>Navegador</b> lista tudo o que existe no arquivo: a tabela <code>T_CURSOS</code>, a planilha <code>CURSOS</code> e o intervalo <code>R_CURSOS</code>.</p>
+<p>Marque <b>T_CURSOS</b>, confira a prévia à direita e clique em <span class="ui">Carregar</span>.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Nesta primeira aula usamos <b>Carregar</b> porque a tabela já está limpa. A partir da aula 2 você vai usar <b>Transformar Dados</b> para tratar os dados antes de carregar.</p></div></div><figure class="shot "><div class="frame"><img src="img/a01-37.jpg" alt="Navegador mostrando T_CURSOS, CURSOS e R_CURSOS, com a pré-visualização dos dados." loading="lazy"></div><figcaption><b>Print real.</b> Navegador mostrando T_CURSOS, CURSOS e R_CURSOS, com a pré-visualização dos dados.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-7"><label for="s3-7"><span class="k">Passo 3.7</span>Confira a tabela no painel Dados</label></div><p>A tabela aparece no painel <b>Dados</b>. Clique na setinha ao lado do nome para ver os campos, listados em ordem alfabética.</p>
+<p>Repare no símbolo <b>Σ</b> ao lado de DURAÇÃO e dos IMPORTES: o Power BI reconheceu que são números e vai <b>somá-los</b> automaticamente nos gráficos. DATA DO CURSO ganhou um ícone de calendário.</p></div><figure class="shot "><div class="frame"><img src="img/a01-39.jpg" alt="Painel Dados com os campos de T_CURSOS em ordem alfabética." loading="lazy"></div><figcaption><b>Print real.</b> Painel Dados com os campos de T_CURSOS em ordem alfabética.</figcaption></figure></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-8"><label for="s3-8"><span class="k">Passo 3.8</span>Veja os dados na Exibição de tabela</label></div><p>Clique no ícone <b>Tabela</b> na barra da esquerda. Os dados aparecem na mesma ordem do Excel. Use essa exibição para conferir se a importação veio completa: o rodapé mostra quantas linhas a tabela tem.</p><figure class="shot "><div class="frame"><img src="img/a01-21.jpg" alt="Exibição de tabela: linhas e colunas, como no Excel." loading="lazy"></div><figcaption><b>Print real.</b> Exibição de tabela: linhas e colunas, como no Excel.</figcaption></figure></div></div>
+</section>
+
+<section id="atualizar-salvar"><h2><span class="n">05</span>Atualizar e salvar o arquivo</h2>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-1"><label for="s4-1"><span class="k">Passo 4.1</span>Atualize quando o Excel mudar</label></div><p>Se alguém incluir ou alterar dados em <code>01 BD CURSOS.xlsx</code>, o Power BI só mostra a mudança depois que você clicar em <span class="ui">Página Inicial</span> → <span class="ui">Atualizar</span>. A aula 3 é inteira sobre isso.</p><figure class="shot "><div class="frame"><img src="img/a01-41.jpg" alt="Botão Atualizar no grupo Consultas da Página Inicial." loading="lazy"></div><figcaption><b>Print real.</b> Botão Atualizar no grupo Consultas da Página Inicial.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s4-2"><label for="s4-2"><span class="k">Passo 4.2</span>Salve como BD CURSOS.pbix</label></div><p>Vá em <span class="ui">Arquivo</span> → <span class="ui">Salvar como</span> → <span class="ui">Procurar este dispositivo</span>, escolha a pasta do curso e salve como <code>BD CURSOS</code>. A extensão do arquivo do Power BI é <code>.pbix</code>.</p>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>O <code>.pbix</code> guarda uma cópia dos dados e as consultas, mas <b>não</b> o arquivo Excel. Se você enviar o .pbix para outra pessoa, ela vê o relatório, mas para atualizar vai precisar do Excel no mesmo caminho.</p></div></div><figure class="shot "><div class="frame"><img src="img/a01-42.jpg" alt="Arquivo → Salvar como → Procurar este dispositivo." loading="lazy"></div><figcaption><b>Print real.</b> Arquivo → Salvar como → Procurar este dispositivo.</figcaption></figure></div></div>
+</section>
+
+<section id="primeira-analise"><h2><span class="n">06</span>Sua primeira análise</h2><p class="sub">Já dá para responder perguntas reais com dois cliques.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s5-1"><label for="s5-1"><span class="k">Passo 5.1</span>Faturamento por curso</label></div><ol>
+<li>Volte para a exibição <b>Relatório</b>.</li>
+<li>No painel <b>Dados</b>, marque <code>CURSO</code> e depois <code>IMPORTE CLIENTE</code>.</li>
+<li>O Power BI cria uma tabela. Com ela selecionada, clique no ícone <b>Gráfico de barras clusterizado</b> no painel Compilar.</li>
+<li>Clique nos três pontinhos do visual → <span class="ui">Classificar eixo</span> → <span class="ui">Soma de IMPORTE CLIENTE</span> → <span class="ui">Decrescente</span>.</li>
+</ol>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que essa análise importa</b><p>Ela mostra quais cursos trazem mais dinheiro. Um gestor usa esse gráfico para decidir em quais cursos investir em divulgação ou em novos professores.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s5-2"><label for="s5-2"><span class="k">Passo 5.2</span>Cursos por turno</label></div><p>Clique em um espaço vazio da tela, escolha o visual <b>Gráfico de rosca</b> e arraste <code>TURNO DO CURSO</code> para <b>Legenda</b> e <code>CÓD CURSO</code> para <b>Valores</b> (ele vira “Contagem de CÓD CURSO”).</p>
+<p>Agora clique em uma fatia, por exemplo <b>NOITE</b>: o gráfico de barras filtra junto. Isso é a <b>interação entre visuais</b>, uma das grandes forças do Power BI.</p></div></div>
+</section>
+
+<section id="atividades"><h2><span class="n">07</span>Atividades</h2><p class="sub">Faça com a base 01 BD CURSOS e salve tudo no mesmo arquivo.</p>
+<div class="ex"><div class="ex-h"><h4>A1 · Quem mais vendeu?</h4><span class="lvl b">Básico</span></div><p>Crie um gráfico de colunas com <code>COMERCIAL</code> no eixo e <code>IMPORTE CLIENTE</code> nos valores. Qual comercial vendeu mais? Escreva a resposta numa caixa de texto (<span class="ui">Inserir</span> → <span class="ui">Caixa de texto</span>).</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Cursos por país</h4><span class="lvl b">Básico</span></div><p>Crie um gráfico de pizza com a quantidade de cursos por <code>PAÍS</code>. Qual país concentra a maioria dos cursos?</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Quanto falta receber?</h4><span class="lvl m">Intermediário</span></div><p>Crie um cartão com a soma de <code>IMPORTE CLIENTE</code> e use o painel <b>Filtros</b> para mostrar só os cursos com <code>PAGAMENTO CLIENTE</code> = <b>NÃO</b>. Esse é o valor a receber.</p>
+<details><summary>Dica</summary><div class="in"><p>Arraste <code>PAGAMENTO CLIENTE</code> para “Filtros neste visual” e marque apenas NÃO.</p></div></details></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Organize a página</h4><span class="lvl m">Intermediário</span></div><p>Renomeie a página para <code>Visão Geral</code>, crie uma segunda página <code>Professores</code> com o total de <code>IMPORTE PROFESSOR</code> por <code>PROFESSOR</code>, e salve o arquivo.</p></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Pesquisa</h4><span class="lvl a">Desafio</span></div><p>Pesquise e escreva, com suas palavras, um exemplo de empresa da sua cidade que poderia usar BI. Que pergunta ela responderia? Que dados precisaria?</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">08</span>Resumo da aula</h2>
+<ul>
+<li>BI transforma dados em informação para decidir melhor; olha principalmente para o passado.</li>
+<li>Big Data é o volume e a variedade dos dados; Data Science usa estatística e IA para prever.</li>
+<li>O Power BI conecta, transforma (Power Query), modela (DAX), visualiza e compartilha.</li>
+<li>Prefira importar <b>Tabelas</b> do Excel em vez de planilhas ou intervalos.</li>
+<li>O .pbix não altera o Excel; para ver dados novos, use <b>Atualizar</b>.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a class="nx" href="../aula-02/index.html"><small>Próxima aula →</small>Importando dados do Excel e o Power Query</a></nav><div class="footer">Material base: Notion “001 - Microsoft Power BI para Business Intelligence” · Braga Treinamentos. Prints do ambiente do professor.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

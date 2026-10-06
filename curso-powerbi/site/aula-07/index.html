@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 07 · Power BI com dados reais do IBGE</title><meta name="description" content="Você vai buscar população e PIB direto da API do IBGE, ligar as tabelas com relacionamentos, escrever medidas DAX com CALCULATE, ALL e RANKX e montar um painel que responde perguntas reais sobre o Brasil."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-07"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-06/index.html">← Anterior</a><a href="../aula-08/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 07</p><ol><li><a href="#perguntas"><span>01</span>As perguntas</a></li><li><a href="#fonte"><span>02</span>IBGE e SIDRA</a></li><li><a href="#importar"><span>03</span>Importar pela Web</a></li><li><a href="#modelo"><span>04</span>Modelo estrela</a></li><li><a href="#dax"><span>05</span>Medidas DAX</a></li><li><a href="#visuais"><span>06</span>Painel</a></li><li><a href="#erros"><span>07</span>Erros comuns</a></li><li><a href="#atividades"><span>08</span>Atividades</a></li><li><a href="#planob"><span>09</span>Plano B (offline)</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 07 de 13</div><h1>Power BI com <em>dados reais do IBGE</em>: API, modelo estrela e DAX</h1><p class="lead">Você vai buscar população e PIB direto da API do IBGE, ligar as tabelas com relacionamentos, escrever medidas DAX com CALCULATE, ALL e RANKX e montar um painel que responde perguntas reais sobre o Brasil.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Básico → Intermediário</span></dd><dt>Duração</dt><dd>3 horas (2h guiado + 1h de atividades)</dd><dt>Você vai precisar</dt><dd>Power BI Desktop e internet (sem internet, use o Plano B no fim da aula)</dd><dt>Conteúdos</dt><dd><span class="tag">Power Query</span><span class="tag">API Web</span><span class="tag">JSON</span><span class="tag">Modelo estrela</span><span class="tag">Relacionamento 1:N</span><span class="tag">DAX</span><span class="tag">CALCULATE</span><span class="tag">ALL</span><span class="tag">RANKX</span><span class="tag">VAR</span></dd></dl></header><section id="perguntas"><h2><span class="n">01</span>As perguntas que o painel vai responder</h2>
+<p>Todo dashboard começa com perguntas, nunca com gráficos. Guarde estas quatro; cada passo da aula existe para respondê-las:</p>
+<div class="tbl"><table>
+<thead><tr><th>Pergunta</th><th>Por que alguém se importa</th><th>Medida que responde</th></tr></thead>
+<tbody>
+<tr><td>Quais estados têm a maior economia?</td><td>Mostra onde está a produção do país: onde investir, onde há mais empregos.</td><td><code>PIB (R$)</code></td></tr>
+<tr><td>Onde a riqueza por habitante é maior?</td><td>Um estado grande pode ser pobre por pessoa. O PIB per capita compara estados de tamanhos diferentes de forma justa.</td><td><code>PIB per capita</code></td></tr>
+<tr><td>Quão concentrada é a economia?</td><td>Concentração regional é tema de política pública: desigualdade, guerra fiscal, migração.</td><td><code>% PIB Brasil</code></td></tr>
+<tr><td>Quem cresceu mais de um ano para o outro?</td><td>O tamanho mostra o passado; o crescimento mostra a tendência.</td><td><code>Var. % PIB</code></td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que o IBGE</b><p>O IBGE é a fonte oficial de estatísticas do Brasil. Os dados são públicos, gratuitos, atualizados todo ano e têm uma API: o Power BI busca sozinho, e o relatório se atualiza com um clique quando sair a estimativa nova.</p></div></div>
+</section>
+
+<section id="fonte"><h2><span class="n">02</span>Conhecendo a fonte: IBGE e SIDRA</h2><p class="sub">Analista que não conhece a fonte não sabe explicar o número que mostra.</p>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f1"><label for="f1"><span class="k">Passo 1.1</span>Abra a tabela 6579 no SIDRA</label></div><p>Acesse <a href="https://sidra.ibge.gov.br/tabela/6579" target="_blank" rel="noopener">sidra.ibge.gov.br/tabela/6579</a>. O SIDRA é o “banco de tabelas” do IBGE; a tabela <b>6579</b> traz a <b>População residente estimada</b>. Se aparecer o balão “Dúvidas”, clique em <span class="ui">Fim</span>.</p>
+<p>Toda tabela do SIDRA tem três partes: <b>Variável</b> (o que é medido), <b>Ano</b> (quando) e <b>Unidade Territorial</b> (onde).</p></div><figure class="shot "><div class="frame"><img src="img/01-sidra-6579.jpg" alt="Tabela 6579, Estimativas de População." loading="lazy"><span class="ring" style="left:3%;top:21%;width:93%;height:10%"></span><span class="pin" style="left:95%;top:22%">1</span></div><figcaption><b>Print real.</b> Tabela 6579, Estimativas de População.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f2"><label for="f2"><span class="k">Passo 1.2</span>Escolha os 5 anos mais recentes</label></div><p>No bloco <b>Ano</b>, marque também <b>2025, 2024, 2021 e 2020</b>.</p>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Observe</b><p>Não existem estimativas para 2022 e 2023: nesses anos o IBGE fez o Censo. Essa lacuna vai aparecer quando cruzarmos população com PIB.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/03-anos-marcados.jpg" alt="“Ano [5/22]”: 5 de 22 anos disponíveis." loading="lazy"><span class="ring" style="left:5%;top:25.5%;width:12%;height:14%"></span><span class="pin" style="left:20%;top:32%">2</span></div><figcaption><b>Print real.</b> “Ano [5/22]”: 5 de 22 anos disponíveis.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f3"><label for="f3"><span class="k">Passo 1.3</span>Troque Brasil por Unidade da Federação</label></div><p>Em <b>Unidade Territorial</b>, desmarque <span class="ui">Brasil</span> e marque <span class="ui">Unidade da Federação [27/27]</span>.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que não trazer o Brasil junto</b><p>O total Brasil é a soma dos estados. Importando os dois níveis, o Power BI soma tudo e o resultado sai dobrado. Traga só o nível mais detalhado.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/04-ufs-marcadas.jpg" alt="“Unidade Territorial [27/5604]”." loading="lazy"><span class="ring" style="left:7.5%;top:73.8%;width:36%;height:4.5%"></span><span class="pin" style="left:6%;top:76%">3</span></div><figcaption><b>Print real.</b> “Unidade Territorial [27/5604]”.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f4"><label for="f4"><span class="k">Passo 1.4</span>Confira com Visualizar</label></div><p>Clique em <span class="ui">Visualizar</span>. Conferir na fonte é hábito profissional: quando o painel mostrar Roraima com 761.012 habitantes em 2026, você vai saber que bate com o IBGE.</p></div><figure class="shot "><div class="frame"><img src="img/05-barra-botoes.jpg" alt="4 = Visualizar. 5 = Links de Compartilhar." loading="lazy"><span class="pin" style="left:12%;top:49.8%">4</span><span class="pin" style="left:82.2%;top:44%">5</span></div><figcaption><b>Print real.</b> 4 = Visualizar. 5 = Links de Compartilhar.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f5"><label for="f5"><span class="k">Passo 1.5</span>O resultado no SIDRA</label></div><p>Os números estão em <b>pessoas</b>, com separador de milhar brasileiro (ponto).</p></div><figure class="shot "><div class="frame"><img src="img/07-resultado-pop.jpg" alt="População residente estimada por UF." loading="lazy"></div><figcaption><b>Print real.</b> População residente estimada por UF.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f6"><label for="f6"><span class="k">Passo 1.6</span>Pegue o link da API</label></div><p>Clique no ícone de corrente (<b>Links de Compartilhar</b>). O campo <b>Parâmetros para a API</b> é o endereço que o Power BI vai usar:</p>
+<div class="tbl"><table><tbody>
+<tr><td><code>/t/6579</code></td><td>tabela 6579</td></tr>
+<tr><td><code>/n3/all</code></td><td>nível 3 (UF), todas</td></tr>
+<tr><td><code>/v/9324</code></td><td>variável 9324, população estimada</td></tr>
+<tr><td><code>/p/last%205</code></td><td>os 5 últimos períodos (<code>%20</code> é o espaço)</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que “last 5”</b><p>Com períodos relativos, quando o IBGE publicar 2027 o relatório passa a trazer 2027 sozinho ao clicar em Atualizar. Ano fixo na URL faz o relatório envelhecer.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/06-links-api.jpg" alt="URL da API gerada pelo próprio SIDRA." loading="lazy"><span class="ring" style="left:6.3%;top:21.2%;width:89.6%;height:5%"></span><span class="pin" style="left:6.5%;top:18.6%">6</span></div><figcaption><b>Print real.</b> URL da API gerada pelo próprio SIDRA.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f7"><label for="f7"><span class="k">Passo 1.7</span>Repita para o PIB: tabela 5938</label></div><p>Abra <a href="https://sidra.ibge.gov.br/tabela/5938" target="_blank" rel="noopener">sidra.ibge.gov.br/tabela/5938</a>. Variável <b>37</b>, últimos 5 anos (2019 a 2023), Unidade da Federação.</p>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Leia a unidade</b><p>O PIB vem em <b>Mil Reais</b>. O valor 3.444.814.033 de São Paulo em 2023 significa R$ 3,44 <b>trilhões</b>. Vamos multiplicar por 1.000 no Power Query.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/10-pib-variavel.jpg" alt="Variável 37, PIB a preços correntes, em Mil Reais." loading="lazy"><span class="ring" style="left:5.5%;top:48.8%;width:84%;height:4%"></span><span class="pin" style="left:93%;top:50.7%">7</span></div><figcaption><b>Print real.</b> Variável 37, PIB a preços correntes, em Mil Reais.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f8"><label for="f8"><span class="k">Passo 1.8</span>A terceira fonte: API de Localidades</label></div><p>Abra <code>https://servicodados.ibge.gov.br/api/v1/localidades/estados</code>. O resultado é um <b>JSON</b>: uma lista de estados e, dentro de cada um, o objeto <code>regiao</code> (um <b>Record</b> no Power Query).</p>
+<p>O campo <code>id</code> (11 = Rondônia, 35 = São Paulo) é o mesmo código do SIDRA. É ele que liga as tabelas.</p></div><figure class="shot "><div class="frame"><img src="img/08-api-estados-json.jpg" alt="8 = código da UF (chave). 9 = região aninhada." loading="lazy"><span class="ring" style="left:3%;top:9%;width:30%;height:3%"></span><span class="ring" style="left:3.5%;top:15.8%;width:24%;height:9.6%"></span><span class="pin" style="left:36%;top:10.4%">8</span><span class="pin" style="left:31%;top:20%">9</span></div><figcaption><b>Print real.</b> 8 = código da UF (chave). 9 = região aninhada.</figcaption></figure></div>
+</section>
+
+<section id="importar"><h2><span class="n">03</span>Importando com Power Query</h2><p class="sub">Nada de baixar planilha: o Power BI conversa direto com a API.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="i1"><label for="i1"><span class="k">Passo 2.1</span>Relatório em branco</label></div><p>Abra o Power BI Desktop e clique em <span class="ui">Relatório em branco</span>.</p><figure class="shot "><div class="frame"><img src="img/pbi-01-inicio.jpg" alt="Tela inicial do Power BI Desktop." loading="lazy"><span class="ring" style="left:16.9%;top:19.5%;width:8.7%;height:21.8%"></span><span class="pin" style="left:21.3%;top:17%">1</span></div><figcaption><b>Print real.</b> Tela inicial do Power BI Desktop.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="i2"><label for="i2"><span class="k">Passo 2.2</span>Obter dados → Web</label></div><p>Em <span class="ui">Página Inicial</span>, clique na setinha de <span class="ui">Obter dados</span> e escolha <span class="ui">Web</span>. O conector Web lê qualquer endereço que devolve dados: HTML com tabela, CSV ou API JSON.</p></div><figure class="shot "><div class="frame"><img src="img/pbi-02-menu-web.jpg" alt="Menu Fontes de dados comuns." loading="lazy"><span class="ring" style="left:12.5%;top:63.5%;width:24%;height:6%"></span><span class="pin" style="left:14.2%;top:15%">2</span><span class="pin" style="left:40%;top:66.7%">3</span></div><figcaption><b>Print real.</b> Menu Fontes de dados comuns.</figcaption></figure></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="i3"><label for="i3"><span class="k">Passo 2.3</span>Cole a URL de estados e clique em OK</label></div><p>Mantenha <b>Básico</b>, cole a URL e clique em <span class="ui">OK</span>. Se pedir autenticação, escolha <b>Anônimo</b> → <span class="ui">Conectar</span>.</p>
+<div class="code"><div class="bar"><span>URL · dEstado</span><button class="copy" type="button">Copiar</button></div><pre>https://servicodados.ibge.gov.br/api/v1/localidades/estados</pre></div><figure class="shot "><div class="frame"><img src="img/pbi-03-url-estados.jpg" alt="Janela Da Web." loading="lazy"><span class="pin" style="left:33%;top:42%">4</span><span class="pin" style="left:76.5%;top:77%">5</span></div><figcaption><b>Print real.</b> Janela Da Web.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="i4"><label for="i4"><span class="k">Passo 2.4</span>Entenda o que o Power Query fez</label></div><p>O Editor abriu com 27 linhas e 6 colunas. As <b>Etapas Aplicadas</b> são a receita: Fonte → Convertido para Tabela → Column1 Expandido → regiao Expandido → Tipo Alterado. Renomeie a consulta para <code>dEstado</code>.</p><figure class="shot "><div class="frame"><img src="img/pbi-04-pq-estados.jpg" alt="6 = Nome da consulta. 7 = Etapas Aplicadas. 8 = colunas da região já expandidas." loading="lazy"><span class="ring" style="left:84.2%;top:27%;width:14.4%;height:3.6%"></span><span class="ring" style="left:84.2%;top:37.6%;width:14.4%;height:13%"></span><span class="ring" style="left:45.4%;top:25.6%;width:31.3%;height:3%"></span><span class="pin" style="left:82%;top:28.6%">6</span><span class="pin" style="left:82%;top:44%">7</span><span class="pin" style="left:61%;top:22.5%">8</span></div><figcaption><b>Print real.</b> 6 = Nome da consulta. 7 = Etapas Aplicadas. 8 = colunas da região já expandidas.</figcaption></figure></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i5"><label for="i5"><span class="k">Passo 2.5</span>Padronize dEstado no Editor Avançado</label></div><p>Clique em <span class="ui">Editor Avançado</span> e substitua o código por este, com nomes de coluna claros:</p>
+<div class="code"><div class="bar"><span>M · dEstado</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte     = Json.Document(Web.Contents(&quot;https://servicodados.ibge.gov.br/api/v1/localidades/estados&quot;)),
+    Tabela    = Table.FromRecords(Fonte),
+    Regiao    = Table.ExpandRecordColumn(Tabela, &quot;regiao&quot;,
+                    {&quot;id&quot;, &quot;sigla&quot;, &quot;nome&quot;},
+                    {&quot;id_regiao&quot;, &quot;sigla_regiao&quot;, &quot;regiao&quot;}),
+    Renomeado = Table.RenameColumns(Regiao,
+                    {{&quot;id&quot;, &quot;id_uf&quot;}, {&quot;sigla&quot;, &quot;sigla_uf&quot;}, {&quot;nome&quot;, &quot;uf&quot;}}),
+    Tipos     = Table.TransformColumnTypes(Renomeado, {
+                    {&quot;id_uf&quot;, Int64.Type}, {&quot;sigla_uf&quot;, type text}, {&quot;uf&quot;, type text},
+                    {&quot;id_regiao&quot;, Int64.Type}, {&quot;sigla_regiao&quot;, type text}, {&quot;regiao&quot;, type text}})
+in
+    Tipos</pre></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i6"><label for="i6"><span class="k">Passo 2.6</span>Crie fPopulacao</label></div><p><span class="ui">Nova Fonte</span> → <span class="ui">Consulta Nula</span>, renomeie para <code>fPopulacao</code>, abra o <span class="ui">Editor Avançado</span> e cole:</p>
+<div class="code"><div class="bar"><span>M · fPopulacao</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Url       = &quot;https://apisidra.ibge.gov.br/values/t/6579/n3/all/v/9324/p/last%205&quot;,
+    Fonte     = Json.Document(Web.Contents(Url, [Headers = [Accept = &quot;application/json&quot;]])),
+    // a 1ª linha do SIDRA é o &quot;dicionário&quot; das colunas (D1C = código da UF...). Pulamos.
+    SemCabec  = List.Skip(Fonte, 1),
+    Tabela    = Table.FromRecords(SemCabec),
+    Colunas   = Table.SelectColumns(Tabela, {&quot;D1C&quot;, &quot;D3N&quot;, &quot;V&quot;}),
+    Renomeado = Table.RenameColumns(Colunas,
+                    {{&quot;D1C&quot;, &quot;id_uf&quot;}, {&quot;D3N&quot;, &quot;ano&quot;}, {&quot;V&quot;, &quot;populacao&quot;}}),
+    Tipos     = Table.TransformColumnTypes(Renomeado,
+                    {{&quot;id_uf&quot;, Int64.Type}, {&quot;ano&quot;, Int64.Type}, {&quot;populacao&quot;, Int64.Type}}, &quot;en-US&quot;)
+in
+    Tipos</pre></div>
+<p>Resultado esperado: <b>135 linhas</b> (27 UFs × 5 anos).</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que jogar fora tantas colunas</b><p>A API devolve 11 colunas, mas nome do estado, variável e unidade se repetem em todas as linhas. O nome já está em dEstado. Fato bom é “magro”: só chaves e números.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i7"><label for="i7"><span class="k">Passo 2.7</span>Crie fPIB e converta a unidade</label></div><div class="code"><div class="bar"><span>M · fPIB</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Url       = &quot;https://apisidra.ibge.gov.br/values/t/5938/n3/all/v/37/p/last%205&quot;,
+    Fonte     = Json.Document(Web.Contents(Url, [Headers = [Accept = &quot;application/json&quot;]])),
+    SemCabec  = List.Skip(Fonte, 1),
+    Tabela    = Table.FromRecords(SemCabec),
+    Colunas   = Table.SelectColumns(Tabela, {&quot;D1C&quot;, &quot;D3N&quot;, &quot;V&quot;}),
+    Renomeado = Table.RenameColumns(Colunas,
+                    {{&quot;D1C&quot;, &quot;id_uf&quot;}, {&quot;D3N&quot;, &quot;ano&quot;}, {&quot;V&quot;, &quot;pib_mil_reais&quot;}}),
+    Tipos     = Table.TransformColumnTypes(Renomeado,
+                    {{&quot;id_uf&quot;, Int64.Type}, {&quot;ano&quot;, Int64.Type}, {&quot;pib_mil_reais&quot;, type number}}, &quot;en-US&quot;),
+    // converte &quot;mil reais&quot; para reais: evita confusão de unidade no relatório
+    EmReais   = Table.AddColumn(Tipos, &quot;pib_reais&quot;, each [pib_mil_reais] * 1000, type number),
+    Final     = Table.RemoveColumns(EmReais, {&quot;pib_mil_reais&quot;})
+in
+    Final</pre></div>
+<p>135 linhas, anos 2019 a 2023. Clique em <span class="ui">Fechar e Aplicar</span>.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>O <code>"en-US"</code> garante que o texto <code>"1796460"</code> vire número igual em qualquer computador, em português ou inglês.</p></div></div></div></div>
+</section>
+
+<section id="modelo"><h2><span class="n">04</span>Relacionamentos: o modelo estrela</h2><p class="sub">Duas fatos (população e PIB) obedecendo aos mesmos filtros de estado e de ano.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m1"><label for="m1"><span class="k">Passo 3.1</span>Crie a dimensão dAno com DAX</label></div><p>População tem 2020, 2021, 2024–2026; PIB tem 2019–2023. Precisamos de uma tabela com <b>todos</b> os anos. <span class="ui">Modelagem</span> → <span class="ui">Nova tabela</span>:</p>
+<div class="code"><div class="bar"><span>DAX · tabela calculada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>dAno =
+VAR AnoIni = MIN ( MIN ( fPopulacao[ano] ), MIN ( fPIB[ano] ) )
+VAR AnoFim = MAX ( MAX ( fPopulacao[ano] ), MAX ( fPIB[ano] ) )
+RETURN
+    SELECTCOLUMNS ( GENERATESERIES ( AnoIni, AnoFim, 1 ), &quot;Ano&quot;, [Value] )</pre></div>
+<p>Resultado: coluna <code>Ano</code> de 2019 a 2026 (8 linhas), dinâmica.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m2"><label for="m2"><span class="k">Passo 3.2</span>Ligue as tabelas na Exibição de modelo</label></div><div class="diagram" role="img" aria-label="Modelo estrela: dEstado e dAno filtram fPopulacao e fPIB">
+<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg"><g style="font-size:12px">
+<rect x="40" y="16" width="230" height="134" rx="8" style="fill:var(--blue-soft);stroke:var(--blue)"/>
+<text x="56" y="40" style="fill:var(--blue);font-weight:600;font-size:14px">dEstado · 27 linhas</text>
+<text x="56" y="64" style="fill:var(--ink)">id_uf  (chave)</text><text x="56" y="84" style="fill:var(--ink-2)">sigla_uf · uf</text>
+<text x="56" y="104" style="fill:var(--ink-2)">id_regiao · sigla_regiao</text><text x="56" y="124" style="fill:var(--ink-2)">regiao</text>
+<rect x="450" y="16" width="230" height="80" rx="8" style="fill:var(--blue-soft);stroke:var(--blue)"/>
+<text x="466" y="40" style="fill:var(--blue);font-weight:600;font-size:14px">dAno · 8 linhas</text><text x="466" y="64" style="fill:var(--ink)">Ano  (chave)</text>
+<rect x="40" y="218" width="230" height="96" rx="8" style="fill:var(--paper);stroke:var(--ink-3)"/>
+<text x="56" y="242" style="fill:var(--ink);font-weight:600;font-size:14px">fPopulacao · 135 linhas</text><text x="56" y="266" style="fill:var(--ink-2)">id_uf · ano</text><text x="56" y="286" style="fill:var(--ink-2)">populacao</text>
+<rect x="450" y="218" width="230" height="96" rx="8" style="fill:var(--paper);stroke:var(--ink-3)"/>
+<text x="466" y="242" style="fill:var(--ink);font-weight:600;font-size:14px">fPIB · 135 linhas</text><text x="466" y="266" style="fill:var(--ink-2)">id_uf · ano</text><text x="466" y="286" style="fill:var(--ink-2)">pib_reais</text>
+<path d="M155 150 L155 214 M250 150 L470 214 M470 96 L250 214 M565 96 L565 214" style="stroke:var(--ink-3);stroke-width:2;fill:none"/>
+<g style="font-weight:600"><text x="140" y="166" style="fill:var(--accent-ink)">1</text><text x="140" y="210" style="fill:var(--accent-ink)">*</text><text x="575" y="112" style="fill:var(--accent-ink)">1</text><text x="575" y="210" style="fill:var(--accent-ink)">*</text></g>
+</g></svg></div>
+<div class="tbl"><table>
+<thead><tr><th>De (lado 1)</th><th>Para (lado *)</th><th>Cardinalidade</th><th>Filtro</th></tr></thead>
+<tbody>
+<tr><td>dEstado[id_uf]</td><td>fPopulacao[id_uf]</td><td>1:*</td><td>Único</td></tr>
+<tr><td>dEstado[id_uf]</td><td>fPIB[id_uf]</td><td>1:*</td><td>Único</td></tr>
+<tr><td>dAno[Ano]</td><td>fPopulacao[ano]</td><td>1:*</td><td>Único</td></tr>
+<tr><td>dAno[Ano]</td><td>fPIB[ano]</td><td>1:*</td><td>Único</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que não ligar fPIB direto com fPopulacao</b><p>Nas duas fatos o id_uf se repete. Ligar fato com fato gera relação muitos-para-muitos, com totais errados. Regra do modelo estrela: <b>fato só se liga a dimensão</b>.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m3"><label for="m3"><span class="k">Passo 3.3</span>Arrume o modelo para quem vai usar</label></div><ul>
+<li>Oculte <code>id_uf</code> e <code>ano</code> das fatos (botão direito → <span class="ui">Ocultar na exibição de relatório</span>).</li>
+<li>Em <code>dAno[Ano]</code>, <b>Resumir por: Não resumir</b>.</li>
+<li>Em <code>dEstado[uf]</code>, <b>Categoria de dados: Estado ou Província</b>, para mapas.</li>
+</ul></div></div>
+</section>
+
+<section id="dax"><h2><span class="n">05</span>Medidas DAX</h2><p class="sub">Crie a tabela _Medidas (Inserir dados) e use Nova medida para cada fórmula.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d1"><label for="d1"><span class="k">Medidas 1 e 2</span>População e PIB</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>População = SUM ( fPopulacao[populacao] )
+
+PIB (R$) = SUM ( fPIB[pib_reais] )</pre></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>2021: População = <b>213.317.639</b> e PIB = <b>R$ 9,01 tri</b>. 2023: PIB = <b>R$ 10,94 tri</b>.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d3"><label for="d3"><span class="k">Medida 3</span>PIB per capita com DIVIDE</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>PIB per capita = DIVIDE ( [PIB (R$)], [População] )</pre></div>
+<p><b>Análise:</b> São Paulo tem o maior PIB, mas o Distrito Federal tem o maior PIB per capita (R$ 92.732 em 2021). O Maranhão fica em último (R$ 17.472): diferença de mais de 5 vezes no mesmo país.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que DIVIDE</b><p>Em 2022 e 2023 existe PIB mas não existe população estimada. Com DIVIDE, esses anos ficam em branco em vez de dar erro. Brasil 2021 = <b>R$ 42.248</b>.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d4"><label for="d4"><span class="k">Medida 4</span>% do PIB Brasil: CALCULATE + ALL</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>% PIB Brasil =
+DIVIDE (
+    [PIB (R$)],
+    CALCULATE ( [PIB (R$)], ALL ( dEstado ) )   -- PIB de todos os estados
+)</pre></div>
+<p><code>CALCULATE</code> recalcula mudando filtros; <code>ALL(dEstado)</code> ignora o filtro de estado e região. O filtro de ano continua valendo.</p>
+<p><b>Análise:</b> em 2023, São Paulo tem <b>31,5%</b> do PIB e o Sudeste <b>53,0%</b>.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d5"><label for="d5"><span class="k">Medida 5</span>Ranking com RANKX</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Ranking PIB per capita =
+IF (
+    HASONEVALUE ( dEstado[uf] ),
+    RANKX ( ALL ( dEstado[uf] ), [PIB per capita], , DESC, Dense )
+)</pre></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira (2021)</b><p>1º DF, 2º MT, 3º SC, 4º SP, 5º RJ. Último: MA.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d6"><label for="d6"><span class="k">Medidas 6 e 7</span>Comparação com o ano anterior</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>PIB Ano Anterior =
+VAR AnoAtual = MAX ( dAno[Ano] )
+RETURN
+    CALCULATE ( [PIB (R$)], dAno[Ano] = AnoAtual - 1 )
+
+Var. % PIB =
+DIVIDE ( [PIB (R$)] - [PIB Ano Anterior], [PIB Ano Anterior] )</pre></div>
+<p>A <code>VAR</code> guarda o ano do filtro <b>antes</b> do CALCULATE trocá-lo. <b>Análise:</b> de 2022 para 2023 o PIB nominal cresceu <b>8,6%</b>; Roraima (+19,1%), Amapá (+18,7%) e Alagoas (+17,9%) lideram; o Rio de Janeiro cresceu 1,7%.</p></div></div>
+</section>
+
+<section id="visuais"><h2><span class="n">06</span>Visuais e análises</h2>
+<div class="tbl"><table>
+<thead><tr><th>Visual</th><th>Campos</th><th>Pergunta</th></tr></thead>
+<tbody>
+<tr><td>Segmentação</td><td>dAno[Ano], seleção única</td><td>Qual ano analisar</td></tr>
+<tr><td>3 Cartões</td><td>PIB, População, PIB per capita</td><td>Visão geral</td></tr>
+<tr><td>Barras</td><td>dEstado[sigla_uf] · PIB per capita</td><td>Riqueza por habitante</td></tr>
+<tr><td>Barras</td><td>dEstado[regiao] · % PIB Brasil</td><td>Concentração</td></tr>
+<tr><td>Linhas</td><td>dAno[Ano] · PIB (R$)</td><td>Crescimento</td></tr>
+<tr><td>Tabela</td><td>uf, PIB, % PIB Brasil, Var. %, Ranking</td><td>Detalhe</td></tr>
+</tbody></table></div>
+<h3>Prévia: como o seu painel deve ficar</h3>
+<p>Mesmos números que você importou. Clique nos anos: 2022 e 2023 não têm PIB per capita, efeito do DIVIDE.</p>
+<div class="dash" id="dash">
+<div class="dash-top"><div class="dash-title">Painel Brasil · Economia e População</div><div class="yr" id="yr" role="group" aria-label="Ano"></div></div>
+<div class="kpis" id="kpis"></div>
+<div class="charts">
+<div class="chart"><h4>PIB per capita por UF (R$)</h4><div id="c-pc"></div></div>
+<div class="chart"><h4>% do PIB Brasil por região</h4><div id="c-reg"></div><h4 style="margin-top:14px">PIB do Brasil por ano (R$ tri)</h4><div id="c-line"></div></div>
+</div></div>
+<p style="font-size:13px;color:var(--ink-3)">Prévia ilustrativa com os dados do IBGE.</p>
+<div class="callout tip"><div class="ico">i</div><div><b class="t">Títulos que contam a conclusão</b><p>Em vez de “PIB per capita por UF”, escreva “DF produz 5x mais por habitante que o Maranhão”.</p></div></div>
+</section>
+
+<section id="erros"><h2><span class="n">07</span>Erros comuns</h2>
+<details><summary>Todos os estados mostram o mesmo valor</summary><div class="in"><p>Falta relacionamento ou ele está inativo. Confira <span class="ui">Gerenciar relações</span>.</p></div></details>
+<details><summary>PIB mil vezes menor</summary><div class="in"><p>Faltou a etapa EmReais (o SIDRA entrega em mil reais).</p></div></details>
+<details><summary>Expression.Error: coluna 'D1C' não encontrada</summary><div class="in"><p>A API devolveu XML ou erro. Confira a URL (com <code>%20</code>) e o cabeçalho <code>Accept = "application/json"</code>.</p></div></details>
+<details><summary>PIB per capita em branco</summary><div class="in"><p>Correto para 2019, 2022 e 2023: falta população ou PIB. Explique no painel com uma caixa de texto.</p></div></details>
+<details><summary>O slicer mostra “Soma de Ano”</summary><div class="in"><p>Em dAno[Ano], Resumir por: Não resumir.</p></div></details>
+</section>
+
+<section id="atividades"><h2><span class="n">08</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Participação na população</h4><span class="lvl b">Básico</span></div><p>Crie <code>% População Brasil</code> e compare com <code>% PIB Brasil</code>. Quais estados têm % do PIB maior que % da população?</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Top 5</h4><span class="lvl b">Básico</span></div><p>Mostre só os 5 maiores PIB per capita usando o filtro <b>N superior</b>.</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Crescimento populacional 2024–2026</h4><span class="lvl m">Intermediário</span></div><p>Crie a medida com dois CALCULATE (2024 e 2026). Quem mais cresceu? Quem perdeu população?</p>
+<details><summary>Dica</summary><div class="in"><p><code>VAR P24 = CALCULATE([População], dAno[Ano] = 2024)</code> … <code>RETURN DIVIDE(P26 - P24, P24)</code>. Não compare com 2021: as estimativas antes do Censo 2022 usavam outra base.</p></div></details></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Faixas de riqueza</h4><span class="lvl m">Intermediário</span></div><p>Coluna calculada em dEstado: “Alta” (&gt; R$ 50 mil), “Média” (30 a 50 mil), “Baixa”, usando o PIB per capita de 2021.</p>
+<details><summary>Dica</summary><div class="in"><p><code>VAR PC = CALCULATE([PIB per capita], dAno[Ano] = 2021)</code> e <code>SWITCH(TRUE(), PC &gt; 50000, "Alta", PC &gt;= 30000, "Média", "Baixa")</code>. O CALCULATE faz a transição de contexto: a linha do estado vira filtro.</p></div></details></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Área e densidade (Censo 2022)</h4><span class="lvl a">Desafio</span></div><p>Encontre no SIDRA a tabela do Censo 2022 com área territorial das UFs, importe como fArea e crie <code>Densidade (hab/km²)</code>. Faça uma dispersão PIB per capita × densidade.</p></div>
+<div class="ex"><div class="ex-h"><h4>A6 · Dashboard final</h4><span class="lvl a">Entrega</span></div><p>Relatório de 2 páginas (Visão Brasil e Comparar estados) com 3 conclusões escritas, cada uma com um número, e a nota de fonte do IBGE.</p></div>
+</section>
+
+<section id="planob"><h2><span class="n">09</span>Plano B: laboratório sem internet</h2><p class="sub">Se a rede bloquear a API, use os mesmos dados (consulta de 06/10/2026): Página Inicial → Inserir dados → clique na primeira célula e cole.</p>
+<details><summary>dEstado (27 linhas)</summary><div class="in"><div class="code"><div class="bar"><span>TSV · copie e cole em Inserir dados</span><button class="copy" type="button">Copiar</button></div><pre>id_uf	sigla_uf	uf	sigla_regiao	regiao
+11	RO	Rondônia	N	Norte
+12	AC	Acre	N	Norte
+13	AM	Amazonas	N	Norte
+14	RR	Roraima	N	Norte
+15	PA	Pará	N	Norte
+16	AP	Amapá	N	Norte
+17	TO	Tocantins	N	Norte
+21	MA	Maranhão	NE	Nordeste
+22	PI	Piauí	NE	Nordeste
+23	CE	Ceará	NE	Nordeste
+24	RN	Rio Grande do Norte	NE	Nordeste
+25	PB	Paraíba	NE	Nordeste
+26	PE	Pernambuco	NE	Nordeste
+27	AL	Alagoas	NE	Nordeste
+28	SE	Sergipe	NE	Nordeste
+29	BA	Bahia	NE	Nordeste
+31	MG	Minas Gerais	SE	Sudeste
+32	ES	Espírito Santo	SE	Sudeste
+33	RJ	Rio de Janeiro	SE	Sudeste
+35	SP	São Paulo	SE	Sudeste
+41	PR	Paraná	S	Sul
+42	SC	Santa Catarina	S	Sul
+43	RS	Rio Grande do Sul	S	Sul
+50	MS	Mato Grosso do Sul	CO	Centro-Oeste
+51	MT	Mato Grosso	CO	Centro-Oeste
+52	GO	Goiás	CO	Centro-Oeste
+53	DF	Distrito Federal	CO	Centro-Oeste</pre></div></div></details>
+<details><summary>fPopulacao (135 linhas)</summary><div class="in"><div class="code"><div class="bar"><span>TSV · copie e cole em Inserir dados</span><button class="copy" type="button">Copiar</button></div><pre>id_uf	ano	populacao
+11	2020	1796460
+11	2021	1815278
+11	2024	1746227
+11	2025	1751950
+11	2026	1757338
+12	2020	894470
+12	2021	906876
+12	2024	880631
+12	2025	884372
+12	2026	887794
+13	2020	4207714
+13	2021	4269995
+13	2024	4281209
+13	2025	4321616
+13	2026	4360926
+14	2020	631181
+14	2021	652713
+14	2024	716793
+14	2025	738772
+14	2026	761012
+15	2020	8690745
+15	2021	8777124
+15	2024	8664306
+15	2025	8711196
+15	2026	8756324
+16	2020	861773
+16	2021	877613
+16	2024	802837
+16	2025	806517
+16	2026	809953
+17	2020	1590248
+17	2021	1607363
+17	2024	1577342
+17	2025	1586859
+17	2026	1595994
+21	2020	7114598
+21	2021	7153262
+21	2024	7010960
+21	2025	7018211
+21	2026	7024557
+22	2020	3281480
+22	2021	3289290
+22	2024	3375646
+22	2025	3384547
+22	2026	3392617
+23	2020	9187103
+23	2021	9240580
+23	2024	9233656
+23	2025	9268836
+23	2026	9302211
+24	2020	3534165
+24	2021	3560903
+24	2024	3446071
+24	2025	3455236
+24	2026	3463737
+25	2020	4039277
+25	2021	4059905
+25	2024	4145040
+25	2025	4164468
+25	2026	4182828
+26	2020	9616621
+26	2021	9674793
+26	2024	9539029
+26	2025	9562007
+26	2026	9583176
+27	2020	3351543
+27	2021	3365351
+27	2024	3220104
+27	2025	3220848
+27	2026	3221128
+28	2020	2318822
+28	2021	2338474
+28	2024	2291077
+28	2025	2299425
+28	2026	2307255
+29	2020	14930634
+29	2021	14985284
+29	2024	14850513
+29	2025	14870907
+29	2026	14889472
+31	2020	21292666
+31	2021	21411923
+31	2024	21322691
+31	2025	21393441
+31	2026	21460311
+32	2020	4064052
+32	2021	4108508
+32	2024	4102129
+32	2025	4126854
+32	2026	4150692
+33	2020	17366189
+33	2021	17463349
+33	2024	17219679
+33	2025	17223547
+33	2026	17225410
+35	2020	46289333
+35	2021	46649132
+35	2024	45973194
+35	2025	46081801
+35	2026	46179008
+41	2020	11516840
+41	2021	11597484
+41	2024	11824665
+41	2025	11890517
+41	2026	11952456
+42	2020	7252502
+42	2021	7338473
+42	2024	8058441
+42	2025	8187029
+42	2026	8312759
+43	2020	11422973
+43	2021	11466630
+43	2024	11229915
+43	2025	11233263
+43	2026	11233317
+50	2020	2809394
+50	2021	2839188
+50	2024	2901895
+50	2025	2924631
+50	2026	2946317
+51	2020	3526220
+51	2021	3567234
+51	2024	3836399
+51	2025	3893659
+51	2026	3950330
+52	2020	7113540
+52	2021	7206589
+52	2024	7350483
+52	2025	7423629
+52	2026	7495033
+53	2020	3055149
+53	2021	3094325
+53	2024	2982818
+53	2025	2996899
+53	2026	3009996</pre></div></div></details>
+<details><summary>fPIB (135 linhas)</summary><div class="in"><div class="code"><div class="bar"><span>TSV · copie e cole em Inserir dados</span><button class="copy" type="button">Copiar</button></div><pre>id_uf	ano	pib_reais
+11	2019	47091336000
+11	2020	51598741000
+11	2021	58170096000
+11	2022	66795454000
+11	2023	76456179000
+12	2019	15630017000
+12	2020	16476371000
+12	2021	21374440000
+12	2022	23676136000
+12	2023	26291321000
+13	2019	108181091000
+13	2020	116019139000
+13	2021	131531038000
+13	2022	145140465000
+13	2023	161794976000
+14	2019	14292227000
+14	2020	16024276000
+14	2021	18202579000
+14	2022	21095342000
+14	2023	25124805000
+15	2019	178376984000
+15	2020	215935604000
+15	2021	262904979000
+15	2022	236141874000
+15	2023	254546511000
+16	2019	17496661000
+16	2020	18469115000
+16	2021	20099851000
+16	2022	23614291000
+16	2023	28020120000
+17	2019	39355941000
+17	2020	43649803000
+17	2021	51780764000
+17	2022	58208795000
+17	2023	64317699000
+21	2019	97339938000
+21	2020	106915962000
+21	2021	124980720000
+21	2022	139789146000
+21	2023	149227195000
+22	2019	52780785000
+22	2020	56391257000
+22	2021	64028303000
+22	2022	72834504000
+22	2023	80916856000
+23	2019	163575327000
+23	2020	166914536000
+23	2021	194884802000
+23	2022	213600674000
+23	2023	232239257000
+24	2019	71336780000
+24	2020	71577107000
+24	2021	80180733000
+24	2022	93819291000
+24	2023	101740275000
+25	2019	67986074000
+25	2020	70292034000
+25	2021	77470331000
+25	2022	86094173000
+25	2023	96963174000
+26	2019	197853378000
+26	2020	193307317000
+26	2021	220813522000
+26	2022	245828017000
+26	2023	270474919000
+27	2019	58963729000
+27	2020	63202349000
+27	2021	76265620000
+27	2022	76065806000
+27	2023	89688932000
+28	2019	44689483000
+28	2020	45409657000
+28	2021	51861397000
+28	2022	57372241000
+28	2023	60816662000
+29	2019	293240504000
+29	2020	305320813000
+29	2021	352617852000
+29	2022	402646606000
+29	2023	430987853000
+31	2019	651872684000
+31	2020	682786116000
+31	2021	857593214000
+31	2022	906730670000
+31	2023	971977551000
+32	2019	137345595000
+32	2020	138445922000
+32	2021	186336505000
+32	2022	182548590000
+32	2023	209829732000
+33	2019	779927917000
+33	2020	753823711000
+33	2021	949300770000
+33	2022	1153512155000
+33	2023	1172871443000
+35	2019	2348338000000
+35	2020	2377638980000
+35	2021	2719751231000
+35	2022	3130333203000
+35	2023	3444814033000
+41	2019	466377036000
+41	2020	487930594000
+41	2021	549973062000
+41	2022	614610848000
+41	2023	670919162000
+42	2019	323263857000
+42	2020	349275016000
+42	2021	428570889000
+42	2022	466274103000
+42	2023	513392973000
+43	2019	482464177000
+43	2020	470941846000
+43	2021	581283677000
+43	2022	593633656000
+43	2023	650107022000
+50	2019	106943246000
+50	2020	122627726000
+50	2021	142203766000
+50	2022	166407329000
+50	2023	184402118000
+51	2019	142122028000
+51	2020	178649564000
+51	2021	233390203000
+51	2022	255527297000
+51	2023	273008586000
+52	2019	208672492000
+52	2020	224126112000
+52	2021	269627874000
+52	2022	318586149000
+52	2023	336746975000
+53	2019	273613711000
+53	2020	265847334000
+53	2021	286943782000
+53	2022	328789563000
+53	2023	365669108000</pre></div></div></details>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>Tabelas coladas não se atualizam. No mundo real, prefira a conexão com a API.</p></div></div>
+</section>
+<script>
+const D = {"uf":[[11,"RO","Rondônia","N"],[12,"AC","Acre","N"],[13,"AM","Amazonas","N"],[14,"RR","Roraima","N"],[15,"PA","Pará","N"],[16,"AP","Amapá","N"],[17,"TO","Tocantins","N"],[21,"MA","Maranhão","NE"],[22,"PI","Piauí","NE"],[23,"CE","Ceará","NE"],[24,"RN","Rio Grande do Norte","NE"],[25,"PB","Paraíba","NE"],[26,"PE","Pernambuco","NE"],[27,"AL","Alagoas","NE"],[28,"SE","Sergipe","NE"],[29,"BA","Bahia","NE"],[31,"MG","Minas Gerais","SE"],[32,"ES","Espírito Santo","SE"],[33,"RJ","Rio de Janeiro","SE"],[35,"SP","São Paulo","SE"],[41,"PR","Paraná","S"],[42,"SC","Santa Catarina","S"],[43,"RS","Rio Grande do Sul","S"],[50,"MS","Mato Grosso do Sul","CO"],[51,"MT","Mato Grosso","CO"],[52,"GO","Goiás","CO"],[53,"DF","Distrito Federal","CO"]],"pop":[[11,2020,1796460],[11,2021,1815278],[11,2024,1746227],[11,2025,1751950],[11,2026,1757338],[12,2020,894470],[12,2021,906876],[12,2024,880631],[12,2025,884372],[12,2026,887794],[13,2020,4207714],[13,2021,4269995],[13,2024,4281209],[13,2025,4321616],[13,2026,4360926],[14,2020,631181],[14,2021,652713],[14,2024,716793],[14,2025,738772],[14,2026,761012],[15,2020,8690745],[15,2021,8777124],[15,2024,8664306],[15,2025,8711196],[15,2026,8756324],[16,2020,861773],[16,2021,877613],[16,2024,802837],[16,2025,806517],[16,2026,809953],[17,2020,1590248],[17,2021,1607363],[17,2024,1577342],[17,2025,1586859],[17,2026,1595994],[21,2020,7114598],[21,2021,7153262],[21,2024,7010960],[21,2025,7018211],[21,2026,7024557],[22,2020,3281480],[22,2021,3289290],[22,2024,3375646],[22,2025,3384547],[22,2026,3392617],[23,2020,9187103],[23,2021,9240580],[23,2024,9233656],[23,2025,9268836],[23,2026,9302211],[24,2020,3534165],[24,2021,3560903],[24,2024,3446071],[24,2025,3455236],[24,2026,3463737],[25,2020,4039277],[25,2021,4059905],[25,2024,4145040],[25,2025,4164468],[25,2026,4182828],[26,2020,9616621],[26,2021,9674793],[26,2024,9539029],[26,2025,9562007],[26,2026,9583176],[27,2020,3351543],[27,2021,3365351],[27,2024,3220104],[27,2025,3220848],[27,2026,3221128],[28,2020,2318822],[28,2021,2338474],[28,2024,2291077],[28,2025,2299425],[28,2026,2307255],[29,2020,14930634],[29,2021,14985284],[29,2024,14850513],[29,2025,14870907],[29,2026,14889472],[31,2020,21292666],[31,2021,21411923],[31,2024,21322691],[31,2025,21393441],[31,2026,21460311],[32,2020,4064052],[32,2021,4108508],[32,2024,4102129],[32,2025,4126854],[32,2026,4150692],[33,2020,17366189],[33,2021,17463349],[33,2024,17219679],[33,2025,17223547],[33,2026,17225410],[35,2020,46289333],[35,2021,46649132],[35,2024,45973194],[35,2025,46081801],[35,2026,46179008],[41,2020,11516840],[41,2021,11597484],[41,2024,11824665],[41,2025,11890517],[41,2026,11952456],[42,2020,7252502],[42,2021,7338473],[42,2024,8058441],[42,2025,8187029],[42,2026,8312759],[43,2020,11422973],[43,2021,11466630],[43,2024,11229915],[43,2025,11233263],[43,2026,11233317],[50,2020,2809394],[50,2021,2839188],[50,2024,2901895],[50,2025,2924631],[50,2026,2946317],[51,2020,3526220],[51,2021,3567234],[51,2024,3836399],[51,2025,3893659],[51,2026,3950330],[52,2020,7113540],[52,2021,7206589],[52,2024,7350483],[52,2025,7423629],[52,2026,7495033],[53,2020,3055149],[53,2021,3094325],[53,2024,2982818],[53,2025,2996899],[53,2026,3009996]],"pib":[[11,2019,47091336],[11,2020,51598741],[11,2021,58170096],[11,2022,66795454],[11,2023,76456179],[12,2019,15630017],[12,2020,16476371],[12,2021,21374440],[12,2022,23676136],[12,2023,26291321],[13,2019,108181091],[13,2020,116019139],[13,2021,131531038],[13,2022,145140465],[13,2023,161794976],[14,2019,14292227],[14,2020,16024276],[14,2021,18202579],[14,2022,21095342],[14,2023,25124805],[15,2019,178376984],[15,2020,215935604],[15,2021,262904979],[15,2022,236141874],[15,2023,254546511],[16,2019,17496661],[16,2020,18469115],[16,2021,20099851],[16,2022,23614291],[16,2023,28020120],[17,2019,39355941],[17,2020,43649803],[17,2021,51780764],[17,2022,58208795],[17,2023,64317699],[21,2019,97339938],[21,2020,106915962],[21,2021,124980720],[21,2022,139789146],[21,2023,149227195],[22,2019,52780785],[22,2020,56391257],[22,2021,64028303],[22,2022,72834504],[22,2023,80916856],[23,2019,163575327],[23,2020,166914536],[23,2021,194884802],[23,2022,213600674],[23,2023,232239257],[24,2019,71336780],[24,2020,71577107],[24,2021,80180733],[24,2022,93819291],[24,2023,101740275],[25,2019,67986074],[25,2020,70292034],[25,2021,77470331],[25,2022,86094173],[25,2023,96963174],[26,2019,197853378],[26,2020,193307317],[26,2021,220813522],[26,2022,245828017],[26,2023,270474919],[27,2019,58963729],[27,2020,63202349],[27,2021,76265620],[27,2022,76065806],[27,2023,89688932],[28,2019,44689483],[28,2020,45409657],[28,2021,51861397],[28,2022,57372241],[28,2023,60816662],[29,2019,293240504],[29,2020,305320813],[29,2021,352617852],[29,2022,402646606],[29,2023,430987853],[31,2019,651872684],[31,2020,682786116],[31,2021,857593214],[31,2022,906730670],[31,2023,971977551],[32,2019,137345595],[32,2020,138445922],[32,2021,186336505],[32,2022,182548590],[32,2023,209829732],[33,2019,779927917],[33,2020,753823711],[33,2021,949300770],[33,2022,1153512155],[33,2023,1172871443],[35,2019,2348338000],[35,2020,2377638980],[35,2021,2719751231],[35,2022,3130333203],[35,2023,3444814033],[41,2019,466377036],[41,2020,487930594],[41,2021,549973062],[41,2022,614610848],[41,2023,670919162],[42,2019,323263857],[42,2020,349275016],[42,2021,428570889],[42,2022,466274103],[42,2023,513392973],[43,2019,482464177],[43,2020,470941846],[43,2021,581283677],[43,2022,593633656],[43,2023,650107022],[50,2019,106943246],[50,2020,122627726],[50,2021,142203766],[50,2022,166407329],[50,2023,184402118],[51,2019,142122028],[51,2020,178649564],[51,2021,233390203],[51,2022,255527297],[51,2023,273008586],[52,2019,208672492],[52,2020,224126112],[52,2021,269627874],[52,2022,318586149],[52,2023,336746975],[53,2019,273613711],[53,2020,265847334],[53,2021,286943782],[53,2022,328789563],[53,2023,365669108]]}
+;
+const RN = {N:"Norte",NE:"Nordeste",SE:"Sudeste",S:"Sul",CO:"Centro-Oeste"};
+const fmtInt = n => n.toLocaleString("pt-BR");
+const fmtR = n => "R$ " + Math.round(n).toLocaleString("pt-BR");
+const fmtTri = n => "R$ " + (n/1e12).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}) + " tri";
+
+/* ---------- prévia do dashboard ---------- */
+const UF = Object.fromEntries(D.uf.map(u=>[u[0],{sigla:u[1],nome:u[2],reg:u[3]}]));
+const pop = {}, pib = {};
+D.pop.forEach(([k,y,v])=>{ (pop[y]=pop[y]||{})[k]=v; });
+D.pib.forEach(([k,y,v])=>{ (pib[y]=pib[y]||{})[k]=v*1000; });
+const anos = []; for(let y=2019;y<=2026;y++) anos.push(y);
+const sum = o => o ? Object.values(o).reduce((a,b)=>a+b,0) : null;
+let ano = 2021;
+const tt = document.createElement('div'); tt.className='tt'; tt.hidden=true; document.body.appendChild(tt);
+function tip(el, html){
+  el.addEventListener('mousemove',e=>{ tt.innerHTML=html; tt.hidden=false; const x=Math.min(e.clientX+12, innerWidth-tt.offsetWidth-8); tt.style.left=x+'px'; tt.style.top=(e.clientY+14)+'px'; });
+  el.addEventListener('mouseleave',()=>tt.hidden=true);
+}
+const yr = document.getElementById('yr');
+anos.forEach(y=>{ const b=document.createElement('button'); b.type='button'; b.textContent=y; b.addEventListener('click',()=>{ano=y;render();}); yr.appendChild(b); });
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a={},p)=>{const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); if(p) p.appendChild(e); return e;};
+
+function render(){
+  [...yr.children].forEach(b=>b.setAttribute('aria-pressed', +b.textContent===ano));
+  const P = sum(pop[ano]), G = sum(pib[ano]);
+  const k = [
+    ["PIB", G? fmtTri(G):"—", G? "fPIB · "+ano : "sem PIB neste ano"],
+    ["População", P? fmtInt(P):"—", P? "fPopulacao · "+ano : "sem estimativa neste ano"],
+    ["PIB per capita", (P&&G)? fmtR(G/P):"(vazio)", (P&&G)? "DIVIDE([PIB], [População])" : "DIVIDE devolve vazio"]
+  ];
+  document.getElementById('kpis').innerHTML = k.map(x=>`<div class="kpi"><small>${x[0]}</small><b>${x[1]}</b><em>${x[2]}</em></div>`).join("");
+
+  // barras PIB per capita
+  const cpc = document.getElementById('c-pc'); cpc.innerHTML="";
+  if(P&&G){
+    const rows = Object.keys(UF).map(id=>({s:UF[id].sigla,n:UF[id].nome,v:pib[ano][id]/pop[ano][id]})).sort((a,b)=>b.v-a.v);
+    const W=440,rh=17,top=4,left=32,right=64,H=top+rows.length*rh+4, mx=rows[0].v;
+    const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'PIB per capita por UF'},cpc);
+    const br = rows.reduce((a,r)=>a+0,0);
+    const brasil = G/P, bx = left + (W-left-right)*brasil/mx;
+    rows.forEach((r,i)=>{
+      const y=top+i*rh, w=(W-left-right)*r.v/mx;
+      el('text',{x:left-6,y:y+11.5,'text-anchor':'end','font-size':10.5},s).textContent=r.s;
+      const rect=el('rect',{x:left,y:y+2,width:Math.max(w,1),height:rh-5,rx:2,style:`fill:${i===0?'var(--bar-hi)':'var(--bar)'}`},s);
+      if(i<3||i===rows.length-1) el('text',{x:left+w+4,y:y+11.5,'font-size':10},s).textContent=Math.round(r.v/1000)+" mil";
+      const hit=el('rect',{x:0,y:y,width:W,height:rh,style:'fill:transparent'},s);
+      tip(hit,`<b>${r.n}</b><br>${fmtR(r.v)} · ${i+1}º lugar`);
+    });
+    el('line',{x1:bx,x2:bx,y1:0,y2:H,style:'stroke:var(--ink-3);stroke-dasharray:3 3;stroke-width:1'},s);
+    el('text',{x:bx+3,y:H-6,'font-size':9.5},s).textContent="Brasil "+Math.round(brasil/1000)+" mil";
+  } else cpc.innerHTML='<div class="empty">Sem valores em '+ano+': falta '+(P?'PIB':'população')+' na fonte.<br>Selecione 2020 ou 2021.</div>';
+
+  // regiões
+  const creg=document.getElementById('c-reg'); creg.innerHTML="";
+  if(G){
+    const reg={}; Object.keys(UF).forEach(id=>{ const r=UF[id].reg; reg[r]=(reg[r]||0)+pib[ano][id]; });
+    const rows=Object.entries(reg).map(([r,v])=>({r,v:v/G})).sort((a,b)=>b.v-a.v);
+    const W=300,rh=24,left=92,right=44,H=rows.length*rh+4;
+    const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Percentual do PIB por região'},creg);
+    rows.forEach((r,i)=>{ const y=i*rh, w=(W-left-right)*r.v/rows[0].v;
+      el('text',{x:left-6,y:y+15,'text-anchor':'end','font-size':11},s).textContent=RN[r.r];
+      el('rect',{x:left,y:y+5,width:w,height:rh-9,rx:2,style:`fill:${i===0?'var(--bar-hi)':'var(--bar)'}`},s);
+      el('text',{x:left+w+4,y:y+15,'font-size':11},s).textContent=(r.v*100).toLocaleString('pt-BR',{maximumFractionDigits:1})+"%";
+      const hit=el('rect',{x:0,y:y,width:W,height:rh,style:'fill:transparent'},s); tip(hit,`<b>${RN[r.r]}</b><br>${(r.v*100).toFixed(1).replace('.',',')}% do PIB · ${fmtTri(r.v*G)}`);
+    });
+  } else creg.innerHTML='<div class="empty">Sem PIB em '+ano+'.</div>';
+
+  // linha PIB
+  const cl=document.getElementById('c-line'); cl.innerHTML="";
+  const pts=Object.keys(pib).map(Number).sort().map(y=>({y,v:sum(pib[y])}));
+  const W=300,H=130,l=30,r=14,t=12,b=22, ymax=12e12;
+  const X=y=>l+(W-l-r)*(y-pts[0].y)/(pts[pts.length-1].y-pts[0].y), Y=v=>t+(H-t-b)*(1-v/ymax);
+  const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'PIB do Brasil por ano'},cl);
+  [0,4e12,8e12,12e12].forEach(g=>{ el('line',{x1:l,x2:W-r,y1:Y(g),y2:Y(g),style:'stroke:var(--line);stroke-width:1'},s); el('text',{x:l-5,y:Y(g)+3.5,'text-anchor':'end','font-size':9.5},s).textContent=g/1e12; });
+  el('path',{d:pts.map((p,i)=>(i?'L':'M')+X(p.y)+','+Y(p.v)).join(''),style:'fill:none;stroke:var(--bar);stroke-width:2'},s);
+  pts.forEach(p=>{ el('text',{x:X(p.y),y:H-6,'text-anchor':'middle','font-size':9.5},s).textContent=p.y;
+    const on=p.y===ano; el('circle',{cx:X(p.y),cy:Y(p.v),r:on?5:3.5,style:`fill:${on?'var(--bar-hi)':'var(--bar)'};stroke:var(--paper);stroke-width:2`},s);
+    const hit=el('rect',{x:X(p.y)-18,y:t,width:36,height:H-t-b,style:'fill:transparent'},s); tip(hit,`<b>${p.y}</b><br>${fmtTri(p.v)}`); });
+  el('text',{x:X(2023)-2,y:Y(pts[pts.length-1].v)-9,'text-anchor':'end','font-size':10},s).textContent=fmtTri(pts[pts.length-1].v);
+}
+render();
+</script>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-06/index.html"><small>← Aula anterior</small>Projeto Dashboard de Vendas</a><a class="nx" href="../aula-08/index.html"><small>Próxima aula →</small>Inspiração e design de dashboards</a></nav><div class="footer">Fontes: IBGE, SIDRA tabelas 6579 (Estimativas de População) e 5938 (PIB dos Municípios) e API de Localidades. Prints capturados em 06/10/2026.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

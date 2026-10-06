@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 05 · Primeiros passos com DAX</title><meta name="description" content="Você vai criar seus primeiros cálculos em DAX, entender de vez a diferença entre medida e coluna calculada, usar RELATED para buscar o preço do produto e montar indicadores de faturamento, lucro, margem e ticket médio."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-05"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-04/index.html">← Anterior</a><a href="../aula-06/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 05</p><ol><li><a href="#dax"><span>01</span>O que é DAX</a></li><li><a href="#medidas"><span>02</span>Medidas: SUM e DISTINCTCOUNT</a></li><li><a href="#colunas"><span>03</span>Colunas e RELATED</a></li><li><a href="#indicadores"><span>04</span>Faturamento, lucro e margem</a></li><li><a href="#contexto"><span>05</span>Usando as medidas</a></li><li><a href="#regra"><span>06</span>Medida x coluna</a></li><li><a href="#atividades"><span>07</span>Exercícios de fixação</a></li><li><a href="#resumo"><span>08</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 05 de 13</div><h1>Primeiros passos com <em>DAX</em>: medidas e colunas calculadas</h1><p class="lead">Você vai criar seus primeiros cálculos em DAX, entender de vez a diferença entre medida e coluna calculada, usar RELATED para buscar o preço do produto e montar indicadores de faturamento, lucro, margem e ticket médio.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Básico</span></dd><dt>Duração</dt><dd>3 horas</dd><dt>Você vai precisar</dt><dd>Power BI Desktop (gratuito, Windows)</dd><dt>Conteúdos</dt><dd><span class="tag">DAX</span><span class="tag">Medida</span><span class="tag">Coluna calculada</span><span class="tag">SUM</span><span class="tag">DISTINCTCOUNT</span><span class="tag">RELATED</span><span class="tag">DIVIDE</span><span class="tag">Ticket médio</span><span class="tag">Margem</span><span class="tag">Contexto do visual</span></dd></dl></header><section id="dax"><h2><span class="n">01</span>O que é DAX</h2><p class="sub">Sequência da aula: entender DAX → criar medidas → criar colunas calculadas → usar os cálculos em gráficos.</p>
+<p><b>DAX</b> (Data Analysis Expressions) é a linguagem de fórmulas do Power BI. Ela lembra as fórmulas do Excel, mas trabalha com <b>tabelas e colunas</b> em vez de células.</p>
+<div class="code"><div class="bar"><span>DAX · sua primeira fórmula</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Quantidade Vendida = SUM ( BaseVendas[Qtd Vendida] )</pre></div>
+<div class="tbl"><table>
+<thead><tr><th>Parte</th><th>Significado</th></tr></thead>
+<tbody>
+<tr><td><code>Quantidade Vendida</code></td><td>Nome da medida (pode ter espaço e acento)</td></tr>
+<tr><td><code>SUM</code></td><td>Função: somar</td></tr>
+<tr><td><code>BaseVendas</code></td><td>Tabela</td></tr>
+<tr><td><code>[Qtd Vendida]</code></td><td>Coluna, sempre entre colchetes</td></tr>
+</tbody></table></div>
+<h3>As tabelas que vamos usar</h3>
+<div class="tbl"><table>
+<thead><tr><th>BaseVendas (fato)</th><th>CadastroProdutos</th><th>CadastroClientes</th></tr></thead>
+<tbody><tr>
+<td>Data da Venda<br>Ordem de Compra<br>SKU<br>ID Cliente<br>Qtd Vendida<br>ID Loja</td>
+<td>SKU<br>Produto<br>Marca<br>Categoria<br>Preço Unitario<br>Custo Unitario</td>
+<td>ID Cliente<br>Nome Completo<br>Genero<br>Data Nascimento<br>Estado Civil<br>Num Filhos<br>Nivel Escolar</td>
+</tr></tbody></table></div>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Pré-requisito</b><p>Os relacionamentos da aula 4 (SKU e ID Cliente) precisam estar criados. Sem eles, <code>RELATED</code> não funciona.</p></div></div>
+<div class="callout tip"><div class="ico">i</div><div><b class="t">Vírgula ou ponto e vírgula?</b><p>Os exemplos usam <b>vírgula</b> para separar argumentos, que é o padrão do Power BI. Se o seu Power BI estiver configurado para separadores regionais (<span class="ui">Arquivo</span> → <span class="ui">Opções</span> → <span class="ui">Configurações regionais</span>), use <b>ponto e vírgula</b>: <code>DIVIDE([A]; [B])</code>.</p></div></div>
+</section>
+
+<section id="medidas"><h2><span class="n">02</span>Primeiras medidas</h2><p class="sub">Medida é um cálculo que o Power BI refaz para cada filtro do relatório. Ela não cria coluna na tabela.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-1"><label for="s1-1"><span class="k">Passo 1.1</span>Crie uma tabela só para as medidas</label></div><p>Em <span class="ui">Página Inicial</span> → <span class="ui">Inserir dados</span>, crie uma tabela chamada <code>_Medidas</code> e clique em <span class="ui">Carregar</span>. Toda medida nova vai morar ali. O “_” faz a tabela aparecer no topo do painel Dados.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-2"><label for="s1-2"><span class="k">Passo 1.2</span>Medida 1 · Quantidade Vendida</label></div><p>Selecione a tabela <code>_Medidas</code> → <span class="ui">Modelagem</span> → <span class="ui">Nova medida</span>. Digite na barra de fórmulas e pressione <kbd>Enter</kbd>:</p>
+<div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Quantidade Vendida =
+SUM ( BaseVendas[Qtd Vendida] )</pre></div>
+<p>Teste: insira um visual <b>Cartão</b> e arraste a medida para ele. Aparece o total de unidades vendidas.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-3"><label for="s1-3"><span class="k">Passo 1.3</span>Medida 2 · Quantidade de Pedidos</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Quantidade de Pedidos =
+DISTINCTCOUNT ( BaseVendas[Ordem de Compra] )</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que não SUM</b><p>Ordem de Compra é um código, não uma quantidade. E um mesmo pedido aparece em várias linhas quando tem vários produtos. <code>DISTINCTCOUNT</code> conta os valores <b>diferentes</b>: quantos pedidos existem de fato.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-4"><label for="s1-4"><span class="k">Passo 1.4</span>Medida 3 · Clientes</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Clientes =
+DISTINCTCOUNT ( BaseVendas[ID Cliente] )</pre></div>
+<p>Responde: quantos clientes diferentes compraram? Repare que contamos na <b>fato</b>: só entra quem comprou no período filtrado. Contar no CadastroClientes daria todos os cadastrados, mesmo quem nunca comprou.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-5"><label for="s1-5"><span class="k">Passo 1.5</span>Monte três cartões</label></div><p>Crie três cartões lado a lado: <b>Quantidade Vendida</b>, <b>Quantidade de Pedidos</b> e <b>Clientes</b>. Para o faturamento, falta uma informação: o preço está em CadastroProdutos, não na BaseVendas. Vamos buscá-lo.</p></div></div>
+</section>
+
+<section id="colunas"><h2><span class="n">03</span>Colunas calculadas e RELATED</h2><p class="sub">Coluna calculada faz um cálculo para cada linha da tabela e grava o resultado.</p>
+<div class="tbl"><table>
+<thead><tr><th>Qtd</th><th>Preço</th><th>Faturamento (linha a linha)</th></tr></thead>
+<tbody><tr><td>2</td><td>100</td><td>200</td></tr><tr><td>1</td><td>500</td><td>500</td></tr><tr><td>3</td><td>50</td><td>150</td></tr></tbody></table></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-1"><label for="s2-1"><span class="k">Passo 2.1</span>Coluna · Preço de Venda (RELATED)</label></div><p>Selecione a tabela <code>BaseVendas</code> (na exibição Tabela fica mais fácil ver o resultado) → <span class="ui">Ferramentas da tabela</span> → <span class="ui">Nova coluna</span>:</p>
+<div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Preço de Venda =
+RELATED ( CadastroProdutos[Preço Unitario] )</pre></div>
+<p>Leia assim: “para esta linha da BaseVendas, procure o produto relacionado em CadastroProdutos e traga o Preço Unitario”. É o PROCV do Power BI, só que usando o relacionamento.</p>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>Se o preço aparecer 100 vezes maior (2595 em vez de 25,95), o tipo foi convertido errado no Power Query. Veja o passo 6 da aula 6: “Alterar Tipo → Usando a Localidade → Inglês (EUA)”.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-2"><label for="s2-2"><span class="k">Passo 2.2</span>Coluna · Faturamento</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento =
+BaseVendas[Qtd Vendida] * BaseVendas[Preço de Venda]</pre></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-3"><label for="s2-3"><span class="k">Passo 2.3</span>Colunas · Custo de Venda e Custo Total</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Custo de Venda =
+RELATED ( CadastroProdutos[Custo Unitario] )
+
+Custo Total Linha =
+BaseVendas[Qtd Vendida] * BaseVendas[Custo de Venda]</pre></div>
+<p>Crie cada coluna separadamente (uma fórmula por vez).</p></div></div>
+</section>
+
+<section id="indicadores"><h2><span class="n">04</span>Medidas de faturamento e rentabilidade</h2><p class="sub">Agora transformamos os valores linha a linha em indicadores.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-1"><label for="s3-1"><span class="k">Passo 3.1</span>Faturamento Total</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Total =
+SUM ( BaseVendas[Faturamento] )</pre></div>
+<p>Repare: a <b>coluna</b> Faturamento existe em cada linha; a <b>medida</b> Faturamento Total soma o que estiver filtrado.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-2"><label for="s3-2"><span class="k">Passo 3.2</span>Custo Total e Lucro Total</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Custo Total =
+SUM ( BaseVendas[Custo Total Linha] )
+
+Lucro Total =
+[Faturamento Total] - [Custo Total]</pre></div>
+<p>Medidas podem usar outras medidas, sempre entre colchetes e sem nome de tabela.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s3-3"><label for="s3-3"><span class="k">Passo 3.3</span>Margem % e Ticket Médio com DIVIDE</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Margem % =
+DIVIDE ( [Lucro Total], [Faturamento Total], 0 )
+
+Ticket Médio =
+DIVIDE ( [Faturamento Total], [Quantidade de Pedidos], 0 )</pre></div>
+<p>Formate: selecione a medida → <span class="ui">Ferramentas de medida</span> → Margem % como <b>Porcentagem</b>; Ticket Médio e as de valor como <b>Moeda (R$)</b> com 2 casas.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que DIVIDE</b><p>Com a barra (<code>/</code>), uma divisão por zero dá erro e o visual quebra. <code>DIVIDE(numerador, denominador, resultado_alternativo)</code> devolve o terceiro argumento (ou vazio) quando o denominador é zero. Num filtro de loja sem pedidos, por exemplo.</p></div></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Exemplo</b><p>Faturamento R$ 100.000 e 500 pedidos → Ticket Médio = R$ 200. Margem: lucro R$ 30.000 ÷ faturamento R$ 100.000 = 30%.</p></div></div></div></div>
+</section>
+
+<section id="contexto"><h2><span class="n">05</span>A mesma medida, perguntas diferentes</h2><p class="sub">O mais importante da aula: a medida muda de resultado conforme o contexto do visual.</p>
+<div class="tbl"><table>
+<thead><tr><th>Visual</th><th>Eixo / Linhas</th><th>Valores</th><th>Pergunta respondida</th></tr></thead>
+<tbody>
+<tr><td>Barras</td><td>CadastroProdutos[Marca]</td><td>[Quantidade Vendida]</td><td>Quais marcas saem mais?</td></tr>
+<tr><td>Colunas</td><td>CadastroProdutos[Categoria]</td><td>[Faturamento Total]</td><td>Quanto cada categoria faturou?</td></tr>
+<tr><td>Rosca</td><td>CadastroClientes[Genero]</td><td>[Clientes]</td><td>Quantos clientes de cada gênero compraram?</td></tr>
+<tr><td>Colunas</td><td>BaseVendas[ID Loja]</td><td>[Faturamento Total]</td><td>Qual loja fatura mais?</td></tr>
+<tr><td>Tabela</td><td>CadastroProdutos[Produto]</td><td>[Lucro Total], [Margem %]</td><td>Quais produtos dão mais lucro?</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">O que é contexto de filtro</b><p>Você escreveu <code>Faturamento Total</code> uma vez. Na barra da Apple, o Power BI filtra as vendas da Apple e soma; na barra da Dell, filtra a Dell. Cada barra, linha ou célula é um “contexto” diferente. É por isso que medidas são tão poderosas.</p></div></div>
+</section>
+
+<section id="regra"><h2><span class="n">06</span>Medida ou coluna? A regra de bolso</h2>
+<div class="tbl"><table>
+<thead><tr><th></th><th>Coluna calculada</th><th>Medida</th></tr></thead>
+<tbody>
+<tr><td>Calcula</td><td>Linha por linha, ao atualizar</td><td>Na hora, a cada filtro</td></tr>
+<tr><td>Ocupa memória</td><td>Sim</td><td>Não</td></tr>
+<tr><td>Usa em eixo, legenda, segmentação</td><td>Sim</td><td>Não</td></tr>
+<tr><td>Exemplos desta aula</td><td>Preço de Venda, Faturamento, Custo Total Linha</td><td>Faturamento Total, Lucro Total, Margem %, Ticket Médio</td></tr>
+</tbody></table></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Regra simples</b><p>Preciso de um valor para <b>cada registro</b> (ou para usar como categoria)? Coluna. Preciso <b>somar, contar, comparar</b> ou criar um indicador? Medida.</p></div></div>
+<div class="callout tip"><div class="ico">i</div><div><p>Na aula 6 você vai ver como calcular o faturamento direto numa medida com <code>SUMX</code>, sem criar colunas. É a forma mais profissional, mas entender a coluna antes facilita.</p></div></div>
+</section>
+
+<section id="atividades"><h2><span class="n">07</span>Exercícios de fixação</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · As 8 medidas</h4><span class="lvl b">Básico</span></div><p>Crie e formate: Quantidade Vendida, Quantidade de Pedidos, Clientes, Faturamento Total, Custo Total, Lucro Total, Margem % e Ticket Médio.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Cinco gráficos</h4><span class="lvl b">Básico</span></div><p>Monte os cinco visuais da tabela “A mesma medida, perguntas diferentes” e escreva uma conclusão para cada um.</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Cartões coloridos</h4><span class="lvl m">Intermediário</span></div><p>Crie quatro cartões (Faturamento, Lucro, Pedidos, Clientes) e um quinto com o Ticket Médio. Use as cores sugeridas na aula 4.</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Preço médio</h4><span class="lvl m">Intermediário</span></div><p>Crie a medida <code>Preço Médio = DIVIDE([Faturamento Total], [Quantidade Vendida])</code>. Em qual categoria ele é maior? Faz sentido?</p></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Itens por pedido</h4><span class="lvl a">Desafio</span></div><p>Crie uma medida que mostre quantos itens, em média, cada pedido tem. Depois compare entre anos: os clientes estão comprando mais itens por pedido?</p><details><summary>Dica</summary><div class="in"><p><code>DIVIDE([Quantidade Vendida], [Quantidade de Pedidos])</code>, num gráfico de colunas com o ano da Data da Venda.</p></div></details></div>
+</section>
+
+<section id="resumo"><h2><span class="n">08</span>Resumo da aula</h2>
+<ul>
+<li>DAX é a linguagem de cálculo do Power BI; colunas sempre entre colchetes.</li>
+<li><code>SUM</code> soma; <code>DISTINCTCOUNT</code> conta valores únicos.</li>
+<li><code>RELATED</code> traz um valor da dimensão para a fato, seguindo o relacionamento.</li>
+<li><code>DIVIDE</code> divide sem erro de divisão por zero.</li>
+<li>Coluna = linha a linha; medida = agregação que respeita o contexto do visual.</li>
+<li>Próxima aula: tudo isso num dashboard completo, com SUMX, calendário e inteligência de tempo.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-04/index.html"><small>← Aula anterior</small>Relacionamentos no Power BI</a><a class="nx" href="../aula-06/index.html"><small>Próxima aula →</small>Projeto Dashboard de Vendas</a></nav><div class="footer">Material base: Notion “Aula 07 — Primeiros passos com DAX no Power BI” · Braga Treinamentos.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

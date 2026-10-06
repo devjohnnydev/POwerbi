@@ -1,0 +1,17 @@
+PASTA DE ARQUIVOS DO CURSO
+==========================
+
+Já incluídos:
+  01 BD CURSOS.xlsx                      -> aula 1 (base de exemplo com a tabela T_CURSOS)
+  Metas_2022.xlsx                        -> aulas 9 e 11
+  Tema_Vendas_Moderno.json               -> aulas 6 e 8
+  Fundo_Dashboard_Vendas_1920x1080.png   -> aula 8
+
+COLOQUE AQUI ANTES DO DEPLOY (o professor tem o arquivo):
+  Aula_1_-_Importando_Base_de_Dados_1.zip
+     -> pacote com Base Vendas 2020/2021/2022, Base Devoluções,
+        Cadastro Clientes, Cadastro Produtos, Cadastro Lojas e Cadastro Localidades
+     -> usado nas aulas 2, 3, 4, 5, 6 e 9 a 13
+
+Se preferir usar a sua própria versão de "01 BD CURSOS.xlsx", basta substituir o arquivo
+mantendo o mesmo nome. Os links das aulas apontam para estes nomes exatos.

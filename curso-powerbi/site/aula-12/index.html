@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 12 · Interatividade e storytelling</title><meta name="description" content="Você vai transformar o dashboard numa experiência de navegação: segmentações sincronizadas, interações sob controle, drill down, drill-through para uma página de detalhe, dicas de ferramenta personalizadas, indicadores, botões de menu, parâmetros de campo e formatação condicional."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-12"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-11/index.html">← Anterior</a><a href="../aula-13/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 12</p><ol><li><a href="#mapa"><span>01</span>Estrutura do relatório</a></li><li><a href="#segmentacoes"><span>02</span>Segmentações e interações</a></li><li><a href="#drill"><span>03</span>Drill down</a></li><li><a href="#drillthrough"><span>04</span>Drill-through</a></li><li><a href="#tooltip"><span>05</span>Dica de ferramenta</a></li><li><a href="#indicadores"><span>06</span>Indicadores e botões</a></li><li><a href="#parametros"><span>07</span>Parâmetros de campo</a></li><li><a href="#condicional"><span>08</span>Formatação condicional</a></li><li><a href="#checklist"><span>09</span>Checklist</a></li><li><a href="#atividades"><span>10</span>Atividades</a></li><li><a href="#resumo"><span>11</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 12 de 13</div><h1>Um relatório que <em>conversa</em> com o usuário: interatividade e storytelling</h1><p class="lead">Você vai transformar o dashboard numa experiência de navegação: segmentações sincronizadas, interações sob controle, drill down, drill-through para uma página de detalhe, dicas de ferramenta personalizadas, indicadores, botões de menu, parâmetros de campo e formatação condicional.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Intermediário</span></dd><dt>Duração</dt><dd>4 horas</dd><dt>Você vai precisar</dt><dd>O projeto Dashboard de Vendas com as medidas das aulas 6, 10 e 11</dd><dt>Conteúdos</dt><dd><span class="tag">Segmentações</span><span class="tag">Sincronizar segmentações</span><span class="tag">Editar interações</span><span class="tag">Hierarquia</span><span class="tag">Drill down</span><span class="tag">Drill-through</span><span class="tag">Dica de ferramenta</span><span class="tag">Indicadores</span><span class="tag">Painel de seleção</span><span class="tag">Botões</span><span class="tag">Navegador de páginas</span><span class="tag">Parâmetros de campo</span><span class="tag">Formatação condicional</span><span class="tag">Storytelling</span></dd></dl></header><section id="mapa"><h2><span class="n">01</span>O mapa do relatório</h2><p class="sub">Antes de criar botões, decida o caminho que o usuário vai percorrer.</p>
+<div class="diagram" role="img" aria-label="Fluxo: Visão Geral leva a Produtos, Clientes e Tempo; Produtos leva por drill-through ao Detalhe do Produto; páginas de dica aparecem ao passar o mouse">
+<svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg"><g style="font-size:12.5px">
+<rect x="20" y="85" width="140" height="60" rx="8" style="fill:var(--accent-soft);stroke:var(--accent-ink)"/><text x="36" y="112" style="fill:var(--accent-ink);font-weight:600">Visão Geral</text><text x="36" y="132" style="fill:var(--ink-2)">resumo + menu</text>
+<rect x="250" y="15" width="140" height="50" rx="8" style="fill:var(--paper);stroke:var(--blue)"/><text x="266" y="45" style="fill:var(--blue);font-weight:600">Produtos</text>
+<rect x="250" y="90" width="140" height="50" rx="8" style="fill:var(--paper);stroke:var(--blue)"/><text x="266" y="120" style="fill:var(--blue);font-weight:600">Clientes</text>
+<rect x="250" y="165" width="140" height="50" rx="8" style="fill:var(--paper);stroke:var(--blue)"/><text x="266" y="195" style="fill:var(--blue);font-weight:600">Tempo</text>
+<rect x="480" y="15" width="220" height="50" rx="8" style="fill:var(--green-soft);stroke:var(--green)"/><text x="496" y="38" style="fill:var(--green);font-weight:600">Detalhe do Produto</text><text x="496" y="56" style="fill:var(--ink-2)">drill-through (oculta)</text>
+<rect x="480" y="120" width="220" height="50" rx="8" style="fill:var(--soft);stroke:var(--ink-3)" stroke-dasharray="4 3"/><text x="496" y="143" style="fill:var(--ink-2);font-weight:600">Dica: Produto</text><text x="496" y="161" style="fill:var(--ink-3)">tooltip (oculta)</text>
+<path d="M160 105 L246 42 M160 115 L246 115 M160 125 L246 188 M390 40 L476 40 M390 115 L476 140" style="stroke:var(--ink-3);stroke-width:2;fill:none"/>
+</g></svg></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Storytelling</b><p>Um bom relatório funciona como uma apresentação: a primeira página dá a resposta curta, as outras explicam o porquê, e o detalhe aparece só para quem pedir. O usuário nunca deve se perguntar “e agora, onde eu clico?”.</p></div></div>
+</section>
+
+<section id="segmentacoes"><h2><span class="n">02</span>Segmentações e interações</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1"><label for="s1"><span class="k">Passo 1.1</span>Escolha o estilo certo de segmentação</label></div><div class="tbl"><table><thead><tr><th>Estilo</th><th>Quando usar</th></tr></thead><tbody>
+<tr><td>Lista suspensa</td><td>Muitos itens (marcas, produtos); economiza espaço</td></tr>
+<tr><td>Blocos (botões)</td><td>Poucos itens (anos, gênero); 1 clique</td></tr>
+<tr><td>Entre (intervalo)</td><td>Datas e números (preço de… até…)</td></tr>
+<tr><td>Relativo</td><td>“Últimos 3 meses” em painéis atualizados todo dia</td></tr>
+</tbody></table></div>
+<p>Em <span class="ui">Formato</span> → <b>Configurações de segmentação</b>: ative <b>Seleção única</b> quando a análise só faz sentido com um valor (ano das metas), e <b>Mostrar opção “Selecionar tudo”</b> nas listas.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s2"><label for="s2"><span class="k">Passo 1.2</span>Sincronize as segmentações entre páginas</label></div><ol>
+<li>Copie a segmentação de Ano da Visão Geral e cole nas outras páginas. O Power BI pergunta se quer sincronizar: <span class="ui">Sincronizar</span>.</li>
+<li>Ou: <span class="ui">Exibição</span> → <span class="ui">Sincronizar segmentações</span>, selecione a segmentação e marque, para cada página, as colunas <b>Sincronizar</b> (o filtro vale lá) e <b>Visível</b> (aparece lá).</li>
+</ol>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>O usuário escolhe 2021 na primeira página e espera continuar em 2021 ao navegar. Sem sincronizar, cada página fica num ano diferente e os números “não batem”.</p></div></div></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3"><label for="s3"><span class="k">Passo 1.3</span>Controle quem filtra quem</label></div><p>Selecione um visual → <span class="ui">Formato</span> (faixa de opções) → <span class="ui">Editar interações</span>. Em cada um dos outros visuais aparecem ícones:</p>
+<ul>
+<li><b>Filtrar</b> (funil): o outro visual mostra só o selecionado;</li>
+<li><b>Realçar</b> (gráfico): mostra o selecionado em destaque e o resto apagado;</li>
+<li><b>Nenhum</b> (círculo cortado): o outro visual ignora o clique.</li>
+</ul>
+<p>Exemplo: o cartão “Faturamento Total do Ano” não deve mudar quando você clica numa marca. Marque <b>Nenhum</b> nele.</p><figure class="shot "><div class="frame"><img src="img/a06-39.jpg" alt="Filtro cruzado: clicar em 2021 filtra todos os visuais da página." loading="lazy"></div><figcaption><b>Print real.</b> Filtro cruzado: clicar em 2021 filtra todos os visuais da página.</figcaption></figure></div></div>
+</section>
+
+<section id="drill"><h2><span class="n">03</span>Hierarquias e drill down</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="h1"><label for="h1"><span class="k">Passo 2.1</span>Crie a hierarquia de produto</label></div><p>No painel Dados, em dProdutos, clique com o botão direito em <code>Categoria</code> → <span class="ui">Criar hierarquia</span>. Arraste <code>Marca</code> e <code>Produto</code> para dentro dela. Renomeie para <code>Hierarquia Produto</code>.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="h2"><label for="h2"><span class="k">Passo 2.2</span>Use no gráfico e navegue</label></div><p>Num gráfico de barras, coloque a hierarquia no eixo. Aparecem as setas no topo do visual:</p>
+<div class="tbl"><table><thead><tr><th>Ícone</th><th>Faz</th></tr></thead><tbody>
+<tr><td>↓ (ativar drill down)</td><td>Clique numa barra para descer só nela (Notebook → marcas de notebook)</td></tr>
+<tr><td>⇊ (próximo nível)</td><td>Desce todas as barras um nível (todas as marcas)</td></tr>
+<tr><td>⑂ (expandir)</td><td>Mostra categoria e marca juntas (Notebook Apple, Notebook Asus…)</td></tr>
+<tr><td>↑ (voltar)</td><td>Sobe um nível</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Um único gráfico responde três perguntas em sequência: qual categoria? qual marca dentro dela? qual produto? Economiza espaço e conduz a investigação.</p></div></div></div></div>
+</section>
+
+<section id="drillthrough"><h2><span class="n">04</span>Drill-through: página de detalhe</h2><p class="sub">Clique com o botão direito num produto e vá para uma página só dele.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d1"><label for="d1"><span class="k">Passo 3.1</span>Crie a página Detalhe do Produto</label></div><ol>
+<li>Nova página, renomeie para <code>Detalhe do Produto</code>.</li>
+<li>No painel <span class="ui">Compilar</span> (com a página selecionada, sem visual), na área <b>Drill-through</b>, arraste <code>dProdutos[Produto]</code>.</li>
+<li>O Power BI cria automaticamente um <b>botão Voltar</b> no canto superior esquerdo.</li>
+</ol></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d2"><label for="d2"><span class="k">Passo 3.2</span>Monte o conteúdo</label></div><ul>
+<li>Cartão com o título dinâmico: <code>"Produto: " &amp; SELECTEDVALUE(dProdutos[Produto])</code>;</li>
+<li>Cartões: Faturamento, Qtd Vendida, Margem %, Ranking Produto;</li>
+<li>Linhas: Faturamento por Mês Ano;</li>
+<li>Barras: Faturamento por Faixa Etária e por Genero (dClientes);</li>
+<li>Tabela: últimos pedidos (Data, Ordem de Compra, Qtd).</li>
+</ul>
+<p>Oculte a página (botão direito na aba → <span class="ui">Ocultar página</span>): ela só deve ser acessada pelo drill-through.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d3"><label for="d3"><span class="k">Passo 3.3</span>Teste</label></div><p>Na página Produtos, clique com o botão direito numa linha da tabela ou numa barra → <span class="ui">Drill-through</span> → <span class="ui">Detalhe do Produto</span>. A página abre filtrada naquele produto. O botão Voltar retorna (no Desktop, use <kbd>Ctrl</kbd>+clique nos botões).</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>A página principal fica limpa; o detalhe existe para quem precisa. É assim que se atende ao diretor (quer o resumo) e ao comprador (quer o produto) no mesmo relatório.</p></div></div></div></div>
+</section>
+
+<section id="tooltip"><h2><span class="n">05</span>Dica de ferramenta personalizada</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="t1"><label for="t1"><span class="k">Passo 4.1</span>Crie a página de dica</label></div><ol>
+<li>Nova página <code>Dica Produto</code> → <span class="ui">Formato</span> da página → <b>Informações da página</b> → ative <b>Permitir uso como dica de ferramenta</b>.</li>
+<li><b>Configurações de tela</b> → Tipo: <b>Dica de ferramenta</b> (320 × 240).</li>
+<li>Monte um mini painel: cartão Faturamento, cartão Margem %, minigráfico de linha por mês.</li>
+<li>Oculte a página.</li>
+</ol></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="t2"><label for="t2"><span class="k">Passo 4.2</span>Ligue a dica ao gráfico</label></div><p>Selecione o gráfico de produtos → <span class="ui">Formato</span> → <span class="ui">Propriedades</span> → <b>Dica de ferramenta</b> → Tipo: <b>Página do relatório</b> → Página: <b>Dica Produto</b>. Passe o mouse sobre uma barra: aparece o mini painel daquele item.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>Na página de dica, em <b>Dica de ferramenta</b> do painel Compilar, coloque o campo Produto: a dica aparece automaticamente em qualquer visual que use Produto.</p></div></div></div></div>
+</section>
+
+<section id="indicadores"><h2><span class="n">06</span>Indicadores e botões</h2><p class="sub">Alternar entre gráfico e tabela, e um menu de navegação de verdade.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b1"><label for="b1"><span class="k">Passo 5.1</span>Painel de Seleção</label></div><p><span class="ui">Exibição</span> → ative <b>Seleção</b> e <b>Indicadores</b>. O painel Seleção lista todos os objetos da página; o ícone de olho mostra/oculta. Renomeie os objetos com nomes claros (duplo clique): <code>grafico_marcas</code>, <code>tabela_marcas</code>.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b2"><label for="b2"><span class="k">Passo 5.2</span>Dois indicadores: Gráfico e Tabela</label></div><ol>
+<li>Coloque um gráfico de barras e uma tabela com os mesmos dados, um sobre o outro, do mesmo tamanho.</li>
+<li>Oculte a tabela (olho) → no painel Indicadores, <span class="ui">Adicionar</span> → renomeie para <code>Ver Gráfico</code>.</li>
+<li>Mostre a tabela e oculte o gráfico → <span class="ui">Adicionar</span> → <code>Ver Tabela</code>.</li>
+<li>Nos três pontinhos de cada indicador, desmarque <b>Dados</b> (para o indicador não congelar os filtros do usuário) e deixe <b>Exibir</b> e <b>Visual selecionado</b> conforme a necessidade.</li>
+</ol></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b3"><label for="b3"><span class="k">Passo 5.3</span>Botões que acionam os indicadores</label></div><p><span class="ui">Inserir</span> → <span class="ui">Botões</span> → <span class="ui">Em branco</span>. Em <span class="ui">Formato</span> → <b>Estilo</b> → Texto “Gráfico”; <b>Ação</b> → Tipo <b>Indicador</b> → <code>Ver Gráfico</code>. Repita para “Tabela”.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>Mais rápido: <span class="ui">Inserir</span> → <span class="ui">Botões</span> → <span class="ui">Navegador</span> → <span class="ui">Navegador de indicadores</span> cria os botões de todos os indicadores de um grupo.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b4"><label for="b4"><span class="k">Passo 5.4</span>Menu de páginas</label></div><p><span class="ui">Inserir</span> → <span class="ui">Botões</span> → <span class="ui">Navegador</span> → <span class="ui">Navegador de páginas</span>. Ele cria um botão para cada página visível e destaca a página atual. Posicione numa faixa lateral do fundo (aula 8) e copie para todas as páginas.</p></div></div>
+</section>
+
+<section id="parametros"><h2><span class="n">07</span>Parâmetros de campo</h2><p class="sub">Um gráfico, várias medidas: o usuário escolhe o que quer ver.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="pc1"><label for="pc1"><span class="k">Passo 6.1</span>Crie o parâmetro</label></div><p><span class="ui">Modelagem</span> → <span class="ui">Novo parâmetro</span> → <span class="ui">Campos</span>. Nome: <code>Métrica</code>. Adicione: Faturamento Total, Lucro Total, Qtd Vendida, Nº Pedidos. Marque <b>Adicionar segmentação a esta página</b> → <span class="ui">Criar</span>.</p>
+<p>O Power BI cria uma tabela com este DAX (você pode editar os rótulos):</p>
+<div class="code"><div class="bar"><span>DAX · tabela gerada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Métrica = {
+    (&quot;Faturamento&quot;, NAMEOF ( &#x27;_Medidas&#x27;[Faturamento Total] ), 0),
+    (&quot;Lucro&quot;,       NAMEOF ( &#x27;_Medidas&#x27;[Lucro Total] ), 1),
+    (&quot;Quantidade&quot;,  NAMEOF ( &#x27;_Medidas&#x27;[Qtd Vendida] ), 2),
+    (&quot;Pedidos&quot;,     NAMEOF ( &#x27;_Medidas&#x27;[Nº Pedidos] ), 3)
+}</pre></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="pc2"><label for="pc2"><span class="k">Passo 6.2</span>Use no gráfico</label></div><p>Num gráfico de colunas por Mês Ano, coloque o campo <code>Métrica</code> no eixo Y. Clique nos botões da segmentação: o gráfico troca de medida. Faça o mesmo com um segundo parâmetro de campos para o eixo (Categoria, Marca, Faixa Etária).</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Em vez de 4 gráficos quase iguais, um gráfico flexível. A página fica limpa e o usuário explora sozinho.</p></div></div></div></div>
+</section>
+
+<section id="condicional"><h2><span class="n">08</span>Formatação condicional</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="f1"><label for="f1"><span class="k">Passo 7.1</span>Cores por regra no gráfico</label></div><p>Gráfico de barras por Marca com Margem %. <span class="ui">Formato</span> → <b>Barras</b> → <b>Cor</b> → botão <b>fx</b> → Estilo: <b>Regras</b>: se valor &lt; 0,65 → vermelho; 0,65 a 0,75 → amarelo; ≥ 0,75 → verde.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="f2"><label for="f2"><span class="k">Passo 7.2</span>Barras de dados e ícones na tabela</label></div><p>Na tabela de produtos: em Faturamento Total → <span class="ui">Formatação condicional</span> → <span class="ui">Barras de dados</span>; em Var. % Anual → <span class="ui">Ícones</span>. A tabela vira um mini gráfico, sem ocupar mais espaço.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="f3"><label for="f3"><span class="k">Passo 7.3</span>Cor vinda de uma medida</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Cor Margem =
+SWITCH ( TRUE (), [Margem %] &gt;= 0.75, &quot;#10B981&quot;, [Margem %] &gt;= 0.65, &quot;#F59E0B&quot;, &quot;#EF4444&quot; )</pre></div>
+<p>No <b>fx</b> da cor, Estilo de formato: <b>Valor do campo</b> → <code>Cor Margem</code>. A vantagem: a regra fica num lugar só e vale para vários visuais.</p></div></div>
+</section>
+
+<section id="checklist"><h2><span class="n">09</span>Checklist de usabilidade</h2>
+<div class="tbl"><table><thead><tr><th>Item</th><th>Ok?</th></tr></thead><tbody>
+<tr><td>Segmentações sincronizadas entre páginas</td><td>☐</td></tr>
+<tr><td>Cartões de total não mudam quando não devem (Editar interações)</td><td>☐</td></tr>
+<tr><td>Menu de navegação igual e no mesmo lugar em todas as páginas</td><td>☐</td></tr>
+<tr><td>Páginas de drill-through e dica ocultas</td><td>☐</td></tr>
+<tr><td>Botões com texto claro (“Ver tabela”, e não “Botão 1”)</td><td>☐</td></tr>
+<tr><td>Objetos renomeados no painel Seleção</td><td>☐</td></tr>
+<tr><td>Instrução curta para o usuário: “clique com o botão direito num produto para ver o detalhe”</td><td>☐</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="atividades"><h2><span class="n">10</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Interações</h4><span class="lvl b">Básico</span></div><p>Na Visão Geral, configure para que os cartões de KPI não sejam filtrados pelo gráfico de marcas, mas sejam filtrados pelas segmentações.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Drill-through de cliente</h4><span class="lvl m">Intermediário</span></div><p>Crie a página oculta “Detalhe do Cliente” com drill-through por <code>dClientes[Nome Completo]</code>: compras por mês, produtos comprados, primeira e última compra (aula 9).</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Dica de ferramenta</h4><span class="lvl m">Intermediário</span></div><p>Crie uma página de dica para o gráfico de marcas mostrando as 3 categorias mais vendidas daquela marca.</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Menu lateral</h4><span class="lvl m">Intermediário</span></div><p>Use o fundo da aula 8 com uma faixa lateral e crie um navegador de páginas com ícones (<span class="ui">Inserir</span> → <span class="ui">Imagem</span> com ação de Navegação de página).</p></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Roteiro de apresentação</h4><span class="lvl a">Entrega</span></div><p>Monte uma sequência de 4 indicadores que conte uma história (“1. A empresa cresceu muito; 2. o crescimento veio de notebooks; 3. mas a margem do vestuário é baixa; 4. recomendação”). Apresente em 3 minutos usando o modo <b>Exibição de leitura</b>.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">11</span>Resumo da aula</h2>
+<ul>
+<li>Desenhe o caminho do usuário antes de criar botões.</li>
+<li>Sincronize segmentações; use Editar interações para controlar filtros cruzados.</li>
+<li>Hierarquias com drill down economizam espaço.</li>
+<li>Drill-through e dicas de ferramenta mostram o detalhe só para quem pede.</li>
+<li>Indicadores + botões + navegador criam a experiência de aplicativo.</li>
+<li>Parâmetros de campo e formatação condicional deixam o usuário explorar e enxergar o que importa.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-11/index.html"><small>← Aula anterior</small>DAX intermediário</a><a class="nx" href="../aula-13/index.html"><small>Próxima aula →</small>Publicação, segurança e projeto final</a></nav><div class="footer">Curso Power BI · Braga Treinamentos.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

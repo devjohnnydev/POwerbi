@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 03 · Atualizando os dados no Power BI</title><meta name="description" content="Você vai ver na prática a maior vantagem do Power BI sobre planilhas: quando chegam dados novos, basta clicar em Atualizar e todas as limpezas do Power Query são refeitas sozinhas."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-03"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-02/index.html">← Anterior</a><a href="../aula-04/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 03</p><ol><li><a href="#vida-real"><span>01</span>Na vida real</a></li><li><a href="#atualizar"><span>02</span>Atualizar pela Página Inicial</a></li><li><a href="#pq"><span>03</span>Atualizar no Power Query</a></li><li><a href="#eficiencia"><span>04</span>Eficiência das etapas</a></li><li><a href="#atividades"><span>05</span>Atividades</a></li><li><a href="#resumo"><span>06</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 03 de 13</div><h1>Prepare uma vez, <em>atualize para sempre</em></h1><p class="lead">Você vai ver na prática a maior vantagem do Power BI sobre planilhas: quando chegam dados novos, basta clicar em Atualizar e todas as limpezas do Power Query são refeitas sozinhas.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Básico</span></dd><dt>Duração</dt><dd>1h30</dd><dt>Você vai precisar</dt><dd>Power BI Desktop (gratuito, Windows)</dd><dt>Conteúdos</dt><dd><span class="tag">Atualizar</span><span class="tag">Caminho da fonte</span><span class="tag">Etapas Aplicadas</span><span class="tag">Consulta x Tabela</span><span class="tag">Fechar e Aplicar</span><span class="tag">Configurações da fonte de dados</span></dd></dl></header><section id="vida-real"><h2><span class="n">01</span>Como funciona na vida real</h2><p class="sub">E quando a empresa receber novos dados? Vou ter que fazer tudo de novo? Não.</p>
+<p>Nas empresas, quase ninguém digita dados no Excel. Eles saem de sistemas:</p>
+<ul>
+<li>ERPs (TOTVS, SAP, Protheus, Sankhya…);</li>
+<li>sistemas de vendas, financeiro, estoque e CRM;</li>
+<li>bancos de dados (SQL Server, Oracle, MySQL) e APIs;</li>
+<li>arquivos CSV ou Excel exportados todo dia, semana ou mês.</li>
+</ul>
+<p>O trabalho do analista não é limpar tudo de novo a cada arquivo. Ele monta a consulta uma vez e depois só <b>atualiza</b>.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Cenário real</b><p>Uma empresa registra 5.000 vendas por dia. Repetir as limpezas manualmente todo dia seria inviável. Com o Power BI, você substitui a base (ou o sistema atualiza sozinho) e clica em Atualizar. Em segundos, os relatórios mostram os dados novos já tratados.</p></div></div>
+</section>
+
+<section id="atualizar"><h2><span class="n">02</span>Atualizando depois de mudar o Excel</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-1"><label for="s1-1"><span class="k">Passo 1.1</span>Entenda: o Power BI guarda o caminho do arquivo</label></div><p>Cada consulta sabe <b>onde</b> está o arquivo, por exemplo:</p>
+<div class="code"><div class="bar"><span>Texto · estrutura da pasta</span><button class="copy" type="button">Copiar</button></div><pre>Documentos\PowerBI_Vendas\Bases\
+    Cadastro Clientes.xlsx
+    Cadastro Produtos.xlsx
+    Base Vendas - 2022.xlsx</pre></div>
+<p>Na atualização, ele volta exatamente nesse caminho, abre o arquivo, lê a planilha pelo nome e refaz as etapas.</p></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-2"><label for="s1-2"><span class="k">Passo 1.2</span>Inclua registros no Excel</label></div><ol>
+<li>Feche o Power BI (recomendado enquanto você mexe no arquivo).</li>
+<li>Abra <code>Cadastro Clientes.xlsx</code>.</li>
+<li>Vá até a última linha e inclua dois clientes, por exemplo com seu nome.</li>
+<li>Salve e feche o Excel.</li>
+</ol><figure class="shot "><div class="frame"><img src="img/a03-01.jpg" alt="Dois clientes novos incluídos no fim da planilha." loading="lazy"></div><figcaption><b>Print real.</b> Dois clientes novos incluídos no fim da planilha.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-3"><label for="s1-3"><span class="k">Passo 1.3</span>Mantenha a estrutura</label></div><p>Os novos registros precisam seguir o mesmo padrão: mesmas colunas, na mesma ordem, com o mesmo tipo de informação.</p>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">O que quebra a atualização</b><ul>
+<li>Renomear o arquivo ou movê-lo de pasta;</li>
+<li>Mudar o nome da planilha (Plan1);</li>
+<li>Excluir ou renomear colunas usadas na consulta;</li>
+<li>Mudar o tipo de informação (texto numa coluna de data).</li>
+</ul></div></div><figure class="shot "><div class="frame"><img src="img/a03-02.jpg" alt="Novos registros seguindo exatamente as mesmas colunas." loading="lazy"></div><figcaption><b>Print real.</b> Novos registros seguindo exatamente as mesmas colunas.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s1-4"><label for="s1-4"><span class="k">Passo 1.4</span>Clique em Atualizar</label></div><p>Abra o <code>Vendas.pbix</code> e clique em <span class="ui">Página Inicial</span> → <span class="ui">Atualizar</span>.</p>
+<p>Vá na exibição <b>Tabela</b>, ordene ID Cliente do maior para o menor e confira: seus clientes estão lá, com o nome já mesclado e formatado.</p>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">O que aconteceu por trás</b><p>O Power BI localizou o arquivo, leu tudo de novo, removeu linhas e colunas vazias, promoveu cabeçalhos, acertou tipos, mesclou o nome, formatou o texto e carregou. Você não repetiu nenhuma transformação.</p></div></div><figure class="shot "><div class="frame"><img src="img/a03-03.jpg" alt="Botão Atualizar e o novo cliente aparecendo na última linha da tabela." loading="lazy"></div><figcaption><b>Print real.</b> Botão Atualizar e o novo cliente aparecendo na última linha da tabela.</figcaption></figure></div></div>
+</section>
+
+<section id="pq"><h2><span class="n">03</span>Atualizando pelo Power Query</h2><p class="sub">Consulta (query) e tabela são a mesma estrutura em momentos diferentes do processo.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-1"><label for="s2-1"><span class="k">Passo 2.1</span>Duas formas de atualizar</label></div><div class="tbl"><table>
+<thead><tr><th>Onde</th><th>Botão</th><th>O que atualiza</th></tr></thead>
+<tbody>
+<tr><td>Janela principal</td><td><span class="ui">Página Inicial</span> → <span class="ui">Atualizar</span></td><td>Todas as tabelas do modelo</td></tr>
+<tr><td>Power Query</td><td><span class="ui">Página Inicial</span> → <span class="ui">Atualizar Visualização</span></td><td>A prévia da consulta selecionada (ou todas, pela setinha)</td></tr>
+</tbody></table></div>
+<p>Quando alguém disser “atualize a consulta”, “edite a tabela” ou “abra a query”, está falando da mesma coisa.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-2"><label for="s2-2"><span class="k">Passo 2.2</span>Atualizar reflete inclusões, alterações e exclusões</label></div><p>Atualizar não é só “trazer linhas novas”. Se um cliente mudou de e-mail ou foi excluído no Excel, isso também aparece. O Power BI <b>não</b> remenda a tabela antiga: ele lê tudo de novo e recria a tabela do zero.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-3"><label for="s2-3"><span class="k">Passo 2.3</span>Nunca esqueça o Fechar e Aplicar</label></div><p>Mudou algo no Power Query? Enquanto você não clicar em <span class="ui">Fechar e Aplicar</span>, a mudança fica só no editor e o relatório continua com a versão antiga.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s2-4"><label for="s2-4"><span class="k">Passo 2.4</span>Mudou a pasta? Edite a fonte</label></div><p>Se o arquivo mudou de lugar (ou você abriu o .pbix em outro computador), não refaça a consulta. Vá em <span class="ui">Página Inicial</span> → <span class="ui">Transformar dados</span> → <span class="ui">Configurações da fonte de dados</span> → <span class="ui">Alterar Fonte…</span> e aponte o novo caminho.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>Na aula 9 você vai criar um <b>parâmetro</b> com o caminho da pasta. Aí, trocar de computador vira uma alteração de um único campo.</p></div></div></div></div>
+</section>
+
+<section id="eficiencia"><h2><span class="n">04</span>Etapas eficientes, atualização rápida</h2>
+<p>Cada etapa é uma operação que roda de novo em toda atualização. Em bases pequenas não faz diferença; com milhões de linhas e dezenas de tabelas atualizando todo dia, faz.</p>
+<div class="tbl"><table>
+<thead><tr><th>Menos eficiente</th><th>Mais eficiente</th></tr></thead>
+<tbody>
+<tr><td>Adicionar coluna Nome Completo → excluir Primeiro Nome → excluir Sobrenome (3 etapas)</td><td>Selecionar as duas → Transformar → Mesclar Colunas (1 etapa)</td></tr>
+<tr><td>Alterar tipo várias vezes na mesma coluna</td><td>Definir o tipo uma vez, no fim da limpeza</td></tr>
+<tr><td>Filtrar linhas no fim da consulta</td><td>Filtrar o quanto antes (menos linhas nas etapas seguintes)</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Dica do professor</b><p>O objetivo não é ter o menor número de etapas possível, e sim um processo claro, fácil de manter e sem passos inúteis. Um bom analista investe tempo montando a consulta uma vez e deixa o Power Query fazer o trabalho repetitivo.</p></div></div>
+</section>
+
+<section id="atividades"><h2><span class="n">05</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Teste de atualização</h4><span class="lvl b">Básico</span></div><p>Inclua 3 clientes no Excel, atualize e tire um print mostrando os novos IDs no Power BI.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Alteração e exclusão</h4><span class="lvl b">Básico</span></div><p>Altere o e-mail de um cliente e exclua outro no Excel. Atualize e confirme que as duas mudanças apareceram.</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Provoque um erro</h4><span class="lvl m">Intermediário</span></div><p>Renomeie a coluna <code>Sobrenome</code> para <code>Sobre Nome</code> no Excel e atualize. Leia a mensagem de erro, descubra qual etapa quebrou e corrija de duas formas: voltando o nome no Excel e, depois, ajustando a etapa no Power Query.</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Mudança de pasta</h4><span class="lvl m">Intermediário</span></div><p>Copie a pasta <code>Bases</code> para outro lugar e use <b>Configurações da fonte de dados</b> para apontar o novo caminho sem refazer nenhuma consulta.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">06</span>Resumo da aula</h2>
+<ul>
+<li>Atualizar = reler a fonte e reaplicar todas as Etapas Aplicadas, na mesma ordem.</li>
+<li>Mantenha nome do arquivo, pasta, nome da planilha e estrutura das colunas.</li>
+<li>A atualização reflete inclusões, alterações e exclusões.</li>
+<li>Mudanças no Power Query só valem depois de <b>Fechar e Aplicar</b>.</li>
+<li>Arquivo mudou de lugar? <b>Configurações da fonte de dados</b>.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-02/index.html"><small>← Aula anterior</small>Importando dados do Excel e o Power Query</a><a class="nx" href="../aula-04/index.html"><small>Próxima aula →</small>Relacionamentos no Power BI</a></nav><div class="footer">Material base: Notion “03 - Atualizando os Dados no Power BI” · Braga Treinamentos.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

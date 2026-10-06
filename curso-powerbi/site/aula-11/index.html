@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 11 · DAX intermediário</title><meta name="description" content="Você vai entender de verdade como o DAX pensa (contexto de linha e de filtro), dominar CALCULATE com ALL, ALLEXCEPT e ALLSELECTED, usar iteradores, criar rankings com RANKX e TOPN, classificar com SWITCH e montar a análise de meta x realizado."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-11"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-10/index.html">← Anterior</a><a href="../aula-12/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 11</p><ol><li><a href="#contextos"><span>01</span>Contextos</a></li><li><a href="#calculate"><span>02</span>CALCULATE</a></li><li><a href="#iteradores"><span>03</span>Iteradores</a></li><li><a href="#rank"><span>04</span>RANKX e TOPN</a></li><li><a href="#metas"><span>05</span>Meta x Realizado</a></li><li><a href="#dinamico"><span>06</span>Títulos dinâmicos</a></li><li><a href="#erros"><span>07</span>Erros comuns</a></li><li><a href="#atividades"><span>08</span>Atividades</a></li><li><a href="#resumo"><span>09</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 11 de 13</div><h1>DAX intermediário: <em>CALCULATE</em>, contextos, rankings e meta x realizado</h1><p class="lead">Você vai entender de verdade como o DAX pensa (contexto de linha e de filtro), dominar CALCULATE com ALL, ALLEXCEPT e ALLSELECTED, usar iteradores, criar rankings com RANKX e TOPN, classificar com SWITCH e montar a análise de meta x realizado.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Intermediário</span></dd><dt>Duração</dt><dd>4 horas</dd><dt>Você vai precisar</dt><dd>O projeto com fVendas, dProdutos, dClientes, dCalendario (aula 6) e fMetas + dCategoria (aula 9)</dd><dt>Conteúdos</dt><dd><span class="tag">Contexto de filtro</span><span class="tag">Contexto de linha</span><span class="tag">CALCULATE</span><span class="tag">FILTER</span><span class="tag">ALL</span><span class="tag">ALLEXCEPT</span><span class="tag">ALLSELECTED</span><span class="tag">REMOVEFILTERS</span><span class="tag">SUMX</span><span class="tag">AVERAGEX</span><span class="tag">RANKX</span><span class="tag">TOPN</span><span class="tag">SWITCH</span><span class="tag">SELECTEDVALUE</span><span class="tag">VAR</span></dd></dl></header><section id="contextos"><h2><span class="n">01</span>Como o DAX pensa: os dois contextos</h2><p class="sub">Se você entender esta seção, o resto da aula fica fácil.</p>
+<h3>Contexto de filtro</h3>
+<p>É o conjunto de filtros ativos quando a medida é calculada: a barra do gráfico (Marca = Apple), a segmentação (Ano = 2021), o filtro da página. A medida <code>[Faturamento Total]</code> é a mesma fórmula; o contexto de filtro é que muda o resultado.</p>
+<h3>Contexto de linha</h3>
+<p>Existe quando o DAX percorre uma tabela linha a linha: em <b>colunas calculadas</b> e dentro de <b>iteradores</b> (SUMX, AVERAGEX, FILTER, RANKX). Em cada linha, você pode ler os valores daquela linha: <code>fVendas[Qtd Vendida] * RELATED(dProdutos[Preço Unitario])</code>.</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th>Contexto de filtro</th><th>Contexto de linha</th></tr></thead>
+<tbody>
+<tr><td>Vem de</td><td>Visuais, segmentações, filtros, CALCULATE</td><td>Colunas calculadas e iteradores</td></tr>
+<tr><td>Responde</td><td>“Quais linhas da fato entram na conta?”</td><td>“Qual é o valor desta linha?”</td></tr>
+<tr><td>Exemplo</td><td>Faturamento da Apple em 2021</td><td>Quantidade × preço da venda SO45080</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Transição de contexto</b><p>Quando você chama uma <b>medida</b> dentro de um contexto de linha (dentro de SUMX, ou numa coluna calculada), o DAX transforma a linha atual em filtro. É isso que faz <code>AVERAGEX(VALUES(dClientes[ID Cliente]), [Faturamento Total])</code> calcular o faturamento de cada cliente.</p></div></div>
+</section>
+
+<section id="calculate"><h2><span class="n">02</span>CALCULATE: mudando o contexto de filtro</h2><p class="sub">CALCULATE avalia uma expressão depois de adicionar, trocar ou remover filtros.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c1"><label for="c1"><span class="k">Medida 1</span>Filtro simples</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Notebook =
+CALCULATE ( [Faturamento Total], dProdutos[Categoria] = &quot;Notebook&quot; )</pre></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>R$ 7.469.356,74 no total. Num gráfico por ano, cada barra mostra só o notebook daquele ano.</p></div></div>
+<p>Repare: se o visual já tiver um filtro de categoria (Celular, por exemplo), o CALCULATE <b>substitui</b> esse filtro e mostra Notebook mesmo assim. Para respeitar o filtro existente, use <code>KEEPFILTERS(dProdutos[Categoria] = "Notebook")</code>.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c2"><label for="c2"><span class="k">Medida 2</span>Filtro com condição em medida: FILTER</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Produtos Premium =
+CALCULATE (
+    [Faturamento Total],
+    FILTER ( dProdutos, dProdutos[Preço Unitario] &gt;= 2000 )
+)</pre></div>
+<p><code>FILTER</code> percorre dProdutos e devolve só os produtos com preço a partir de R$ 2.000. Use FILTER quando a condição for mais complexa que “coluna = valor”.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>Prefira filtrar a <b>dimensão</b> (dProdutos, 293 linhas) e não a fato (56 mil linhas). O resultado é o mesmo e o cálculo é muito mais rápido.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c3"><label for="c3"><span class="k">Medida 3</span>% do total: ALL</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>% Faturamento Total Geral =
+DIVIDE (
+    [Faturamento Total],
+    CALCULATE ( [Faturamento Total], ALL ( dProdutos ) )
+)</pre></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>Notebook = 49,1% · Celular = 29,1% · Apple (por marca) ≈ 29%.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c4"><label for="c4"><span class="k">Medida 4</span>% dentro da categoria: ALLEXCEPT</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>% na Categoria =
+DIVIDE (
+    [Faturamento Total],
+    CALCULATE ( [Faturamento Total], ALLEXCEPT ( dProdutos, dProdutos[Categoria] ) )
+)</pre></div>
+<p>Numa matriz Categoria → Produto, cada produto mostra quanto representa <b>dentro da sua categoria</b>. ALLEXCEPT remove todos os filtros de dProdutos, menos o de Categoria.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c5"><label for="c5"><span class="k">Medida 5</span>% do que está selecionado: ALLSELECTED</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>% do Selecionado =
+DIVIDE (
+    [Faturamento Total],
+    CALCULATE ( [Faturamento Total], ALLSELECTED ( dProdutos ) )
+)</pre></div>
+<div class="tbl"><table><thead><tr><th>Função</th><th>Remove</th><th>Total de referência</th></tr></thead><tbody>
+<tr><td><code>ALL / REMOVEFILTERS</code></td><td>Todos os filtros da tabela/coluna</td><td>Empresa inteira</td></tr>
+<tr><td><code>ALLEXCEPT</code></td><td>Todos, menos as colunas indicadas</td><td>O grupo (ex.: a categoria)</td></tr>
+<tr><td><code>ALLSELECTED</code></td><td>Filtros do próprio visual, mas respeita segmentações</td><td>O que o usuário selecionou</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Qual usar</b><p>Pergunte: “percentual em relação a quê?”. Da empresa toda → ALL. Do grupo → ALLEXCEPT. Do que o usuário filtrou → ALLSELECTED.</p></div></div></div></div>
+</section>
+
+<section id="iteradores"><h2><span class="n">03</span>Iteradores: X no fim do nome</h2><p class="sub">SUMX, AVERAGEX, MAXX, MINX e COUNTX percorrem uma tabela e agregam uma expressão.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i1"><label for="i1"><span class="k">Medida 6</span>Ticket médio por cliente</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Médio por Cliente =
+AVERAGEX ( VALUES ( fVendas[ID Cliente] ), [Faturamento Total] )</pre></div>
+<p><code>VALUES</code> devolve a lista de clientes no contexto; para cada um, <code>[Faturamento Total]</code> é calculado (transição de contexto) e depois tirada a média.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Ticket médio por <b>pedido</b> (aula 5) e por <b>cliente</b> são coisas diferentes. Um cliente que compra 5 vezes tem ticket por pedido baixo e valor por cliente alto. Os dois juntos contam a história.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i2"><label for="i2"><span class="k">Medida 7</span>Maior compra de um único pedido</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Maior Pedido =
+MAXX ( VALUES ( fVendas[Ordem de Compra] ), [Faturamento Total] )</pre></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i3"><label for="i3"><span class="k">Medida 8</span>Variáveis deixam o DAX legível</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Lucro por Pedido =
+VAR Lucro   = [Faturamento Total] - [Custo Total]
+VAR Pedidos = [Nº Pedidos]
+RETURN
+    DIVIDE ( Lucro, Pedidos )</pre></div>
+<p>Cada <code>VAR</code> é calculada uma vez e pode ser reutilizada. Fica mais fácil de ler, de depurar (troque o RETURN por uma variável para testar) e mais rápido.</p></div></div>
+</section>
+
+<section id="rank"><h2><span class="n">04</span>Rankings e Top N</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r1"><label for="r1"><span class="k">Medida 9</span>Ranking de produtos</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Ranking Produto =
+IF (
+    HASONEVALUE ( dProdutos[Produto] ),
+    RANKX ( ALLSELECTED ( dProdutos[Produto] ), [Faturamento Total], , DESC, Dense )
+)</pre></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>1º Notebook Asus ROG Zephyrus Duo 15 - Prata (R$ 1.021.854,00), 2º Dell Gamer G11-i1000 - Amarelo, 3º Teclado sem fio V320 - Preto.</p></div></div>
+<p>Com <code>ALLSELECTED</code>, o ranking se refaz quando você filtra uma categoria: o melhor celular vira 1º entre os celulares.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r2"><label for="r2"><span class="k">Medida 10</span>Faturamento dos Top 10 produtos</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Top 10 Produtos =
+CALCULATE (
+    [Faturamento Total],
+    TOPN ( 10, ALL ( dProdutos[Produto] ), [Faturamento Total], DESC )
+)
+
+% Top 10 =
+DIVIDE ( [Faturamento Top 10 Produtos], [Faturamento Total] )</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que importa</b><p>Se 10 produtos (de 293) fazem boa parte do faturamento, a empresa depende de poucos itens. Ruptura de estoque num deles vira prejuízo grande. É o princípio de Pareto (80/20).</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r3"><label for="r3"><span class="k">Medida 11</span>Classificação com SWITCH(TRUE())</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faixa de Margem =
+VAR M = [Margem %]
+RETURN
+    SWITCH (
+        TRUE (),
+        ISBLANK ( M ), BLANK (),
+        M &gt;= 0.75, &quot;Alta&quot;,
+        M &gt;= 0.65, &quot;Média&quot;,
+        &quot;Baixa&quot;
+    )</pre></div>
+<p><code>SWITCH(TRUE(), condição1, resultado1, …, senão)</code> é o “SE aninhado” bem escrito. Coloque numa tabela por categoria: Notebook e Celular saem “Alta”; Casaco e Camisa (55–58%), “Baixa”.</p></div></div>
+</section>
+
+<section id="metas"><h2><span class="n">05</span>Meta x Realizado</h2><p class="sub">Usa a fMetas e a dCategoria criadas na aula 9.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m1"><label for="m1"><span class="k">Medida 12</span>Meta, atingimento e diferença</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Meta = SUM ( fMetas[Meta] )
+
+% Atingimento = DIVIDE ( [Faturamento Total], [Meta] )
+
+Diferença p/ Meta = [Faturamento Total] - [Meta]
+
+Status Meta =
+VAR A = [% Atingimento]
+RETURN
+    SWITCH ( TRUE (), ISBLANK ( A ), BLANK (), A &gt;= 1, &quot;✔ Atingiu&quot;, A &gt;= 0.9, &quot;▲ Perto&quot;, &quot;▼ Abaixo&quot; )</pre></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m2"><label for="m2"><span class="k">Passo</span>Monte a matriz de metas</label></div><ol>
+<li>Filtre a página para <b>2022</b> (as metas são de jan a jun/2022).</li>
+<li>Matriz: Linhas = <code>dCategoria[Categoria]</code>; Colunas = <code>dCalendario[Mês]</code>; Valores = Faturamento Total, Meta, % Atingimento.</li>
+<li>Formatação condicional em % Atingimento: <span class="ui">Cor da tela de fundo</span> → <span class="ui">Regras</span>: &lt; 90% vermelho claro, 90–100% amarelo, ≥ 100% verde claro.</li>
+</ol>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>Use <b>dCategoria</b> nas linhas, e não dProdutos[Categoria]. Só a dCategoria filtra as duas fatos (vendas pelo caminho dCategoria → dProdutos → fVendas, e metas direto).</p></div></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que importa</b><p>Faturamento sozinho não diz se foi bom. R$ 1 Mi é ótimo se a meta era R$ 800 mil e péssimo se era R$ 1,5 Mi. Meta é o que dá contexto ao número.</p></div></div></div></div>
+</section>
+
+<section id="dinamico"><h2><span class="n">06</span>Títulos dinâmicos com SELECTEDVALUE</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="t1"><label for="t1"><span class="k">Medida 13</span>Título que muda com o filtro</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Título Dinâmico =
+VAR Cat = SELECTEDVALUE ( dProdutos[Categoria], &quot;todas as categorias&quot; )
+VAR Ano = SELECTEDVALUE ( dCalendario[Ano], &quot;todos os anos&quot; )
+RETURN
+    &quot;Faturamento de &quot; &amp; Cat &amp; &quot; em &quot; &amp; Ano &amp; &quot;: &quot; &amp; FORMAT ( [Faturamento Total], &quot;R$ #,##0&quot; )</pre></div>
+<p>No visual: <span class="ui">Formato</span> → <span class="ui">Geral</span> → <span class="ui">Título</span> → botão <b>fx</b> → Formatar estilo: <b>Valor do campo</b> → escolha a medida <code>Título Dinâmico</code>.</p>
+<div class="callout tip"><div class="ico">i</div><div><code>SELECTEDVALUE(coluna, alternativo)</code> devolve o valor se houver exatamente um selecionado; senão, devolve o alternativo.</div></div></div></div>
+</section>
+
+<section id="erros"><h2><span class="n">07</span>Erros comuns</h2>
+<details><summary>“Uma função CALCULATE foi usada em uma expressão True/False…”</summary><div class="in"><p>Você colocou uma medida dentro de um filtro booleano (<code>dProdutos[Preço] &gt; [Média]</code>). Use FILTER: <code>FILTER(dProdutos, dProdutos[Preço Unitario] &gt; [Média])</code>, ou guarde a medida numa VAR antes.</p></div></details>
+<details><summary>O ranking mostra 1 para todo mundo</summary><div class="in"><p>Faltou o <code>ALL</code>/<code>ALLSELECTED</code> no primeiro argumento do RANKX. Sem ele, cada linha compara o produto só com ele mesmo.</p></div></details>
+<details><summary>O total da matriz não bate com a soma das linhas</summary><div class="in"><p>Normal em medidas de razão (margem, %, médias): o total é recalculado no contexto do total, não somado. Se precisar da soma, use <code>SUMX(VALUES(...), [Medida])</code>.</p></div></details>
+<details><summary>% Atingimento vazio em 2020 e 2021</summary><div class="in"><p>Correto: só existem metas para 2022.</p></div></details>
+</section>
+
+<section id="atividades"><h2><span class="n">08</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Três percentuais</h4><span class="lvl b">Básico</span></div><p>Numa matriz Categoria → Marca, mostre lado a lado: % Faturamento Total Geral, % na Categoria e % do Selecionado. Mude a segmentação de ano e explique o que muda em cada coluna.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Clientes que compraram notebook</h4><span class="lvl b">Básico</span></div><p>Crie <code>Clientes Notebook = CALCULATE([Clientes Ativos], dProdutos[Categoria] = "Notebook")</code>. Quantos são em cada ano?</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Top 3 marcas por categoria</h4><span class="lvl m">Intermediário</span></div><p>Crie o ranking de marcas dentro da categoria (<code>RANKX(ALLSELECTED(dProdutos[Marca]), ...)</code>) e use o painel Filtros para mostrar só ranking ≤ 3.</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Curva ABC</h4><span class="lvl a">Desafio</span></div><p>Classifique os produtos em A (até 80% do faturamento acumulado), B (80–95%) e C (resto).</p>
+<details><summary>Dica</summary><div class="in"><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Acumulado Produto =
+VAR FatAtual = [Faturamento Total]
+RETURN
+    CALCULATE (
+        [Faturamento Total],
+        FILTER ( ALLSELECTED ( dProdutos[Produto] ), [Faturamento Total] &gt;= FatAtual )
+    )
+
+Classe ABC =
+VAR Pct = DIVIDE ( [Faturamento Acumulado Produto], CALCULATE ( [Faturamento Total], ALLSELECTED ( dProdutos[Produto] ) ) )
+RETURN SWITCH ( TRUE (), Pct &lt;= 0.8, &quot;A&quot;, Pct &lt;= 0.95, &quot;B&quot;, &quot;C&quot; )</pre></div></div></details></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Painel de metas</h4><span class="lvl a">Entrega</span></div><p>Crie a página “Metas 2022” com: cartões de Meta, Realizado e % Atingimento; a matriz com formatação condicional; um gráfico de colunas e linha (Faturamento em colunas, Meta em linha) por mês; e um título dinâmico.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">09</span>Resumo da aula</h2>
+<ul>
+<li>Contexto de filtro decide quais linhas entram; contexto de linha lê a linha atual.</li>
+<li>CALCULATE adiciona ou troca filtros; ALL, ALLEXCEPT e ALLSELECTED removem.</li>
+<li>Iteradores (X) percorrem tabelas; medidas dentro deles fazem transição de contexto.</li>
+<li>RANKX com ALL/ALLSELECTED; TOPN para “os N maiores”.</li>
+<li>SWITCH(TRUE()) para classificações; VAR para clareza.</li>
+<li>Meta dá contexto ao faturamento.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-10/index.html"><small>← Aula anterior</small>Calendário e inteligência de tempo</a><a class="nx" href="../aula-12/index.html"><small>Próxima aula →</small>Interatividade e storytelling</a></nav><div class="footer">Curso Power BI · Braga Treinamentos. Valores de referência: base completa do projeto Dashboard de Vendas (aula 6).</div></div></main></div><script src="../assets/curso.js"></script></body></html>

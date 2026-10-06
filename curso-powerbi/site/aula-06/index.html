@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 06 · Projeto Dashboard de Vendas</title><meta name="description" content="Cinco planilhas importadas, tratadas no Power Query, unidas numa base geral, modeladas em estrela, calculadas com DAX e apresentadas num dashboard moderno de duas páginas. É a aula que junta tudo o que você aprendeu até aqui."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-06"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-05/index.html">← Anterior</a><a href="../aula-07/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 06</p><ol><li><a href="#visao"><span>01</span>O resultado final</a></li><li><a href="#importacao"><span>02</span>Importação</a></li><li><a href="#tratamento"><span>03</span>Tratamento</a></li><li><a href="#modelo"><span>04</span>Modelo estrela</a></li><li><a href="#medidas"><span>05</span>Medidas DAX</a></li><li><a href="#dashboard"><span>06</span>Dashboard</a></li><li><a href="#respostas"><span>07</span>Análises e respostas</a></li><li><a href="#codigo"><span>08</span>Código M completo</a></li><li><a href="#atividades"><span>09</span>Atividades</a></li><li><a href="#resumo"><span>10</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 06 de 13</div><h1>Projeto completo: <em>Dashboard de Vendas</em> do zero ao painel final</h1><p class="lead">Cinco planilhas importadas, tratadas no Power Query, unidas numa base geral, modeladas em estrela, calculadas com DAX e apresentadas num dashboard moderno de duas páginas. É a aula que junta tudo o que você aprendeu até aqui.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Básico → Intermediário</span></dd><dt>Duração</dt><dd>4 a 6 horas (2 encontros)</dd><dt>Você vai precisar</dt><dd>Power BI Desktop (gratuito, Windows)</dd><dt>Conteúdos</dt><dd><span class="tag">Power Query</span><span class="tag">Localidade</span><span class="tag">Acrescentar</span><span class="tag">Modelo estrela</span><span class="tag">dCalendario</span><span class="tag">SUMX</span><span class="tag">RELATED</span><span class="tag">ALLSELECTED</span><span class="tag">DATEADD</span><span class="tag">SAMEPERIODLASTYEAR</span><span class="tag">TOTALYTD</span><span class="tag">Tema JSON</span><span class="tag">Layout 1920×1080</span></dd></dl></header><section id="visao"><h2><span class="n">01</span>Onde vamos chegar</h2><p class="sub">Antes de começar, olhe o destino. Você vai reproduzir este painel com a base da empresa.</p>
+<figure class="shot "><div class="frame"><img src="img/a06-03.jpg" alt="Página Visão Geral concluída: segmentações, 6 cartões, faturamento por mês, treemap por categoria, marcas, faturamento x lucro por ano e ranking de produtos." loading="lazy"></div><figcaption><b>Print real.</b> Página Visão Geral concluída: segmentações, 6 cartões, faturamento por mês, treemap por categoria, marcas, faturamento x lucro por ano e ranking de produtos.</figcaption></figure>
+<div class="tbl"><table>
+<thead><tr><th>Indicador</th><th class="r">Valor com a base completa</th></tr></thead>
+<tbody>
+<tr><td>Faturamento total</td><td class="r">R$ 15.226.080,56</td></tr>
+<tr><td>Lucro total</td><td class="r">R$ 11.365.235,66</td></tr>
+<tr><td>Margem</td><td class="r">74,6%</td></tr>
+<tr><td>Pedidos</td><td class="r">25.164</td></tr>
+<tr><td>Ticket médio</td><td class="r">R$ 605,07</td></tr>
+<tr><td>Linhas na base geral</td><td class="r">56.046</td></tr>
+</tbody></table></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Use como gabarito</b><p>Ao final, seus cartões devem mostrar exatamente esses números. Se der diferente, a causa quase sempre é o preço convertido errado (passo 6) ou vendas duplicadas (passo 9).</p></div></div>
+<div class="callout tip"><div class="ico">i</div><div><b class="t">Nomes a partir desta aula</b><p>Agora adotamos prefixos: <b>d</b> = dimensão (dClientes, dProdutos, dCalendario) e <b>f</b> = fato (fVendas). Facilita ler o modelo e o DAX. É o mesmo projeto das aulas 2 a 5, com nomes profissionais.</p></div></div>
+</section>
+
+<section id="importacao"><h2><span class="n">02</span>Parte 1 · Importação das planilhas</h2><p class="sub">Objetivo: trazer as 5 planilhas para o Power Query sem carregar nada ainda no modelo.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s1"><label for="s1"><span class="k">Passo 01</span>Organize as planilhas numa pasta do projeto</label></div><p>Crie <code>Documentos\PowerBI_Vendas\Bases</code> e coloque lá:</p>
+<ul>
+<li><code>Base Vendas - 2020.xlsx</code> (2.630 linhas), <code>2021</code> (23.935) e <code>2022</code> (29.481, só janeiro a junho);</li>
+<li><code>Cadastro Clientes.xlsx</code> (18.148 clientes, com 2 linhas vazias no topo);</li>
+<li><code>Cadastro Produtos.xlsx</code> (293 SKUs, preços gravados como texto).</li>
+</ul><figure class="shot "><div class="frame"><img src="img/a06-06.jpg" alt="As 5 planilhas na pasta Documentos\PowerBI_Vendas\Bases." loading="lazy"></div><figcaption><b>Print real.</b> As 5 planilhas na pasta Documentos\PowerBI_Vendas\Bases.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s2"><label for="s2"><span class="k">Passo 02</span>Abra um relatório em branco</label></div><p>Na tela inicial clique em <span class="ui">Relatório em branco</span>. Se aparecer a faixa amarela de recuperação automática, feche.</p><figure class="shot "><div class="frame"><img src="img/a06-05.jpg" alt="Relatório em branco aberto, faixa de opções Página Inicial." loading="lazy"></div><figcaption><b>Print real.</b> Relatório em branco aberto, faixa de opções Página Inicial.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s3"><label for="s3"><span class="k">Passo 03</span>Obter dados › Pasta de trabalho do Excel</label></div><p>Em <span class="ui">Página Inicial</span> clique em <span class="ui">Pasta de trabalho do Excel</span>, abra <code>Base Vendas - 2020.xlsx</code>, marque <b>Plan1</b> e clique em <span class="ui">Transformar Dados</span> (nunca em Carregar: queremos tratar antes).</p><figure class="shot "><div class="frame"><img src="img/a06-07.jpg" alt="Navegador com a prévia da Plan1 da base 2020." loading="lazy"></div><figcaption><b>Print real.</b> Navegador com a prévia da Plan1 da base 2020.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s4"><label for="s4"><span class="k">Passo 04</span>Conheça a base no Power Query</label></div><p>Renomeie a consulta em <b>Propriedades › Nome</b> para <code>Vendas 2020</code>. Ative <span class="ui">Exibição</span> → <b>Qualidade da coluna</b> e <b>Perfil da coluna</b>, e no rodapé troque para “Criação de perfil com base em todo o conjunto de dados” para validar a base inteira.</p><figure class="shot "><div class="frame"><img src="img/a06-08.jpg" alt="Base 2020 no Power Query: cabeçalhos promovidos e tipos detectados." loading="lazy"></div><figcaption><b>Print real.</b> Base 2020 no Power Query: cabeçalhos promovidos e tipos detectados.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s5"><label for="s5"><span class="k">Passo 05</span>Importe as outras 4 planilhas pelo Power Query</label></div><p><span class="ui">Página Inicial</span> › <span class="ui">Nova Fonte</span> › <span class="ui">Pasta de Trabalho do Excel</span>. Repita para 2021, 2022, Cadastro Clientes e Cadastro Produtos, sempre marcando Plan1 › OK. Renomeie (duplo clique): <code>Vendas 2021</code>, <code>Vendas 2022</code>, <code>dClientes</code>, <code>dProdutos</code>.</p></div><figure class="shot "><div class="frame"><img src="img/a06-09.jpg" alt="Nova Fonte › Pasta de Trabalho do Excel dentro do Power Query." loading="lazy"></div><figcaption><b>Print real.</b> Nova Fonte › Pasta de Trabalho do Excel dentro do Power Query.</figcaption></figure></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s5b"><label for="s5b"><span class="k">Passo 05b</span>Diagnóstico já no Navegador</label></div><p>Repare: o Cadastro Clientes chega com <code>Column1</code>, <code>Column2</code>… e duas linhas <code>null</code> antes do cabeçalho real. Vamos tratar no passo 7.</p><figure class="shot "><div class="frame"><img src="img/a06-10.jpg" alt="Cadastro Clientes chega com Column1, Column2… e duas linhas null antes do cabeçalho real." loading="lazy"></div><figcaption><b>Print real.</b> Cadastro Clientes chega com Column1, Column2… e duas linhas null antes do cabeçalho real.</figcaption></figure></div></div>
+</section>
+
+<section id="tratamento"><h2><span class="n">03</span>Parte 2 · Tratamento no Power Query</h2><p class="sub">Três problemas reais: preço em texto com ponto decimal, cadastro de clientes com lixo no topo e vendas espalhadas em três arquivos.</p>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s6"><label for="s6"><span class="k">Passo 06</span>dProdutos: o erro silencioso do preço</label></div><p>Os preços estão gravados como texto no padrão americano: <code>25.95</code>. Com o Windows em português, a detecção automática lê o ponto como separador de milhar e transforma 25.95 em <b>2595</b>. O faturamento fica 100 vezes maior e <b>nenhum erro aparece</b>.</p>
+<ol>
+<li>Exclua a etapa automática <b>Tipo Alterado</b> (X ao lado da etapa).</li>
+<li>Selecione <code>Preço Unitario</code>, segure <kbd>Ctrl</kbd> e selecione <code>Custo Unitario</code>.</li>
+</ol></div><figure class="shot "><div class="frame"><img src="img/a06-12.jpg" alt="Sem a etapa automática, os preços aparecem como o texto original (25.95)." loading="lazy"></div><figcaption><b>Print real.</b> Sem a etapa automática, os preços aparecem como o texto original (25.95).</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s6b"><label for="s6b"><span class="k">Passo 06b</span>Alterar Tipo › Usando a Localidade</label></div><p>Botão direito sobre uma das colunas selecionadas → <span class="ui">Alterar Tipo</span> → <span class="ui">Usando a Localidade…</span></p></div><figure class="shot "><div class="frame"><img src="img/a06-13.jpg" alt="Botão direito nas duas colunas › Alterar Tipo › Usando a Localidade…" loading="lazy"></div><figcaption><b>Print real.</b> Botão direito nas duas colunas › Alterar Tipo › Usando a Localidade…</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s6c"><label for="s6c"><span class="k">Passo 06c</span>Número Decimal + Inglês (Estados Unidos)</label></div><p>Tipo de Dados: <b>Número Decimal</b>. Localidade: <b>Inglês (Estados Unidos)</b> → <span class="ui">OK</span>.</p></div><figure class="shot "><div class="frame"><img src="img/a06-14.jpg" alt="Os exemplos 2,100.50 e -1.50 confirmam o padrão americano." loading="lazy"></div><figcaption><b>Print real.</b> Os exemplos 2,100.50 e -1.50 confirmam o padrão americano.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s6d"><label for="s6d"><span class="k">Passo 06d</span>Confira o preço corrigido</label></div><p>Agora aparecem 25,95 · 19,95 · 11,99. Remova também a coluna <code>Observação</code> (99% vazia) e defina SKU, Produto, Marca e Categoria como Texto.</p>
+<div class="code"><div class="bar"><span>M · etapa gerada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>= Table.TransformColumnTypes(
+    #&quot;Cabeçalhos Promovidos&quot;,
+    {{&quot;Preço Unitario&quot;, type number}, {&quot;Custo Unitario&quot;, type number}},
+    &quot;en-US&quot;
+)</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Esse é o tipo de erro que derruba a credibilidade de um analista: o painel fica lindo e o número está 100 vezes errado. Sempre confira valores conhecidos (preço de um produto) depois de converter tipos.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/a06-15.jpg" alt="Preço corrigido: 25,95 · 19,95 · 11,99. Etapa “Tipo Alterado com Localidade” registrada." loading="lazy"></div><figcaption><b>Print real.</b> Preço corrigido: 25,95 · 19,95 · 11,99. Etapa “Tipo Alterado com Localidade” registrada.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s7"><label for="s7"><span class="k">Passo 07</span>dClientes: remova as 2 linhas do topo</label></div><p><span class="ui">Página Inicial</span> › <span class="ui">Reduzir Linhas</span> › <span class="ui">Remover Linhas</span> › <span class="ui">Remover Linhas Superiores</span>.</p></div><figure class="shot "><div class="frame"><img src="img/a06-16.jpg" alt="Reduzir Linhas › Remover Linhas › Remover Linhas Superiores." loading="lazy"></div><figcaption><b>Print real.</b> Reduzir Linhas › Remover Linhas › Remover Linhas Superiores.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s7b"><label for="s7b"><span class="k">Passo 07b</span>Número de linhas: 2</label></div><p>Digite <b>2</b> e clique em OK.</p></div><figure class="shot "><div class="frame"><img src="img/a06-17.jpg" alt="Remover Linhas Superiores com o valor 2." loading="lazy"></div><figcaption><b>Print real.</b> Remover Linhas Superiores com o valor 2.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s7c"><label for="s7c"><span class="k">Passo 07c</span>Promova os cabeçalhos</label></div><p><span class="ui">Transformar</span> › <span class="ui">Usar a Primeira Linha como Cabeçalho</span>. Exclua a etapa automática de tipo que aparecer: ela converteria Documento em número e apagaria zeros à esquerda (ex.: <code>04013622223</code>). Remova <code>Column11</code> e <code>Column12</code>.</p></div><figure class="shot "><div class="frame"><img src="img/a06-18.jpg" alt="A linha 1 agora é “ID Cliente, Primeiro Nome…”." loading="lazy"></div><figcaption><b>Print real.</b> A linha 1 agora é “ID Cliente, Primeiro Nome…”.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s7d"><label for="s7d"><span class="k">Passo 07d</span>Datas americanas e Documento como texto</label></div><ul>
+<li><code>Documento</code> → tipo <b>Texto</b>.</li>
+<li><code>Data Nascimento</code> vem como M/D/AAAA (4/8/1966): ícone de tipo › <span class="ui">Usando a Localidade…</span> › <b>Data</b> + <b>Inglês (Estados Unidos)</b>.</li>
+<li><code>ID Cliente</code> e <code>Num Filhos</code> → Número Inteiro.</li>
+</ul></div><figure class="shot "><div class="frame"><img src="img/a06-19.jpg" alt="Data Nascimento: Data + Inglês (EUA). Exemplo de entrada 3/29/2016." loading="lazy"></div><figcaption><b>Print real.</b> Data Nascimento: Data + Inglês (EUA). Exemplo de entrada 3/29/2016.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s7e"><label for="s7e"><span class="k">Passo 07e</span>Substitua códigos por textos legíveis</label></div><p>Botão direito em <code>Genero</code> › <span class="ui">Substituir Valores</span>: <b>M → Masculino</b>; repita <b>F → Feminino</b>. Em <code>Estado Civil</code>: <b>C → Casado</b>; <b>S → Solteiro</b>.</p>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>Funciona porque a coluna só tem M ou F. Em colunas com texto livre, abra <b>Opções avançadas</b> e marque <b>Coincidir conteúdo da célula inteira</b>.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/a06-20.jpg" alt="Substituir Valores em Genero: M → Masculino." loading="lazy"></div><figcaption><b>Print real.</b> Substituir Valores em Genero: M → Masculino.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s7f"><label for="s7f"><span class="k">Passo 07f</span>Nome Completo</label></div><p>Selecione <code>Primeiro Nome</code> + <code>Sobrenome</code> › <span class="ui">Adicionar Coluna</span> › <span class="ui">Mesclar Colunas</span> › separador <b>Espaço</b> › nome <code>Nome Completo</code>.</p></div><figure class="shot "><div class="frame"><img src="img/a06-21.jpg" alt="Mesclar Colunas com separador Espaço gerando “Nome Completo”." loading="lazy"></div><figcaption><b>Print real.</b> Mesclar Colunas com separador Espaço gerando “Nome Completo”.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s7g"><label for="s7g"><span class="k">Passo 07g</span>dClientes pronto</label></div><p>Confira as Etapas Aplicadas e o Documento com zeros à esquerda preservados.</p></div><figure class="shot "><div class="frame"><img src="img/a06-22.jpg" alt="dClientes final com 13 etapas aplicadas; Documento preserva os zeros à esquerda." loading="lazy"></div><figcaption><b>Print real.</b> dClientes final com 13 etapas aplicadas; Documento preserva os zeros à esquerda.</figcaption></figure></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s8"><label for="s8"><span class="k">Passo 08</span>Junte 2020 + 2021 + 2022 em fVendas</label></div><p>Selecione <code>Vendas 2020</code> › <span class="ui">Página Inicial</span> › <span class="ui">Acrescentar Consultas ▾</span> › <span class="ui">Acrescentar Consultas como Novas</span>. Marque <b>Três ou mais tabelas</b>, adicione Vendas 2021 e Vendas 2022 › OK. Renomeie <code>Acrescentar1</code> para <code>fVendas</code>.</p><figure class="shot "><div class="frame"><img src="img/a06-24.jpg" alt="Acrescentar com Três ou mais tabelas: Vendas 2020, 2021 e 2022." loading="lazy"></div><figcaption><b>Print real.</b> Acrescentar com Três ou mais tabelas: Vendas 2020, 2021 e 2022.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s8b"><label for="s8b"><span class="k">Passo 08b</span>fVendas = 56.046 linhas</label></div><div class="code"><div class="bar"><span>M · fVendas</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte = Table.Combine({#&quot;Vendas 2020&quot;, #&quot;Vendas 2021&quot;, #&quot;Vendas 2022&quot;})
+in
+    Fonte</pre></div>
+<div class="callout tip"><div class="ico">i</div><div><b class="t">Alternativa escalável</b><p>Com as bases anuais numa subpasta só delas, use <span class="ui">Obter Dados</span> › <span class="ui">Pasta</span> › <span class="ui">Combinar e Transformar</span>. Uma base 2023 colocada na pasta entra sozinha na próxima atualização (aula 9).</p></div></div><figure class="shot "><div class="frame"><img src="img/a06-25.jpg" alt="fVendas = Table.Combine das três bases, mesmas 6 colunas." loading="lazy"></div><figcaption><b>Print real.</b> fVendas = Table.Combine das três bases, mesmas 6 colunas.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s9"><label for="s9"><span class="k">Passo 09</span>Desabilite a carga das bases anuais e aplique</label></div><p>Botão direito em Vendas 2020, 2021 e 2022 › desmarque <span class="ui">Habilitar carga</span> (o nome fica em itálico). Depois, <span class="ui">Fechar e Aplicar</span>.</p><figure class="shot "><div class="frame"><img src="img/a06-26.jpg" alt="Desmarcar “Habilitar carga” evita duplicar 56 mil linhas no modelo." loading="lazy"></div><figcaption><b>Print real.</b> Desmarcar “Habilitar carga” evita duplicar 56 mil linhas no modelo.</figcaption></figure></div></div>
+</section>
+
+<section id="modelo"><h2><span class="n">04</span>Parte 3 · Modelagem em estrela</h2><p class="sub">Uma fato no centro (fVendas) e dimensões em volta, relacionadas de 1 para muitos com filtro de direção única.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s10"><label for="s10"><span class="k">Passo 10</span>Confira os relacionamentos</label></div><p>O Power BI detectou as chaves sozinho. Confira em <span class="ui">Página Inicial</span> › <span class="ui">Gerenciar relações</span>:</p>
+<div class="tbl"><table>
+<thead><tr><th>De (muitos *)</th><th>Para (um 1)</th><th>Filtro</th></tr></thead>
+<tbody>
+<tr><td>fVendas[SKU]</td><td>dProdutos[SKU]</td><td>Único</td></tr>
+<tr><td>fVendas[ID Cliente]</td><td>dClientes[ID Cliente]</td><td>Único</td></tr>
+<tr><td>fVendas[Data da Venda]</td><td>dCalendario[Date]</td><td>Único (passo 11)</td></tr>
+</tbody></table></div>
+<p>Se a detecção não ocorrer, arraste a coluna da fato até a chave da dimensão.</p><figure class="shot "><div class="frame"><img src="img/a06-27.jpg" alt="Modelo estrela: dProdutos 1→* fVendas *←1 dClientes." loading="lazy"></div><figcaption><b>Print real.</b> Modelo estrela: dProdutos 1→* fVendas *←1 dClientes.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s11"><label for="s11"><span class="k">Passo 11</span>Crie a tabela dCalendario em DAX</label></div><p>Exibição de Tabela › <span class="ui">Nova tabela</span> e cole:</p>
+<div class="code"><div class="bar"><span>DAX · tabela calculada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>dCalendario =
+VAR DataInicio = DATE ( YEAR ( MIN ( fVendas[Data da Venda] ) ), 1, 1 )
+VAR DataFim = MAX ( fVendas[Data da Venda] )
+RETURN
+    ADDCOLUMNS (
+        CALENDAR ( DataInicio, DataFim ),
+        &quot;Ano&quot;, YEAR ( [Date] ),
+        &quot;Mês Num&quot;, MONTH ( [Date] ),
+        &quot;Mês&quot;, FORMAT ( [Date], &quot;mmm&quot; ),
+        &quot;Ano-Mês&quot;, FORMAT ( [Date], &quot;yyyy-mm&quot; ),
+        &quot;Trimestre&quot;, &quot;T&quot; &amp; QUARTER ( [Date] ),
+        &quot;Dia da Semana&quot;, FORMAT ( [Date], &quot;ddd&quot; ),
+        &quot;Dia Semana Num&quot;, WEEKDAY ( [Date], 2 )
+    )</pre></div></div><figure class="shot "><div class="frame"><img src="img/a06-29.jpg" alt="Nova tabela com o DAX colado na barra de fórmulas." loading="lazy"></div><figcaption><b>Print real.</b> Nova tabela com o DAX colado na barra de fórmulas.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s11b"><label for="s11b"><span class="k">Passo 11b</span>Configure a dCalendario</label></div><ol>
+<li>Botão direito em dCalendario › <span class="ui">Marcar como tabela de datas</span> › coluna <b>Date</b>.</li>
+<li>Selecione a coluna <b>Mês</b> › <span class="ui">Classificar por coluna</span> › <b>Mês Num</b>; faça o mesmo com Dia da Semana por Dia Semana Num. Sem isso, os meses saem em ordem alfabética (abr, ago, dez…).</li>
+<li>Arraste <code>fVendas[Data da Venda]</code> até <code>dCalendario[Date]</code>.</li>
+</ol>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que terminar em 30/06/2022</b><p>A base 2022 só tem o 1º semestre. Encerrar o calendário na última venda faz o SAMEPERIODLASTYEAR comparar jan–jun/2022 com jan–jun/2021, e não com o ano inteiro.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/a06-30.jpg" alt="dCalendario criada: 912 linhas (01/01/2020 a 30/06/2022), uma por dia." loading="lazy"></div><figcaption><b>Print real.</b> dCalendario criada: 912 linhas (01/01/2020 a 30/06/2022), uma por dia.</figcaption></figure></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s11c"><label for="s11c"><span class="k">Passo 11c</span>Modelo final com três relações</label></div><p>Confira as três relações ativas, todas muitos-para-um a partir da fVendas.</p></div><figure class="shot "><div class="frame"><img src="img/a06-32.jpg" alt="Gerenciar relações: fVendas ligada a dCalendario, dClientes e dProdutos, todas ativas." loading="lazy"></div><figcaption><b>Print real.</b> Gerenciar relações: fVendas ligada a dCalendario, dClientes e dProdutos, todas ativas.</figcaption></figure></div>
+</section>
+
+<section id="medidas"><h2><span class="n">05</span>Parte 4 · Medidas DAX</h2><p class="sub">Medidas numa tabela própria (_Medidas), organizadas em pastas de exibição.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s12"><label for="s12"><span class="k">Passo 12</span>Tabela _Medidas e Faturamento Total com SUMX</label></div><p>Nova tabela: <code>_Medidas = ROW("x", BLANK())</code> e oculte a coluna x. Selecione <code>_Medidas</code> › <span class="ui">Nova medida</span>:</p>
+<div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Total =
+SUMX (
+    fVendas,
+    fVendas[Qtd Vendida] * RELATED ( dProdutos[Preço Unitario] )
+)</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">SUMX em vez de coluna calculada</b><p>Na aula 5 você criou colunas de preço e faturamento. Aqui, <code>SUMX</code> percorre a fVendas linha a linha, multiplica a quantidade pelo preço buscado com RELATED e soma, tudo dentro da medida. O modelo fica mais leve: nenhuma coluna nova é gravada.</p></div></div>
+<p>Formato: Moeda R$, 2 casas.</p><figure class="shot "><div class="frame"><img src="img/a06-33.jpg" alt="Medida Faturamento Total sendo criada na tabela _Medidas." loading="lazy"></div><figcaption><b>Print real.</b> Medida Faturamento Total sendo criada na tabela _Medidas.</figcaption></figure></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s13"><label for="s13"><span class="k">Passo 13</span>Medidas financeiras</label></div><div class="code"><div class="bar"><span>DAX · 1. Financeiro</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Custo Total =
+SUMX ( fVendas, fVendas[Qtd Vendida] * RELATED ( dProdutos[Custo Unitario] ) )
+
+Lucro Total = [Faturamento Total] - [Custo Total]
+
+Margem % = DIVIDE ( [Lucro Total], [Faturamento Total] )
+
+Ticket Médio = DIVIDE ( [Faturamento Total], [Nº Pedidos] )
+
+% Faturamento s/ Total =
+DIVIDE (
+    [Faturamento Total],
+    CALCULATE ( [Faturamento Total], ALLSELECTED ( dProdutos ) )
+)</pre></div>
+<p><code>% Faturamento s/ Total</code> calcula a participação de cada produto/categoria dentro do que está selecionado nas segmentações. <code>ALLSELECTED</code> ignora o filtro da linha do visual, mas respeita os filtros externos (ano, marca).</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s13b"><label for="s13b"><span class="k">Passo 13b</span>Medidas de volume</label></div><div class="code"><div class="bar"><span>DAX · 2. Volume</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Qtd Vendida = SUM ( fVendas[Qtd Vendida] )
+
+Nº Pedidos = DISTINCTCOUNT ( fVendas[Ordem de Compra] )
+
+Clientes Ativos = DISTINCTCOUNT ( fVendas[ID Cliente] )
+
+Lojas Ativas = DISTINCTCOUNT ( fVendas[ID Loja] )</pre></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="s13c"><label for="s13c"><span class="k">Passo 13c</span>Inteligência de tempo</label></div><div class="code"><div class="bar"><span>DAX · 3. Inteligência de Tempo</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Mês Anterior =
+CALCULATE ( [Faturamento Total], DATEADD ( dCalendario[Date], -1, MONTH ) )
+
+Crescimento % Mensal =
+DIVIDE ( [Faturamento Total] - [Faturamento Mês Anterior], [Faturamento Mês Anterior] )
+
+Faturamento Ano Anterior =
+VAR UltimoAno = MAX ( dCalendario[Ano] )
+VAR DatasAno =
+    CALCULATETABLE (
+        VALUES ( dCalendario[Date] ),
+        KEEPFILTERS ( dCalendario[Ano] = UltimoAno )
+    )
+RETURN
+    CALCULATE ( [Faturamento Total], SAMEPERIODLASTYEAR ( DatasAno ) )
+
+Crescimento YoY % =
+VAR UltimoAno = MAX ( dCalendario[Ano] )
+VAR FatAtual =
+    CALCULATE ( [Faturamento Total], KEEPFILTERS ( dCalendario[Ano] = UltimoAno ) )
+RETURN
+    DIVIDE ( FatAtual - [Faturamento Ano Anterior], [Faturamento Ano Anterior] )
+
+Faturamento Acumulado (YTD) =
+TOTALYTD ( [Faturamento Total], dCalendario[Date] )</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que o YoY usa o “último ano em contexto”</b><p>Sem filtro de ano, um SAMEPERIODLASTYEAR simples desloca o período inteiro e devolve +369%, um número sem sentido. Fixando o último ano visível, o cartão mostra jan–jun/2022 contra jan–jun/2021 (<b>+564,8%</b>) e, com o filtro em 2021, 2021 contra 2020 (<b>+174,0%</b>).</p></div></div>
+<div class="callout tip"><div class="ico">i</div><div><p>A aula 10 é inteira sobre inteligência de tempo. Aqui basta copiar e entender a ideia.</p></div></div></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s13d"><label for="s13d"><span class="k">Passo 13d</span>Organize em pastas de exibição</label></div><p>Selecione a medida › <span class="ui">Propriedades</span> › <b>Pasta de exibição</b>: <code>1. Financeiro</code>, <code>2. Volume</code>, <code>3. Inteligência de Tempo</code>. Crie na ordem em que uma depende da outra (Faturamento antes de Lucro, Nº Pedidos antes de Ticket Médio).</p>
+<div class="tbl"><table>
+<thead><tr><th>Medida</th><th>Formato</th><th class="r">Valor (total)</th></tr></thead>
+<tbody>
+<tr><td>Faturamento Total</td><td>R$ #.##0,00</td><td class="r">R$ 15.226.080,56</td></tr>
+<tr><td>Custo Total</td><td>R$ #.##0,00</td><td class="r">R$ 3.860.844,90</td></tr>
+<tr><td>Lucro Total</td><td>R$ #.##0,00</td><td class="r">R$ 11.365.235,66</td></tr>
+<tr><td>Margem %</td><td>0,0%</td><td class="r">74,6%</td></tr>
+<tr><td>Nº Pedidos</td><td>#.##0</td><td class="r">25.164</td></tr>
+<tr><td>Ticket Médio</td><td>R$ #.##0,00</td><td class="r">R$ 605,07</td></tr>
+<tr><td>Qtd Vendida</td><td>#.##0</td><td class="r">84.174</td></tr>
+<tr><td>Clientes Ativos</td><td>#.##0</td><td class="r">17.416</td></tr>
+</tbody></table></div><figure class="shot "><div class="frame"><img src="img/a06-34.jpg" alt="Medidas em pastas: 1. Financeiro, 2. Volume, 3. Inteligência de Tempo." loading="lazy"></div><figcaption><b>Print real.</b> Medidas em pastas: 1. Financeiro, 2. Volume, 3. Inteligência de Tempo.</figcaption></figure></div></div>
+</section>
+
+<section id="dashboard"><h2><span class="n">06</span>Parte 5 · Dashboard moderno</h2><p class="sub">Tema JSON próprio, página 1920×1080, margem de 24 px e 16 px entre blocos.</p>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s14"><label for="s14"><span class="k">Passo 14</span>Importe o tema</label></div><p>Baixe o tema e aplique em <span class="ui">Design</span> (ou <span class="ui">Exibição</span>) › <span class="ui">Temas</span> › <span class="ui">Procurar temas</span> / <span class="ui">Importar tema</span>.</p>
+<div class="files"><a class="file" href="../arquivos/Tema_Vendas_Moderno.json" download><span class="ext json">JSON</span><span><b>Tema_Vendas_Moderno.json</b><small>Cores, fontes, cartões brancos com cantos de 12 px</small></span></a></div>
+<div class="code"><div class="bar"><span>JSON · trecho do tema</span><button class="copy" type="button">Copiar</button></div><pre data-hl>{
+  &quot;name&quot;: &quot;Vendas Moderno&quot;,
+  &quot;dataColors&quot;: [&quot;#4F46E5&quot;, &quot;#06B6D4&quot;, &quot;#F59E0B&quot;, &quot;#10B981&quot;, &quot;#EC4899&quot;, &quot;#8B5CF6&quot;, &quot;#EF4444&quot;],
+  &quot;visualStyles&quot;: {
+    &quot;page&quot;: {&quot;*&quot;: {&quot;background&quot;: [{&quot;color&quot;: {&quot;solid&quot;: {&quot;color&quot;: &quot;#EEF2F7&quot;}}, &quot;transparency&quot;: 0}]}},
+    &quot;*&quot;: {&quot;*&quot;: {
+      &quot;border&quot;: [{&quot;show&quot;: true, &quot;color&quot;: {&quot;solid&quot;: {&quot;color&quot;: &quot;#E2E8F0&quot;}}, &quot;radius&quot;: 12}],
+      &quot;dropShadow&quot;: [{&quot;show&quot;: true, &quot;preset&quot;: &quot;BottomRight&quot;, &quot;transparency&quot;: 80}],
+      &quot;visualHeader&quot;: [{&quot;show&quot;: false}]
+    }}
+  }
+}</pre></div>
+<p>Em <span class="ui">Formato</span> da página › <b>Configurações de tela</b>, defina tamanho <b>Personalizado 1920 × 1080</b>.</p><figure class="shot "><div class="frame"><img src="img/a06-35.jpg" alt="Tema aplicado: tela com fundo #EEF2F7." loading="lazy"></div><figcaption><b>Print real.</b> Tema aplicado: tela com fundo #EEF2F7.</figcaption></figure></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="s15"><label for="s15"><span class="k">Passo 15</span>Primeiro cartão</label></div><p>Clique numa área vazia, escolha <b>Cartão</b> e marque <code>Faturamento Total</code>. Posição e tamanho exatos ficam em <span class="ui">Formato</span> › <span class="ui">Geral</span> › <span class="ui">Propriedades</span>.</p></div><figure class="shot "><div class="frame"><img src="img/a06-36.jpg" alt="Visual Cartão + medida Faturamento Total = R$ 15,23 Mi." loading="lazy"></div><figcaption><b>Print real.</b> Visual Cartão + medida Faturamento Total = R$ 15,23 Mi.</figcaption></figure></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s15b"><label for="s15b"><span class="k">Passo 15b</span>Página Visão Geral</label></div><div class="tbl"><table>
+<thead><tr><th>Visual</th><th>Campos</th><th>X, Y</th><th>L × A</th></tr></thead>
+<tbody>
+<tr><td>Caixa de texto (título)</td><td>“Dashboard de Vendas” + subtítulo</td><td>24, 16</td><td>1000 × 80</td></tr>
+<tr><td>3 Segmentações (lista suspensa)</td><td>dCalendario[Ano] · dProdutos[Categoria] · dProdutos[Marca]</td><td>1084/1360/1636, 16</td><td>260 × 80</td></tr>
+<tr><td>6 Cartões</td><td>Faturamento, Custo, Lucro, Margem %, Nº Pedidos, Ticket Médio</td><td>24 + 314·i, 112</td><td>298 × 140</td></tr>
+<tr><td>Gráfico de áreas</td><td>Eixo: dCalendario[Ano-Mês] · Y: Faturamento Total</td><td>24, 268</td><td>1200 × 380</td></tr>
+<tr><td>Treemap</td><td>Categoria · Faturamento Total</td><td>1240, 268</td><td>656 × 380</td></tr>
+<tr><td>Barras clusterizadas</td><td>dProdutos[Marca] · Faturamento Total</td><td>24, 664</td><td>600 × 400</td></tr>
+<tr><td>Colunas clusterizadas</td><td>dCalendario[Ano] · Faturamento + Lucro</td><td>640, 664</td><td>600 × 400</td></tr>
+<tr><td>Tabela</td><td>Produto · Faturamento · Qtd Vendida · Margem %</td><td>1256, 664</td><td>640 × 400</td></tr>
+</tbody></table></div>
+<p>Acabamento: desligue o subtítulo automático e escreva títulos que respondem a uma pergunta (“Faturamento por Mês”, “Ranking de Produtos”).</p><figure class="shot "><div class="frame"><img src="img/a06-37.jpg" alt="Página Visão Geral concluída." loading="lazy"></div><figcaption><b>Print real.</b> Página Visão Geral concluída.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s16"><label for="s16"><span class="k">Passo 16</span>Página Clientes &amp; Evolução</label></div><div class="tbl"><table>
+<thead><tr><th>Visual</th><th>Campos</th></tr></thead>
+<tbody>
+<tr><td>Segmentações</td><td>Ano · Categoria · dClientes[Genero]</td></tr>
+<tr><td>6 Cartões</td><td>Clientes Ativos, Lojas Ativas, Qtd Vendida, Faturamento Ano Anterior, Crescimento YoY %, Faturamento Acumulado (YTD)</td></tr>
+<tr><td>Pizza</td><td>dClientes[Genero] · Faturamento Total</td></tr>
+<tr><td>Barras</td><td>dClientes[Nivel Escolar] · Faturamento Total</td></tr>
+<tr><td>Linha e colunas</td><td>dClientes[Estado Civil] · Colunas: Faturamento · Linha: Ticket Médio</td></tr>
+<tr><td>Linhas</td><td>Eixo: dCalendario[Mês] · Legenda: Ano · Y: Faturamento (sazonalidade)</td></tr>
+<tr><td>Colunas</td><td>dCalendario[Dia da Semana] · Nº Pedidos</td></tr>
+</tbody></table></div><figure class="shot "><div class="frame"><img src="img/a06-38.jpg" alt="YoY +564,8% (1º sem/2022 vs 1º sem/2021) e acumulado do ano R$ 7,06 Mi." loading="lazy"></div><figcaption><b>Print real.</b> YoY +564,8% (1º sem/2022 vs 1º sem/2021) e acumulado do ano R$ 7,06 Mi.</figcaption></figure></div></div>
+<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="s17"><label for="s17"><span class="k">Passo 17</span>Teste a interação e salve</label></div><p>Clique em 2021 no gráfico “Faturamento x Lucro por Ano”: todos os visuais filtram juntos. Clique de novo para limpar. Salve como <code>Dashboard_Vendas_Final.pbix</code>.</p><figure class="shot "><div class="frame"><img src="img/a06-39.jpg" alt="Filtro cruzado em 2021: faturamento R$ 5,98 Mi, 11 mil pedidos, ticket R$ 559,41." loading="lazy"></div><figcaption><b>Print real.</b> Filtro cruzado em 2021: faturamento R$ 5,98 Mi, 11 mil pedidos, ticket R$ 559,41.</figcaption></figure></div></div>
+</section>
+
+<section id="respostas"><h2><span class="n">07</span>Parte 6 · O que o dashboard responde</h2><p class="sub">Um dashboard só vale pelas perguntas que ele responde. Estas são as conclusões com a base completa.</p>
+<h3>Faturamento por ano</h3>
+<div class="tbl"><table><thead><tr><th>Ano</th><th class="r">Faturamento</th></tr></thead><tbody>
+<tr><td>2020</td><td class="r">R$ 2,18 Mi</td></tr><tr><td>2021</td><td class="r">R$ 5,98 Mi</td></tr><tr><td>2022 (jan–jun)</td><td class="r">R$ 7,06 Mi</td></tr></tbody></table></div>
+<p>O 1º semestre de 2022 (R$ 7,06 Mi) foi 6,6 vezes o 1º semestre de 2021 (R$ 1,06 Mi). <b>Por que importa:</b> mostra uma virada de patamar no negócio, que pede investigação (nova loja? campanha? canal online?).</p>
+<h3>Rentabilidade por categoria</h3>
+<div class="tbl"><table><thead><tr><th>Categoria</th><th class="r">Faturamento</th><th class="r">Custo</th><th class="r">Margem</th><th class="r">Qtd</th></tr></thead><tbody>
+<tr><td>Notebook</td><td class="r">R$ 7.469.356,74</td><td class="r">R$ 1.799.254,40</td><td class="r">75,9%</td><td class="r">6.262</td></tr>
+<tr><td>Celular</td><td class="r">R$ 4.429.261,00</td><td class="r">R$ 1.076.408,70</td><td class="r">75,7%</td><td class="r">7.667</td></tr>
+<tr><td>Monitor</td><td class="r">R$ 1.705.621,95</td><td class="r">R$ 476.538,10</td><td class="r">72,1%</td><td class="r">7.543</td></tr>
+<tr><td>Teclado</td><td class="r">R$ 758.816,58</td><td class="r">R$ 199.489,50</td><td class="r">73,7%</td><td class="r">14.301</td></tr>
+<tr><td>Mouse</td><td class="r">R$ 427.425,79</td><td class="r">R$ 121.970,90</td><td class="r">71,5%</td><td class="r">35.965</td></tr>
+<tr><td>Casaco</td><td class="r">R$ 288.666,00</td><td class="r">R$ 122.169,10</td><td class="r">57,7%</td><td class="r">6.680</td></tr>
+<tr><td>Camisa</td><td class="r">R$ 146.932,50</td><td class="r">R$ 65.014,20</td><td class="r">55,8%</td><td class="r">5.756</td></tr>
+</tbody></table></div>
+<p>Notebook + Celular = 78% do faturamento. Mouse é o campeão de unidades, mas fatura pouco. <b>Por que importa:</b> volume e valor contam histórias diferentes; estoque se planeja por unidades, meta financeira por faturamento.</p>
+<h3>Marcas e clientes</h3>
+<ul>
+<li>Apple sozinha responde por 29% do faturamento (R$ 4,45 Mi), seguida de Asus (1,44), LG (1,42), Samsung (1,35), Dell (1,32) e HP (1,29). Dependência de um fornecedor é risco.</li>
+<li>17.416 clientes compraram. Gênero equilibrado: Masculino R$ 7,72 Mi (50,7%) e Feminino R$ 7,51 Mi (49,3%).</li>
+<li>Casados faturam mais (R$ 7,98 Mi), mas solteiros têm ticket maior (R$ 637,66 contra R$ 578,21).</li>
+<li>Ticket médio cai de R$ 628 (superior completo) para R$ 504 (médio incompleto).</li>
+</ul>
+<h3>Tendência e pontos de atenção</h3>
+<ul>
+<li>Virada em jul/2021: o faturamento mensal saiu de cerca de R$ 0,2 Mi para R$ 1,3 Mi em dez/2021. Melhor mês da série: jun/2022, com R$ 1.416.677,89.</li>
+<li>Vestuário (Casaco e Camisa, marca Hashtag) tem margem de 56–58%, quase 20 pontos abaixo dos eletrônicos.</li>
+<li>Ticket médio caiu de R$ 830 (2020) para R$ 596 (2022): mais pedidos com itens de menor valor (mouse, teclado).</li>
+</ul>
+</section>
+
+<section id="codigo"><h2><span class="n">08</span>Código M completo das consultas</h2><p class="sub">Para conferir ou recriar. Ajuste o caminho da pasta para o seu computador.</p>
+<div class="code"><div class="bar"><span>M · Vendas 2020 (repita para 2021 e 2022 trocando o arquivo)</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte = Excel.Workbook(File.Contents(&quot;C:\Users\SeuUsuario\Documents\PowerBI_Vendas\Bases\Base Vendas - 2020.xlsx&quot;), null, true),
+    Plan1_Sheet = Fonte{[Item=&quot;Plan1&quot;, Kind=&quot;Sheet&quot;]}[Data],
+    #&quot;Cabeçalhos Promovidos&quot; = Table.PromoteHeaders(Plan1_Sheet, [PromoteAllScalars=true]),
+    #&quot;Tipo Alterado&quot; = Table.TransformColumnTypes(#&quot;Cabeçalhos Promovidos&quot;, {
+        {&quot;Data da Venda&quot;, type date}, {&quot;Ordem de Compra&quot;, type text}, {&quot;SKU&quot;, type text},
+        {&quot;ID Cliente&quot;, Int64.Type}, {&quot;Qtd Vendida&quot;, Int64.Type}, {&quot;ID Loja&quot;, Int64.Type}})
+in
+    #&quot;Tipo Alterado&quot;</pre></div>
+<div class="code"><div class="bar"><span>M · dProdutos</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte = Excel.Workbook(File.Contents(&quot;C:\Users\SeuUsuario\Documents\PowerBI_Vendas\Bases\Cadastro Produtos.xlsx&quot;), null, true),
+    Plan1_Sheet = Fonte{[Item=&quot;Plan1&quot;, Kind=&quot;Sheet&quot;]}[Data],
+    #&quot;Cabeçalhos Promovidos&quot; = Table.PromoteHeaders(Plan1_Sheet, [PromoteAllScalars=true]),
+    #&quot;Tipo Alterado com Localidade&quot; = Table.TransformColumnTypes(#&quot;Cabeçalhos Promovidos&quot;,
+        {{&quot;Preço Unitario&quot;, type number}, {&quot;Custo Unitario&quot;, type number}}, &quot;en-US&quot;),
+    #&quot;Colunas Removidas&quot; = Table.RemoveColumns(#&quot;Tipo Alterado com Localidade&quot;, {&quot;Observação&quot;}),
+    #&quot;Tipo Alterado&quot; = Table.TransformColumnTypes(#&quot;Colunas Removidas&quot;, {
+        {&quot;SKU&quot;, type text}, {&quot;Produto&quot;, type text}, {&quot;Marca&quot;, type text}, {&quot;Categoria&quot;, type text}})
+in
+    #&quot;Tipo Alterado&quot;</pre></div>
+<div class="code"><div class="bar"><span>M · dClientes</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte = Excel.Workbook(File.Contents(&quot;C:\Users\SeuUsuario\Documents\PowerBI_Vendas\Bases\Cadastro Clientes.xlsx&quot;), null, true),
+    Plan1_Sheet = Fonte{[Item=&quot;Plan1&quot;, Kind=&quot;Sheet&quot;]}[Data],
+    #&quot;Linhas Superiores Removidas&quot; = Table.Skip(Plan1_Sheet, 2),
+    #&quot;Cabeçalhos Promovidos&quot; = Table.PromoteHeaders(#&quot;Linhas Superiores Removidas&quot;, [PromoteAllScalars=true]),
+    #&quot;Colunas Removidas&quot; = Table.RemoveColumns(#&quot;Cabeçalhos Promovidos&quot;, {&quot;Column11&quot;, &quot;Column12&quot;}),
+    #&quot;Documento Texto&quot; = Table.TransformColumnTypes(#&quot;Colunas Removidas&quot;, {{&quot;Documento&quot;, type text}}),
+    #&quot;Tipo Alterado com Localidade&quot; = Table.TransformColumnTypes(#&quot;Documento Texto&quot;, {{&quot;Data Nascimento&quot;, type date}}, &quot;en-US&quot;),
+    #&quot;Genero M&quot; = Table.ReplaceValue(#&quot;Tipo Alterado com Localidade&quot;, &quot;M&quot;, &quot;Masculino&quot;, Replacer.ReplaceText, {&quot;Genero&quot;}),
+    #&quot;Genero F&quot; = Table.ReplaceValue(#&quot;Genero M&quot;, &quot;F&quot;, &quot;Feminino&quot;, Replacer.ReplaceText, {&quot;Genero&quot;}),
+    #&quot;Civil C&quot; = Table.ReplaceValue(#&quot;Genero F&quot;, &quot;C&quot;, &quot;Casado&quot;, Replacer.ReplaceText, {&quot;Estado Civil&quot;}),
+    #&quot;Civil S&quot; = Table.ReplaceValue(#&quot;Civil C&quot;, &quot;S&quot;, &quot;Solteiro&quot;, Replacer.ReplaceText, {&quot;Estado Civil&quot;}),
+    #&quot;Tipo Alterado&quot; = Table.TransformColumnTypes(#&quot;Civil S&quot;, {
+        {&quot;ID Cliente&quot;, Int64.Type}, {&quot;Num Filhos&quot;, Int64.Type}, {&quot;Primeiro Nome&quot;, type text},
+        {&quot;Sobrenome&quot;, type text}, {&quot;Email&quot;, type text}, {&quot;Nivel Escolar&quot;, type text}}),
+    #&quot;Coluna Mesclada Inserida&quot; = Table.AddColumn(#&quot;Tipo Alterado&quot;, &quot;Nome Completo&quot;,
+        each Text.Combine({[Primeiro Nome], [Sobrenome]}, &quot; &quot;), type text)
+in
+    #&quot;Coluna Mesclada Inserida&quot;</pre></div>
+</section>
+
+<section id="atividades"><h2><span class="n">09</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Bata os números</h4><span class="lvl b">Básico</span></div><p>Confira se os seus cartões batem com a tabela de gabarito da Parte 4. Se algum não bater, descubra a causa e escreva qual era.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Top 5 produtos</h4><span class="lvl b">Básico</span></div><p>Na tabela “Ranking de Produtos”, aplique um filtro <b>N superior</b> = 5 por Faturamento Total.</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Margem por marca</h4><span class="lvl m">Intermediário</span></div><p>Crie um gráfico de barras com Marca e <code>Margem %</code>, ordenado do maior para o menor. Qual marca é a mais rentável? E a menos?</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Página de produtos</h4><span class="lvl m">Intermediário</span></div><p>Crie uma terceira página “Produtos” com: segmentação de categoria, matriz Categoria → Produto com Faturamento, Lucro e Margem, e um gráfico de dispersão Qtd Vendida × Margem % por produto.</p></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Relatório executivo</h4><span class="lvl a">Entrega</span></div><p>Escreva 5 conclusões sobre o negócio (cada uma com um número do painel) e 2 recomendações para a diretoria. Apresente em 3 minutos usando o dashboard.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">10</span>Resumo da aula</h2>
+<ul>
+<li>Converta preços em texto com <b>Usando a Localidade</b> e confira valores conhecidos.</li>
+<li>Remova lixo do topo, promova cabeçalhos e mantenha documentos como texto.</li>
+<li>Uma fato (fVendas) cercada de dimensões: o modelo estrela.</li>
+<li>dCalendario marcada como tabela de datas, com meses classificados por número.</li>
+<li><code>SUMX</code> + <code>RELATED</code> calculam o faturamento sem colunas extras.</li>
+<li>Tema JSON e grade de layout dão cara profissional ao painel.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-05/index.html"><small>← Aula anterior</small>Primeiros passos com DAX</a><a class="nx" href="../aula-07/index.html"><small>Próxima aula →</small>Power BI com dados reais do IBGE</a></nav><div class="footer">Material base: Notion “06 - Dashboard de Vendas” · Braga Treinamentos. Valores conferidos pelas medidas DAX e por recálculo independente em Python.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

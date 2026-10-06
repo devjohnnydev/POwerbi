@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 13 · Publicação, segurança e projeto final</title><meta name="description" content="Você vai publicar o relatório no Power BI Service, entender workspaces, painéis e aplicativos, configurar a atualização automática, proteger dados com segurança em nível de linha (RLS), preparar a versão para celular e, por fim, desenvolver e apresentar o projeto final do curso."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-13"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-12/index.html">← Anterior</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 13</p><ol><li><a href="#service"><span>01</span>Desktop x Service</a></li><li><a href="#publicar"><span>02</span>Publicar</a></li><li><a href="#atualizacao"><span>03</span>Atualização agendada</a></li><li><a href="#rls"><span>04</span>RLS</a></li><li><a href="#compartilhar"><span>05</span>Compartilhar</a></li><li><a href="#mobile"><span>06</span>Layout móvel</a></li><li><a href="#projeto"><span>07</span>Projeto final</a></li><li><a href="#atividades"><span>08</span>Atividades desta aula</a></li><li><a href="#resumo"><span>09</span>Resumo do curso</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 13 de 13</div><h1>Publique, compartilhe com segurança e entregue o <em>projeto final</em></h1><p class="lead">Você vai publicar o relatório no Power BI Service, entender workspaces, painéis e aplicativos, configurar a atualização automática, proteger dados com segurança em nível de linha (RLS), preparar a versão para celular e, por fim, desenvolver e apresentar o projeto final do curso.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Intermediário</span></dd><dt>Duração</dt><dd>3 horas de conteúdo + projeto final (2 a 3 encontros)</dd><dt>Você vai precisar</dt><dd>Power BI Desktop e uma conta corporativa ou de escola (o Power BI Service não aceita e-mail pessoal como Gmail ou Outlook.com)</dd><dt>Conteúdos</dt><dd><span class="tag">Power BI Service</span><span class="tag">Publicar</span><span class="tag">Workspace</span><span class="tag">Relatório x Painel</span><span class="tag">Aplicativo</span><span class="tag">Atualização agendada</span><span class="tag">Gateway</span><span class="tag">RLS</span><span class="tag">Layout móvel</span><span class="tag">Exportar PDF</span><span class="tag">Publicar na Web</span><span class="tag">Projeto final</span></dd></dl></header><section id="service"><h2><span class="n">01</span>Desktop x Service</h2><p class="sub">Você cria no Desktop; as pessoas consomem no Service (navegador, celular, Teams).</p>
+<div class="tbl"><table>
+<thead><tr><th></th><th>Power BI Desktop</th><th>Power BI Service</th></tr></thead>
+<tbody>
+<tr><td>Onde roda</td><td>Windows, instalado</td><td>Navegador: <a href="https://app.powerbi.com" target="_blank" rel="noopener">app.powerbi.com</a></td></tr>
+<tr><td>Para quê</td><td>Importar, transformar, modelar, criar relatórios</td><td>Compartilhar, atualizar automaticamente, painéis, aplicativos, alertas</td></tr>
+<tr><td>Custo</td><td>Gratuito</td><td>Gratuito para uso pessoal; compartilhar normalmente exige licença (Pro, Premium por Usuário ou capacidade da organização)</td></tr>
+</tbody></table></div>
+<h3>O vocabulário do Service</h3>
+<ul>
+<li><b>Workspace</b>: pasta compartilhada de um time (ex.: “Comercial”). “Meu workspace” é sua área pessoal.</li>
+<li><b>Modelo semântico</b> (antes “conjunto de dados”): as tabelas, relações e medidas que você publicou.</li>
+<li><b>Relatório</b>: as páginas que você criou no Desktop.</li>
+<li><b>Painel</b> (dashboard no Service): uma página única com blocos “fixados” de vários relatórios.</li>
+<li><b>Aplicativo</b>: pacote de relatórios e painéis de um workspace, distribuído para um público.</li>
+</ul>
+</section>
+
+<section id="publicar"><h2><span class="n">02</span>Publicando o relatório</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="p1"><label for="p1"><span class="k">Passo 1.1</span>Prepare antes de publicar</label></div><ul>
+<li>Revise o checklist de design (aula 8) e de usabilidade (aula 12).</li>
+<li>Oculte colunas técnicas (chaves, colunas “Num”) e tabelas auxiliares.</li>
+<li>Dê descrições às medidas (painel Propriedades) para quem for criar visuais a partir do seu modelo.</li>
+<li>Salve o .pbix.</li>
+</ul></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="p2"><label for="p2"><span class="k">Passo 1.2</span>Página Inicial → Publicar</label></div><ol>
+<li>Entre com a conta corporativa ou de escola (canto superior direito do Desktop).</li>
+<li><span class="ui">Página Inicial</span> → <span class="ui">Publicar</span>.</li>
+<li>Escolha o destino: <b>Meu workspace</b> (para treinar) ou o workspace do time.</li>
+<li>Quando aparecer “Êxito!”, clique em <span class="ui">Abrir 'Dashboard_Vendas_Final.pbix' no Power BI</span>.</li>
+</ol>
+<p>No workspace aparecem dois itens com o mesmo nome: o <b>relatório</b> e o <b>modelo semântico</b>.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="p3"><label for="p3"><span class="k">Passo 1.3</span>Navegue pelo relatório no navegador</label></div><p>Teste filtros, drill-through, indicadores e botões. No Service, os botões funcionam com um clique simples (sem Ctrl). Confira as páginas ocultas: não aparecem na lista, mas o drill-through continua funcionando.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="p4"><label for="p4"><span class="k">Passo 1.4</span>Fixe visuais num painel</label></div><p>Passe o mouse sobre um visual → ícone de alfinete (<b>Fixar visual</b>) → <b>Novo painel</b> → <code>Painel Executivo</code>. Fixe os cartões e o gráfico principal. No painel, cada bloco leva de volta ao relatório de origem e permite configurar <b>alertas</b> (ex.: avisar quando o faturamento do dia passar de R$ 100 mil).</p></div></div>
+</section>
+
+<section id="atualizacao"><h2><span class="n">03</span>Atualização automática</h2><p class="sub">O relatório só é útil se mostrar dados de hoje.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="a1"><label for="a1"><span class="k">Passo 2.1</span>Onde estão os seus dados?</label></div><div class="tbl"><table><thead><tr><th>Fonte</th><th>Precisa de gateway?</th><th>Observação</th></tr></thead><tbody>
+<tr><td>Excel no seu computador (C:\…)</td><td><b>Sim</b></td><td>O Service, na nuvem, não enxerga seu disco</td></tr>
+<tr><td>Excel no OneDrive ou SharePoint</td><td>Não</td><td>Caminho mais simples para quem está começando</td></tr>
+<tr><td>APIs públicas (IBGE, aula 7)</td><td>Não</td><td>Configure a credencial como Anônima</td></tr>
+<tr><td>Banco de dados na rede da empresa</td><td><b>Sim</b></td><td>Gateway instalado num servidor da empresa</td></tr>
+</tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">O que é o gateway</b><p>É um programa (gateway de dados local) instalado num computador que fica ligado e tem acesso aos arquivos. Ele faz a ponte entre o Service, na nuvem, e os dados dentro da sua rede. Existe o modo pessoal (só para você) e o padrão (para a empresa).</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="a2"><label for="a2"><span class="k">Passo 2.2</span>Configure o agendamento</label></div><ol>
+<li>No workspace, passe o mouse no <b>modelo semântico</b> → ⋯ → <span class="ui">Configurações</span>.</li>
+<li><b>Credenciais da fonte de dados</b>: edite e entre (para APIs públicas, Anônimo).</li>
+<li><b>Atualização agendada</b>: ative, escolha frequência (diária), fuso <b>Brasília</b> e horários (ex.: 07:00 e 13:00).</li>
+<li>Marque o envio de e-mail em caso de falha.</li>
+</ol>
+<div class="callout tip"><div class="ico">i</div><div><p>A quantidade de atualizações por dia depende da licença (com Pro costuma ser até 8 por dia). Agende para antes do expediente: o gestor abre o relatório já atualizado.</p></div></div></div></div>
+</section>
+
+<section id="rls"><h2><span class="n">04</span>Segurança em nível de linha (RLS)</h2><p class="sub">Um único relatório, e cada pessoa vê só os dados dela.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r1"><label for="r1"><span class="k">Passo 3.1</span>Crie as funções no Desktop</label></div><p>Cenário: cada gerente regional só pode ver as vendas da sua categoria de produto. <span class="ui">Modelagem</span> → <span class="ui">Gerenciar funções</span> → <span class="ui">Novo</span>:</p>
+<div class="tbl"><table><thead><tr><th>Função</th><th>Tabela</th><th>Filtro DAX</th></tr></thead><tbody>
+<tr><td>Gerente Eletrônicos</td><td>dProdutos</td><td><code>[Categoria] IN {"Notebook", "Celular", "Monitor", "Teclado", "Mouse"}</code></td></tr>
+<tr><td>Gerente Vestuário</td><td>dProdutos</td><td><code>[Categoria] IN {"Casaco", "Camisa"}</code></td></tr>
+</tbody></table></div>
+<p>O filtro na dimensão desce pelo relacionamento e filtra a fVendas automaticamente.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r2"><label for="r2"><span class="k">Passo 3.2</span>Teste com Exibir como</label></div><p><span class="ui">Modelagem</span> → <span class="ui">Exibir como</span> → marque <b>Gerente Vestuário</b> → OK. O faturamento total deve cair para cerca de R$ 435 mil (Casaco R$ 288.666 + Camisa R$ 146.932,50). Clique em <span class="ui">Parar de exibir</span>.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r3"><label for="r3"><span class="k">Passo 3.3</span>RLS dinâmica por e-mail (avançado)</label></div><p>Em vez de uma função por gerente, crie uma tabela <code>dAcesso</code> (E-mail, Categoria), relacione com dCategoria e use uma única função:</p>
+<div class="code"><div class="bar"><span>DAX · filtro na tabela dAcesso</span><button class="copy" type="button">Copiar</button></div><pre data-hl>[E-mail] = USERPRINCIPALNAME ()</pre></div>
+<p>Cada pessoa que abrir o relatório vê só as categorias ligadas ao e-mail dela. Para incluir um gerente, basta acrescentar uma linha na planilha de acessos.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r4"><label for="r4"><span class="k">Passo 3.4</span>Atribua pessoas no Service</label></div><p>No Service: modelo semântico → ⋯ → <span class="ui">Segurança</span> → escolha a função e adicione os e-mails. Atenção: quem é <b>Administrador, Membro ou Colaborador</b> do workspace enxerga tudo; a RLS vale para quem tem acesso de <b>Visualizador</b> ou recebe o relatório por compartilhamento ou aplicativo.</p></div></div>
+</section>
+
+<section id="compartilhar"><h2><span class="n">05</span>Formas de compartilhar</h2><p class="sub">Escolha o canal certo para cada público.</p>
+<div class="tbl"><table><thead><tr><th>Forma</th><th>Para quem</th><th>Cuidados</th></tr></thead><tbody>
+<tr><td>Compartilhar relatório (botão Compartilhar)</td><td>Poucas pessoas específicas</td><td>Quem recebe precisa de licença compatível</td></tr>
+<tr><td>Acesso ao workspace</td><td>Time que cria e edita junto</td><td>Dê o menor papel necessário (Visualizador para quem só lê)</td></tr>
+<tr><td>Aplicativo</td><td>Áreas inteiras da empresa</td><td>Forma mais organizada de distribuir; atualiza quando você republica o app</td></tr>
+<tr><td>Teams / SharePoint</td><td>Onde as pessoas já trabalham</td><td>Respeita as mesmas permissões</td></tr>
+<tr><td>Exportar PDF ou PowerPoint</td><td>Diretoria, reuniões, e-mail</td><td>É uma foto: perde a interatividade</td></tr>
+<tr><td>Publicar na Web</td><td>Qualquer pessoa na internet</td><td><b>Público e sem login</b>. Só para dados abertos (como os do IBGE). Nunca para dados da empresa.</td></tr>
+</tbody></table></div>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Publicar na Web é público</b><p>O link pode ser encontrado por buscadores e repassado para qualquer um. Muitas organizações desativam essa opção. Para o portfólio, use dados públicos (aula 7) ou fictícios.</p></div></div>
+</section>
+
+<section id="mobile"><h2><span class="n">06</span>Layout para celular</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="mo1"><label for="mo1"><span class="k">Passo 5.1</span>Monte a versão retrato</label></div><p>No Desktop: <span class="ui">Exibição</span> → <span class="ui">Layout móvel</span>. Arraste os visuais do painel lateral para a tela do celular: cartões no topo, um gráfico por vez, segmentação de ano em blocos. Volte ao layout da Web pelo mesmo botão.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Muitos gestores abrem o relatório no celular, entre uma reunião e outra. Sem o layout móvel, eles veem a página de 1920 px espremida.</p></div></div></div></div>
+</section>
+
+<section id="projeto"><h2><span class="n">07</span>Projeto final do curso</h2><p class="sub">Hora de mostrar tudo o que você aprendeu, com um tema escolhido por você.</p>
+<h3>Escolha uma base (uma das opções)</h3>
+<ol>
+<li><b>Vendas</b>: a base do curso, ampliada com devoluções, lojas e localidades;</li>
+<li><b>Dados públicos</b>: IBGE, DATASUS, INEP (Censo Escolar), Portal da Transparência, dados.gov.br;</li>
+<li><b>Dados reais do seu trabalho</b>, anonimizados (sem nomes, CPFs ou dados sensíveis).</li>
+</ol>
+<h3>Requisitos mínimos</h3>
+<div class="tbl"><table><thead><tr><th>Etapa</th><th>Entrega</th><th>Aulas</th></tr></thead><tbody>
+<tr><td>Perguntas</td><td>Documento com 5 perguntas de negócio que o painel responde</td><td>7, 8</td></tr>
+<tr><td>Power Query</td><td>3+ fontes, tratamentos documentados, parâmetro de pasta</td><td>2, 3, 9</td></tr>
+<tr><td>Modelo</td><td>Modelo estrela com dCalendario marcada como tabela de datas</td><td>4, 6, 10</td></tr>
+<tr><td>DAX</td><td>10+ medidas organizadas em pastas, incluindo CALCULATE, 1 de inteligência de tempo e 1 ranking</td><td>5, 10, 11</td></tr>
+<tr><td>Design</td><td>Fundo próprio (Figma), tema JSON, grade alinhada</td><td>8</td></tr>
+<tr><td>Interatividade</td><td>3+ páginas, menu, drill-through, 1 dica de ferramenta, segmentações sincronizadas</td><td>12</td></tr>
+<tr><td>Publicação</td><td>Relatório publicado (ou PDF exportado) + layout móvel</td><td>13</td></tr>
+<tr><td>Apresentação</td><td>5 minutos: problema → análise → 3 conclusões com números → recomendação</td><td>12</td></tr>
+</tbody></table></div>
+<h3>Critérios de avaliação</h3>
+<div class="tbl"><table><thead><tr><th>Critério</th><th class="r">Peso</th><th>O que vamos olhar</th></tr></thead><tbody>
+<tr><td>Preparação de dados</td><td class="r">15%</td><td>Tipos corretos, sem erros na qualidade da coluna, consultas organizadas</td></tr>
+<tr><td>Modelo de dados</td><td class="r">20%</td><td>Estrela, 1:*, chaves ocultas, nomes claros</td></tr>
+<tr><td>DAX</td><td class="r">20%</td><td>Medidas corretas, reaproveitadas, com DIVIDE e formatos</td></tr>
+<tr><td>Design e usabilidade</td><td class="r">20%</td><td>Hierarquia visual, alinhamento, cores com significado, navegação</td></tr>
+<tr><td>Análise e storytelling</td><td class="r">25%</td><td>Conclusões corretas, com números, limitações dos dados explicadas, recomendação</td></tr>
+</tbody></table></div>
+<h3>Cronograma sugerido</h3>
+<div class="tbl"><table><thead><tr><th>Encontro</th><th>O que fazer</th></tr></thead><tbody>
+<tr><td>1</td><td>Escolher a base, escrever as perguntas, wireframe, Power Query e modelo</td></tr>
+<tr><td>2</td><td>Medidas DAX, fundo no Figma, páginas e interatividade</td></tr>
+<tr><td>3</td><td>Revisão com checklist, publicação e apresentações</td></tr>
+</tbody></table></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Dica para o portfólio</b><p>Publique o projeto com dados públicos, grave um vídeo curto (2 minutos) navegando pelo painel e coloque no LinkedIn com as 3 conclusões. Recrutadores olham muito mais para um painel funcionando do que para o certificado.</p></div></div>
+</section>
+
+<section id="atividades"><h2><span class="n">08</span>Atividades desta aula</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Publique</h4><span class="lvl b">Básico</span></div><p>Publique o Dashboard de Vendas no seu workspace e fixe 3 visuais num painel.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Teste de RLS</h4><span class="lvl m">Intermediário</span></div><p>Crie as duas funções de gerente, teste com Exibir como e anote o faturamento que cada uma enxerga.</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Versão celular</h4><span class="lvl m">Intermediário</span></div><p>Monte o layout móvel da Visão Geral e tire um print do celular (aplicativo Power BI Mobile) ou do modo de exibição móvel do Service.</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Exportação</h4><span class="lvl b">Básico</span></div><p>Exporte o relatório para PDF (<span class="ui">Arquivo</span> → <span class="ui">Exportar</span> → <span class="ui">Exportar para PDF</span>) e compare com a versão interativa: o que se perde?</p></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Projeto final</h4><span class="lvl a">Entrega</span></div><p>Desenvolva e apresente o projeto final seguindo os requisitos e os critérios acima.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">09</span>Resumo do curso</h2>
+<div class="tbl"><table><thead><tr><th>Aula</th><th>Você aprendeu a…</th></tr></thead><tbody>
+<tr><td>01</td><td>Entender BI e navegar no Power BI</td></tr>
+<tr><td>02–03</td><td>Importar, limpar e atualizar dados com o Power Query</td></tr>
+<tr><td>04</td><td>Relacionar tabelas num modelo estrela</td></tr>
+<tr><td>05–06</td><td>Criar medidas DAX e um dashboard completo</td></tr>
+<tr><td>07</td><td>Buscar dados de APIs públicas (IBGE)</td></tr>
+<tr><td>08</td><td>Desenhar dashboards bonitos com Figma e referências</td></tr>
+<tr><td>09</td><td>Automatizar o Power Query (pasta, parâmetros, mesclar, despivotar)</td></tr>
+<tr><td>10–11</td><td>Dominar inteligência de tempo e DAX intermediário</td></tr>
+<tr><td>12</td><td>Criar relatórios interativos que contam uma história</td></tr>
+<tr><td>13</td><td>Publicar, proteger e apresentar</td></tr>
+</tbody></table></div>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-12/index.html"><small>← Aula anterior</small>Interatividade e storytelling</a></nav><div class="footer">Curso Power BI · Braga Treinamentos. Recursos e licenças do Power BI mudam com frequência; confira a documentação da Microsoft e as regras da sua organização.</div></div></main></div><script src="../assets/curso.js"></script></body></html>

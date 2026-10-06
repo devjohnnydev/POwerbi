@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 09 · Power Query intermediário</title><meta name="description" content="Você vai automatizar a entrada de novos arquivos com Obter dados de Pasta, usar parâmetros para trocar de computador sem quebrar nada, cruzar tabelas com Mesclar Consultas, resumir com Agrupar Por, criar colunas condicionais e de exemplos e transformar uma tabela de metas “larga” em formato de banco de dados com Despivotar."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/curso.css"></head><body data-aula="aula-09"><header class="topbar"><div class="in"><a class="brand" href="../index.html"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="../index.html">Todas as aulas</a><a class="hide-s" href="../aula-08/index.html">← Anterior</a><a href="../aula-10/index.html">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 09</p><ol><li><a href="#objetivo"><span>01</span>Objetivo</a></li><li><a href="#parametro"><span>02</span>Parâmetros</a></li><li><a href="#pasta"><span>03</span>Combinar arquivos da pasta</a></li><li><a href="#mesclar"><span>04</span>Mesclar consultas</a></li><li><a href="#colunas"><span>05</span>Colunas novas</a></li><li><a href="#despivotar"><span>06</span>Despivotar metas</a></li><li><a href="#organizar"><span>07</span>Organização</a></li><li><a href="#atividades"><span>08</span>Atividades</a></li><li><a href="#resumo"><span>09</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 09 de 13</div><h1>Power Query intermediário: <em>pasta, parâmetros, mesclar e despivotar</em></h1><p class="lead">Você vai automatizar a entrada de novos arquivos com Obter dados de Pasta, usar parâmetros para trocar de computador sem quebrar nada, cruzar tabelas com Mesclar Consultas, resumir com Agrupar Por, criar colunas condicionais e de exemplos e transformar uma tabela de metas “larga” em formato de banco de dados com Despivotar.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Intermediário</span></dd><dt>Duração</dt><dd>3 a 4 horas</dd><dt>Você vai precisar</dt><dd>Power BI Desktop, o projeto da aula 6 e a planilha de metas abaixo</dd><dt>Conteúdos</dt><dd><span class="tag">Parâmetros</span><span class="tag">Obter dados de Pasta</span><span class="tag">Folder.Files</span><span class="tag">Mesclar Consultas</span><span class="tag">Junções</span><span class="tag">Anti junção</span><span class="tag">Agrupar Por</span><span class="tag">Coluna condicional</span><span class="tag">Coluna de exemplos</span><span class="tag">Despivotar</span><span class="tag">Referência x Duplicar</span></dd></dl></header><section id="objetivo"><h2><span class="n">01</span>O que muda nesta aula</h2><p class="sub">Até aqui você limpou tabelas uma por uma. Agora você vai construir consultas que se mantêm sozinhas.</p>
+<div class="tbl"><table>
+<thead><tr><th>Problema do dia a dia</th><th>Recurso desta aula</th></tr></thead>
+<tbody>
+<tr><td>Abri o .pbix em outro computador e todas as fontes quebraram</td><td>Parâmetro com o caminho da pasta</td></tr>
+<tr><td>Todo mês chega um arquivo novo de vendas</td><td>Obter dados de Pasta (combina todos os arquivos)</td></tr>
+<tr><td>Tem SKU vendido que não existe no cadastro?</td><td>Mesclar com anti junção</td></tr>
+<tr><td>Quero a data da primeira e da última compra de cada cliente</td><td>Agrupar Por + Mesclar</td></tr>
+<tr><td>Quero faixa etária e provedor de e-mail</td><td>Coluna condicional e Coluna de exemplos</td></tr>
+<tr><td>A planilha de metas tem um mês por coluna</td><td>Despivotar colunas</td></tr>
+</tbody></table></div>
+<div class="files"><a class="file" href="../arquivos/Metas_2022.xlsx" download><span class="ext xlsx">XLSX</span><span><b>Metas_2022.xlsx</b><small>Metas por categoria, jan a jun/2022 (formato largo)</small></span></a></div>
+</section>
+
+<section id="parametro"><h2><span class="n">02</span>Parâmetro com o caminho da pasta</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="p1"><label for="p1"><span class="k">Passo 1.1</span>Crie o parâmetro PastaBases</label></div><ol>
+<li>No Power Query: <span class="ui">Página Inicial</span> → <span class="ui">Gerenciar Parâmetros</span> → <span class="ui">Novo Parâmetro</span>.</li>
+<li>Nome: <code>PastaBases</code> · Tipo: <b>Texto</b> · Valores sugeridos: <b>Qualquer valor</b>.</li>
+<li>Valor atual: o caminho da sua pasta, <b>terminando com barra</b>: <code>C:\Users\SeuUsuario\Documents\PowerBI_Vendas\Bases\</code></li>
+</ol></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="p2"><label for="p2"><span class="k">Passo 1.2</span>Use o parâmetro nas consultas</label></div><p>Abra o <span class="ui">Editor Avançado</span> de cada consulta e troque o caminho fixo pelo parâmetro:</p>
+<div class="code"><div class="bar"><span>M · antes</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Fonte = Excel.Workbook(File.Contents(&quot;C:\Users\Professor\Documents\PowerBI_Vendas\Bases\Cadastro Clientes.xlsx&quot;), null, true)</pre></div>
+<div class="code"><div class="bar"><span>M · depois</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Fonte = Excel.Workbook(File.Contents(PastaBases &amp; &quot;Cadastro Clientes.xlsx&quot;), null, true)</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que vale a pena</b><p>Mudou de computador, de pasta ou vai entregar o projeto ao cliente? Troque um único valor (<span class="ui">Página Inicial</span> do Power BI → <span class="ui">Transformar dados</span> → <span class="ui">Editar parâmetros</span>) e todas as consultas apontam para o lugar certo.</p></div></div></div></div>
+</section>
+
+<section id="pasta"><h2><span class="n">03</span>Obter dados de uma Pasta</h2><p class="sub">Coloque os arquivos de vendas numa pasta e deixe o Power Query empilhar todos, inclusive os que ainda vão chegar.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="f1"><label for="f1"><span class="k">Passo 2.1</span>Separe as vendas numa subpasta</label></div><p>Crie <code>Bases\Vendas\</code> e mova para lá <code>Base Vendas - 2020.xlsx</code>, <code>2021</code> e <code>2022</code>. Na pasta só podem ficar arquivos com a <b>mesma estrutura</b>.</p></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f2"><label for="f2"><span class="k">Passo 2.2</span>Pelos botões: Pasta → Combinar e Transformar</label></div><ol>
+<li><span class="ui">Nova Fonte</span> → <span class="ui">Mais…</span> → <span class="ui">Pasta</span> → <span class="ui">Conectar</span> → escolha <code>Bases\Vendas</code>.</li>
+<li>Na janela com a lista de arquivos, clique em <span class="ui">Combinar</span> → <span class="ui">Combinar e Transformar Dados</span>.</li>
+<li>Escolha <b>Plan1</b> no arquivo de exemplo → <span class="ui">OK</span>.</li>
+</ol>
+<p>O Power Query cria uma pasta <b>Transformar Arquivo de Vendas</b> com consultas auxiliares (Arquivo de Exemplo, Parâmetro1, Transformar Arquivo). Não apague: elas são a “receita” aplicada a cada arquivo. A coluna <code>Source.Name</code> mostra de qual arquivo veio cada linha.</p></div><figure class="shot "><div class="frame"><img src="img/a06-09.jpg" alt="Nova Fonte no Power Query: a opção Pasta fica em Mais…" loading="lazy"></div><figcaption><b>Print real.</b> Nova Fonte no Power Query: a opção Pasta fica em Mais…</figcaption></figure></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="f3"><label for="f3"><span class="k">Passo 2.3</span>Ou escreva a consulta enxuta em M</label></div><p>Se preferir uma única consulta, sem auxiliares, crie uma <span class="ui">Consulta Nula</span> chamada <code>fVendas</code> e cole:</p>
+<div class="code"><div class="bar"><span>M · fVendas a partir da pasta</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte      = Folder.Files(PastaBases &amp; &quot;Vendas\&quot;),
+    // só planilhas .xlsx; ignora arquivos temporários do Excel (~$...)
+    SoExcel    = Table.SelectRows(Fonte, each [Extension] = &quot;.xlsx&quot; and not Text.StartsWith([Name], &quot;~$&quot;)),
+    ComDados   = Table.AddColumn(SoExcel, &quot;Dados&quot;,
+                    each Excel.Workbook([Content], true, true){[Item = &quot;Plan1&quot;, Kind = &quot;Sheet&quot;]}[Data]),
+    Colunas    = Table.SelectColumns(ComDados, {&quot;Name&quot;, &quot;Dados&quot;}),
+    Expandido  = Table.ExpandTableColumn(Colunas, &quot;Dados&quot;,
+                    {&quot;Data da Venda&quot;, &quot;Ordem de Compra&quot;, &quot;SKU&quot;, &quot;ID Cliente&quot;, &quot;Qtd Vendida&quot;, &quot;ID Loja&quot;}),
+    Renomeado  = Table.RenameColumns(Expandido, {{&quot;Name&quot;, &quot;Arquivo&quot;}}),
+    Tipos      = Table.TransformColumnTypes(Renomeado, {
+                    {&quot;Data da Venda&quot;, type date}, {&quot;Ordem de Compra&quot;, type text}, {&quot;SKU&quot;, type text},
+                    {&quot;ID Cliente&quot;, Int64.Type}, {&quot;Qtd Vendida&quot;, Int64.Type}, {&quot;ID Loja&quot;, Int64.Type}})
+in
+    Tipos</pre></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>56.046 linhas, as mesmas da aula 6. Agora você pode excluir as consultas Vendas 2020/2021/2022 (ou mantê-las desabilitadas para comparar).</p></div></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que isso é profissional</b><p>Quando chegar <code>Base Vendas - 2023.xlsx</code>, basta salvá-lo na pasta e clicar em Atualizar. Nenhuma consulta nova, nenhum Acrescentar.</p></div></div>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>Se alguém salvar na pasta um arquivo com colunas diferentes (ou um relatório qualquer em Excel), a atualização quebra. Combine com a equipe: a pasta é só para bases de vendas.</p></div></div></div></div>
+</section>
+
+<section id="mesclar"><h2><span class="n">04</span>Mesclar consultas: o PROCV do Power Query</h2><p class="sub">Acrescentar empilha linhas; Mesclar junta colunas de tabelas diferentes por uma chave.</p>
+<div class="tbl"><table>
+<thead><tr><th>Tipo de junção</th><th>Mantém</th><th>Uso típico</th></tr></thead>
+<tbody>
+<tr><td>Externa esquerda</td><td>Todas da primeira + as que batem da segunda</td><td>Trazer informação extra (como PROCV)</td></tr>
+<tr><td>Interna</td><td>Só as que existem nas duas</td><td>Ficar só com o que casa</td></tr>
+<tr><td>Anti esquerda</td><td>Só as da primeira que <b>não</b> existem na segunda</td><td>Achar registros órfãos (qualidade de dados)</td></tr>
+<tr><td>Externa completa</td><td>Todas das duas</td><td>Conciliação entre sistemas</td></tr>
+</tbody></table></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m1"><label for="m1"><span class="k">Passo 3.1</span>Auditoria: existem SKUs vendidos fora do cadastro?</label></div><ol>
+<li>Clique com o botão direito em <code>fVendas</code> → <span class="ui">Referência</span>. Renomeie para <code>Audit_SKU</code>.</li>
+<li><span class="ui">Página Inicial</span> → <span class="ui">Mesclar Consultas</span>.</li>
+<li>Em cima, selecione a coluna <b>SKU</b> de Audit_SKU; embaixo, escolha <b>dProdutos</b> e a coluna <b>SKU</b>.</li>
+<li>Tipo de junção: <b>Anti esquerda (linhas apenas na primeira)</b> → <span class="ui">OK</span>.</li>
+</ol>
+<p>Se o resultado tiver zero linhas, todo SKU vendido existe no cadastro. Se tiver linhas, esses produtos vão aparecer como “(Em branco)” nos gráficos de categoria e marca.</p>
+<p>Clique com o botão direito em <code>Audit_SKU</code> e desmarque <span class="ui">Habilitar carga</span>: é uma consulta de verificação, não precisa ir para o modelo.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Referência x Duplicar</b><p>Referência cria uma consulta que <b>parte do resultado</b> de outra (se a original mudar, ela acompanha). Duplicar copia todas as etapas e vira independente. Para derivar tabelas, prefira Referência.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m2"><label for="m2"><span class="k">Passo 3.2</span>Agrupar Por: resumo de compras por cliente</label></div><ol>
+<li>Botão direito em <code>fVendas</code> → <span class="ui">Referência</span>. Renomeie para <code>ResumoClientes</code>.</li>
+<li><span class="ui">Transformar</span> → <span class="ui">Agrupar Por</span> → <b>Avançado</b>.</li>
+<li>Agrupar por: <b>ID Cliente</b>. Agregações:
+<ul>
+<li><code>Primeira Compra</code> = Mín de Data da Venda;</li>
+<li><code>Última Compra</code> = Máx de Data da Venda;</li>
+<li><code>Itens Comprados</code> = Soma de Qtd Vendida.</li>
+</ul></li>
+</ol>
+<div class="code"><div class="bar"><span>M · etapa gerada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>= Table.Group(Fonte, {&quot;ID Cliente&quot;}, {
+    {&quot;Primeira Compra&quot;, each List.Min([Data da Venda]), type date},
+    {&quot;Última Compra&quot;,   each List.Max([Data da Venda]), type date},
+    {&quot;Itens Comprados&quot;, each List.Sum([Qtd Vendida]), Int64.Type}
+})</pre></div>
+<p>Desabilite a carga de ResumoClientes: vamos levar essas colunas para dClientes.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m3"><label for="m3"><span class="k">Passo 3.3</span>Mesclar: leve o resumo para dClientes</label></div><ol>
+<li>Selecione <code>dClientes</code> → <span class="ui">Mesclar Consultas</span>.</li>
+<li>Coluna <b>ID Cliente</b> em dClientes; tabela <b>ResumoClientes</b>, coluna <b>ID Cliente</b>.</li>
+<li>Junção <b>Externa esquerda</b> → <span class="ui">OK</span>.</li>
+<li>Na nova coluna (com “Table” em cada linha), clique no ícone de expandir ⟷, marque Primeira Compra, Última Compra e Itens Comprados, desmarque <b>Usar o nome da coluna original como prefixo</b> → <span class="ui">OK</span>.</li>
+</ol>
+<p>Clientes que nunca compraram ficam com <code>null</code> nessas colunas, o que é correto.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que fazer no Power Query e não no DAX</b><p>Primeira e última compra são características fixas do cliente: viram atributos da dimensão e podem ser usadas em segmentações e eixos (“clientes que compraram pela primeira vez em 2022”).</p></div></div></div></div>
+</section>
+
+<section id="colunas"><h2><span class="n">05</span>Colunas condicionais e de exemplos</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c1"><label for="c1"><span class="k">Passo 4.1</span>Idade</label></div><p>Em <code>dClientes</code>, selecione <code>Data Nascimento</code> → <span class="ui">Adicionar Coluna</span> → <span class="ui">Data</span> → <span class="ui">Idade</span>. O resultado é uma duração; transforme: <span class="ui">Transformar</span> → <span class="ui">Duração</span> → <span class="ui">Total de Anos</span>, depois <span class="ui">Arredondamento</span> → <span class="ui">Arredondar para Baixo</span>. Renomeie para <code>Idade</code> e defina Número Inteiro.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>A idade é calculada na data da atualização. Para análises de vendas passadas, a idade na data da compra seria mais exata, mas para segmentar clientes esta resolve bem.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c2"><label for="c2"><span class="k">Passo 4.2</span>Coluna condicional: Faixa Etária</label></div><p><span class="ui">Adicionar Coluna</span> → <span class="ui">Coluna Condicional</span>. Nome: <code>Faixa Etária</code>. Regras (a ordem importa: a primeira verdadeira vence):</p>
+<div class="tbl"><table>
+<thead><tr><th>Se Idade</th><th>Valor</th></tr></thead>
+<tbody>
+<tr><td>é menor que 25</td><td>18–24</td></tr><tr><td>é menor que 35</td><td>25–34</td></tr>
+<tr><td>é menor que 45</td><td>35–44</td></tr><tr><td>é menor que 60</td><td>45–59</td></tr>
+<tr><td>Senão</td><td>60+</td></tr></tbody></table></div>
+<div class="code"><div class="bar"><span>M · etapa gerada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>= Table.AddColumn(#&quot;Idade Inteira&quot;, &quot;Faixa Etária&quot;, each
+    if [Idade] &lt; 25 then &quot;18–24&quot;
+    else if [Idade] &lt; 35 then &quot;25–34&quot;
+    else if [Idade] &lt; 45 then &quot;35–44&quot;
+    else if [Idade] &lt; 60 then &quot;45–59&quot;
+    else &quot;60+&quot;, type text)</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que faixa e não idade</b><p>Um gráfico com 60 idades diferentes não se lê. Cinco faixas mostram o perfil do cliente na hora e viram uma ótima segmentação.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c3"><label for="c3"><span class="k">Passo 4.3</span>Coluna de exemplos: provedor de e-mail</label></div><ol>
+<li>Selecione a coluna <code>Email</code> → <span class="ui">Adicionar Coluna</span> → <span class="ui">Coluna de Exemplos</span> → <span class="ui">Da Seleção</span>.</li>
+<li>Na primeira linha da nova coluna, digite o domínio do e-mail dela (ex.: <code>icloud.com</code>) e pressione <kbd>Enter</kbd>.</li>
+<li>Digite mais um ou dois exemplos até o Power Query acertar o padrão. Ele mostra a fórmula que descobriu.</li>
+<li>Renomeie para <code>Provedor</code> → <span class="ui">OK</span>.</li>
+</ol>
+<div class="code"><div class="bar"><span>M · fórmula equivalente</span><button class="copy" type="button">Copiar</button></div><pre data-hl>= Table.AddColumn(#&quot;Faixa Etária&quot;, &quot;Provedor&quot;, each Text.AfterDelimiter([Email], &quot;@&quot;), type text)</pre></div></div></div>
+</section>
+
+<section id="despivotar"><h2><span class="n">06</span>Despivotar: metas em formato de banco de dados</h2><p class="sub">Planilhas feitas para humanos têm um mês por coluna. O Power BI precisa de um mês por linha.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d1"><label for="d1"><span class="k">Passo 5.1</span>Importe a planilha de metas</label></div><p><span class="ui">Nova Fonte</span> → <span class="ui">Pasta de Trabalho do Excel</span> → <code>Metas_2022.xlsx</code> → <b>Metas</b> → <span class="ui">OK</span>. Renomeie para <code>fMetas</code>. Ela chega assim:</p>
+<div class="tbl"><table><thead><tr><th>Categoria</th><th>jan</th><th>fev</th><th>mar</th><th>…</th><th>jun</th></tr></thead>
+<tbody><tr><td>Notebook</td><td>560.000</td><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><td>Celular</td><td>330.000</td><td>…</td><td>…</td><td>…</td><td>…</td></tr></tbody></table></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d2"><label for="d2"><span class="k">Passo 5.2</span>Despivotar Outras Colunas</label></div><p>Selecione <b>só</b> a coluna <code>Categoria</code> → botão direito → <span class="ui">Despivotar Outras Colunas</span>. Renomeie <code>Atributo</code> para <code>Mês</code> e <code>Valor</code> para <code>Meta</code>.</p>
+<div class="tbl"><table><thead><tr><th>Categoria</th><th>Mês</th><th class="r">Meta</th></tr></thead>
+<tbody><tr><td>Notebook</td><td>jan</td><td class="r">560.000</td></tr><tr><td>Notebook</td><td>fev</td><td class="r">…</td></tr><tr><td>…</td><td>…</td><td class="r">…</td></tr></tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que “Outras” colunas</b><p>Se você despivotar selecionando jan a jun e alguém incluir “jul” na planilha, julho fica de fora. “Despivotar <b>Outras</b> Colunas” fixa só a Categoria: qualquer mês novo entra sozinho.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d3"><label for="d3"><span class="k">Passo 5.3</span>Transforme o mês em data</label></div><p>Para relacionar com a dCalendario, a meta precisa de uma data. <span class="ui">Adicionar Coluna</span> → <span class="ui">Coluna Personalizada</span>, nome <code>Data</code>:</p>
+<div class="code"><div class="bar"><span>M · fMetas completa</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte     = Excel.Workbook(File.Contents(PastaBases &amp; &quot;Metas_2022.xlsx&quot;), null, true),
+    Metas     = Fonte{[Item = &quot;Metas&quot;, Kind = &quot;Sheet&quot;]}[Data],
+    Cabecalho = Table.PromoteHeaders(Metas, [PromoteAllScalars = true]),
+    Despiv    = Table.UnpivotOtherColumns(Cabecalho, {&quot;Categoria&quot;}, &quot;Mês&quot;, &quot;Meta&quot;),
+    Meses     = {&quot;jan&quot;,&quot;fev&quot;,&quot;mar&quot;,&quot;abr&quot;,&quot;mai&quot;,&quot;jun&quot;,&quot;jul&quot;,&quot;ago&quot;,&quot;set&quot;,&quot;out&quot;,&quot;nov&quot;,&quot;dez&quot;},
+    ComData   = Table.AddColumn(Despiv, &quot;Data&quot;,
+                    each #date(2022, List.PositionOf(Meses, Text.Lower([Mês])) + 1, 1), type date),
+    Tipos     = Table.TransformColumnTypes(ComData, {{&quot;Categoria&quot;, type text}, {&quot;Meta&quot;, type number}}),
+    Final     = Table.RemoveColumns(Tipos, {&quot;Mês&quot;})
+in
+    Final</pre></div>
+<p>Salve <code>Metas_2022.xlsx</code> na pasta <code>Bases</code> para o <code>PastaBases</code> encontrar.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d4"><label for="d4"><span class="k">Passo 5.4</span>Crie a dimensão dCategoria e relacione</label></div><p>A Categoria se repete em dProdutos, então não pode ser chave primária. Crie uma dimensão só de categorias:</p>
+<ol>
+<li>Botão direito em <code>dProdutos</code> → <span class="ui">Referência</span> → renomeie para <code>dCategoria</code>.</li>
+<li>Selecione a coluna <code>Categoria</code> → botão direito → <span class="ui">Remover Outras Colunas</span>.</li>
+<li>Botão direito → <span class="ui">Remover Duplicadas</span>.</li>
+</ol>
+<p><span class="ui">Fechar e Aplicar</span> e, na Exibição de Modelo, crie:</p>
+<div class="tbl"><table><thead><tr><th>De (1)</th><th>Para (*)</th></tr></thead><tbody>
+<tr><td>dCategoria[Categoria]</td><td>dProdutos[Categoria]</td></tr>
+<tr><td>dCategoria[Categoria]</td><td>fMetas[Categoria]</td></tr>
+<tr><td>dCalendario[Date]</td><td>fMetas[Data]</td></tr>
+</tbody></table></div>
+<div class="callout tip"><div class="ico">i</div><div><p>A planilha de metas inclui a categoria <b>Televisão</b>. Se ela não existir no seu dProdutos, inclua-a na dCategoria com <span class="ui">Acrescentar</span> de uma linha manual, ou deixe assim e observe: a meta aparece sem venda. Na aula 11 você vai usar fMetas para calcular Meta x Realizado.</p></div></div></div></div>
+</section>
+
+<section id="organizar"><h2><span class="n">07</span>Organize o Power Query</h2>
+<ul>
+<li><b>Grupos</b>: selecione consultas → botão direito → <span class="ui">Mover para o Grupo</span> → <span class="ui">Novo Grupo</span>: <code>Parâmetros</code>, <code>Fatos</code>, <code>Dimensões</code>, <code>Auxiliares</code>.</li>
+<li><b>Dependências</b>: <span class="ui">Exibição</span> → <span class="ui">Dependências da Consulta</span> mostra o mapa de quem alimenta quem.</li>
+<li><b>Descrição</b>: botão direito na consulta → <span class="ui">Propriedades</span> → escreva para que ela serve. Quem herdar seu projeto agradece.</li>
+</ul>
+</section>
+
+<section id="atividades"><h2><span class="n">08</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Troque de pasta</h4><span class="lvl b">Básico</span></div><p>Copie a pasta Bases para outro lugar, altere só o parâmetro PastaBases e atualize. Tudo deve funcionar.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Teste a pasta</h4><span class="lvl b">Básico</span></div><p>Duplique <code>Base Vendas - 2022.xlsx</code> dentro de <code>Bases\Vendas</code> com o nome <code>Base Vendas - 2022 copia.xlsx</code> e atualize. O que aconteceu com o faturamento? Por que isso é perigoso? Apague a cópia depois.</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Clientes novos por ano</h4><span class="lvl m">Intermediário</span></div><p>Usando a coluna Primeira Compra de dClientes, crie uma coluna <code>Ano 1ª Compra</code> e um gráfico com a quantidade de clientes novos por ano.</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Faixa de ticket</h4><span class="lvl m">Intermediário</span></div><p>No ResumoClientes, inclua no Agrupar Por a contagem de pedidos distintos e crie uma coluna condicional <code>Frequência</code>: 1 pedido = “Único”, 2–3 = “Recorrente”, 4+ = “Fiel”. Leve para dClientes.</p>
+<details><summary>Dica</summary><div class="in"><p>Agregação: <b>Contagem de Linhas Distintas</b> sobre Ordem de Compra. Em M: <code>each List.Count(List.Distinct([Ordem de Compra]))</code>.</p></div></details></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Lojas e localidades</h4><span class="lvl a">Desafio</span></div><p>Mescle <code>CadastroLojas</code> com <code>CadastroLocalidades</code> para trazer cidade e estado para dentro da tabela de lojas (transformando o floco de neve em estrela). Relacione com fVendas pelo ID da loja.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">09</span>Resumo da aula</h2>
+<ul>
+<li>Parâmetros eliminam caminhos fixos.</li>
+<li><code>Folder.Files</code> combina todos os arquivos de uma pasta, inclusive os futuros.</li>
+<li>Mesclar junta colunas por chave; anti junção acha registros órfãos.</li>
+<li>Agrupar Por resume; Referência deriva consultas sem duplicar etapas.</li>
+<li>Coluna condicional cria faixas; Coluna de Exemplos descobre a fórmula para você.</li>
+<li>Despivotar <b>Outras</b> Colunas transforma meses em linhas e aceita meses novos.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="../aula-08/index.html"><small>← Aula anterior</small>Inspiração e design de dashboards</a><a class="nx" href="../aula-10/index.html"><small>Próxima aula →</small>Calendário e inteligência de tempo</a></nav><div class="footer">Curso Power BI · Braga Treinamentos. Base: projeto Dashboard de Vendas (aula 6) e Metas_2022.xlsx.</div></div></main></div><script src="../assets/curso.js"></script></body></html>
