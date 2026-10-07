@@ -1,201 +1,192 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 08 · Inspiração e design de dashboards</title><meta name="description" content="Você vai montar um painel de referências no Pinterest, Dribbble e Figma, aprender a “desmontar” um design, criar o wireframe e a paleta, desenhar o fundo do dashboard no Figma e aplicar tudo no Power BI."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="/curso-powerbi/site/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/curso-powerbi/site/assets/curso.css"></head><body data-aula="aula-08"><header class="topbar"><div class="in"><a class="brand" href="/"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="/">Todas as aulas</a><a class="hide-s" href="/curso-powerbi/site/aula-07/">← Anterior</a><a href="/curso-powerbi/site/aula-09/">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 08</p><ol><li><a href="#porque"><span>01</span>Por que design importa</a></li><li><a href="#fontes"><span>02</span>Fontes de inspiração</a></li><li><a href="#desmontar"><span>03</span>Desmontar um design</a></li><li><a href="#wireframe"><span>04</span>Wireframe</a></li><li><a href="#cores"><span>05</span>Cores e fontes</a></li><li><a href="#figma"><span>06</span>Fundo no Figma</a></li><li><a href="#aplicar"><span>07</span>Aplicar no Power BI</a></li><li><a href="#checklist"><span>08</span>Checklist</a></li><li><a href="#atividades"><span>09</span>Atividades</a></li><li><a href="#resumo"><span>10</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 08 de 13</div><h1>Onde buscar <em>inspiração</em> e como transformar referência em dashboard bonito</h1><p class="lead">Você vai montar um painel de referências no Pinterest, Dribbble e Figma, aprender a “desmontar” um design, criar o wireframe e a paleta, desenhar o fundo do dashboard no Figma e aplicar tudo no Power BI.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Básico → Intermediário</span></dd><dt>Duração</dt><dd>3 horas</dd><dt>Você vai precisar</dt><dd>Power BI Desktop, navegador e conta gratuita no Figma (e, se quiser, no Pinterest)</dd><dt>Conteúdos</dt><dd><span class="tag">Pinterest</span><span class="tag">Dribbble</span><span class="tag">Figma Community</span><span class="tag">Coolors</span><span class="tag">Wireframe</span><span class="tag">Regra 60-30-10</span><span class="tag">Grid 24/16</span><span class="tag">Plano de fundo</span><span class="tag">Tema JSON</span><span class="tag">Storytelling</span></dd></dl></header><section id="porque"><h2><span class="n">01</span>Por que o design importa num dashboard</h2><p class="sub">Bonito não é enfeite: é o que faz o gestor entender o número em 5 segundos.</p>
-<p>Um dashboard é lido como uma página de jornal. O olho entra pelo canto superior esquerdo, corre a linha de cima e desce em “Z”. Quem desenha o painel decide o que a pessoa vê primeiro.</p>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 08 · Power Query intermediário</title><meta name="description" content="Você vai automatizar a entrada de novos arquivos com Obter dados de Pasta, usar parâmetros para trocar de computador sem quebrar nada, cruzar tabelas com Mesclar Consultas, resumir com Agrupar Por, criar colunas condicionais e de exemplos e transformar uma tabela de metas “larga” em formato de banco de dados com Despivotar."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="/curso-powerbi/site/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/curso-powerbi/site/assets/curso.css"></head><body data-aula="aula-08"><header class="topbar"><div class="in"><a class="brand" href="/"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="/">Todas as aulas</a><a class="hide-s" href="/curso-powerbi/site/aula-08/">← Anterior</a><a href="/curso-powerbi/site/aula-10/">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 08</p><ol><li><a href="#objetivo"><span>01</span>Objetivo</a></li><li><a href="#parametro"><span>02</span>Parâmetros</a></li><li><a href="#pasta"><span>03</span>Combinar arquivos da pasta</a></li><li><a href="#mesclar"><span>04</span>Mesclar consultas</a></li><li><a href="#colunas"><span>05</span>Colunas novas</a></li><li><a href="#despivotar"><span>06</span>Despivotar metas</a></li><li><a href="#organizar"><span>07</span>Organização</a></li><li><a href="#atividades"><span>08</span>Atividades</a></li><li><a href="#resumo"><span>09</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 08 de 13</div><h1>Power Query intermediário: <em>pasta, parâmetros, mesclar e despivotar</em></h1><p class="lead">Você vai automatizar a entrada de novos arquivos com Obter dados de Pasta, usar parâmetros para trocar de computador sem quebrar nada, cruzar tabelas com Mesclar Consultas, resumir com Agrupar Por, criar colunas condicionais e de exemplos e transformar uma tabela de metas “larga” em formato de banco de dados com Despivotar.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Intermediário</span></dd><dt>Duração</dt><dd>3 a 4 horas</dd><dt>Você vai precisar</dt><dd>Power BI Desktop, o projeto da aula 6 e a planilha de metas abaixo</dd><dt>Conteúdos</dt><dd><span class="tag">Parâmetros</span><span class="tag">Obter dados de Pasta</span><span class="tag">Folder.Files</span><span class="tag">Mesclar Consultas</span><span class="tag">Junções</span><span class="tag">Anti junção</span><span class="tag">Agrupar Por</span><span class="tag">Coluna condicional</span><span class="tag">Coluna de exemplos</span><span class="tag">Despivotar</span><span class="tag">Referência x Duplicar</span></dd></dl></header><section id="objetivo"><h2><span class="n">01</span>O que muda nesta aula</h2><p class="sub">Até aqui você limpou tabelas uma por uma. Agora você vai construir consultas que se mantêm sozinhas.</p>
 <div class="tbl"><table>
-<thead><tr><th>Sem design</th><th>Com design</th></tr></thead>
+<thead><tr><th>Problema do dia a dia</th><th>Recurso desta aula</th></tr></thead>
 <tbody>
-<tr><td>Gráficos do mesmo tamanho espalhados</td><td>Hierarquia: KPIs em cima, gráfico principal grande, detalhe embaixo</td></tr>
-<tr><td>8 cores diferentes, sem significado</td><td>Uma cor de destaque; verde = bom, vermelho = ruim</td></tr>
-<tr><td>Títulos automáticos (“Soma de Qtd por Marca”)</td><td>Títulos que dizem a conclusão</td></tr>
-<tr><td>Bordas, sombras e fundos diferentes em cada visual</td><td>Cartões iguais, alinhados numa grade</td></tr>
+<tr><td>Abri o .pbix em outro computador e todas as fontes quebraram</td><td>Parâmetro com o caminho da pasta</td></tr>
+<tr><td>Todo mês chega um arquivo novo de vendas</td><td>Obter dados de Pasta (combina todos os arquivos)</td></tr>
+<tr><td>Tem SKU vendido que não existe no cadastro?</td><td>Mesclar com anti junção</td></tr>
+<tr><td>Quero a data da primeira e da última compra de cada cliente</td><td>Agrupar Por + Mesclar</td></tr>
+<tr><td>Quero faixa etária e provedor de e-mail</td><td>Coluna condicional e Coluna de exemplos</td></tr>
+<tr><td>A planilha de metas tem um mês por coluna</td><td>Despivotar colunas</td></tr>
 </tbody></table></div>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Por que isso pesa na sua carreira</b><p>Na entrevista ou na reunião, o gestor julga o seu trabalho nos primeiros segundos. Um painel limpo e alinhado passa a sensação de que os números também foram tratados com cuidado.</p></div></div>
+<div class="files"><a class="file" href="/curso-powerbi/site/arquivos/Metas_2022.xlsx" download><span class="ext xlsx">XLSX</span><span><b>Metas_2022.xlsx</b><small>Metas por categoria, jan a jun/2022 (formato largo)</small></span></a></div>
 </section>
 
-<section id="fontes"><h2><span class="n">02</span>Onde buscar inspiração</h2><p class="sub">Bons designers não começam do zero: começam olhando muito.</p>
-<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="p1"><label for="p1"><span class="k">Passo 1.1</span>Pinterest: monte um mural de referências</label></div><ol>
-<li>Acesse <a href="https://br.pinterest.com" target="_blank" rel="noopener">br.pinterest.com</a> e crie uma conta gratuita (ou entre com Google).</li>
-<li>Pesquise em inglês, que traz muito mais resultados:
-<ul>
-<li><code>power bi dashboard design</code></li>
-<li><code>dashboard ui dark</code> e <code>dashboard ui light</code></li>
-<li><code>kpi cards ui</code></li>
-<li><code>sales dashboard figma</code></li>
-</ul></li>
-<li>Crie uma <b>Pasta</b> chamada <code>Inspiração Dashboards</code> e salve (<span class="ui">Salvar</span>) as referências que chamarem sua atenção.</li>
-</ol>
-<div class="callout tip"><div class="ico">i</div><div><p>Use o ícone de lupa sobre um pin (“Pesquisa visual”) para achar imagens parecidas com uma que você gostou.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/a08-01.jpg" alt="Pinterest pede login para mostrar os resultados completos. A conta é gratuita." loading="lazy"></div><figcaption><b>Print real.</b> Pinterest pede login para mostrar os resultados completos. A conta é gratuita.</figcaption></figure></div>
-<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="p2"><label for="p2"><span class="k">Passo 1.2</span>Dribbble: designs profissionais de interface</label></div><p>Acesse <a href="https://dribbble.com/search/power-bi-dashboard" target="_blank" rel="noopener">dribbble.com/search/power-bi-dashboard</a>. O Dribbble é a vitrine de designers de interface. Use as palavras relacionadas (<b>analytics</b>, <b>admin</b>, <b>stats</b>) para variar.</p>
-<p>Se aparecer o aviso de cookies, clique em <span class="ui">Reject All</span>: não precisa aceitar rastreamento para navegar.</p></div><figure class="shot "><div class="frame"><img src="img/a08-02.jpg" alt="Busca “power bi dashboard” no Dribbble, com categorias relacionadas." loading="lazy"></div><figcaption><b>Print real.</b> Busca “power bi dashboard” no Dribbble, com categorias relacionadas.</figcaption></figure></div>
-<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="p3"><label for="p3"><span class="k">Passo 1.3</span>Observe a estrutura, não só as cores</label></div><p>Compare os dois exemplos: ambos têm <b>cartões com cantos arredondados</b>, <b>KPIs na primeira linha</b>, <b>muito espaço em branco</b> e <b>uma cor principal</b>. Essas escolhas se repetem nos melhores painéis.</p></div><figure class="shot "><div class="frame"><img src="img/a08-03.jpg" alt="Dois estilos: fundo claro com cartões arredondados e menu lateral escuro com KPIs no topo." loading="lazy"></div><figcaption><b>Print real.</b> Dois estilos: fundo claro com cartões arredondados e menu lateral escuro com KPIs no topo.</figcaption></figure></div>
-<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="p4"><label for="p4"><span class="k">Passo 1.4</span>Figma Community: modelos prontos para Power BI</label></div><p>Acesse a <a href="https://www.figma.com/community/search?resource_type=mixed&amp;sort_by=relevancy&amp;query=power%20bi%20dashboard" target="_blank" rel="noopener">Figma Community</a> e pesquise <code>power bi dashboard</code>. Muitos criadores brasileiros publicam <b>fundos prontos</b> para usar no Power BI.</p>
-<p>Ao abrir um arquivo, clique em <span class="ui">Abrir no Figma</span> (ou <span class="ui">Duplicar</span>) para ter uma cópia editável na sua conta.</p></div><figure class="shot "><div class="frame"><img src="img/a08-04.jpg" alt="Busca “power bi dashboard” na comunidade do Figma: arquivos gratuitos para duplicar." loading="lazy"></div><figcaption><b>Print real.</b> Busca “power bi dashboard” na comunidade do Figma: arquivos gratuitos para duplicar.</figcaption></figure></div>
-<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="p5"><label for="p5"><span class="k">Passo 1.5</span>O conceito de “fundo de dashboard”</label></div><p>Repare no layout claro: menu lateral, faixa de título e caixas vazias. Isso é só uma <b>imagem de fundo</b>. No Power BI, você coloca a imagem como plano de fundo da página e posiciona os visuais (com fundo transparente) dentro das caixas.</p>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Por que usar fundo em vez de formatar cada visual</b><p>Formas, sombras suaves, degradês e ícones ficam muito melhores feitos no Figma. E o fundo é um único arquivo: trocar o visual do painel inteiro vira substituir uma imagem.</p></div></div></div><figure class="shot "><div class="frame"><img src="img/a08-05.jpg" alt="“Layout Light para Dashboards no Power BI”: a moldura é uma imagem; os gráficos entram por cima." loading="lazy"></div><figcaption><b>Print real.</b> “Layout Light para Dashboards no Power BI”: a moldura é uma imagem; os gráficos entram por cima.</figcaption></figure></div>
-<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="p6"><label for="p6"><span class="k">Passo 1.6</span>Paletas de cores: Coolors</label></div><p>Acesse <a href="https://coolors.co/palettes/trending" target="_blank" rel="noopener">coolors.co/palettes/trending</a> para ver paletas prontas, ou <a href="https://coolors.co/generate" target="_blank" rel="noopener">coolors.co/generate</a> para gerar (aperte a barra de espaço; o cadeado fixa as cores que você gostou).</p>
-<p>Outras fontes úteis:</p>
-<ul>
-<li><a href="https://color.adobe.com/pt/create/color-wheel" target="_blank" rel="noopener">Adobe Color</a>: roda de cores e verificação de acessibilidade (daltonismo);</li>
-<li><a href="https://community.fabric.microsoft.com/t5/Data-Stories-Gallery/bd-p/DataStoriesGallery" target="_blank" rel="noopener">Galeria de Data Stories da Microsoft</a>: relatórios reais feitos no Power BI pela comunidade;</li>
-<li><a href="https://www.behance.net/search/projects?search=power%20bi%20dashboard" target="_blank" rel="noopener">Behance</a>: projetos completos, com o processo do designer.</li>
-</ul></div><figure class="shot "><div class="frame"><img src="img/a08-06.jpg" alt="Paletas em alta no Coolors: clique numa cor para copiar o código HEX." loading="lazy"></div><figcaption><b>Print real.</b> Paletas em alta no Coolors: clique numa cor para copiar o código HEX.</figcaption></figure></div>
-</section>
-
-<section id="desmontar"><h2><span class="n">03</span>Como estudar uma referência</h2><p class="sub">Não copie: decomponha. Pegue a ideia, aplique com os seus dados e a sua marca.</p>
-<p>Para cada referência salva, responda este checklist (anote no próprio pin ou numa planilha):</p>
-<div class="tbl"><table>
-<thead><tr><th>Elemento</th><th>Pergunta</th><th>Exemplo de resposta</th></tr></thead>
-<tbody>
-<tr><td>Grade</td><td>Quantas colunas? Qual o espaço entre os blocos?</td><td>12 colunas, 16 px entre cartões</td></tr>
-<tr><td>Hierarquia</td><td>O que aparece primeiro? O que é maior?</td><td>KPIs em cima; gráfico de linha ocupa metade da tela</td></tr>
-<tr><td>Cores</td><td>Qual o fundo, a cor principal e a de destaque?</td><td>Fundo cinza-azulado, cartões brancos, roxo de destaque</td></tr>
-<tr><td>Tipografia</td><td>Quantos tamanhos? Números grandes?</td><td>Título 20, rótulos 10, KPIs 28 em negrito</td></tr>
-<tr><td>Gráficos</td><td>Que tipos usa? Tem rótulos? Linhas de grade?</td><td>Barras horizontais sem grade, rótulos nas pontas</td></tr>
-<tr><td>Navegação</td><td>Tem menu, abas, botões?</td><td>Menu lateral com ícones para cada página</td></tr>
-</tbody></table></div>
-<div class="callout warn"><div class="ico">!</div><div><b class="t">Ética</b><p>Use referências para aprender padrões. Não baixe nem publique o trabalho de outra pessoa como se fosse seu; em arquivos do Figma Community, respeite a licença indicada pelo autor e dê o crédito.</p></div></div>
-</section>
-
-<section id="wireframe"><h2><span class="n">04</span>Wireframe: desenhe antes de clicar</h2><p class="sub">Cinco minutos de papel economizam uma hora arrastando visual.</p>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="w1"><label for="w1"><span class="k">Passo 3.1</span>Liste as perguntas e escolha os visuais</label></div><p>Para o Dashboard de Vendas da aula 6:</p>
-<div class="tbl"><table>
-<thead><tr><th>Pergunta do gestor</th><th>Visual</th><th>Tamanho</th></tr></thead>
-<tbody>
-<tr><td>Como estamos no geral?</td><td>6 cartões de KPI</td><td>Linha inteira, pequenos</td></tr>
-<tr><td>Estamos crescendo?</td><td>Área por mês</td><td>O maior da tela</td></tr>
-<tr><td>O que mais vende?</td><td>Treemap por categoria</td><td>Médio</td></tr>
-<tr><td>Quais marcas? Quais produtos?</td><td>Barras e tabela ranking</td><td>Médios, embaixo</td></tr>
-<tr><td>Como filtro?</td><td>Segmentações de ano, categoria, marca</td><td>Topo à direita</td></tr>
-</tbody></table></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="w2"><label for="w2"><span class="k">Passo 3.2</span>Desenhe as zonas na grade 24/16</label></div><p>Página de 1920 × 1080, margem de <b>24 px</b> e <b>16 px</b> entre blocos (as mesmas medidas da aula 6):</p>
-<div class="diagram" role="img" aria-label="Wireframe 1920 por 1080 com faixa de título, três filtros, seis KPIs, gráfico principal, gráfico secundário e três blocos inferiores">
-<svg viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg"><g style="font-size:13px">
-<rect x="0" y="0" width="960" height="540" rx="6" style="fill:var(--soft);stroke:var(--line)"/>
-<rect x="12" y="8" width="508" height="40" rx="6" style="fill:var(--accent-soft);stroke:var(--accent-ink)"/><text x="24" y="33" style="fill:var(--accent-ink);font-weight:600">1 · Título + subtítulo</text>
-<rect x="542" y="8" width="130" height="40" rx="6" style="fill:var(--paper);stroke:var(--ink-3)"/><text x="552" y="33" style="fill:var(--ink-2)">Filtro Ano</text>
-<rect x="680" y="8" width="130" height="40" rx="6" style="fill:var(--paper);stroke:var(--ink-3)"/><text x="690" y="33" style="fill:var(--ink-2)">Categoria</text>
-<rect x="818" y="8" width="130" height="40" rx="6" style="fill:var(--paper);stroke:var(--ink-3)"/><text x="828" y="33" style="fill:var(--ink-2)">Marca</text>
-<g style="fill:var(--paper);stroke:var(--blue)">
-<rect x="12" y="56" width="149" height="70" rx="6"/><rect x="169" y="56" width="149" height="70" rx="6"/><rect x="326" y="56" width="149" height="70" rx="6"/><rect x="483" y="56" width="149" height="70" rx="6"/><rect x="640" y="56" width="149" height="70" rx="6"/><rect x="797" y="56" width="149" height="70" rx="6"/></g>
-<text x="24" y="96" style="fill:var(--blue);font-weight:600">2 · KPIs (6 cartões)</text>
-<rect x="12" y="134" width="600" height="190" rx="6" style="fill:var(--paper);stroke:var(--green)"/><text x="24" y="160" style="fill:var(--green);font-weight:600">3 · Gráfico principal (tendência)</text>
-<rect x="620" y="134" width="328" height="190" rx="6" style="fill:var(--paper);stroke:var(--ink-3)"/><text x="632" y="160" style="fill:var(--ink-2);font-weight:600">4 · Composição</text>
-<rect x="12" y="332" width="300" height="200" rx="6" style="fill:var(--paper);stroke:var(--ink-3)"/><text x="24" y="358" style="fill:var(--ink-2);font-weight:600">5 · Ranking marcas</text>
-<rect x="320" y="332" width="300" height="200" rx="6" style="fill:var(--paper);stroke:var(--ink-3)"/><text x="332" y="358" style="fill:var(--ink-2);font-weight:600">6 · Comparação anual</text>
-<rect x="628" y="332" width="320" height="200" rx="6" style="fill:var(--paper);stroke:var(--ink-3)"/><text x="640" y="358" style="fill:var(--ink-2);font-weight:600">7 · Tabela detalhe</text>
-</g></svg></div>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Leitura em Z</b><p>O olho lê: título → filtros → KPIs → gráfico principal → detalhes. Coloque a informação mais importante onde o olho chega primeiro.</p></div></div>
-<div class="callout tip"><div class="ico">i</div><div><p>Pode desenhar no papel, no <a href="https://excalidraw.com" target="_blank" rel="noopener">Excalidraw</a> (grátis, no navegador) ou direto no Figma.</p></div></div></div></div>
-</section>
-
-<section id="cores"><h2><span class="n">05</span>Paleta e tipografia</h2><p class="sub">Poucas cores, cada uma com um papel.</p>
-<h3>Regra 60-30-10</h3>
-<div class="tbl"><table>
-<thead><tr><th>Proporção</th><th>Papel</th><th>No nosso tema</th></tr></thead>
-<tbody>
-<tr><td>60%</td><td>Fundo neutro</td><td><code>#EEF2F7</code> (cinza-azulado)</td></tr>
-<tr><td>30%</td><td>Superfícies</td><td><code>#FFFFFF</code> (cartões brancos)</td></tr>
-<tr><td>10%</td><td>Destaque</td><td><code>#4F46E5</code> (índigo)</td></tr>
-</tbody></table></div>
-<ul>
-<li>Use no máximo 5 ou 6 cores de dados. Mais que isso, ninguém associa cor a significado.</li>
-<li><b>Verde = bom, vermelho = ruim</b>. Não use vermelho como cor de uma categoria comum.</li>
-<li>Texto escuro em fundo claro (contraste alto). Cinza claro em branco some no projetor.</li>
-<li>Fontes: o Power BI usa as fontes instaladas no Windows. <b>Segoe UI</b> (e Segoe UI Semibold para títulos) é segura: aparece igual em qualquer computador e no Power BI Service.</li>
-</ul>
-</section>
-
-<section id="figma"><h2><span class="n">06</span>Desenhando o fundo no Figma</h2><p class="sub">Passo a passo para criar a moldura do dashboard da aula 6.</p>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="g1"><label for="g1"><span class="k">Passo 5.1</span>Crie a conta e um arquivo de design</label></div><ol>
-<li>Acesse <a href="https://www.figma.com" target="_blank" rel="noopener">figma.com</a> → <span class="ui">Comece gratuitamente</span> (o plano gratuito basta; estudantes podem pedir o plano educacional).</li>
-<li>No painel inicial, clique em <span class="ui">+ Criar</span> → <span class="ui">Design</span> (ou <span class="ui">Novo arquivo de design</span>).</li>
-<li>Renomeie o arquivo para <code>Fundo Dashboard Vendas</code> (clique no nome no topo).</li>
+<section id="parametro"><h2><span class="n">02</span>Parâmetro com o caminho da pasta</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="p1"><label for="p1"><span class="k">Passo 1.1</span>Crie o parâmetro PastaBases</label></div><ol>
+<li>No Power Query: <span class="ui">Página Inicial</span> → <span class="ui">Gerenciar Parâmetros</span> → <span class="ui">Novo Parâmetro</span>.</li>
+<li>Nome: <code>PastaBases</code> · Tipo: <b>Texto</b> · Valores sugeridos: <b>Qualquer valor</b>.</li>
+<li>Valor atual: o caminho da sua pasta, <b>terminando com barra</b>: <code>C:\Users\SeuUsuario\Documents\PowerBI_Vendas\Bases\</code></li>
 </ol></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="g2"><label for="g2"><span class="k">Passo 5.2</span>Crie o frame de 1920 × 1080</label></div><ol>
-<li>Pressione <kbd>F</kbd> (ferramenta Frame).</li>
-<li>No painel da direita, escolha <b>Desktop</b> e ajuste <b>W 1920 · H 1080</b>.</li>
-<li>Em <b>Fill</b>, troque a cor para <code>EEF2F7</code>.</li>
-<li>Renomeie o frame (duplo clique na camada) para <code>Visao Geral</code>.</li>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="p2"><label for="p2"><span class="k">Passo 1.2</span>Use o parâmetro nas consultas</label></div><p>Abra o <span class="ui">Editor Avançado</span> de cada consulta e troque o caminho fixo pelo parâmetro:</p>
+<div class="code"><div class="bar"><span>M · antes</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Fonte = Excel.Workbook(File.Contents(&quot;C:\Users\Professor\Documents\PowerBI_Vendas\Bases\Cadastro Clientes.xlsx&quot;), null, true)</pre></div>
+<div class="code"><div class="bar"><span>M · depois</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Fonte = Excel.Workbook(File.Contents(PastaBases &amp; &quot;Cadastro Clientes.xlsx&quot;), null, true)</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que vale a pena</b><p>Mudou de computador, de pasta ou vai entregar o projeto ao cliente? Troque um único valor (<span class="ui">Página Inicial</span> do Power BI → <span class="ui">Transformar dados</span> → <span class="ui">Editar parâmetros</span>) e todas as consultas apontam para o lugar certo.</p></div></div></div></div>
+</section>
+
+<section id="pasta"><h2><span class="n">03</span>Obter dados de uma Pasta</h2><p class="sub">Coloque os arquivos de vendas numa pasta e deixe o Power Query empilhar todos, inclusive os que ainda vão chegar.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="f1"><label for="f1"><span class="k">Passo 2.1</span>Separe as vendas numa subpasta</label></div><p>Crie <code>Bases\Vendas\</code> e mova para lá <code>Base Vendas - 2020.xlsx</code>, <code>2021</code> e <code>2022</code>. Na pasta só podem ficar arquivos com a <b>mesma estrutura</b>.</p></div></div>
+<div class="step"><div class="txt"><div class="step-h"><input type="checkbox" id="f2"><label for="f2"><span class="k">Passo 2.2</span>Pelos botões: Pasta → Combinar e Transformar</label></div><ol>
+<li><span class="ui">Nova Fonte</span> → <span class="ui">Mais…</span> → <span class="ui">Pasta</span> → <span class="ui">Conectar</span> → escolha <code>Bases\Vendas</code>.</li>
+<li>Na janela com a lista de arquivos, clique em <span class="ui">Combinar</span> → <span class="ui">Combinar e Transformar Dados</span>.</li>
+<li>Escolha <b>Plan1</b> no arquivo de exemplo → <span class="ui">OK</span>.</li>
 </ol>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>1920 × 1080 (16:9) é o tamanho de página que vamos configurar no Power BI. Se o frame tiver outra proporção, a imagem distorce ou sobra borda.</p></div></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="g3"><label for="g3"><span class="k">Passo 5.3</span>Ative a grade de layout</label></div><p>Com o frame selecionado, em <b>Layout grid</b> clique em <span class="ui">+</span> → troque <b>Grid</b> por <b>Columns</b>: Count <b>12</b>, Margin <b>24</b>, Gutter <b>16</b>. As colunas guiam o alinhamento dos cartões.</p></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="g4"><label for="g4"><span class="k">Passo 5.4</span>Desenhe os cartões</label></div><p>Pressione <kbd>R</kbd> (retângulo) e desenhe cada bloco com estas medidas (digite X, Y, W e H no painel da direita):</p>
+<p>O Power Query cria uma pasta <b>Transformar Arquivo de Vendas</b> com consultas auxiliares (Arquivo de Exemplo, Parâmetro1, Transformar Arquivo). Não apague: elas são a “receita” aplicada a cada arquivo. A coluna <code>Source.Name</code> mostra de qual arquivo veio cada linha.</p></div><figure class="shot "><div class="frame"><img src="img/a06-09.jpg" alt="Nova Fonte no Power Query: a opção Pasta fica em Mais…" loading="lazy"></div><figcaption><b>Print real.</b> Nova Fonte no Power Query: a opção Pasta fica em Mais…</figcaption></figure></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="f3"><label for="f3"><span class="k">Passo 2.3</span>Ou escreva a consulta enxuta em M</label></div><p>Se preferir uma única consulta, sem auxiliares, crie uma <span class="ui">Consulta Nula</span> chamada <code>fVendas</code> e cole:</p>
+<div class="code"><div class="bar"><span>M · fVendas a partir da pasta</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte      = Folder.Files(PastaBases &amp; &quot;Vendas\&quot;),
+    // só planilhas .xlsx; ignora arquivos temporários do Excel (~$...)
+    SoExcel    = Table.SelectRows(Fonte, each [Extension] = &quot;.xlsx&quot; and not Text.StartsWith([Name], &quot;~$&quot;)),
+    ComDados   = Table.AddColumn(SoExcel, &quot;Dados&quot;,
+                    each Excel.Workbook([Content], true, true){[Item = &quot;Plan1&quot;, Kind = &quot;Sheet&quot;]}[Data]),
+    Colunas    = Table.SelectColumns(ComDados, {&quot;Name&quot;, &quot;Dados&quot;}),
+    Expandido  = Table.ExpandTableColumn(Colunas, &quot;Dados&quot;,
+                    {&quot;Data da Venda&quot;, &quot;Ordem de Compra&quot;, &quot;SKU&quot;, &quot;ID Cliente&quot;, &quot;Qtd Vendida&quot;, &quot;ID Loja&quot;}),
+    Renomeado  = Table.RenameColumns(Expandido, {{&quot;Name&quot;, &quot;Arquivo&quot;}}),
+    Tipos      = Table.TransformColumnTypes(Renomeado, {
+                    {&quot;Data da Venda&quot;, type date}, {&quot;Ordem de Compra&quot;, type text}, {&quot;SKU&quot;, type text},
+                    {&quot;ID Cliente&quot;, Int64.Type}, {&quot;Qtd Vendida&quot;, Int64.Type}, {&quot;ID Loja&quot;, Int64.Type}})
+in
+    Tipos</pre></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>56.046 linhas, as mesmas da aula 6. Agora você pode excluir as consultas Vendas 2020/2021/2022 (ou mantê-las desabilitadas para comparar).</p></div></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que isso é profissional</b><p>Quando chegar <code>Base Vendas - 2023.xlsx</code>, basta salvá-lo na pasta e clicar em Atualizar. Nenhuma consulta nova, nenhum Acrescentar.</p></div></div>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>Se alguém salvar na pasta um arquivo com colunas diferentes (ou um relatório qualquer em Excel), a atualização quebra. Combine com a equipe: a pasta é só para bases de vendas.</p></div></div></div></div>
+</section>
+
+<section id="mesclar"><h2><span class="n">04</span>Mesclar consultas: o PROCV do Power Query</h2><p class="sub">Acrescentar empilha linhas; Mesclar junta colunas de tabelas diferentes por uma chave.</p>
 <div class="tbl"><table>
-<thead><tr><th>Bloco</th><th>X, Y</th><th>W × H</th><th>Estilo</th></tr></thead>
+<thead><tr><th>Tipo de junção</th><th>Mantém</th><th>Uso típico</th></tr></thead>
 <tbody>
-<tr><td>Faixa de título</td><td>24, 16</td><td>1016 × 80</td><td>Fill <code>4F46E5</code>, raio 12</td></tr>
-<tr><td>3 filtros</td><td>1084 / 1360 / 1636, 16</td><td>260 × 80</td><td>Branco, raio 12</td></tr>
-<tr><td>6 KPIs</td><td>24 + 314·i, 112</td><td>298 × 140</td><td>Branco, raio 12</td></tr>
-<tr><td>Gráfico principal</td><td>24, 268</td><td>1200 × 380</td><td>Branco, raio 12</td></tr>
-<tr><td>Composição</td><td>1240, 268</td><td>656 × 380</td><td>Branco, raio 12</td></tr>
-<tr><td>3 blocos inferiores</td><td>24 / 640 / 1256, 664</td><td>600 / 600 / 640 × 400</td><td>Branco, raio 12</td></tr>
+<tr><td>Externa esquerda</td><td>Todas da primeira + as que batem da segunda</td><td>Trazer informação extra (como PROCV)</td></tr>
+<tr><td>Interna</td><td>Só as que existem nas duas</td><td>Ficar só com o que casa</td></tr>
+<tr><td>Anti esquerda</td><td>Só as da primeira que <b>não</b> existem na segunda</td><td>Achar registros órfãos (qualidade de dados)</td></tr>
+<tr><td>Externa completa</td><td>Todas das duas</td><td>Conciliação entre sistemas</td></tr>
 </tbody></table></div>
-<p>Em cada retângulo: <b>Corner radius</b> 12, <b>Stroke</b> <code>E2E8F0</code> 1 px e <b>Effects</b> → <span class="ui">+</span> → <b>Drop shadow</b> (Y 4, Blur 16, cor preta a 8%).</p>
-<div class="callout tip"><div class="ico">i</div><div><p>Faça um cartão perfeito, depois duplique com <kbd>Ctrl</kbd>+<kbd>D</kbd> e só mude a posição. Todos ficam idênticos.</p></div></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="g5"><label for="g5"><span class="k">Passo 5.5</span>Textos fixos: só o título</label></div><p>Com <kbd>T</kbd>, escreva “Dashboard de Vendas” em branco sobre a faixa (Segoe UI Semibold 28 ou Inter Semibold). <b>Não</b> escreva valores nem títulos de gráficos no fundo: eles devem ficar no Power BI, onde mudam com os filtros e são lidos por leitores de tela.</p></div></div>
-<div class="step wide"><div class="txt"><div class="step-h"><input type="checkbox" id="g6"><label for="g6"><span class="k">Passo 5.6</span>Exporte em PNG</label></div><ol>
-<li>Clique no nome do frame para selecioná-lo inteiro.</li>
-<li>No fim do painel da direita, em <b>Export</b>, clique em <span class="ui">+</span>: <b>1x</b>, <b>PNG</b>.</li>
-<li>Clique em <span class="ui">Export Visao Geral</span> e salve na pasta do projeto.</li>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m1"><label for="m1"><span class="k">Passo 3.1</span>Auditoria: existem SKUs vendidos fora do cadastro?</label></div><ol>
+<li>Clique com o botão direito em <code>fVendas</code> → <span class="ui">Referência</span>. Renomeie para <code>Audit_SKU</code>.</li>
+<li><span class="ui">Página Inicial</span> → <span class="ui">Mesclar Consultas</span>.</li>
+<li>Em cima, selecione a coluna <b>SKU</b> de Audit_SKU; embaixo, escolha <b>dProdutos</b> e a coluna <b>SKU</b>.</li>
+<li>Tipo de junção: <b>Anti esquerda (linhas apenas na primeira)</b> → <span class="ui">OK</span>.</li>
 </ol>
-<p>Se ainda não tiver o seu, use o fundo pronto da aula:</p>
-<div class="files"><a class="file" href="/curso-powerbi/site/arquivos/Fundo_Dashboard_Vendas_1920x1080.png" download><span class="ext png">PNG</span><span><b>Fundo_Dashboard_Vendas_1920x1080.png</b><small>Fundo pronto, mesmas medidas da aula 6</small></span></a><a class="file" href="/curso-powerbi/site/arquivos/Tema_Vendas_Moderno.json" download><span class="ext json">JSON</span><span><b>Tema_Vendas_Moderno.json</b><small>Tema com a mesma paleta</small></span></a></div>
-<div class="callout tip"><div class="ico">i</div><div><b class="t">Sem Figma?</b><p>Dá para fazer igual no PowerPoint: <span class="ui">Design</span> → <span class="ui">Tamanho do Slide</span> → Personalizado 50,8 × 28,575 cm (16:9), desenhe as formas e salve como PNG em <span class="ui">Arquivo</span> → <span class="ui">Exportar</span>.</p></div></div><figure class="shot "><div class="frame"><img src="img/fundo-1920.jpg" alt="O fundo pronto (versão gerada para a aula, com as mesmas medidas)." loading="lazy"></div><figcaption><b>Print real.</b> O fundo pronto (versão gerada para a aula, com as mesmas medidas).</figcaption></figure></div></div>
-</section>
-
-<section id="aplicar"><h2><span class="n">07</span>Aplicando o fundo no Power BI</h2><p class="sub">Use o projeto da aula 6 (Dashboard_Vendas_Final.pbix).</p>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b1"><label for="b1"><span class="k">Passo 6.1</span>Ajuste o tamanho da página</label></div><p>Clique numa área vazia da página → painel <span class="ui">Formato</span> (pincel) → <b>Configurações de tela</b> → Tipo <b>Personalizado</b>, Largura <b>1920</b>, Altura <b>1080</b>.</p></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b2"><label for="b2"><span class="k">Passo 6.2</span>Coloque a imagem como Tela de fundo</label></div><ol>
-<li>Ainda em <span class="ui">Formato</span> da página → <b>Tela de fundo</b> → <span class="ui">+ Adicionar imagem</span> → escolha o PNG.</li>
-<li><b>Ajuste da imagem</b>: <b>Ajustar</b>.</li>
-<li><b>Transparência</b>: <b>0%</b> (o padrão é 100% e a imagem some, esse é o erro mais comum).</li>
-</ol>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Tela de fundo x Papel de parede</b><p>A <b>Tela de fundo</b> fica dentro da página (1920×1080) e acompanha os visuais. O <b>Papel de parede</b> preenche a área cinza em volta da página e não aparece no celular nem na exportação.</p></div></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b3"><label for="b3"><span class="k">Passo 6.3</span>Deixe os visuais transparentes</label></div><p>Selecione todos os visuais (<kbd>Ctrl</kbd>+clique) → <span class="ui">Formato</span> → <b>Geral</b> → <b>Efeitos</b>:</p>
+<p>Se o resultado tiver zero linhas, todo SKU vendido existe no cadastro. Se tiver linhas, esses produtos vão aparecer como “(Em branco)” nos gráficos de categoria e marca.</p>
+<p>Clique com o botão direito em <code>Audit_SKU</code> e desmarque <span class="ui">Habilitar carga</span>: é uma consulta de verificação, não precisa ir para o modelo.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Referência x Duplicar</b><p>Referência cria uma consulta que <b>parte do resultado</b> de outra (se a original mudar, ela acompanha). Duplicar copia todas as etapas e vira independente. Para derivar tabelas, prefira Referência.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m2"><label for="m2"><span class="k">Passo 3.2</span>Agrupar Por: resumo de compras por cliente</label></div><ol>
+<li>Botão direito em <code>fVendas</code> → <span class="ui">Referência</span>. Renomeie para <code>ResumoClientes</code>.</li>
+<li><span class="ui">Transformar</span> → <span class="ui">Agrupar Por</span> → <b>Avançado</b>.</li>
+<li>Agrupar por: <b>ID Cliente</b>. Agregações:
 <ul>
-<li><b>Plano de fundo</b>: desligado;</li>
-<li><b>Borda visual</b>: desligada;</li>
-<li><b>Sombra</b>: desligada.</li>
-</ul>
-<p>Assim o cartão desenhado no Figma aparece por baixo e o visual parece fazer parte dele.</p></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b4"><label for="b4"><span class="k">Passo 6.4</span>Posicione cada visual no seu cartão</label></div><p>Selecione o visual → <span class="ui">Formato</span> → <b>Geral</b> → <b>Propriedades</b> → <b>Tamanho</b> e <b>Posição</b>. Use as coordenadas da tabela do passo 5.4 com 8 px de folga para dentro (ex.: cartão em X 24, Y 112 → visual em X 32, Y 120, L 282, A 124).</p>
-<div class="callout tip"><div class="ico">i</div><div><span class="ui">Exibição</span> → marque <b>Linhas de grade</b> e <b>Ajustar à grade</b> para facilitar o alinhamento.</div></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b5"><label for="b5"><span class="k">Passo 6.5</span>Aplique o tema e revise</label></div><p><span class="ui">Exibição</span> → <span class="ui">Temas</span> → <span class="ui">Procurar temas</span> → <code>Tema_Vendas_Moderno.json</code>. As cores dos gráficos passam a combinar com o fundo. Depois, revise com o checklist abaixo.</p></div></div>
+<li><code>Primeira Compra</code> = Mín de Data da Venda;</li>
+<li><code>Última Compra</code> = Máx de Data da Venda;</li>
+<li><code>Itens Comprados</code> = Soma de Qtd Vendida.</li>
+</ul></li>
+</ol>
+<div class="code"><div class="bar"><span>M · etapa gerada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>= Table.Group(Fonte, {&quot;ID Cliente&quot;}, {
+    {&quot;Primeira Compra&quot;, each List.Min([Data da Venda]), type date},
+    {&quot;Última Compra&quot;,   each List.Max([Data da Venda]), type date},
+    {&quot;Itens Comprados&quot;, each List.Sum([Qtd Vendida]), Int64.Type}
+})</pre></div>
+<p>Desabilite a carga de ResumoClientes: vamos levar essas colunas para dClientes.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m3"><label for="m3"><span class="k">Passo 3.3</span>Mesclar: leve o resumo para dClientes</label></div><ol>
+<li>Selecione <code>dClientes</code> → <span class="ui">Mesclar Consultas</span>.</li>
+<li>Coluna <b>ID Cliente</b> em dClientes; tabela <b>ResumoClientes</b>, coluna <b>ID Cliente</b>.</li>
+<li>Junção <b>Externa esquerda</b> → <span class="ui">OK</span>.</li>
+<li>Na nova coluna (com “Table” em cada linha), clique no ícone de expandir ⟷, marque Primeira Compra, Última Compra e Itens Comprados, desmarque <b>Usar o nome da coluna original como prefixo</b> → <span class="ui">OK</span>.</li>
+</ol>
+<p>Clientes que nunca compraram ficam com <code>null</code> nessas colunas, o que é correto.</p>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que fazer no Power Query e não no DAX</b><p>Primeira e última compra são características fixas do cliente: viram atributos da dimensão e podem ser usadas em segmentações e eixos (“clientes que compraram pela primeira vez em 2022”).</p></div></div></div></div>
 </section>
 
-<section id="checklist"><h2><span class="n">08</span>Checklist de design</h2>
+<section id="colunas"><h2><span class="n">05</span>Colunas condicionais e de exemplos</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c1"><label for="c1"><span class="k">Passo 4.1</span>Idade</label></div><p>Em <code>dClientes</code>, selecione <code>Data Nascimento</code> → <span class="ui">Adicionar Coluna</span> → <span class="ui">Data</span> → <span class="ui">Idade</span>. O resultado é uma duração; transforme: <span class="ui">Transformar</span> → <span class="ui">Duração</span> → <span class="ui">Total de Anos</span>, depois <span class="ui">Arredondamento</span> → <span class="ui">Arredondar para Baixo</span>. Renomeie para <code>Idade</code> e defina Número Inteiro.</p>
+<div class="callout tip"><div class="ico">i</div><div><p>A idade é calculada na data da atualização. Para análises de vendas passadas, a idade na data da compra seria mais exata, mas para segmentar clientes esta resolve bem.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c2"><label for="c2"><span class="k">Passo 4.2</span>Coluna condicional: Faixa Etária</label></div><p><span class="ui">Adicionar Coluna</span> → <span class="ui">Coluna Condicional</span>. Nome: <code>Faixa Etária</code>. Regras (a ordem importa: a primeira verdadeira vence):</p>
 <div class="tbl"><table>
-<thead><tr><th>Item</th><th>Ok?</th></tr></thead>
+<thead><tr><th>Se Idade</th><th>Valor</th></tr></thead>
 <tbody>
-<tr><td>Título diz do que é o painel e de quando são os dados</td><td>☐</td></tr>
-<tr><td>KPIs na primeira linha, números grandes e com unidade (R$, %, Mi)</td><td>☐</td></tr>
-<tr><td>Gráfico mais importante é o maior</td><td>☐</td></tr>
-<tr><td>Todos os visuais alinhados na grade, mesmo espaçamento</td><td>☐</td></tr>
-<tr><td>No máximo 5–6 cores; verde/vermelho só para bom/ruim</td><td>☐</td></tr>
-<tr><td>Títulos dos gráficos respondem a uma pergunta</td><td>☐</td></tr>
-<tr><td>Sem linhas de grade e bordas desnecessárias</td><td>☐</td></tr>
-<tr><td>Rótulos de dados só onde ajudam a ler</td><td>☐</td></tr>
-<tr><td>Sem pizza com mais de 4 fatias</td><td>☐</td></tr>
-<tr><td>Fonte dos dados escrita no rodapé</td><td>☐</td></tr>
+<tr><td>é menor que 25</td><td>18–24</td></tr><tr><td>é menor que 35</td><td>25–34</td></tr>
+<tr><td>é menor que 45</td><td>35–44</td></tr><tr><td>é menor que 60</td><td>45–59</td></tr>
+<tr><td>Senão</td><td>60+</td></tr></tbody></table></div>
+<div class="code"><div class="bar"><span>M · etapa gerada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>= Table.AddColumn(#&quot;Idade Inteira&quot;, &quot;Faixa Etária&quot;, each
+    if [Idade] &lt; 25 then &quot;18–24&quot;
+    else if [Idade] &lt; 35 then &quot;25–34&quot;
+    else if [Idade] &lt; 45 then &quot;35–44&quot;
+    else if [Idade] &lt; 60 then &quot;45–59&quot;
+    else &quot;60+&quot;, type text)</pre></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que faixa e não idade</b><p>Um gráfico com 60 idades diferentes não se lê. Cinco faixas mostram o perfil do cliente na hora e viram uma ótima segmentação.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c3"><label for="c3"><span class="k">Passo 4.3</span>Coluna de exemplos: provedor de e-mail</label></div><ol>
+<li>Selecione a coluna <code>Email</code> → <span class="ui">Adicionar Coluna</span> → <span class="ui">Coluna de Exemplos</span> → <span class="ui">Da Seleção</span>.</li>
+<li>Na primeira linha da nova coluna, digite o domínio do e-mail dela (ex.: <code>icloud.com</code>) e pressione <kbd>Enter</kbd>.</li>
+<li>Digite mais um ou dois exemplos até o Power Query acertar o padrão. Ele mostra a fórmula que descobriu.</li>
+<li>Renomeie para <code>Provedor</code> → <span class="ui">OK</span>.</li>
+</ol>
+<div class="code"><div class="bar"><span>M · fórmula equivalente</span><button class="copy" type="button">Copiar</button></div><pre data-hl>= Table.AddColumn(#&quot;Faixa Etária&quot;, &quot;Provedor&quot;, each Text.AfterDelimiter([Email], &quot;@&quot;), type text)</pre></div></div></div>
+</section>
+
+<section id="despivotar"><h2><span class="n">06</span>Despivotar: metas em formato de banco de dados</h2><p class="sub">Planilhas feitas para humanos têm um mês por coluna. O Power BI precisa de um mês por linha.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d1"><label for="d1"><span class="k">Passo 5.1</span>Importe a planilha de metas</label></div><p><span class="ui">Nova Fonte</span> → <span class="ui">Pasta de Trabalho do Excel</span> → <code>Metas_2022.xlsx</code> → <b>Metas</b> → <span class="ui">OK</span>. Renomeie para <code>fMetas</code>. Ela chega assim:</p>
+<div class="tbl"><table><thead><tr><th>Categoria</th><th>jan</th><th>fev</th><th>mar</th><th>…</th><th>jun</th></tr></thead>
+<tbody><tr><td>Notebook</td><td>560.000</td><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><td>Celular</td><td>330.000</td><td>…</td><td>…</td><td>…</td><td>…</td></tr></tbody></table></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d2"><label for="d2"><span class="k">Passo 5.2</span>Despivotar Outras Colunas</label></div><p>Selecione <b>só</b> a coluna <code>Categoria</code> → botão direito → <span class="ui">Despivotar Outras Colunas</span>. Renomeie <code>Atributo</code> para <code>Mês</code> e <code>Valor</code> para <code>Meta</code>.</p>
+<div class="tbl"><table><thead><tr><th>Categoria</th><th>Mês</th><th class="r">Meta</th></tr></thead>
+<tbody><tr><td>Notebook</td><td>jan</td><td class="r">560.000</td></tr><tr><td>Notebook</td><td>fev</td><td class="r">…</td></tr><tr><td>…</td><td>…</td><td class="r">…</td></tr></tbody></table></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que “Outras” colunas</b><p>Se você despivotar selecionando jan a jun e alguém incluir “jul” na planilha, julho fica de fora. “Despivotar <b>Outras</b> Colunas” fixa só a Categoria: qualquer mês novo entra sozinho.</p></div></div></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d3"><label for="d3"><span class="k">Passo 5.3</span>Transforme o mês em data</label></div><p>Para relacionar com a dCalendario, a meta precisa de uma data. <span class="ui">Adicionar Coluna</span> → <span class="ui">Coluna Personalizada</span>, nome <code>Data</code>:</p>
+<div class="code"><div class="bar"><span>M · fMetas completa</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte     = Excel.Workbook(File.Contents(PastaBases &amp; &quot;Metas_2022.xlsx&quot;), null, true),
+    Metas     = Fonte{[Item = &quot;Metas&quot;, Kind = &quot;Sheet&quot;]}[Data],
+    Cabecalho = Table.PromoteHeaders(Metas, [PromoteAllScalars = true]),
+    Despiv    = Table.UnpivotOtherColumns(Cabecalho, {&quot;Categoria&quot;}, &quot;Mês&quot;, &quot;Meta&quot;),
+    Meses     = {&quot;jan&quot;,&quot;fev&quot;,&quot;mar&quot;,&quot;abr&quot;,&quot;mai&quot;,&quot;jun&quot;,&quot;jul&quot;,&quot;ago&quot;,&quot;set&quot;,&quot;out&quot;,&quot;nov&quot;,&quot;dez&quot;},
+    ComData   = Table.AddColumn(Despiv, &quot;Data&quot;,
+                    each #date(2022, List.PositionOf(Meses, Text.Lower([Mês])) + 1, 1), type date),
+    Tipos     = Table.TransformColumnTypes(ComData, {{&quot;Categoria&quot;, type text}, {&quot;Meta&quot;, type number}}),
+    Final     = Table.RemoveColumns(Tipos, {&quot;Mês&quot;})
+in
+    Final</pre></div>
+<p>Salve <code>Metas_2022.xlsx</code> na pasta <code>Bases</code> para o <code>PastaBases</code> encontrar.</p></div></div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d4"><label for="d4"><span class="k">Passo 5.4</span>Crie a dimensão dCategoria e relacione</label></div><p>A Categoria se repete em dProdutos, então não pode ser chave primária. Crie uma dimensão só de categorias:</p>
+<ol>
+<li>Botão direito em <code>dProdutos</code> → <span class="ui">Referência</span> → renomeie para <code>dCategoria</code>.</li>
+<li>Selecione a coluna <code>Categoria</code> → botão direito → <span class="ui">Remover Outras Colunas</span>.</li>
+<li>Botão direito → <span class="ui">Remover Duplicadas</span>.</li>
+</ol>
+<p><span class="ui">Fechar e Aplicar</span> e, na Exibição de Modelo, crie:</p>
+<div class="tbl"><table><thead><tr><th>De (1)</th><th>Para (*)</th></tr></thead><tbody>
+<tr><td>dCategoria[Categoria]</td><td>dProdutos[Categoria]</td></tr>
+<tr><td>dCategoria[Categoria]</td><td>fMetas[Categoria]</td></tr>
+<tr><td>dCalendario[Date]</td><td>fMetas[Data]</td></tr>
 </tbody></table></div>
+<div class="callout tip"><div class="ico">i</div><div><p>A planilha de metas inclui a categoria <b>Televisão</b>. Se ela não existir no seu dProdutos, inclua-a na dCategoria com <span class="ui">Acrescentar</span> de uma linha manual, ou deixe assim e observe: a meta aparece sem venda. Na aula 11 você vai usar fMetas para calcular Meta x Realizado.</p></div></div></div></div>
 </section>
 
-<section id="atividades"><h2><span class="n">09</span>Atividades</h2>
-<div class="ex"><div class="ex-h"><h4>A1 · Mural de referências</h4><span class="lvl b">Básico</span></div><p>Crie no Pinterest uma pasta com 10 referências de dashboards. Para 3 delas, preencha o checklist da seção “Como estudar uma referência”.</p></div>
-<div class="ex"><div class="ex-h"><h4>A2 · Wireframe</h4><span class="lvl b">Básico</span></div><p>Desenhe (papel ou Excalidraw) o wireframe da página “Clientes &amp; Evolução” da aula 6, com as zonas numeradas.</p></div>
-<div class="ex"><div class="ex-h"><h4>A3 · Paleta da sua marca</h4><span class="lvl m">Intermediário</span></div><p>Gere no Coolors uma paleta de 5 cores para uma empresa fictícia (escolha o ramo). Indique qual será o fundo, a superfície e o destaque (60-30-10).</p></div>
-<div class="ex"><div class="ex-h"><h4>A4 · Seu fundo no Figma</h4><span class="lvl m">Intermediário</span></div><p>Crie no Figma o fundo da página “Clientes &amp; Evolução” com a sua paleta, exporte em PNG e aplique no Power BI.</p></div>
-<div class="ex"><div class="ex-h"><h4>A5 · Tema JSON da sua marca</h4><span class="lvl a">Desafio</span></div><p>Edite o <code>Tema_Vendas_Moderno.json</code> (Bloco de Notas ou VS Code) trocando <code>dataColors</code> e o fundo da página pela sua paleta. Importe e confira.</p></div>
-<div class="ex"><div class="ex-h"><h4>A6 · Antes e depois</h4><span class="lvl a">Entrega</span></div><p>Entregue dois prints do mesmo dashboard (sem design e com design) e explique em 5 linhas o que mudou e por que ficou mais fácil de ler.</p></div>
-</section>
-
-<section id="resumo"><h2><span class="n">10</span>Resumo da aula</h2>
+<section id="organizar"><h2><span class="n">07</span>Organize o Power Query</h2>
 <ul>
-<li>Inspiração: Pinterest, Dribbble, Behance, Figma Community e a galeria da Microsoft.</li>
-<li>Estude referências pelo checklist (grade, hierarquia, cores, tipografia, gráficos).</li>
-<li>Wireframe antes de abrir o Power BI; leitura em Z.</li>
-<li>Regra 60-30-10 e poucas cores com significado.</li>
-<li>Fundo 1920×1080 no Figma, exportado em PNG, com transparência 0% no Power BI e visuais sem fundo.</li>
+<li><b>Grupos</b>: selecione consultas → botão direito → <span class="ui">Mover para o Grupo</span> → <span class="ui">Novo Grupo</span>: <code>Parâmetros</code>, <code>Fatos</code>, <code>Dimensões</code>, <code>Auxiliares</code>.</li>
+<li><b>Dependências</b>: <span class="ui">Exibição</span> → <span class="ui">Dependências da Consulta</span> mostra o mapa de quem alimenta quem.</li>
+<li><b>Descrição</b>: botão direito na consulta → <span class="ui">Propriedades</span> → escreva para que ela serve. Quem herdar seu projeto agradece.</li>
 </ul>
 </section>
-<nav class="pager" aria-label="Navegação entre aulas"><a href="/curso-powerbi/site/aula-07/"><small>← Aula anterior</small>Power BI com dados reais do IBGE</a><a class="nx" href="/curso-powerbi/site/aula-09/"><small>Próxima aula →</small>Power Query intermediário</a></nav><div class="footer">Prints reais dos sites capturados em 06/10/2026. As imagens de terceiros servem só como referência de estudo; não copie trabalhos de outros autores.</div></div></main></div><script src="/curso-powerbi/site/assets/curso.js"></script></body></html>
+
+<section id="atividades"><h2><span class="n">08</span>Atividades</h2>
+<div class="ex"><div class="ex-h"><h4>A1 · Troque de pasta</h4><span class="lvl b">Básico</span></div><p>Copie a pasta Bases para outro lugar, altere só o parâmetro PastaBases e atualize. Tudo deve funcionar.</p></div>
+<div class="ex"><div class="ex-h"><h4>A2 · Teste a pasta</h4><span class="lvl b">Básico</span></div><p>Duplique <code>Base Vendas - 2022.xlsx</code> dentro de <code>Bases\Vendas</code> com o nome <code>Base Vendas - 2022 copia.xlsx</code> e atualize. O que aconteceu com o faturamento? Por que isso é perigoso? Apague a cópia depois.</p></div>
+<div class="ex"><div class="ex-h"><h4>A3 · Clientes novos por ano</h4><span class="lvl m">Intermediário</span></div><p>Usando a coluna Primeira Compra de dClientes, crie uma coluna <code>Ano 1ª Compra</code> e um gráfico com a quantidade de clientes novos por ano.</p></div>
+<div class="ex"><div class="ex-h"><h4>A4 · Faixa de ticket</h4><span class="lvl m">Intermediário</span></div><p>No ResumoClientes, inclua no Agrupar Por a contagem de pedidos distintos e crie uma coluna condicional <code>Frequência</code>: 1 pedido = “Único”, 2–3 = “Recorrente”, 4+ = “Fiel”. Leve para dClientes.</p>
+<details><summary>Dica</summary><div class="in"><p>Agregação: <b>Contagem de Linhas Distintas</b> sobre Ordem de Compra. Em M: <code>each List.Count(List.Distinct([Ordem de Compra]))</code>.</p></div></details></div>
+<div class="ex"><div class="ex-h"><h4>A5 · Lojas e localidades</h4><span class="lvl a">Desafio</span></div><p>Mescle <code>CadastroLojas</code> com <code>CadastroLocalidades</code> para trazer cidade e estado para dentro da tabela de lojas (transformando o floco de neve em estrela). Relacione com fVendas pelo ID da loja.</p></div>
+</section>
+
+<section id="resumo"><h2><span class="n">09</span>Resumo da aula</h2>
+<ul>
+<li>Parâmetros eliminam caminhos fixos.</li>
+<li><code>Folder.Files</code> combina todos os arquivos de uma pasta, inclusive os futuros.</li>
+<li>Mesclar junta colunas por chave; anti junção acha registros órfãos.</li>
+<li>Agrupar Por resume; Referência deriva consultas sem duplicar etapas.</li>
+<li>Coluna condicional cria faixas; Coluna de Exemplos descobre a fórmula para você.</li>
+<li>Despivotar <b>Outras</b> Colunas transforma meses em linhas e aceita meses novos.</li>
+</ul>
+</section>
+<nav class="pager" aria-label="Navegação entre aulas"><a href="/curso-powerbi/site/aula-08/"><small>← Aula anterior</small>Inspiração e design de dashboards</a><a class="nx" href="/curso-powerbi/site/aula-10/"><small>Próxima aula →</small>Calendário e inteligência de tempo</a></nav><div class="footer">Curso Power BI · Braga Treinamentos. Base: projeto Dashboard de Vendas (aula 6) e Metas_2022.xlsx.</div></div></main></div><script src="/curso-powerbi/site/assets/curso.js"></script></body></html>
+
