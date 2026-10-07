@@ -163,6 +163,61 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Files Download Section */
+        .files {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px auto;
+            max-width: 900px;
+        }
+
+        .file {
+            display: flex;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .file:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .file .ext {
+            background: rgba(242, 200, 17, 0.2);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+
+        .file span:not(.ext) {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .file b {
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .file small {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
     </style>
 </head>
 <body>
@@ -170,6 +225,30 @@
     <header>
         <h1>Aulas de Power BI</h1>
         <p class="subtitle">Acesse as videoaulas e os relatórios interativos. Selecione uma aula abaixo para começar.</p>
+        
+        <!-- Arquivos para Download -->
+        <div class="files">
+            <a class="file" href="curso-powerbi/site/arquivos/Aula_1_-_Importando_Base_de_Dados_1.zip" download>
+                <span class="ext">ZIP</span>
+                <span><b>Pacote de bases</b><small>Vendas, clientes, produtos (aulas 2–6, 9–13)</small></span>
+            </a>
+            <a class="file" href="curso-powerbi/site/arquivos/01 BD CURSOS.xlsx" download>
+                <span class="ext">XLSX</span>
+                <span><b>01 BD CURSOS</b><small>Base da aula 1</small></span>
+            </a>
+            <a class="file" href="curso-powerbi/site/arquivos/Metas_2022.xlsx" download>
+                <span class="ext">XLSX</span>
+                <span><b>Metas 2022</b><small>Aulas 9 e 11</small></span>
+            </a>
+            <a class="file" href="curso-powerbi/site/arquivos/Tema_Vendas_Moderno.json" download>
+                <span class="ext">JSON</span>
+                <span><b>Tema do dashboard</b><small>Aulas 6 e 8</small></span>
+            </a>
+            <a class="file" href="curso-powerbi/site/arquivos/Fundo_Dashboard_Vendas_1920x1080.png" download>
+                <span class="ext">PNG</span>
+                <span><b>Fundo 1920×1080</b><small>Aula 8</small></span>
+            </a>
+        </div>
     </header>
 
     <div class="container">
