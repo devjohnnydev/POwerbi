@@ -1,165 +1,221 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 11 · DAX intermediário</title><meta name="description" content="Você vai entender de verdade como o DAX pensa (contexto de linha e de filtro), dominar CALCULATE com ALL, ALLEXCEPT e ALLSELECTED, usar iteradores, criar rankings com RANKX e TOPN, classificar com SWITCH e montar a análise de meta x realizado."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="/curso-powerbi/site/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/curso-powerbi/site/assets/curso.css"></head><body data-aula="aula-11"><header class="topbar"><div class="in"><a class="brand" href="/"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="/">Todas as aulas</a><a class="hide-s" href="/curso-powerbi/site/aula-10/">← Anterior</a><a href="/curso-powerbi/site/aula-12/">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 11</p><ol><li><a href="#contextos"><span>01</span>Contextos</a></li><li><a href="#calculate"><span>02</span>CALCULATE</a></li><li><a href="#iteradores"><span>03</span>Iteradores</a></li><li><a href="#rank"><span>04</span>RANKX e TOPN</a></li><li><a href="#metas"><span>05</span>Meta x Realizado</a></li><li><a href="#dinamico"><span>06</span>Títulos dinâmicos</a></li><li><a href="#erros"><span>07</span>Erros comuns</a></li><li><a href="#atividades"><span>08</span>Atividades</a></li><li><a href="#resumo"><span>09</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 11 de 13</div><h1>DAX intermediário: <em>CALCULATE</em>, contextos, rankings e meta x realizado</h1><p class="lead">Você vai entender de verdade como o DAX pensa (contexto de linha e de filtro), dominar CALCULATE com ALL, ALLEXCEPT e ALLSELECTED, usar iteradores, criar rankings com RANKX e TOPN, classificar com SWITCH e montar a análise de meta x realizado.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Intermediário</span></dd><dt>Duração</dt><dd>4 horas</dd><dt>Você vai precisar</dt><dd>O projeto com fVendas, dProdutos, dClientes, dCalendario (aula 6) e fMetas + dCategoria (aula 9)</dd><dt>Conteúdos</dt><dd><span class="tag">Contexto de filtro</span><span class="tag">Contexto de linha</span><span class="tag">CALCULATE</span><span class="tag">FILTER</span><span class="tag">ALL</span><span class="tag">ALLEXCEPT</span><span class="tag">ALLSELECTED</span><span class="tag">REMOVEFILTERS</span><span class="tag">SUMX</span><span class="tag">AVERAGEX</span><span class="tag">RANKX</span><span class="tag">TOPN</span><span class="tag">SWITCH</span><span class="tag">SELECTEDVALUE</span><span class="tag">VAR</span></dd></dl></header><section id="contextos"><h2><span class="n">01</span>Como o DAX pensa: os dois contextos</h2><p class="sub">Se você entender esta seção, o resto da aula fica fácil.</p>
-<h3>Contexto de filtro</h3>
-<p>É o conjunto de filtros ativos quando a medida é calculada: a barra do gráfico (Marca = Apple), a segmentação (Ano = 2021), o filtro da página. A medida <code>[Faturamento Total]</code> é a mesma fórmula; o contexto de filtro é que muda o resultado.</p>
-<h3>Contexto de linha</h3>
-<p>Existe quando o DAX percorre uma tabela linha a linha: em <b>colunas calculadas</b> e dentro de <b>iteradores</b> (SUMX, AVERAGEX, FILTER, RANKX). Em cada linha, você pode ler os valores daquela linha: <code>fVendas[Qtd Vendida] * RELATED(dProdutos[Preço Unitario])</code>.</p>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 11 · Projeto Cafeteria Grão de Ouro</title><meta name="description" content="Você vai construir do zero um projeto completo para a rede Café Grão de Ouro: importar múltiplos arquivos CSV de vendas via pasta, tratar cadastro de lojas em TXT e produtos em CSV, aplicar tema personalizado, montar modelo estrela com dCalendario, escrever medidas DAX e simular atualização automática com novos dados."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="/curso-powerbi/site/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/curso-powerbi/site/assets/curso.css"></head><body data-aula="aula-11"><header class="topbar"><div class="in"><a class="brand" href="/"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="/">Todas as aulas</a><a class="hide-s" href="/curso-powerbi/site/aula-10/">← Anterior</a><a href="/curso-powerbi/site/aula-12/">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header><div class="shell"><nav class="toc" aria-label="Índice da aula"><p class="lbl">Aula 11</p><ol><li><a href="#cenario"><span>01</span>Cenário do negócio</a></li><li><a href="#arquivos"><span>02</span>Arquivos da aula</a></li><li><a href="#pasta-vendas"><span>03</span>Importar pasta Vendas</a></li><li><a href="#cadastros"><span>04</span>Lojas (TXT) e Produtos (CSV)</a></li><li><a href="#modelo"><span>05</span>Modelo estrela e dCalendario</a></li><li><a href="#tema"><span>06</span>Tema JSON Cafeteria</a></li><li><a href="#medidas"><span>07</span>Medidas DAX</a></li><li><a href="#dashboard"><span>08</span>Construção do Dashboard</a></li><li><a href="#novos-dados"><span>09</span>Atualização com Novos Dados</a></li><li><a href="#atividades"><span>10</span>Atividades</a></li><li><a href="#resumo"><span>11</span>Resumo da aula</a></li></ol><div class="progress" aria-live="polite"><div>Seu progresso: <b id="pg-txt">0/0</b></div><div class="pbar"><i id="pg-bar"></i></div></div></nav><main><div class="wrap"><header class="cover" id="inicio"><div class="crumbs">Curso Power BI / Aula 11 de 14</div><h1>Projeto Cafeteria Grão de Ouro: <em>Pasta de arquivos</em>, TXT, CSV e modelo completo</h1><p class="lead">Você vai construir do zero um projeto completo para a rede Café Grão de Ouro: importar múltiplos arquivos CSV de vendas via pasta, tratar cadastro de lojas em TXT e produtos em CSV, aplicar tema personalizado, montar modelo estrela com dCalendario, escrever medidas DAX e simular atualização automática com novos dados.</p><dl class="props"><dt>Nível</dt><dd><span class="tag">Intermediário</span></dd><dt>Duração</dt><dd>4 horas</dd><dt>Você vai precisar</dt><dd>Power BI Desktop (gratuito, Windows) e o pacote de arquivos da Cafeteria</dd><dt>Conteúdos</dt><dd><span class="tag">Obter dados de Pasta</span><span class="tag">Folder.Files</span><span class="tag">TXT delimitado</span><span class="tag">CSV com separador</span><span class="tag">Modelo estrela</span><span class="tag">dCalendario</span><span class="tag">Tema JSON</span><span class="tag">Medidas DAX</span><span class="tag">Atualização dinâmica</span></dd></dl></header>
+
+<section id="cenario"><h2><span class="n">01</span>O desafio do negócio: Café Grão de Ouro</h2><p class="sub">Na prática, os dados vêm em formatos variados e pastas com arquivos mensais.</p>
+<p>A rede <b>Café Grão de Ouro</b> possui 4 lojas no estado de São Paulo e precisa de um painel gerencial moderno para acompanhar suas vendas. Cada mês de vendas é gerado pelo PDV como um arquivo CSV separado dentro da pasta <code>Vendas</code>. O cadastro das lojas é um arquivo texto exportado do sistema e o catálogo de produtos é uma planilha CSV.</p>
 <div class="tbl"><table>
-<thead><tr><th></th><th>Contexto de filtro</th><th>Contexto de linha</th></tr></thead>
+<thead><tr><th>Arquivo / Pasta</th><th>Formato</th><th>O que contém</th><th>Tratamentos necessários</th></tr></thead>
 <tbody>
-<tr><td>Vem de</td><td>Visuais, segmentações, filtros, CALCULATE</td><td>Colunas calculadas e iteradores</td></tr>
-<tr><td>Responde</td><td>“Quais linhas da fato entram na conta?”</td><td>“Qual é o valor desta linha?”</td></tr>
-<tr><td>Exemplo</td><td>Faturamento da Apple em 2021</td><td>Quantidade × preço da venda SO45080</td></tr>
+<tr><td>Pasta <code>Vendas</code></td><td>8 arquivos CSV (Janeiro a Agosto de 2026)</td><td>Histórico mensal: Data, ID_Loja, ID_Produto, Quantidade, Valor_Total</td><td>Combinar arquivos da pasta, promover cabeçalho, tipagem de dados</td></tr>
+<tr><td><code>Lojas.txt</code></td><td>Arquivo TXT com tabulação</td><td>4 lojas com ID_Loja, Loja, Cidade e Bairro</td><td>Definir delimitador de tabulação e verificar chaves</td></tr>
+<tr><td><code>Produtos.csv</code></td><td>CSV delimitado por ponto e vírgula (;)</td><td>12 itens (Cafés, Salgados, Doces, Bebidas) com Preço</td><td>Separador ponto e vírgula, decimais e categorias</td></tr>
+<tr><td><code>Tema_Cafeteria.json</code></td><td>Arquivo de tema JSON</td><td>Paleta de cores em tons de café (#6F4E37, #C8A27A) e cartões estilizados</td><td>Importar tema no Power BI para identidade visual imediata</td></tr>
+<tr><td>Pasta <code>Novos_Dados</code></td><td><code>Vendas_2026_09.csv</code> (Setembro de 2026)</td><td>Arquivo do mês seguinte</td><td>Simular atualização automática com um único clique</td></tr>
 </tbody></table></div>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Transição de contexto</b><p>Quando você chama uma <b>medida</b> dentro de um contexto de linha (dentro de SUMX, ou numa coluna calculada), o DAX transforma a linha atual em filtro. É isso que faz <code>AVERAGEX(VALUES(dClientes[ID Cliente]), [Faturamento Total])</code> calcular o faturamento de cada cliente.</p></div></div>
+<div class="callout why"><div class="ico">?</div><div><b class="t">Por que este projeto é essencial</b><p>Saber consolidar pastas de arquivos CSV e combinar com fontes TXT é uma das habilidades mais solicitadas no mercado. O relatório se mantém sozinho mês a mês sem retrabalho de copiar e colar.</p></div></div>
 </section>
 
-<section id="calculate"><h2><span class="n">02</span>CALCULATE: mudando o contexto de filtro</h2><p class="sub">CALCULATE avalia uma expressão depois de adicionar, trocar ou remover filtros.</p>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c1"><label for="c1"><span class="k">Medida 1</span>Filtro simples</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Notebook =
-CALCULATE ( [Faturamento Total], dProdutos[Categoria] = &quot;Notebook&quot; )</pre></div>
-<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>R$ 7.469.356,74 no total. Num gráfico por ano, cada barra mostra só o notebook daquele ano.</p></div></div>
-<p>Repare: se o visual já tiver um filtro de categoria (Celular, por exemplo), o CALCULATE <b>substitui</b> esse filtro e mostra Notebook mesmo assim. Para respeitar o filtro existente, use <code>KEEPFILTERS(dProdutos[Categoria] = "Notebook")</code>.</p></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c2"><label for="c2"><span class="k">Medida 2</span>Filtro com condição em medida: FILTER</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Produtos Premium =
-CALCULATE (
-    [Faturamento Total],
-    FILTER ( dProdutos, dProdutos[Preço Unitario] &gt;= 2000 )
-)</pre></div>
-<p><code>FILTER</code> percorre dProdutos e devolve só os produtos com preço a partir de R$ 2.000. Use FILTER quando a condição for mais complexa que “coluna = valor”.</p>
-<div class="callout tip"><div class="ico">i</div><div><p>Prefira filtrar a <b>dimensão</b> (dProdutos, 293 linhas) e não a fato (56 mil linhas). O resultado é o mesmo e o cálculo é muito mais rápido.</p></div></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c3"><label for="c3"><span class="k">Medida 3</span>% do total: ALL</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>% Faturamento Total Geral =
-DIVIDE (
-    [Faturamento Total],
-    CALCULATE ( [Faturamento Total], ALL ( dProdutos ) )
-)</pre></div>
-<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>Notebook = 49,1% · Celular = 29,1% · Apple (por marca) ≈ 29%.</p></div></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c4"><label for="c4"><span class="k">Medida 4</span>% dentro da categoria: ALLEXCEPT</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>% na Categoria =
-DIVIDE (
-    [Faturamento Total],
-    CALCULATE ( [Faturamento Total], ALLEXCEPT ( dProdutos, dProdutos[Categoria] ) )
-)</pre></div>
-<p>Numa matriz Categoria → Produto, cada produto mostra quanto representa <b>dentro da sua categoria</b>. ALLEXCEPT remove todos os filtros de dProdutos, menos o de Categoria.</p></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="c5"><label for="c5"><span class="k">Medida 5</span>% do que está selecionado: ALLSELECTED</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>% do Selecionado =
-DIVIDE (
-    [Faturamento Total],
-    CALCULATE ( [Faturamento Total], ALLSELECTED ( dProdutos ) )
-)</pre></div>
-<div class="tbl"><table><thead><tr><th>Função</th><th>Remove</th><th>Total de referência</th></tr></thead><tbody>
-<tr><td><code>ALL / REMOVEFILTERS</code></td><td>Todos os filtros da tabela/coluna</td><td>Empresa inteira</td></tr>
-<tr><td><code>ALLEXCEPT</code></td><td>Todos, menos as colunas indicadas</td><td>O grupo (ex.: a categoria)</td></tr>
-<tr><td><code>ALLSELECTED</code></td><td>Filtros do próprio visual, mas respeita segmentações</td><td>O que o usuário selecionou</td></tr>
-</tbody></table></div>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Qual usar</b><p>Pergunte: “percentual em relação a quê?”. Da empresa toda → ALL. Do grupo → ALLEXCEPT. Do que o usuário filtrou → ALLSELECTED.</p></div></div></div></div>
-</section>
-
-<section id="iteradores"><h2><span class="n">03</span>Iteradores: X no fim do nome</h2><p class="sub">SUMX, AVERAGEX, MAXX, MINX e COUNTX percorrem uma tabela e agregam uma expressão.</p>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i1"><label for="i1"><span class="k">Medida 6</span>Ticket médio por cliente</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Médio por Cliente =
-AVERAGEX ( VALUES ( fVendas[ID Cliente] ), [Faturamento Total] )</pre></div>
-<p><code>VALUES</code> devolve a lista de clientes no contexto; para cada um, <code>[Faturamento Total]</code> é calculado (transição de contexto) e depois tirada a média.</p>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Por quê</b><p>Ticket médio por <b>pedido</b> (aula 5) e por <b>cliente</b> são coisas diferentes. Um cliente que compra 5 vezes tem ticket por pedido baixo e valor por cliente alto. Os dois juntos contam a história.</p></div></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i2"><label for="i2"><span class="k">Medida 7</span>Maior compra de um único pedido</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Maior Pedido =
-MAXX ( VALUES ( fVendas[Ordem de Compra] ), [Faturamento Total] )</pre></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="i3"><label for="i3"><span class="k">Medida 8</span>Variáveis deixam o DAX legível</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Lucro por Pedido =
-VAR Lucro   = [Faturamento Total] - [Custo Total]
-VAR Pedidos = [Nº Pedidos]
-RETURN
-    DIVIDE ( Lucro, Pedidos )</pre></div>
-<p>Cada <code>VAR</code> é calculada uma vez e pode ser reutilizada. Fica mais fácil de ler, de depurar (troque o RETURN por uma variável para testar) e mais rápido.</p></div></div>
-</section>
-
-<section id="rank"><h2><span class="n">04</span>Rankings e Top N</h2>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r1"><label for="r1"><span class="k">Medida 9</span>Ranking de produtos</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Ranking Produto =
-IF (
-    HASONEVALUE ( dProdutos[Produto] ),
-    RANKX ( ALLSELECTED ( dProdutos[Produto] ), [Faturamento Total], , DESC, Dense )
-)</pre></div>
-<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira</b><p>1º Notebook Asus ROG Zephyrus Duo 15 - Prata (R$ 1.021.854,00), 2º Dell Gamer G11-i1000 - Amarelo, 3º Teclado sem fio V320 - Preto.</p></div></div>
-<p>Com <code>ALLSELECTED</code>, o ranking se refaz quando você filtra uma categoria: o melhor celular vira 1º entre os celulares.</p></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r2"><label for="r2"><span class="k">Medida 10</span>Faturamento dos Top 10 produtos</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Top 10 Produtos =
-CALCULATE (
-    [Faturamento Total],
-    TOPN ( 10, ALL ( dProdutos[Produto] ), [Faturamento Total], DESC )
-)
-
-% Top 10 =
-DIVIDE ( [Faturamento Top 10 Produtos], [Faturamento Total] )</pre></div>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Por que importa</b><p>Se 10 produtos (de 293) fazem boa parte do faturamento, a empresa depende de poucos itens. Ruptura de estoque num deles vira prejuízo grande. É o princípio de Pareto (80/20).</p></div></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="r3"><label for="r3"><span class="k">Medida 11</span>Classificação com SWITCH(TRUE())</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faixa de Margem =
-VAR M = [Margem %]
-RETURN
-    SWITCH (
-        TRUE (),
-        ISBLANK ( M ), BLANK (),
-        M &gt;= 0.75, &quot;Alta&quot;,
-        M &gt;= 0.65, &quot;Média&quot;,
-        &quot;Baixa&quot;
-    )</pre></div>
-<p><code>SWITCH(TRUE(), condição1, resultado1, …, senão)</code> é o “SE aninhado” bem escrito. Coloque numa tabela por categoria: Notebook e Celular saem “Alta”; Casaco e Camisa (55–58%), “Baixa”.</p></div></div>
-</section>
-
-<section id="metas"><h2><span class="n">05</span>Meta x Realizado</h2><p class="sub">Usa a fMetas e a dCategoria criadas na aula 9.</p>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m1"><label for="m1"><span class="k">Medida 12</span>Meta, atingimento e diferença</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Meta = SUM ( fMetas[Meta] )
-
-% Atingimento = DIVIDE ( [Faturamento Total], [Meta] )
-
-Diferença p/ Meta = [Faturamento Total] - [Meta]
-
-Status Meta =
-VAR A = [% Atingimento]
-RETURN
-    SWITCH ( TRUE (), ISBLANK ( A ), BLANK (), A &gt;= 1, &quot;✔ Atingiu&quot;, A &gt;= 0.9, &quot;▲ Perto&quot;, &quot;▼ Abaixo&quot; )</pre></div></div></div>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m2"><label for="m2"><span class="k">Passo</span>Monte a matriz de metas</label></div><ol>
-<li>Filtre a página para <b>2022</b> (as metas são de jan a jun/2022).</li>
-<li>Matriz: Linhas = <code>dCategoria[Categoria]</code>; Colunas = <code>dCalendario[Mês]</code>; Valores = Faturamento Total, Meta, % Atingimento.</li>
-<li>Formatação condicional em % Atingimento: <span class="ui">Cor da tela de fundo</span> → <span class="ui">Regras</span>: &lt; 90% vermelho claro, 90–100% amarelo, ≥ 100% verde claro.</li>
+<section id="arquivos"><h2><span class="n">02</span>Baixe os arquivos da aula</h2><p class="sub">Extraia o pacote de arquivos em uma pasta fixa no seu computador.</p>
+<div class="files">
+<a class="file" href="/curso-powerbi/site/arquivos/Aula4_Cafeteria_Alunos.zip" download><span class="ext">ZIP</span><span><b>Aula4_Cafeteria_Alunos.zip</b><small>Pasta Vendas (8 CSVs), Lojas.txt, Produtos.csv, Novos_Dados e Tema JSON</small></span></a>
+</div>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="a1"><label for="a1"><span class="k">Passo 1.1</span>Extraia o arquivo ZIP na pasta de trabalho</label></div><ol>
+<li>Baixe o arquivo <code>Aula4_Cafeteria_Alunos.zip</code> pelo botão acima.</li>
+<li>Clique com o botão direito no arquivo baixado → <span class="ui">Extrair Tudo…</span>.</li>
+<li>Escolha uma pasta fixa no seu computador (por exemplo: <code>C:\CursoPowerBI\Cafeteria</code>).</li>
+<li>Abra a pasta extraída e certifique-se de que vê a pasta <code>Aula4_Cafeteria</code> com seus arquivos: <code>Lojas.txt</code>, <code>Produtos.csv</code>, <code>Tema_Cafeteria.json</code>, a pasta <code>Vendas</code> e a pasta <code>Novos_Dados</code>.</li>
 </ol>
-<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção</b><p>Use <b>dCategoria</b> nas linhas, e não dProdutos[Categoria]. Só a dCategoria filtra as duas fatos (vendas pelo caminho dCategoria → dProdutos → fVendas, e metas direto).</p></div></div>
-<div class="callout why"><div class="ico">?</div><div><b class="t">Por que importa</b><p>Faturamento sozinho não diz se foi bom. R$ 1 Mi é ótimo se a meta era R$ 800 mil e péssimo se era R$ 1,5 Mi. Meta é o que dá contexto ao número.</p></div></div></div></div>
+<div class="callout warn"><div class="ico">!</div><div><b class="t">Atenção ao caminho</b><p>Não mantenha os arquivos dentro do arquivo compactado (.zip) nem na pasta Downloads temporária. O Power BI precisa de um caminho de pasta permanente para ler os arquivos.</p></div></div></div></div>
 </section>
 
-<section id="dinamico"><h2><span class="n">06</span>Títulos dinâmicos com SELECTEDVALUE</h2>
-<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="t1"><label for="t1"><span class="k">Medida 13</span>Título que muda com o filtro</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Título Dinâmico =
-VAR Cat = SELECTEDVALUE ( dProdutos[Categoria], &quot;todas as categorias&quot; )
-VAR Ano = SELECTEDVALUE ( dCalendario[Ano], &quot;todos os anos&quot; )
+<section id="pasta-vendas"><h2><span class="n">03</span>Importando múltiplos CSVs via Pasta</h2><p class="sub">Automatize a consolidação de todos os meses em uma única tabela fato.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="v1"><label for="v1"><span class="k">Passo 2.1</span>Obter dados → Mais → Pasta</label></div><ol>
+<li>No Power BI Desktop, clique em <span class="ui">Página Inicial</span> → <span class="ui">Obter Dados</span> → <span class="ui">Mais…</span>.</li>
+<li>Selecione a categoria <b>Tudo</b> ou <b>Arquivo</b> e clique em <b>Pasta</b> → <span class="ui">Conectar</span>.</li>
+<li>Clique em <span class="ui">Procurar…</span> e aponte para a subpasta <code>Aula4_Cafeteria\Vendas</code>.</li>
+<li>Clique em <span class="ui">OK</span>. A janela mostrará a lista dos 8 arquivos CSV (<code>Vendas_2026_01.csv</code> a <code>Vendas_2026_08.csv</code>).</li>
+<li>Clique na setinha de <span class="ui">Combinar</span> e selecione <span class="ui">Combinar e Transformar Dados</span>.</li>
+</ol></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="v2"><label for="v2"><span class="k">Passo 2.2</span>Configurar o delimitador dos arquivos combinados</label></div><ol>
+<li>Na janela de visualização da combinação, verifique se o <b>Delimitador</b> está como <b>Ponto e vírgula</b>.</li>
+<li>Origem do arquivo: <b>65001: UTF-8</b> (para preservar eventuais caracteres).</li>
+<li>Clique em <span class="ui">OK</span>. O Power Query criará automaticamente o grupo auxiliar de parâmetros e abrirá a consulta combinada.</li>
+</ol></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="v3"><label for="v3"><span class="k">Passo 2.3</span>Tratar as colunas da fato fVendas</label></div><ol>
+<li>Renomeie a consulta de <code>Vendas</code> para <code>fVendas</code>.</li>
+<li>A primeira coluna gerada pelo Power BI é <code>Source.Name</code> (o nome do arquivo). Você pode removê-la: clique com o botão direito no cabeçalho dela → <span class="ui">Remover</span>.</li>
+<li>Verifique e ajuste a tipagem de cada coluna no ícone ao lado do nome:
+  <ul>
+    <li><code>Data</code>: <b>Data</b></li>
+    <li><code>ID_Loja</code>: <b>Número Inteiro</b></li>
+    <li><code>ID_Produto</code>: <b>Número Inteiro</b></li>
+    <li><code>Quantidade</code>: <b>Número Inteiro</b></li>
+    <li><code>Valor_Total</code>: <b>Número Decimal</b></li>
+  </ul>
+</li>
+</ol>
+<div class="code"><div class="bar"><span>M · fVendas (resumo da consulta)</span><button class="copy" type="button">Copiar</button></div><pre data-hl>let
+    Fonte = Folder.Files("C:\CursoPowerBI\Cafeteria\Vendas"),
+    ArquivosCSV = Table.SelectRows(Fonte, each ([Extension] = ".csv")),
+    Combinado = Table.Combine(Table.AddColumn(ArquivosCSV, "Dados", each Csv.Document([Content], [Delimiter=";", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.None]))[Dados]),
+    Cabecalhos = Table.PromoteHeaders(Combinado, [PromoteAllScalars=true]),
+    TipoAlterado = Table.TransformColumnTypes(Cabecalhos,{{"Data", type date}, {"ID_Loja", Int64.Type}, {"ID_Produto", Int64.Type}, {"Quantidade", Int64.Type}, {"Valor_Total", Currency.Type}})
+in
+    TipoAlterado</pre></div>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Confira os dados</b><p>A tabela <code>fVendas</code> possui agora o histórico consolidado de 8 meses sem nenhuma duplicação de cabeçalhos.</p></div></div></div></div>
+</section>
+
+<section id="cadastros"><h2><span class="n">04</span>Importando Lojas (TXT) e Produtos (CSV)</h2><p class="sub">Adicione as duas tabelas dimensão com seus respectivos delimitadores.</p>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="t1"><label for="t1"><span class="k">Passo 3.1</span>Importar o cadastro de Lojas (TXT)</label></div><ol>
+<li>Ainda no Power Query, clique em <span class="ui">Nova Fonte</span> → <span class="ui">Texto/CSV</span>.</li>
+<li>Selecione o arquivo <code>Lojas.txt</code>.</li>
+<li>O Power BI detectará automaticamente o delimitador como <b>Tabulação</b>. Verifique as 4 colunas: <code>ID_Loja</code>, <code>Loja</code>, <code>Cidade</code> e <code>Bairro</code>.</li>
+<li>Clique em <span class="ui">OK</span>.</li>
+<li>Renomeie a consulta para <code>dLojas</code>.</li>
+<li>Defina <code>ID_Loja</code> como <b>Número Inteiro</b> e as demais colunas como <b>Texto</b>.</li>
+</ol></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="t2"><label for="t2"><span class="k">Passo 3.2</span>Importar o catálogo de Produtos (CSV)</label></div><ol>
+<li>Clique em <span class="ui">Nova Fonte</span> → <span class="ui">Texto/CSV</span>.</li>
+<li>Selecione o arquivo <code>Produtos.csv</code>.</li>
+<li>Verifique o delimitador como <b>Ponto e vírgula</b> e codificação <b>UTF-8</b>.</li>
+<li>Clique em <span class="ui">OK</span>.</li>
+<li>Renomeie a consulta para <code>dProdutos</code>.</li>
+<li>Ajuste a tipagem: <code>ID_Produto</code> como <b>Número Inteiro</b>, <code>Produto</code> e <code>Categoria</code> como <b>Texto</b>, e <code>Preco</code> como <b>Número Decimal</b> (ou Moeda).</li>
+</ol>
+<div class="callout tip"><div class="ico">i</div><div><p>Pronto! Temos agora a tabela fato <code>fVendas</code> e as duas dimensões <code>dLojas</code> e <code>dProdutos</code> prontas e limpas. Clique em <span class="ui">Fechar e Aplicar</span>.</p></div></div></div></div>
+</section>
+
+<section id="modelo"><h2><span class="n">05</span>Modelo estrela e tabela dCalendario</h2><p class="sub">Crie a tabela de datas e conecte as chaves no diagrama de modelo.</p>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m1"><label for="m1"><span class="k">Passo 4.1</span>Criar a dCalendario em DAX</label></div><p>Na exibição de Relatório ou Tabela, clique em <span class="ui">Modelagem</span> → <span class="ui">Nova Tabela</span> e insira a fórmula:</p>
+<div class="code"><div class="bar"><span>DAX · Tabela Calculada</span><button class="copy" type="button">Copiar</button></div><pre data-hl>dCalendario =
+VAR MinData = DATE ( 2026, 1, 1 )
+VAR MaxData = DATE ( 2026, 12, 31 )
 RETURN
-    &quot;Faturamento de &quot; &amp; Cat &amp; &quot; em &quot; &amp; Ano &amp; &quot;: &quot; &amp; FORMAT ( [Faturamento Total], &quot;R$ #,##0&quot; )</pre></div>
-<p>No visual: <span class="ui">Formato</span> → <span class="ui">Geral</span> → <span class="ui">Título</span> → botão <b>fx</b> → Formatar estilo: <b>Valor do campo</b> → escolha a medida <code>Título Dinâmico</code>.</p>
-<div class="callout tip"><div class="ico">i</div><div><code>SELECTEDVALUE(coluna, alternativo)</code> devolve o valor se houver exatamente um selecionado; senão, devolve o alternativo.</div></div></div></div>
-</section>
+    ADDCOLUMNS (
+        CALENDAR ( MinData, MaxData ),
+        "Ano", YEAR ( [Date] ),
+        "Mês Num", MONTH ( [Date] ),
+        "Mês", FORMAT ( [Date], "mmm", "pt-BR" ),
+        "Mês Ano", FORMAT ( [Date], "mmm/yy", "pt-BR" ),
+        "AnoMês Num", YEAR ( [Date] ) * 100 + MONTH ( [Date] ),
+        "Dia da Semana", FORMAT ( [Date], "ddd", "pt-BR" ),
+        "Dia Semana Num", WEEKDAY ( [Date], 2 ),
+        "Trimestre", "T" & FORMAT ( [Date], "q" )
+    )</pre></div>
+<ol>
+<li>Selecione a coluna <code>Mês</code> → <span class="ui">Classificar por coluna</span> → <code>Mês Num</code>.</li>
+<li>Selecione a coluna <code>Mês Ano</code> → <span class="ui">Classificar por coluna</span> → <code>AnoMês Num</code>.</li>
+<li>Clique com o botão direito em <code>dCalendario</code> → <span class="ui">Marcar como tabela de datas</span> → selecione <code>Date</code>.</li>
+</ol></div></div>
 
-<section id="erros"><h2><span class="n">07</span>Erros comuns</h2>
-<details><summary>“Uma função CALCULATE foi usada em uma expressão True/False…”</summary><div class="in"><p>Você colocou uma medida dentro de um filtro booleano (<code>dProdutos[Preço] &gt; [Média]</code>). Use FILTER: <code>FILTER(dProdutos, dProdutos[Preço Unitario] &gt; [Média])</code>, ou guarde a medida numa VAR antes.</p></div></details>
-<details><summary>O ranking mostra 1 para todo mundo</summary><div class="in"><p>Faltou o <code>ALL</code>/<code>ALLSELECTED</code> no primeiro argumento do RANKX. Sem ele, cada linha compara o produto só com ele mesmo.</p></div></details>
-<details><summary>O total da matriz não bate com a soma das linhas</summary><div class="in"><p>Normal em medidas de razão (margem, %, médias): o total é recalculado no contexto do total, não somado. Se precisar da soma, use <code>SUMX(VALUES(...), [Medida])</code>.</p></div></details>
-<details><summary>% Atingimento vazio em 2020 e 2021</summary><div class="in"><p>Correto: só existem metas para 2022.</p></div></details>
-</section>
-
-<section id="atividades"><h2><span class="n">08</span>Atividades</h2>
-<div class="ex"><div class="ex-h"><h4>A1 · Três percentuais</h4><span class="lvl b">Básico</span></div><p>Numa matriz Categoria → Marca, mostre lado a lado: % Faturamento Total Geral, % na Categoria e % do Selecionado. Mude a segmentação de ano e explique o que muda em cada coluna.</p></div>
-<div class="ex"><div class="ex-h"><h4>A2 · Clientes que compraram notebook</h4><span class="lvl b">Básico</span></div><p>Crie <code>Clientes Notebook = CALCULATE([Clientes Ativos], dProdutos[Categoria] = "Notebook")</code>. Quantos são em cada ano?</p></div>
-<div class="ex"><div class="ex-h"><h4>A3 · Top 3 marcas por categoria</h4><span class="lvl m">Intermediário</span></div><p>Crie o ranking de marcas dentro da categoria (<code>RANKX(ALLSELECTED(dProdutos[Marca]), ...)</code>) e use o painel Filtros para mostrar só ranking ≤ 3.</p></div>
-<div class="ex"><div class="ex-h"><h4>A4 · Curva ABC</h4><span class="lvl a">Desafio</span></div><p>Classifique os produtos em A (até 80% do faturamento acumulado), B (80–95%) e C (resto).</p>
-<details><summary>Dica</summary><div class="in"><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Acumulado Produto =
-VAR FatAtual = [Faturamento Total]
-RETURN
-    CALCULATE (
-        [Faturamento Total],
-        FILTER ( ALLSELECTED ( dProdutos[Produto] ), [Faturamento Total] &gt;= FatAtual )
-    )
-
-Classe ABC =
-VAR Pct = DIVIDE ( [Faturamento Acumulado Produto], CALCULATE ( [Faturamento Total], ALLSELECTED ( dProdutos[Produto] ) ) )
-RETURN SWITCH ( TRUE (), Pct &lt;= 0.8, &quot;A&quot;, Pct &lt;= 0.95, &quot;B&quot;, &quot;C&quot; )</pre></div></div></details></div>
-<div class="ex"><div class="ex-h"><h4>A5 · Painel de metas</h4><span class="lvl a">Entrega</span></div><p>Crie a página “Metas 2022” com: cartões de Meta, Realizado e % Atingimento; a matriz com formatação condicional; um gráfico de colunas e linha (Faturamento em colunas, Meta em linha) por mês; e um título dinâmico.</p></div>
-</section>
-
-<section id="resumo"><h2><span class="n">09</span>Resumo da aula</h2>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="m2"><label for="m2"><span class="k">Passo 4.2</span>Ligar os relacionamentos na Exibição de Modelo</label></div><p>Clique no ícone de <b>Modelo</b> (terceiro ícone à esquerda) e posicione <code>fVendas</code> no centro e as dimensões ao redor (modelo estrela):</p>
 <ul>
-<li>Contexto de filtro decide quais linhas entram; contexto de linha lê a linha atual.</li>
-<li>CALCULATE adiciona ou troca filtros; ALL, ALLEXCEPT e ALLSELECTED removem.</li>
-<li>Iteradores (X) percorrem tabelas; medidas dentro deles fazem transição de contexto.</li>
-<li>RANKX com ALL/ALLSELECTED; TOPN para “os N maiores”.</li>
-<li>SWITCH(TRUE()) para classificações; VAR para clareza.</li>
-<li>Meta dá contexto ao faturamento.</li>
+<li><code>dLojas[ID_Loja]</code> (1) ───&gt; (*) <code>fVendas[ID_Loja]</code></li>
+<li><code>dProdutos[ID_Produto]</code> (1) ───&gt; (*) <code>fVendas[ID_Produto]</code></li>
+<li><code>dCalendario[Date]</code> (1) ───&gt; (*) <code>fVendas[Data]</code></li>
 </ul>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Padrão 1 para Muitos</b><p>Todos os relacionamentos devem estar com cardinalidade <b>1 para muitos (1:*)</b> e direção de filtro único (da dimensão para a fato).</p></div></div></div></div>
 </section>
-<nav class="pager" aria-label="Navegação entre aulas"><a href="/curso-powerbi/site/aula-10/"><small>← Aula anterior</small>Calendário e inteligência de tempo</a><a class="nx" href="/curso-powerbi/site/aula-12/"><small>Próxima aula →</small>Interatividade e storytelling</a></nav><div class="footer">Curso Power BI · Braga Treinamentos. Valores de referência: base completa do projeto Dashboard de Vendas (aula 6).</div></div></main></div><script src="/curso-powerbi/site/assets/curso.js"></script></body></html>
+
+<section id="tema"><h2><span class="n">06</span>Aplicando o tema JSON da Cafeteria</h2><p class="sub">Importe as cores personalizadas do Café Grão de Ouro com um clique.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="tjson"><label for="tjson"><span class="k">Passo 5.1</span>Exibição → Temas → Procurar temas</label></div><ol>
+<li>Na faixa de opções, clique na guia <span class="ui">Exibição</span>.</li>
+<li>Abra o menu de temas clicando na setinha para baixo na galeria de temas.</li>
+<li>Clique em <span class="ui">Procurar temas</span>.</li>
+<li>Navegue até a pasta <code>Aula4_Cafeteria</code> e selecione <code>Tema_Cafeteria.json</code>.</li>
+<li>O Power BI exibirá a mensagem: <i>"Tema importado com êxito"</i>.</li>
+</ol>
+<div class="callout tip"><div class="ico">i</div><div><b class="t">O que o tema altera</b><p>A paleta passa a usar marrom café (<code>#6F4E37</code>), dourado (<code>#C8A27A</code>) e verde floresta (<code>#2E7D6B</code>), o fundo da página ganha tom suave (<code>#F6F1EB</code>) e os novos visuais já nascem com cantos arredondados de 14px e sombras sutis.</p></div></div></div></div>
+</section>
+
+<section id="medidas"><h2><span class="n">07</span>Criando as medidas DAX essenciais</h2><p class="sub">Crie uma tabela dedicada _Medidas e escreva os principais KPIs do negócio.</p>
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d1"><label for="d1"><span class="k">Passo 6.1</span>Criar a tabela _Medidas</label></div><p>Clique em <span class="ui">Página Inicial</span> → <span class="ui">Inserir Dados</span>, dê o nome de <code>_Medidas</code> à tabela e clique em <span class="ui">Carregar</span>.</p></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d2"><label for="d2"><span class="k">Passo 6.2</span>Medida 1: Faturamento Total</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Faturamento Total =
+SUM ( fVendas[Valor_Total] )</pre></div>
+<p>Formate como <b>Moeda (R$)</b> com 2 casas decimais.</p></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d3"><label for="d3"><span class="k">Passo 6.3</span>Medida 2: Total de Unidades Vendidas</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Total Unidades Vendidas =
+SUM ( fVendas[Quantidade] )</pre></div>
+<p>Formate como <b>Número Inteiro</b> com separador de milhar.</p></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d4"><label for="d4"><span class="k">Passo 6.4</span>Medida 3: Total de Vendas (Pedidos)</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Qtd de Vendas =
+COUNTROWS ( fVendas )</pre></div>
+<p>Cada linha na fato representa uma venda realizada no balcão.</p></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d5"><label for="d5"><span class="k">Passo 6.5</span>Medida 4: Ticket Médio por Venda</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Ticket Médio =
+DIVIDE ( [Faturamento Total], [Qtd de Vendas], 0 )</pre></div>
+<p>Formate como <b>Moeda (R$)</b>.</p></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="d6"><label for="d6"><span class="k">Passo 6.6</span>Medida 5: Preço Médio do Item</label></div><div class="code"><div class="bar"><span>DAX</span><button class="copy" type="button">Copiar</button></div><pre data-hl>Preço Médio por Item =
+DIVIDE ( [Faturamento Total], [Total Unidades Vendidas], 0 )</pre></div></div></div>
+</section>
+
+<section id="dashboard"><h2><span class="n">08</span>Montagem do Dashboard Executivo</h2><p class="sub">Organize a hierarquia visual com cartões de KPIs, gráficos e segmentações.</p>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b1"><label for="b1"><span class="k">Passo 7.1</span>Cartões de KPI no topo</label></div><p>Crie 4 visuais de <b>Cartão</b> (ou Cartão de Linha Múltipla / Novo Cartão) alinhados na primeira linha da página:</p>
+<ol>
+<li><b>Faturamento Total</b>: R$ no total do período</li>
+<li><b>Unidades Vendidas</b>: volume total de cafés e lanches consumidos</li>
+<li><b>Qtd de Vendas</b>: total de atendimentos realizados</li>
+<li><b>Ticket Médio</b>: gasto médio por pedido</li>
+</ol></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b2"><label for="b2"><span class="k">Passo 7.2</span>Gráfico de Linhas: Evolução Temporal das Vendas</label></div><ol>
+<li>Insira um <b>Gráfico de Linhas</b>.</li>
+<li><b>Eixo X</b>: <code>dCalendario[Mês]</code> ou <code>dCalendario[Mês Ano]</code>.</li>
+<li><b>Eixo Y</b>: <code>[Faturamento Total]</code>.</li>
+<li>Ative <b>Rótulos de dados</b> para visualizar os valores pico de faturamento em cada mês.</li>
+</ol></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="b3"><label for="b3"><span class="k">Passo 7.3</span>Gráfico de Barras: Faturamento por Categoria e Loja</label></div><ol>
+<li><b>Gráfico de barras horizontais</b>: <b>Eixo Y</b> com <code>dProdutos[Categoria]</code> e <b>Eixo X</b> com <code>[Faturamento Total]</code>.</li>
+<li><b>Gráfico de colunas</b>: <b>Eixo X</b> com <code>dLojas[Loja]</code> e <b>Eixo Y</b> com <code>[Faturamento Total]</code>.</li>
+<li>Adicione uma <b>Segmentação de Dados</b> lateral com <code>dLojas[Cidade]</code> e <code>dProdutos[Categoria]</code> para filtragem interativa rápida.</li>
+</ol></div></div>
+</section>
+
+<section id="novos-dados"><h2><span class="n">09</span>Testando a atualização dinâmica com novos dados</h2><p class="sub">Veja o poder da automação: o mês de setembro chega e é integrado em segundos.</p>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="nd1"><label for="nd1"><span class="k">Passo 8.1</span>Mova o arquivo de Setembro para a pasta Vendas</label></div><ol>
+<li>Observe os números atuais do seu dashboard (anote o Faturamento Total acumulado até agosto).</li>
+<li>Abra o explorador de arquivos do Windows na pasta <code>Aula4_Cafeteria</code>.</li>
+<li>Entre na pasta <code>Novos_Dados</code> e <b>copie</b> o arquivo <code>Vendas_2026_09.csv</code>.</li>
+<li>Cole o arquivo dentro da pasta <code>Aula4_Cafeteria\Vendas</code> (onde já estão os arquivos de janeiro a agosto).</li>
+</ol></div></div>
+
+<div class="step noimg"><div class="txt"><div class="step-h"><input type="checkbox" id="nd2"><label for="nd2"><span class="k">Passo 8.2</span>Clique no botão Atualizar</label></div><ol>
+<li>Volte ao Power BI Desktop.</li>
+<li>Na guia <span class="ui">Página Inicial</span>, clique no botão <span class="ui">Atualizar</span>.</li>
+<li>O Power BI reexecutará a leitura da pasta <code>Vendas</code>, encontrará o 9º arquivo automaticamente, promoverá cabeçalhos, tipará os dados e atualizará todos os gráficos.</li>
+<li>O mês de setembro (Set/26) aparecerá instantaneamente no gráfico de linhas com seus números consolidados!</li>
+</ol>
+<div class="callout ok"><div class="ico">✓</div><div><b class="t">Sucesso da automação</b><p>Esse é o fluxo de trabalho profissional do Power BI: você cria a estrutura uma vez e o relatório acompanha o crescimento do negócio sem exigir reconstrução.</p></div></div></div></div>
+</section>
+
+<section id="atividades"><h2><span class="n">10</span>Atividades práticas</h2>
+<ol class="acts">
+<li><b>Atividade 1</b>: Crie uma medida DAX chamada <code>Faturamento Cafés</code> utilizando a função <code>CALCULATE</code> para filtrar apenas os produtos da categoria <code>"Cafés"</code>.</li>
+<li><b>Atividade 2</b>: Monte uma matriz comparando cada <code>Loja</code> com suas vendas por <code>Categoria</code> e aplique formatação condicional de barras de dados na coluna de Faturamento.</li>
+<li><b>Atividade 3</b>: Crie uma segmentação de dados em formato de blocos para alternar entre as 4 lojas com um único clique.</li>
+</ol>
+</section>
+
+<section id="resumo"><h2><span class="n">11</span>Resumo da aula</h2>
+<div class="tbl"><table>
+<thead><tr><th>Conceito</th><th>O que faz</th><th>Onde aplicamos</th></tr></thead>
+<tbody>
+<tr><td><b>Obter dados de Pasta</b></td><td>Combina automaticamente todos os arquivos compatíveis contidos em um diretório</td><td>Pasta <code>Vendas</code> (8 arquivos CSV mensais)</td></tr>
+<tr><td><b>Delimitadores TXT/CSV</b></td><td>Interpreta separadores como tabulação (\t) ou ponto e vírgula (;)</td><td><code>Lojas.txt</code> e <code>Produtos.csv</code></td></tr>
+<tr><td><b>Tema JSON</b></td><td>Define paleta corporativa, cantos arredondados e fontes de uma só vez</td><td><code>Tema_Cafeteria.json</code></td></tr>
+<tr><td><b>Modelo Estrela</b></td><td>Organiza tabelas fato e dimensões conectadas por chaves únicas</td><td>fVendas ligada a dLojas, dProdutos e dCalendario</td></tr>
+<tr><td><b>Atualização Contínua</b></td><td>Incorpora novos arquivos na pasta sem necessidade de alterar o código</td><td>Simulação do mês de Setembro (<code>Vendas_2026_09.csv</code>)</td></tr>
+</tbody></table></div>
+</section>
+
+</div></main></div><script src="/curso-powerbi/site/assets/curso.js"></script></body></html>

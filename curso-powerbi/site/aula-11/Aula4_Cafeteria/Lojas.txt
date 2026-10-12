@@ -1,0 +1,5 @@
+﻿ID_Loja	Loja	Cidade	Bairro
+1	Loja Paulista	São Paulo	Bela Vista
+2	Loja Pinheiros	São Paulo	Pinheiros
+3	Loja Moema	São Paulo	Moema
+4	Loja Campinas	Campinas	Cambuí

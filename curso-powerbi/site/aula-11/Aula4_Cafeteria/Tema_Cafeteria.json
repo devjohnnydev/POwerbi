@@ -1,0 +1,38 @@
+{
+  "name": "Café Grão de Ouro",
+  "dataColors": ["#6F4E37", "#C8A27A", "#2E7D6B", "#E07A5F", "#3D405B", "#F2CC8F", "#81B29A", "#A26769"],
+  "background": "#FFFFFF",
+  "foreground": "#2B2118",
+  "tableAccent": "#6F4E37",
+  "good": "#2E7D6B",
+  "neutral": "#C8A27A",
+  "bad": "#C0392B",
+  "textClasses": {
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#2B2118" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 26, "color": "#2B2118" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#5C4A3D" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#2B2118" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "border": [{ "show": true, "color": { "solid": { "color": "#EADFD3" } }, "radius": 14 }],
+        "dropShadow": [{ "show": true, "position": "Outer", "preset": "BottomRight", "color": { "solid": { "color": "#3B2A1F" } }, "transparency": 88 }],
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "padding": [{ "top": 10, "bottom": 10, "left": 12, "right": 12 }],
+        "title": [{ "show": true, "fontColor": { "solid": { "color": "#2B2118" } }, "fontSize": 12, "bold": true }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F6F1EB" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#EFE7DD" } }, "transparency": 0 }]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "lineStyles": [{ "strokeWidth": 3, "showMarker": true, "markerSize": 6 }]
+      }
+    }
+  }
+}
