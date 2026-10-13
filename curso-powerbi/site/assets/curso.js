@@ -70,7 +70,9 @@
 
   /* copiar */
   document.querySelectorAll('.copy').forEach(btn => btn.addEventListener('click', () => {
-    const pre = btn.closest('.code').querySelector('pre');
+    const code = btn.closest('.code');
+    if (!code) return;
+    const pre = code.querySelector('pre');
     const text = pre.innerText;
     const done = ok => {
       const t = btn.textContent;

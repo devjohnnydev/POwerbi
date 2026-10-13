@@ -215,3 +215,17 @@ details>.in{padding:0 16px 12px}
 
 .file>span:last-child{min-width:0;overflow-wrap:anywhere}
 @media (max-width:520px){.brand .bt{display:none}.topbar .in{padding:8px 12px}}
+
+/* conferência de resultado e citação (aulas de projeto) */
+.chk{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0;background:var(--paper);max-width:74ch}
+.chk .qt{flex:1 1 100%;font-weight:600;font-size:14.5px}
+.chk input{font:400 16px var(--mono);width:190px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.chk input:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.chk button{font:500 13px var(--body);border:1px solid var(--line);background:var(--paper);color:var(--ink-2);padding:6px 12px;border-radius:6px;cursor:pointer}
+.chk button:hover{color:var(--ink);border-color:var(--ink-3)}
+.chk .fb{font-size:13.5px;font-weight:600;color:var(--red)}
+.chk.ok{border-color:var(--green);background:var(--green-soft)}
+.chk.ok .fb{color:var(--green)}
+.progress .cf{margin-top:8px}
+blockquote{margin:16px 0;padding:2px 18px;border-left:3px solid var(--accent);background:var(--soft);border-radius:0 8px 8px 0;color:var(--ink-2);max-width:74ch}
+@media (max-width:520px){.chk input{width:100%}}

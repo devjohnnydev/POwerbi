@@ -1,172 +1,18 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Power BI com Dados do IBGE</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>
-/* Layout: caderno estilo Notion — índice fixo à esquerda, coluna de leitura de ~720px, prints ao lado do texto em telas largas */
-:root{
-  --bg:#fbfbf8; --paper:#ffffff; --ink:#1d2330; --ink-2:#4a5263; --ink-3:#7a8191;
-  --line:#e6e4dc; --soft:#f3f2ec; --accent:#f2c811; --accent-ink:#7a5c00; --accent-soft:#fdf6d3;
-  --blue:#1f4e8c; --blue-soft:#e8eff8; --green:#1d7a4e; --green-soft:#e5f3ec; --red:#b3261e; --red-soft:#fbe9e7;
-  --code-bg:#f6f5f0; --bar:#1f4e8c; --bar-hi:#e0a800;
-  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#15171c; --paper:#1b1e24; --ink:#e8e9ec; --ink-2:#b4b8c2; --ink-3:#868b97;
-  --line:#2c3039; --soft:#22252d; --accent:#f2c811; --accent-ink:#f5d551; --accent-soft:#2f2a14;
-  --blue:#8fb4ea; --blue-soft:#1d2a3d; --green:#6fcf9f; --green-soft:#17302a; --red:#f19a92; --red-soft:#3a1f1d;
-  --code-bg:#20232b; --bar:#7ea7e3; --bar-hi:#f2c811; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#15171c; --paper:#1b1e24; --ink:#e8e9ec; --ink-2:#b4b8c2; --ink-3:#868b97;
-  --line:#2c3039; --soft:#22252d; --accent:#f2c811; --accent-ink:#f5d551; --accent-soft:#2f2a14;
-  --blue:#8fb4ea; --blue-soft:#1d2a3d; --green:#6fcf9f; --green-soft:#17302a; --red:#f19a92; --red-soft:#3a1f1d;
-  --code-bg:#20232b; --bar:#7ea7e3; --bar-hi:#f2c811; color-scheme:dark}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;margin:0}
-.shell{display:grid;grid-template-columns:250px minmax(0,1fr);max-width:1240px;margin:0 auto;padding-inline:20px;gap:40px}
-nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto;padding-block:32px;font-size:14px}
-nav.toc .brand{font-family:var(--display);font-weight:800;font-size:15px;display:flex;gap:8px;align-items:center;margin-bottom:18px}
-.logo{width:22px;height:22px;display:inline-grid;grid-template-columns:repeat(3,1fr);align-items:end;gap:2px}
-.logo i{display:block;background:var(--accent);border-radius:1px}
-.logo i:nth-child(1){height:45%}.logo i:nth-child(2){height:75%}.logo i:nth-child(3){height:100%}
-nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-nav.toc a{display:flex;gap:8px;color:var(--ink-2);text-decoration:none;padding:5px 8px;border-radius:6px}
-nav.toc a:hover,nav.toc a:focus-visible{background:var(--soft);color:var(--ink);outline:none}
-nav.toc a span{color:var(--ink-3);font-family:var(--mono);font-size:12px;padding-top:2px;min-width:18px}
-.progress{margin-top:20px;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
-.progress b{font-family:var(--mono);font-size:13px}
-.pbar{height:6px;background:var(--soft);border-radius:3px;margin-top:8px;overflow:hidden}
-.pbar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
-main{min-width:0;padding-block:40px 80px}
-.wrap{max-width:860px}
-header.cover{padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:12px}
-.crumbs{font-size:13px;color:var(--ink-3);font-family:var(--mono)}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 14px;text-wrap:balance}
-h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent) 62%)}
-.lead{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0}
-.props{display:grid;grid-template-columns:140px 1fr;gap:6px 16px;margin-top:22px;font-size:14px}
-.props dt{color:var(--ink-3)}
-.props dd{margin:0}
-.tag{display:inline-block;font-size:12.5px;padding:1px 8px;border-radius:4px;background:var(--soft);border:1px solid var(--line);margin:0 4px 4px 0}
-section{padding-top:36px;scroll-margin-top:12px}
-h2{font-family:var(--display);font-weight:800;font-size:30px;letter-spacing:-.01em;line-height:1.15;margin:0 0 6px;display:flex;gap:12px;align-items:baseline;text-wrap:balance}
-h2 .n{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--accent-ink);background:var(--accent-soft);padding:2px 8px;border-radius:5px;flex-shrink:0;position:relative;top:-4px}
-h3{font-family:var(--display);font-weight:600;font-size:21px;margin:30px 0 6px;line-height:1.25}
-p{margin:10px 0;max-width:68ch}
-.sub{color:var(--ink-2);margin-top:0}
-code{overflow-wrap:anywhere;font-family:var(--mono);font-size:.88em;background:var(--code-bg);border:1px solid var(--line);padding:1px 5px;border-radius:4px}
-kbd{font-family:var(--mono);font-size:.82em;border:1px solid var(--line);border-bottom-width:2px;padding:0 5px;border-radius:4px;background:var(--paper)}
-.ui{font-weight:600;background:var(--blue-soft);color:var(--blue);padding:1px 6px;border-radius:4px;white-space:nowrap}
-.callout{display:flex;gap:12px;padding:14px 16px;border-radius:8px;margin:16px 0;background:var(--soft);max-width:72ch}
-.callout .ico{font-family:var(--mono);font-weight:600;font-size:12px;flex-shrink:0;width:26px;height:26px;border-radius:6px;display:grid;place-items:center;background:var(--paper);border:1px solid var(--line)}
-.callout p{margin:4px 0}
-.callout.why{background:var(--accent-soft)} .callout.why .ico{color:var(--accent-ink)}
-.callout.warn{background:var(--red-soft)} .callout.warn .ico{color:var(--red)}
-.callout.ok{background:var(--green-soft)} .callout.ok .ico{color:var(--green)}
-.callout.tip{background:var(--blue-soft)} .callout.tip .ico{color:var(--blue)}
-.callout b.t{display:block;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
-/* passo a passo */
-.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:24px;align-items:start;padding:20px 0;border-top:1px dashed var(--line)}
-.step.wide{grid-template-columns:minmax(0,1fr)}
-.step .txt{min-width:0}
-.step-h{display:flex;gap:10px;align-items:flex-start}
-.step-h input{appearance:none;width:20px;height:20px;border:1.5px solid var(--ink-3);border-radius:5px;margin:3px 0 0;flex-shrink:0;cursor:pointer;display:grid;place-items:center;background:var(--paper)}
-.step-h input:checked{background:var(--green);border-color:var(--green)}
-.step-h input:checked::after{content:"";width:6px;height:11px;border:solid var(--paper);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
-.step-h input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.step-h label{font-weight:600;font-size:17px;cursor:pointer}
-.step-h .k{font-family:var(--mono);font-size:12px;color:var(--ink-3);display:block;font-weight:400}
-.step ol,.step ul{padding-left:22px;margin:8px 0}
-.step li{margin:4px 0}
-figure.shot{margin:0;min-width:0}
-.frame{position:relative;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--paper);box-shadow:0 1px 2px rgb(0 0 0 / .05)}
-.frame img{display:block;width:100%;height:auto}
-.pin{position:absolute;transform:translate(-50%,-50%);width:28px;height:28px;border-radius:50%;background:#d6261c;color:#fff;font:600 13px/28px var(--mono);text-align:center;box-shadow:0 0 0 3px rgb(255 255 255 / .9),0 2px 6px rgb(0 0 0 / .35)}
-.ring{position:absolute;border:3px solid #d6261c;border-radius:8px;box-shadow:0 0 0 2px rgb(255 255 255 / .8)}
-figcaption{font-size:13px;color:var(--ink-3);margin-top:6px}
-figcaption b{color:var(--ink-2)}
-.zoomable{cursor:zoom-in}
-/* código */
-.code{position:relative;margin:12px 0;border:1px solid var(--line);border-radius:8px;background:var(--code-bg);min-width:0}
-.code .bar{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 6px 12px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--ink-3)}
-.code pre{margin:0;padding:12px 14px;overflow-x:auto;font-family:var(--mono);font-size:13.5px;line-height:1.55;color:var(--ink);tab-size:4}
-.copy{font:500 12px var(--body);border:1px solid var(--line);background:var(--paper);color:var(--ink-2);padding:3px 10px;border-radius:5px;cursor:pointer}
-.copy:hover{color:var(--ink);border-color:var(--ink-3)}
-.copy.done{color:var(--green);border-color:var(--green)}
-.kw{color:#8a3ffc}.fn{color:#1f6fd1}.str{color:#a3480f}.num{color:#1d7a4e}.cm{color:var(--ink-3);font-style:italic}
-:root[data-theme="dark"] .kw{color:#c9a6ff}:root[data-theme="dark"] .fn{color:#82b4ff}:root[data-theme="dark"] .str{color:#f0a36b}:root[data-theme="dark"] .num{color:#7fd7a8}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .kw{color:#c9a6ff}:root:not([data-theme="light"]) .fn{color:#82b4ff}:root:not([data-theme="light"]) .str{color:#f0a36b}:root:not([data-theme="light"]) .num{color:#7fd7a8}}
-/* tabelas */
-.tbl{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:8px}
-table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
-th,td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{background:var(--soft);font-weight:600;font-size:13px;color:var(--ink-2)}
-tr:last-child td{border-bottom:0}
-td.r,th.r{text-align:right}
-/* toggles */
-details{border:1px solid var(--line);border-radius:8px;margin:10px 0;background:var(--paper)}
-summary{cursor:pointer;padding:10px 14px;font-weight:600;list-style:none;display:flex;gap:8px;align-items:center}
-summary::-webkit-details-marker{display:none}
-summary::before{content:"";width:0;height:0;border-left:6px solid var(--ink-3);border-top:5px solid transparent;border-bottom:5px solid transparent;transition:transform .15s}
-details[open]>summary::before{transform:rotate(90deg)}
-details>.in{padding:0 16px 12px}
-/* diagrama e dashboard */
-.diagram{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:12px;overflow-x:auto}
-.diagram svg{display:block;min-width:620px;width:100%;height:auto}
-.dash{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px;display:grid;gap:14px}
-.dash-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
-.dash-title{font-family:var(--display);font-weight:800;font-size:18px}
-.yr{display:flex;gap:4px;flex-wrap:wrap}
-.yr button{font:500 13px var(--mono);border:1px solid var(--line);background:var(--paper);color:var(--ink-2);padding:4px 10px;border-radius:6px;cursor:pointer}
-.yr button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
-.kpi{border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-.kpi small{display:block;font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em}
-.kpi b{font-family:var(--display);font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
-.kpi em{display:block;font-style:normal;font-size:12px;color:var(--ink-3);font-family:var(--mono)}
-.charts{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px}
-.chart{border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
-.chart h4{margin:0 0 6px;font-size:13.5px;font-weight:600}
-.chart svg{display:block;width:100%;height:auto}
-.chart text{font-family:var(--body);fill:var(--ink-2)}
-.tt{position:fixed;pointer-events:none;background:var(--ink);color:var(--paper);font-size:12.5px;padding:6px 9px;border-radius:6px;z-index:20;font-variant-numeric:tabular-nums;white-space:nowrap}
-.empty{font-size:13px;color:var(--ink-3);padding:30px 0;text-align:center}
-.ex{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0;background:var(--paper)}
-.ex-h{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between}
-.ex-h h4{margin:0;font-family:var(--display);font-size:18px}
-.lvl{font-family:var(--mono);font-size:12px;padding:1px 8px;border-radius:4px;border:1px solid var(--line)}
-.lvl.b{background:var(--green-soft);color:var(--green)}.lvl.m{background:var(--accent-soft);color:var(--accent-ink)}.lvl.a{background:var(--red-soft);color:var(--red)}
-.lb{position:fixed;inset:0;background:rgb(10 12 16 / .86);display:grid;place-items:center;padding:20px;z-index:30;cursor:zoom-out}
-.lb img{max-height:92vh;max-width:96vw;border-radius:6px}
-.footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
-a{color:var(--blue)}
-@media (max-width:960px){
-  .shell{grid-template-columns:minmax(0,1fr);gap:0;padding-inline:16px}
-  nav.toc{position:static;max-height:none;padding-block:20px 0;border-bottom:1px solid var(--line)}
-  nav.toc ol{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
-  .step{grid-template-columns:minmax(0,1fr)}
-  .charts{grid-template-columns:minmax(0,1fr)}
-  .props{grid-template-columns:110px 1fr}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
-
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Aula 07 · Power BI com dados reais do IBGE</title><meta name="description" content="Você vai buscar dados oficiais de população e PIB direto da API do IBGE, ligar as tabelas com relacionamentos, escrever suas primeiras medidas DAX e montar um painel que responde perguntas reais sobre o Brasil."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="icon" href="/curso-powerbi/site/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/curso-powerbi/site/assets/curso.css"></head><body data-aula="aula-07"><header class="topbar"><div class="in"><a class="brand" href="/"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a><div class="navbtns"><a href="/">Todas as aulas</a><a class="hide-s" href="/curso-powerbi/site/aula-06/">← Anterior</a><a href="/curso-powerbi/site/aula-08/">Próxima →</a><button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button></div></div></header>
 <div class="shell">
-<nav class="toc" aria-label="Índice">
-  <div class="brand"><span class="logo"><i></i><i></i><i></i></span> Aula · Power BI Básico</div>
+<nav class="toc" aria-label="Índice da aula">
+  <p class="lbl">Aula 07</p>
   <ol>
-    <li><a href="#inicio"><span>00</span>Antes de começar</a></li>
-    <li><a href="#fonte"><span>01</span>Conhecendo o IBGE/SIDRA</a></li>
-    <li><a href="#importar"><span>02</span>Importando com Power Query</a></li>
-    <li><a href="#modelo"><span>03</span>Relacionamentos</a></li>
-    <li><a href="#dax"><span>04</span>Medidas DAX</a></li>
-    <li><a href="#visuais"><span>05</span>Visuais e análises</a></li>
-    <li><a href="#erros"><span>06</span>Erros comuns</a></li>
-    <li><a href="#atividades"><span>07</span>Atividades</a></li>
-    <li><a href="#planob"><span>08</span>Plano B: sem internet</a></li>
+    <li><a href="#perguntas"><span>01</span>As perguntas do painel</a></li>
+    <li><a href="#fonte"><span>02</span>Conhecendo o IBGE/SIDRA</a></li>
+    <li><a href="#importar"><span>03</span>Importando com Power Query</a></li>
+    <li><a href="#modelo"><span>04</span>Relacionamentos</a></li>
+    <li><a href="#dax"><span>05</span>Medidas DAX</a></li>
+    <li><a href="#visuais"><span>06</span>Visuais e análises</a></li>
+    <li><a href="#erros"><span>07</span>Erros comuns</a></li>
+    <li><a href="#atividades"><span>08</span>Atividades</a></li>
+    <li><a href="#planob"><span>09</span>Plano B: sem internet</a></li>
   </ol>
   <div class="progress" aria-live="polite">
     <div>Seu progresso: <b id="pg-txt">0/0</b></div>
@@ -178,7 +24,7 @@ a{color:var(--blue)}
 <div class="wrap">
 
 <header class="cover" id="inicio">
-  <div class="crumbs">Curso de BI / Módulo 1 / Aula prática</div>
+  <div class="crumbs">Curso Power BI / Aula 07 de 16</div>
   <h1>Power BI do zero com <em>dados reais do IBGE</em></h1>
   <p class="lead">Nesta aula você vai buscar dados oficiais de população e PIB direto da API do IBGE, ligar as tabelas com relacionamentos, escrever suas primeiras medidas DAX e montar um painel que responde perguntas reais sobre o Brasil.</p>
   <dl class="props">
@@ -190,8 +36,8 @@ a{color:var(--blue)}
   </dl>
 </header>
 
-<section>
-  <h3>As perguntas que o seu painel vai responder</h3>
+<section id="perguntas">
+  <h2><span class="n">01</span>As perguntas que o seu painel vai responder</h2>
   <p>Todo dashboard começa com perguntas, nunca com gráficos. Guarde estas quatro; cada passo da aula existe para respondê-las:</p>
   <div class="tbl"><table>
     <thead><tr><th>Pergunta</th><th>Por que alguém se importa com isso</th><th>Medida que responde</th></tr></thead>
@@ -207,7 +53,7 @@ a{color:var(--blue)}
 
 <!-- ============ 01 FONTE ============ -->
 <section id="fonte">
-  <h2><span class="n">01</span>Conhecendo a fonte: IBGE e SIDRA</h2>
+  <h2><span class="n">02</span>Conhecendo a fonte: IBGE e SIDRA</h2>
   <p class="sub">Antes de abrir o Power BI, você precisa entender de onde o dado vem. Analista que não conhece a fonte não sabe explicar o número que mostra.</p>
 
   <div class="callout why"><div class="ico">?</div><div><b class="t">Por que o IBGE</b><p>O IBGE é a fonte oficial de estatísticas do Brasil. Os dados são públicos, gratuitos, atualizados todo ano e têm uma API: o Power BI consegue buscá-los sozinho, e o seu relatório se atualiza com um clique quando sair a estimativa nova.</p></div></div>
@@ -299,7 +145,7 @@ a{color:var(--blue)}
 
 <!-- ============ 02 IMPORTAR ============ -->
 <section id="importar">
-  <h2><span class="n">02</span>Importando no Power BI com Power Query</h2>
+  <h2><span class="n">03</span>Importando no Power BI com Power Query</h2>
   <p class="sub">Agora você vai trazer as três fontes para dentro do Power BI pela opção Web. Nada de baixar planilha: o Power BI conversa direto com a API.</p>
 
   <div class="step wide">
@@ -407,7 +253,7 @@ a{color:var(--blue)}
 
 <!-- ============ 03 MODELO ============ -->
 <section id="modelo">
-  <h2><span class="n">03</span>Relacionamentos: o modelo estrela</h2>
+  <h2><span class="n">04</span>Relacionamentos: o modelo estrela</h2>
   <p class="sub">Temos duas tabelas de fatos (população e PIB) que não conversam entre si. Os relacionamentos fazem as duas obedecerem aos mesmos filtros de estado e de ano.</p>
 
   <div class="step wide">
@@ -493,7 +339,7 @@ a{color:var(--blue)}
 
 <!-- ============ 04 DAX ============ -->
 <section id="dax">
-  <h2><span class="n">04</span>Medidas DAX: transformando dados em respostas</h2>
+  <h2><span class="n">05</span>Medidas DAX: transformando dados em respostas</h2>
   <p class="sub">Uma medida é uma fórmula que o Power BI recalcula para cada filtro do relatório: por estado, por região, por ano. Você escreve uma vez e ela funciona em qualquer visual.</p>
 
   <div class="callout tip"><div class="ico">i</div><div><b class="t">Antes de começar</b><p>Crie uma tabela só para guardar medidas: <span class="ui">Página Inicial</span> → <span class="ui">Inserir dados</span>, nome <code>_Medidas</code>, <span class="ui">Carregar</span>. Depois, com ela selecionada, use <span class="ui">Nova medida</span> para cada fórmula abaixo. O “_” coloca a tabela no topo da lista.</p></div></div>
@@ -571,14 +417,14 @@ Var. % PIB =
 <span class="fn">DIVIDE</span> ( [PIB (R$)] - [PIB Ano Anterior], [PIB Ano Anterior] )</pre></div>
       <p><b>Por que a variável <code>VAR</code>:</b> ela guarda o ano que está no filtro <b>antes</b> do CALCULATE trocar o filtro. Sem ela, você estaria comparando o ano com ele mesmo.</p>
       <p><b>Análise:</b> de 2022 para 2023 o PIB nominal do Brasil cresceu <b>8,6%</b>. Roraima (+19,1%), Amapá (+18,7%) e Alagoas (+17,9%) cresceram mais; o Rio de Janeiro, só 1,7%. Lembre: é PIB a <b>preços correntes</b>, ou seja, inclui a inflação do período.</p>
-      <div class="callout warn"><div class="ico">!</div><div><p>Usamos <code>dAno</code> (e não uma tabela de datas) porque o IBGE publica dados anuais. Funções como <code>SAMEPERIODLASTYEAR</code> exigem uma tabela calendário com datas diárias; isso fica para a próxima aula.</p></div></div>
+      <div class="callout warn"><div class="ico">!</div><div><p>Usamos <code>dAno</code> (e não uma tabela de datas) porque o IBGE publica dados anuais. Funções como <code>SAMEPERIODLASTYEAR</code> exigem uma tabela calendário com datas diárias; isso fica para a aula 10.</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- ============ 05 VISUAIS ============ -->
 <section id="visuais">
-  <h2><span class="n">05</span>Visuais: montando o painel</h2>
+  <h2><span class="n">06</span>Visuais: montando o painel</h2>
   <p class="sub">Cada visual responde a uma das perguntas do início. Se um gráfico não responde nenhuma pergunta, ele não entra.</p>
 
   <div class="tbl"><table>
@@ -630,7 +476,7 @@ Var. % PIB =
 
 <!-- ============ 06 ERROS ============ -->
 <section id="erros">
-  <h2><span class="n">06</span>Erros comuns e como resolver</h2>
+  <h2><span class="n">07</span>Erros comuns e como resolver</h2>
   <details><summary>Todos os estados mostram o mesmo valor</summary><div class="in"><p>Falta relacionamento entre a dimensão usada no eixo e o fato da medida, ou ele está inativo (linha tracejada). Volte ao Passo 3.2 e confira <span class="ui">Gerenciar relações</span>.</p></div></details>
   <details><summary>“Não é possível criar uma relação entre duas colunas porque uma das colunas deve ter valores exclusivos”</summary><div class="in"><p>Você arrastou do fato para o fato, ou a dimensão tem chave repetida. A relação deve partir de <code>dEstado[id_uf]</code> ou <code>dAno[Ano]</code>.</p></div></details>
   <details><summary>PIB aparece mil vezes menor do que deveria</summary><div class="in"><p>Faltou a etapa <code>EmReais</code> do Passo 2.7. O SIDRA entrega em mil reais.</p></div></details>
@@ -641,7 +487,7 @@ Var. % PIB =
 
 <!-- ============ 07 ATIVIDADES ============ -->
 <section id="atividades">
-  <h2><span class="n">07</span>Atividades: agora é com você</h2>
+  <h2><span class="n">08</span>Atividades: agora é com você</h2>
   <p class="sub">Faça na ordem: cada atividade usa uma ideia nova. As dicas ficam fechadas; tente primeiro sem abrir.</p>
 
   <div class="ex"><div class="ex-h"><h4>A1 · Participação na população</h4><span class="lvl b">Básico</span></div>
@@ -699,7 +545,7 @@ RETURN SWITCH ( TRUE (), PC &gt; 50000, "Alta", PC &gt;= 30000, "Média", "Baixa
 
 <!-- ============ 08 PLANO B ============ -->
 <section id="planob">
-  <h2><span class="n">08</span>Plano B: laboratório sem internet</h2>
+  <h2><span class="n">09</span>Plano B: laboratório sem internet</h2>
   <p class="sub">Se a rede do laboratório bloquear a API do IBGE, use os mesmos dados copiados aqui (consulta de 06/10/2026). No Power BI: <span class="ui">Página Inicial</span> → <span class="ui">Inserir dados</span> → clique na primeira célula e cole com <kbd>Ctrl</kbd>+<kbd>V</kbd>.</p>
   <div class="kpis" style="margin-top:12px">
     <div class="kpi"><small>dEstado</small><b>27</b><em>linhas</em><button class="copy" type="button" data-tsv="uf" style="margin-top:8px">Copiar tabela</button></div>
@@ -707,10 +553,8 @@ RETURN SWITCH ( TRUE (), PC &gt; 50000, "Alta", PC &gt;= 30000, "Média", "Baixa
     <div class="kpi"><small>fPIB</small><b>135</b><em>linhas · 2019–2023</em><button class="copy" type="button" data-tsv="pib" style="margin-top:8px">Copiar tabela</button></div>
   </div>
   <div class="callout warn"><div class="ico">!</div><div><p>Tabelas coladas não se atualizam. No mundo real, prefira sempre a conexão com a API.</p></div></div>
-
-  <div class="footer">Fontes: IBGE, SIDRA <a href="https://sidra.ibge.gov.br/tabela/6579" target="_blank" rel="noopener">tabela 6579</a> (Estimativas de População) e <a href="https://sidra.ibge.gov.br/tabela/5938" target="_blank" rel="noopener">tabela 5938</a> (PIB dos Municípios); <a href="https://servicodados.ibge.gov.br/api/docs/localidades" target="_blank" rel="noopener">API de Localidades</a>. Prints capturados em 06/10/2026.</div>
 </section>
-
+<nav class="pager" aria-label="Navegação entre aulas"><a href="/curso-powerbi/site/aula-06/"><small>← Aula anterior</small>Projeto Dashboard de Vendas</a><a class="nx" href="/curso-powerbi/site/aula-08/"><small>Próxima aula →</small>Power Query intermediário</a></nav><div class="footer">Fontes: IBGE, SIDRA <a href="https://sidra.ibge.gov.br/tabela/6579" target="_blank" rel="noopener">tabela 6579</a> (Estimativas de População) e <a href="https://sidra.ibge.gov.br/tabela/5938" target="_blank" rel="noopener">tabela 5938</a> (PIB dos Municípios); <a href="https://servicodados.ibge.gov.br/api/docs/localidades" target="_blank" rel="noopener">API de Localidades</a>. Prints capturados em 06/10/2026.</div>
 </div>
 </main>
 </div>
@@ -723,12 +567,10 @@ const fmtInt = n => n.toLocaleString("pt-BR");
 const fmtR = n => "R$ " + Math.round(n).toLocaleString("pt-BR");
 const fmtTri = n => "R$ " + (n/1e12).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}) + " tri";
 
-/* ---------- progresso (salvo só neste navegador) ---------- */
-const boxes = [...document.querySelectorAll('.step-h input[type=checkbox]')];
-function store(get, k, v){ try{ if(get) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){ return null; } }
-function upd(){ const n = boxes.filter(b=>b.checked).length; document.getElementById('pg-txt').textContent = n+"/"+boxes.length; document.getElementById('pg-bar').style.width = (boxes.length? n/boxes.length*100:0)+"%"; }
-boxes.forEach(b=>{ if(store(true,'aula-ibge-'+b.id)==='1') b.checked=true; b.addEventListener('change',()=>{ store(false,'aula-ibge-'+b.id,b.checked?'1':'0'); upd(); }); });
-upd();
+/* ---------- progresso salvo antes da padronização (chave antiga) ---------- */
+document.querySelectorAll('.step-h input[type=checkbox]').forEach(b => {
+  try { if (localStorage.getItem('aula-ibge-' + b.id) === '1' && localStorage.getItem('pbi-aula-07-' + b.id) === null) localStorage.setItem('pbi-aula-07-' + b.id, '1'); } catch (e) {}
+});
 
 /* ---------- copiar ---------- */
 function tsv(kind){
@@ -736,19 +578,10 @@ function tsv(kind){
   if(kind==='pop') return ["id_uf\tano\tpopulacao", ...D.pop.map(r=>r.join("\t"))].join("\n");
   return ["id_uf\tano\tpib_reais", ...D.pib.map(r=>[r[0],r[1],r[2]*1000].join("\t"))].join("\n");
 }
-document.querySelectorAll('.copy').forEach(btn=>btn.addEventListener('click',()=>{
-  const text = btn.dataset.tsv ? tsv(btn.dataset.tsv) : btn.closest('.code').querySelector('pre').innerText;
-  const done = ok => { const t = btn.textContent; btn.textContent = ok ? "Copiado" : "Selecione e copie"; btn.classList.toggle('done', ok); setTimeout(()=>{btn.textContent=t;btn.classList.remove('done')},1600); };
-  const fallback = () => { const pre = btn.closest('.code')?.querySelector('pre'); if(pre){ const r=document.createRange(); r.selectNodeContents(pre); const s=getSelection(); s.removeAllRanges(); s.addRange(r);} done(false); };
-  try { navigator.clipboard.writeText(text).then(()=>done(true), fallback); } catch(e){ fallback(); }
+document.querySelectorAll('.copy[data-tsv]').forEach(btn=>btn.addEventListener('click',()=>{
+  const done = ok => { const t = btn.textContent; btn.textContent = ok ? "Copiado" : "Não foi possível copiar"; btn.classList.toggle('done', ok); setTimeout(()=>{btn.textContent=t;btn.classList.remove('done')},1600); };
+  try { navigator.clipboard.writeText(tsv(btn.dataset.tsv)).then(()=>done(true), ()=>done(false)); } catch(e){ done(false); }
 }));
-
-/* ---------- ampliar prints ---------- */
-document.querySelectorAll('.frame img').forEach(img=>{
-  img.classList.add('zoomable'); img.tabIndex = 0;
-  const open = ()=>{ const lb=document.createElement('div'); lb.className='lb'; lb.innerHTML='<img alt="">'; lb.firstChild.src=img.src; lb.firstChild.alt=img.alt; lb.onclick=()=>lb.remove(); document.addEventListener('keydown',function k(e){ if(e.key==='Escape'){lb.remove();document.removeEventListener('keydown',k);} }); document.body.appendChild(lb); };
-  img.addEventListener('click',open); img.addEventListener('keydown',e=>{ if(e.key==='Enter') open(); });
-});
 
 /* ---------- prévia do dashboard ---------- */
 const UF = Object.fromEntries(D.uf.map(u=>[u[0],{sigla:u[1],nome:u[2],reg:u[3]}]));
@@ -828,6 +661,5 @@ function render(){
 }
 render();
 </script>
-
-</body></html>
+<script src="/curso-powerbi/site/assets/curso.js"></script></body></html>
 
