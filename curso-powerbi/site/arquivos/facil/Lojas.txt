@@ -1,0 +1,5 @@
+CodLoja	NomeLoja	Cidade	UF
+1	Paulista	São Paulo	SP
+2	Moema	São Paulo	SP
+3	Campinas	Campinas	SP
+4	Santos	Santos	SP

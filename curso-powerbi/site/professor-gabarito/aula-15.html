@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Gabarito Professor · Aula 15 Projeto Guiado (Pet Feliz)</title>
+  <style>
+
+:root{--bg:#F6F7F9;--card:#fff;--ink:#16202E;--mut:#5B6778;--line:#DDE2EA;--pri:#1D3557;--acc:#C2410C;--ok:#15803D;--code:#0B1220;--codeink:#E2E8F0;--soft:#EDF1F7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1420;--card:#16202E;--ink:#E5EAF2;--mut:#9AA8BC;--line:#2A3649;--pri:#8FB4E8;--acc:#FB923C;--ok:#4ADE80;--code:#05080F;--soft:#1B2638;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D1420;--card:#16202E;--ink:#E5EAF2;--mut:#9AA8BC;--line:#2A3649;--pri:#8FB4E8;--acc:#FB923C;--ok:#4ADE80;--code:#05080F;--soft:#1B2638;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Source Sans 3","Segoe UI",system-ui,sans-serif}
+.page{max-width:1080px;margin:0 auto;padding:24px 16px 60px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px}
+h1{font-family:"Source Serif 4",Georgia,serif;font-size:2rem;line-height:1.2;margin:.4em 0 .2em;text-wrap:balance}
+.lead{color:var(--mut);max-width:70ch}
+nav.idx{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}nav.idx a{background:var(--soft);color:var(--pri);padding:5px 12px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin:20px 0;min-width:0}
+h2{font-family:"Source Serif 4",Georgia,serif;color:var(--pri);margin:0 0 .6em;font-size:1.4rem}h3{margin:1.3em 0 .3em;font-size:1.05rem;color:var(--ink)}
+.tw{overflow-x:auto;margin:10px 0}.t{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}.t th,.t td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}.t th{background:var(--soft);color:var(--pri)}
+code{background:var(--soft);padding:1px 6px;border-radius:4px;font-size:.9em}
+pre{position:relative;background:var(--code);color:var(--codeink);padding:14px;border-radius:8px;overflow:auto;font-size:13px;line-height:1.5;margin:10px 0}pre code{background:none;color:inherit;padding:0}
+.cp{position:absolute;right:8px;top:8px;background:#334155;color:#fff;border:0;border-radius:5px;padding:3px 9px;cursor:pointer;font-size:12px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:12px 0}.kpi div{background:var(--soft);border-radius:8px;padding:10px 12px}.kpi b{display:block;font-size:1.25rem;color:var(--pri);font-variant-numeric:tabular-nums}.kpi span{font-size:13px;color:var(--mut)}
+.warn{border-left:4px solid var(--acc);background:var(--soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+figure{margin:14px 0}figure img{max-width:100%;border:1px solid var(--line);border-radius:8px}figcaption{color:var(--mut);font-size:13px}
+details{border:1px solid var(--line);border-radius:8px;padding:6px 12px;margin:10px 0}summary{cursor:pointer;font-weight:700}
+
+.prof-top {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 24px; background: #0F172A; color: #F8FAFC;
+  border-bottom: 2px solid var(--acc); flex-wrap: wrap; gap: 12px;
+}
+.prof-top .tag {
+  display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px;
+}
+.prof-top .tag .lock {
+  background: var(--acc); color: #fff; padding: 3px 8px; border-radius: 4px;
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.prof-top .lesson-switch {
+  display: flex; gap: 8px;
+}
+.prof-top .lesson-switch a {
+  background: rgba(255,255,255,0.12); color: #fff; text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; padding: 6px 12px;
+  font-size: 13px; font-weight: 700;
+}
+.prof-top .lesson-switch a.active {
+  background: var(--acc); border-color: var(--acc); color: #fff;
+}
+.prof-top button {
+  background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 6px; padding: 6px 14px; cursor: pointer; font-size: 13px; font-weight: 600;
+}
+.prof-top button:hover { background: rgba(255,255,255,0.2); }
+
+.download-bar {
+  background: color-mix(in srgb, var(--pri) 8%, var(--card));
+  border: 1px solid var(--line); border-left: 5px solid var(--acc);
+  border-radius: 10px; padding: 18px 22px; margin: 20px 0;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
+}
+.download-bar .txt h3 { margin: 0 0 4px; font-size: 1.1rem; color: var(--pri); }
+.download-bar .txt p { margin: 0; font-size: 14px; color: var(--mut); }
+.download-bar .btn-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-dl {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--pri); color: #fff !important; text-decoration: none;
+  font-weight: 700; font-size: 14px; padding: 9px 16px; border-radius: 8px;
+  transition: opacity 0.2s;
+}
+.btn-dl:hover { opacity: 0.9; }
+.btn-dl.accent { background: var(--acc); color: #fff !important; }
+
+  </style>
+</head>
+<body>
+<header class="prof-top">
+  <div class="tag">
+    <span class="lock">Área Restrita</span>
+    <span>Professor · Gabarito</span>
+  </div>
+  <div class="lesson-switch">
+    <a class="active" href="aula-15.html">📘 Aula 15 (Guiado)</a>
+    <a href="aula-16.html">🏆 Aula 16 (Desafio)</a>
+  </div>
+  <nav>
+    <button id="btnTema" type="button">Alternar Tema</button>
+  </nav>
+</header>
+<div class="page"><span class="badge">Uso exclusivo do professor</span><h1>Gabarito do professor · Aula 15 · Projeto Guiado (Pet Feliz)</h1>
+<p class="lead">Solução da versão guiada: consultas M, calendário, 3 colunas calculadas, 5 medidas, relacionamentos, testes e todos os números de conferência.</p>
+<div class="warn"><strong>Como os números foram obtidos.</strong> Recalculados em Python a partir dos arquivos do pacote do aluno. M e DAX não foram executados no Power BI Desktop (indisponível aqui). Rode a solução uma vez antes de liberar a aula.</div>
+
+<div class="download-bar">
+  <div class="txt">
+    <h3>Arquivos Oficiais · Aula 15 (Projeto Guiado)</h3>
+    <p>Planilha de gabarito e pacote completo com scripts M e DAX da versão guiada.</p>
+  </div>
+  <div class="btn-group">
+    <a class="btn-dl accent" href="Gabarito_Professor_Aula14-2.xlsx" download>
+      📥 Gabarito_Professor_Aula14-2.xlsx
+    </a>
+    <a class="btn-dl" href="Aula14-2_PACOTE_PROFESSOR.zip" download>
+      📦 Aula14-2_PACOTE_PROFESSOR.zip
+    </a>
+  </div>
+</div>
+<section><h2>Números-chave</h2><div class="kpi"><div><b>R$ 95.041,60</b><span>Faturamento</span></div><div><b>R$ 39.906,56</b><span>Lucro</span></div><div><b>41,99%</b><span>Margem de lucro</span></div><div><b>690</b><span>Pedidos</span></div><div><b>R$ 137,74</b><span>Ticket médio</span></div><div><b>1.123</b><span>Linhas de fVendas</span></div></div></section><section><h2>1 · Power Query (M)</h2><h3>pPasta</h3><pre><button class="cp" type="button">Copiar</button><code>// Início &gt; Gerenciar Parâmetros &gt; Novo Parâmetro (Nome: pPasta | Tipo: Texto)
+&quot;C:\Cursos\PetFelizFacil\&quot; meta [IsParameterQuery=true, Type=&quot;Text&quot;, IsParameterQueryRequired=true]</code></pre><h3>fVendas</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Csv.Document(File.Contents(pPasta &amp; &quot;Vendas.csv&quot;),
+        [Delimiter = &quot;;&quot;, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+    Tipos = Table.TransformColumnTypes(Cabecalho,
+        {{&quot;IDPedido&quot;, Int64.Type}, {&quot;Data&quot;, type date}, {&quot;CodLoja&quot;, Int64.Type}, {&quot;SKU&quot;, type text},
+         {&quot;Qtd&quot;, Int64.Type}, {&quot;PrecoUnit&quot;, type number}, {&quot;Desconto&quot;, type number}}, &quot;pt-BR&quot;)
+in
+    Tipos</code></pre><h3>dLojas</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Csv.Document(File.Contents(pPasta &amp; &quot;Lojas.txt&quot;),
+        [Delimiter = &quot;#(tab)&quot;, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+    Tipos = Table.TransformColumnTypes(Cabecalho,
+        {{&quot;CodLoja&quot;, Int64.Type}, {&quot;NomeLoja&quot;, type text}, {&quot;Cidade&quot;, type text}, {&quot;UF&quot;, type text}}, &quot;en-US&quot;)
+in
+    Tipos</code></pre><h3>dProdutos</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Excel.Workbook(File.Contents(pPasta &amp; &quot;Produtos.xlsx&quot;), null, true),
+    Aba = Fonte{[Item = &quot;Produtos&quot;, Kind = &quot;Sheet&quot;]}[Data],
+    Cabecalho = Table.PromoteHeaders(Aba, [PromoteAllScalars = true]),
+    Tipos = Table.TransformColumnTypes(Cabecalho,
+        {{&quot;SKU&quot;, type text}, {&quot;Produto&quot;, type text}, {&quot;Categoria&quot;, type text},
+         {&quot;CustoUnit&quot;, type number}, {&quot;PrecoLista&quot;, type number}}, &quot;en-US&quot;)
+in
+    Tipos</code></pre></section><section><h2>2 · Calendário</h2><pre><button class="cp" type="button">Copiar</button><code>dCalendario =
+SELECTCOLUMNS (
+    CALENDAR ( DATE ( 2026, 1, 1 ), DATE ( 2026, 12, 31 ) ),
+    &quot;Data&quot;, [Date],
+    &quot;Ano&quot;, YEAR ( [Date] ),
+    &quot;MesNum&quot;, MONTH ( [Date] ),
+    &quot;Mes&quot;, SWITCH ( MONTH ( [Date] ), 1, &quot;Jan&quot;, 2, &quot;Fev&quot;, 3, &quot;Mar&quot;, 4, &quot;Abr&quot;, 5, &quot;Mai&quot;, 6, &quot;Jun&quot;,
+                    7, &quot;Jul&quot;, 8, &quot;Ago&quot;, 9, &quot;Set&quot;, 10, &quot;Out&quot;, 11, &quot;Nov&quot;, &quot;Dez&quot; ),
+    &quot;AnoMes&quot;, FORMAT ( [Date], &quot;yyyy-mm&quot; )
+)</code></pre><p>Marcar como tabela de datas (coluna Data) e classificar Mes por MesNum. Esperado: 365 linhas.</p></section><section><h2>3 · Relacionamentos</h2><div class="tw"><table class="t"><tr><th>#</th><th>Fato (*)</th><th>Dimensão (1)</th></tr><tr><td>1</td><td><code>fVendas[Data]</code></td><td><code>dCalendario[Data]</code></td></tr><tr><td>2</td><td><code>fVendas[CodLoja]</code></td><td><code>dLojas[CodLoja]</code></td></tr><tr><td>3</td><td><code>fVendas[SKU]</code></td><td><code>dProdutos[SKU]</code></td></tr></table></div><p>Todos 1:*, filtro em uma direção (dimensão → fato).</p></section><section><h2>4 · Colunas calculadas</h2><pre><button class="cp" type="button">Copiar</button><code>fVendas[Faturamento Linha] = fVendas[Qtd] * fVendas[PrecoUnit] * ( 1 - fVendas[Desconto] )</code></pre><pre><button class="cp" type="button">Copiar</button><code>fVendas[Custo Linha] = fVendas[Qtd] * RELATED ( dProdutos[CustoUnit] )</code></pre><pre><button class="cp" type="button">Copiar</button><code>dProdutos[Faixa de Preço] =
+IF ( dProdutos[PrecoLista] &lt; 30, &quot;Econômico&quot;,
+    IF ( dProdutos[PrecoLista] &lt; 100, &quot;Intermediário&quot;, &quot;Premium&quot; ) )</code></pre><div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Some a coluna Faturamento Linha (arraste para um cartão e escolha Soma). Total?</td><td><b>R$ 95.041,60</b></td></tr><tr><td>Some a coluna Custo Linha. Total?</td><td><b>R$ 55.135,04</b></td></tr><tr><td>Quantos produtos têm Faixa de Preço = Premium?</td><td><b>4</b></td></tr><tr><td>Quantos produtos têm Faixa de Preço = Econômico?</td><td><b>3</b></td></tr></table></div></section><section><h2>5 · Medidas</h2><pre><button class="cp" type="button">Copiar</button><code>Faturamento = SUM ( fVendas[Faturamento Linha] )
+
+Lucro = [Faturamento] - SUM ( fVendas[Custo Linha] )
+
+Margem de Lucro = DIVIDE ( [Lucro], [Faturamento] )
+
+Pedidos = DISTINCTCOUNT ( fVendas[IDPedido] )
+
+Ticket Médio = DIVIDE ( [Faturamento], [Pedidos] )</code></pre><div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Medida [Faturamento] sem filtro</td><td><b>R$ 95.041,60</b></td></tr><tr><td>[Faturamento] com a segmentação Mes = Mar</td><td><b>R$ 14.153,91</b></td></tr><tr><td>Medida [Lucro] sem filtro</td><td><b>R$ 39.906,56</b></td></tr><tr><td>[Lucro] com Loja = Santos e Mes = Jun</td><td><b>R$ 1.398,32</b></td></tr><tr><td>Medida [Margem de Lucro] sem filtro (em %)</td><td><b>41,99%</b></td></tr><tr><td>[Margem de Lucro] da categoria Ração (em %)</td><td><b>36,98%</b></td></tr><tr><td>Medida [Pedidos] sem filtro</td><td><b>690</b></td></tr><tr><td>[Pedidos] com Loja = Moema e Categoria = Ração</td><td><b>89</b></td></tr><tr><td>Medida [Ticket Médio] sem filtro</td><td><b>R$ 137,74</b></td></tr><tr><td>[Ticket Médio] com Loja = Santos e Mes = Jun</td><td><b>R$ 102,41</b></td></tr><tr><td>Bônus: [Faturamento] por Faixa de Preço. Quanto vendeu a faixa Premium?</td><td><b>R$ 55.935,48</b></td></tr></table></div></section><section><h2>6 · Todas as conferências</h2><div class="tw"><table class="t"><tr><th>ID</th><th>Etapa</th><th>Pergunta</th><th>Esperado</th></tr><tr><td>i1</td><td>1 · Importar</td><td>Quantas linhas tem a tabela fVendas?</td><td><b>1.123</b></td></tr><tr><td>i2</td><td>1 · Importar</td><td>Quantas linhas tem a tabela dLojas?</td><td><b>4</b></td></tr><tr><td>i3</td><td>1 · Importar</td><td>Quantas linhas tem a tabela dProdutos?</td><td><b>12</b></td></tr><tr><td>i4</td><td>1 · Importar</td><td>Depois de ajustar os tipos, quantas colunas de fVendas ficaram como “Número decimal”?</td><td><b>2</b></td></tr><tr><td>k1</td><td>2 · Calendário</td><td>Quantas linhas tem a dCalendario? (um ano inteiro de 2026)</td><td><b>365</b></td></tr><tr><td>m1</td><td>3 · Relacionar</td><td>Quantos relacionamentos você criou?</td><td><b>3</b></td></tr><tr><td>t1</td><td>3 · Teste do modelo</td><td>Tabela com dLojas[NomeLoja] + Soma de fVendas[Qtd]: quantos itens vendeu a loja Paulista? E nenhuma linha “(Em branco)” aparece.</td><td><b>416</b></td></tr><tr><td>t2</td><td>3 · Teste do modelo</td><td>Tabela com dProdutos[Categoria] + Soma de fVendas[Qtd]: quantos itens da categoria Ração?</td><td><b>502</b></td></tr><tr><td>t3</td><td>3 · Teste do modelo</td><td>Tabela com dCalendario[Mes] + Soma de fVendas[Qtd]: quantos itens em Março?</td><td><b>214</b></td></tr><tr><td>cc1</td><td>4 · Colunas calculadas</td><td>Some a coluna Faturamento Linha (arraste para um cartão e escolha Soma). Total?</td><td><b>R$ 95.041,60</b></td></tr><tr><td>cc2</td><td>4 · Colunas calculadas</td><td>Some a coluna Custo Linha. Total?</td><td><b>R$ 55.135,04</b></td></tr><tr><td>cc3</td><td>4 · Colunas calculadas</td><td>Quantos produtos têm Faixa de Preço = Premium?</td><td><b>4</b></td></tr><tr><td>cc3b</td><td>4 · Colunas calculadas</td><td>Quantos produtos têm Faixa de Preço = Econômico?</td><td><b>3</b></td></tr><tr><td>md1</td><td>5 · Medidas</td><td>Medida [Faturamento] sem filtro</td><td><b>R$ 95.041,60</b></td></tr><tr><td>md1b</td><td>5 · Medidas</td><td>[Faturamento] com a segmentação Mes = Mar</td><td><b>R$ 14.153,91</b></td></tr><tr><td>md2</td><td>5 · Medidas</td><td>Medida [Lucro] sem filtro</td><td><b>R$ 39.906,56</b></td></tr><tr><td>md2b</td><td>5 · Medidas</td><td>[Lucro] com Loja = Santos e Mes = Jun</td><td><b>R$ 1.398,32</b></td></tr><tr><td>md3</td><td>5 · Medidas</td><td>Medida [Margem de Lucro] sem filtro (em %)</td><td><b>41,99%</b></td></tr><tr><td>md3b</td><td>5 · Medidas</td><td>[Margem de Lucro] da categoria Ração (em %)</td><td><b>36,98%</b></td></tr><tr><td>md4</td><td>5 · Medidas</td><td>Medida [Pedidos] sem filtro</td><td><b>690</b></td></tr><tr><td>md4b</td><td>5 · Medidas</td><td>[Pedidos] com Loja = Moema e Categoria = Ração</td><td><b>89</b></td></tr><tr><td>md5</td><td>5 · Medidas</td><td>Medida [Ticket Médio] sem filtro</td><td><b>R$ 137,74</b></td></tr><tr><td>md5b</td><td>5 · Medidas</td><td>[Ticket Médio] com Loja = Santos e Mes = Jun</td><td><b>R$ 102,41</b></td></tr><tr><td>bn1</td><td>5 · Bônus</td><td>Bônus: [Faturamento] por Faixa de Preço. Quanto vendeu a faixa Premium?</td><td><b>R$ 55.935,48</b></td></tr><tr><td>e1</td><td>6 · Dashboard</td><td>Dashboard: com a segmentação Loja = Santos, o cartão de Faturamento mostra?</td><td><b>R$ 16.448,70</b></td></tr></table></div></section><section><h2>7 · Dashboard de referência</h2><div class="tw"><table class="t"><tr><th>Visual</th><th>Campos</th></tr><tr><td>4 cartões</td><td>[Faturamento], [Lucro], [Margem de Lucro], [Pedidos] (+ [Ticket Médio])</td></tr><tr><td>Linhas</td><td>Eixo dCalendario[Mes] · [Faturamento]</td></tr><tr><td>Barras</td><td>dProdutos[Categoria] · [Faturamento]</td></tr><tr><td>Barras</td><td>dLojas[NomeLoja] · [Lucro]</td></tr><tr><td>Segmentação</td><td>dLojas[NomeLoja]</td></tr></table></div><figure><img src="img/dash_facil.png" alt="Dashboard de referência" style="max-width:100%"></figure></section><section><h2>8 · Erros comuns</h2><div class="tw"><table class="t"><tr><th>Erro do aluno</th><th>O que ele verá</th></tr><tr><td>Esqueceu o desconto na coluna Faturamento Linha</td><td>Faturamento = R$ 97.763,50 (certo R$ 95.041,60)</td></tr><tr><td>[Pedidos] com COUNTROWS(fVendas) em vez de DISTINCTCOUNT</td><td>Pedidos = 1.123 (certo 690); ticket cai para R$ 84,63</td></tr><tr><td>Criou [Custo Linha] em dProdutos ou sem RELATED</td><td>Erro de coluna não encontrada, ou custo igual ao preço de tabela sem multiplicar por Qtd</td></tr><tr><td>Margem sobre o custo (Lucro ÷ Custo)</td><td>Margem = 72,38% (certo 41,99%)</td></tr><tr><td>Não classificou Mes por MesNum</td><td>Meses em ordem alfabética (Abr, Fev, Jan, Mar, Mai, Jun)</td></tr><tr><td>Deixou Data como texto em fVendas</td><td>Não consegue criar o relacionamento com o calendário; teste t3 vem em branco</td></tr><tr><td>Preço lido com ponto (cultura en-US)</td><td>Faturamento absurdamente alto (139,90 vira 13.990): reimportar usando a localidade Português (Brasil)</td></tr><tr><td>Relacionamento com direção bidirecional ou invertido</td><td>Segmentação de Loja “encolhe” as outras segmentações; testes de filtro cruzado se comportam diferente</td></tr></table></div></section><section><h2>9 · Correção</h2><div class="tw"><table class="t"><tr><th>Critério</th><th>Pontos</th></tr><tr><td>Importação e tipos</td><td>15</td></tr><tr><td>Calendário e relacionamentos (testes batendo)</td><td>20</td></tr><tr><td>3 colunas calculadas</td><td>20</td></tr><tr><td>5 medidas</td><td>30</td></tr><tr><td>Dashboard</td><td>15</td></tr></table></div></section></div><script>(function(){document.querySelectorAll('.cp').forEach(function(b){b.onclick=function(){var c=b.parentNode.querySelector('code').innerText;var ok=function(){b.textContent='Copiado!'};if(navigator.clipboard){navigator.clipboard.writeText(c).then(ok,function(){b.textContent='Selecione e copie'})}else{b.textContent='Selecione e copie'}setTimeout(function(){b.textContent='Copiar'},1800)}})})();</script>
+<script>
+(function(){
+  var R = document.documentElement;
+  function sv(k,v){ try{ localStorage.setItem('pf_prof_'+k, v); }catch(e){} }
+  function ld(k){ try{ return localStorage.getItem('pf_prof_'+k); }catch(e){ return null; } }
+  var t = ld('theme'); if (t) R.setAttribute('data-theme', t);
+  var btnTheme = document.getElementById('btnTema');
+  if (btnTheme) {
+    btnTheme.onclick = function() {
+      var curr = R.getAttribute('data-theme');
+      var isDark = curr === 'dark' || (!curr && window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches);
+      var next = isDark ? 'light' : 'dark';
+      R.setAttribute('data-theme', next);
+      sv('theme', next);
+    };
+  }
+  document.querySelectorAll('.cp').forEach(function(b){
+    b.onclick = function(){
+      var c = b.parentNode.querySelector('code').innerText;
+      var ok = function(){ b.textContent = 'Copiado!'; };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(c).then(ok, function(){ b.textContent = 'Selecione e copie'; });
+      } else {
+        b.textContent = 'Selecione e copie';
+      }
+      setTimeout(function(){ b.textContent = 'Copiar'; }, 1800);
+    };
+  });
+})();
+</script>
+</body>
+</html>

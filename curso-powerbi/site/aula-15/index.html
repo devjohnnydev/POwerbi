@@ -1,96 +1,261 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Aula 15 · Em breve · Power BI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="icon" href="/curso-powerbi/site/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/curso-powerbi/site/assets/curso.css">
-  <style>
-    .holding-box {
-      background: var(--paper, #fff);
-      border: 1px solid var(--line, #e6e4dc);
-      border-radius: 16px;
-      padding: 40px 32px;
-      margin: 40px auto;
-      max-width: 720px;
-      text-align: center;
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aula 15 · Projeto guiado: Pet Feliz</title>
+<meta name="description" content="Projeto final guiado do curso de Power BI: 3 colunas calculadas e 5 medidas DAX com dicas progressivas, calendário pronto e números de conferência.">
+<style>
+:root{--bg:#F5F8F7;--card:#fff;--ink:#1E293B;--mut:#64748B;--line:#E2E8F0;--pri:#0F766E;--pri2:#0B5A54;--acc:#F59E0B;--ok:#16A34A;--bad:#DC2626;--code:#0F172A;--codeink:#E2E8F0;--infobg:#ECFEFF;--tipbg:#F0FDF4;--warnbg:#FFFBEB}
+:root[data-theme=dark]{--bg:#0F172A;--card:#1E293B;--ink:#E2E8F0;--mut:#94A3B8;--line:#334155;--pri:#2DD4BF;--pri2:#5EEAD4;--code:#020617;--infobg:#0C2A33;--tipbg:#0F2A1E;--warnbg:#33260A}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]):not([data-theme=dark]){--bg:#0F172A;--card:#1E293B;--ink:#E2E8F0;--mut:#94A3B8;--line:#334155;--pri:#2DD4BF;--pri2:#5EEAD4;--code:#020617;--infobg:#0C2A33;--tipbg:#0F2A1E;--warnbg:#33260A}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Inter,"Segoe UI",system-ui,sans-serif}
+a{color:var(--pri)}
+.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;background:var(--pri);color:#fff;flex-wrap:wrap}
+.top a{color:#fff;text-decoration:none;font-weight:600}.top nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.top button{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:5px 12px;cursor:pointer}
+.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px;max-width:1180px;margin:0 auto;padding:24px 16px}
+.toc{position:sticky;top:64px;align-self:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:15px;max-height:calc(100vh - 90px);overflow:auto}
+.toc ol{padding-left:20px;margin:8px 0}.toc li{margin:4px 0}.toc a{text-decoration:none}
+.prog{margin-top:14px}.bar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;width:0;background:var(--pri);transition:width .3s}
+.crumb{color:var(--mut);margin:0;font-size:14px}
+h1{font-size:2rem;line-height:1.25;margin:.2em 0 .4em}
+.lead{font-size:1.15rem;color:var(--mut)}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:22px 0}
+h2{margin-top:0;font-size:1.5rem;display:flex;gap:12px;align-items:baseline}h2 span{color:var(--acc);font-weight:800}
+h3{margin:1.4em 0 .4em;font-size:1.15rem;color:var(--pri)}
+.t{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;display:block;overflow-x:auto}
+.t th,.t td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.t th{background:color-mix(in srgb,var(--pri) 12%,transparent)}
+code{background:color-mix(in srgb,var(--pri) 12%,transparent);padding:1px 6px;border-radius:5px;font-size:.92em}
+pre{position:relative;background:var(--code);color:var(--codeink);padding:16px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.5}pre code{background:none;padding:0;color:inherit}
+.cp{position:absolute;right:8px;top:8px;background:#334155;color:#fff;border:0;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px}
+.call{display:flex;gap:14px;padding:14px 16px;border-radius:10px;margin:16px 0;border-left:5px solid}
+.call>b{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:15px}
+.info{background:var(--infobg);border-color:#0891B2}.info>b{background:#0891B2}
+.tip{background:var(--tipbg);border-color:var(--ok)}.tip>b{background:var(--ok)}
+.warn{background:var(--warnbg);border-color:var(--acc)}.warn>b{background:var(--acc)}
+.steps{list-style:none;padding:0;counter-reset:s}.steps li{padding:10px 14px;border-left:4px solid var(--pri);background:color-mix(in srgb,var(--pri) 6%,transparent);margin:8px 0;border-radius:0 8px 8px 0}
+.lab{display:inline-block;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--pri);padding:2px 8px;border-radius:5px;margin-right:8px}
+.mail{border-left:5px solid var(--acc);background:var(--warnbg);margin:16px 0;padding:6px 18px;border-radius:0 10px 10px 0}
+.btn{display:inline-block;background:var(--pri);color:#fff!important;text-decoration:none;padding:10px 18px;border-radius:10px;font-weight:700;margin:4px 8px 4px 0}.btn.alt{background:transparent;color:var(--pri)!important;border:2px solid var(--pri)}
+details{border:1px solid var(--line);border-radius:10px;margin:12px 0;padding:8px 14px}details summary{cursor:pointer;font-weight:700}
+.dica{background:var(--infobg)}.sol{background:var(--warnbg)}
+.q{padding:12px 0;border-top:1px dashed var(--line)}
+.chk{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.chk .qt{flex:1 1 100%;font-weight:600;font-size:15px}
+.chk input{padding:8px 10px;border:1px solid var(--line);border-radius:8px;width:190px;background:var(--card);color:var(--ink);font-size:16px}
+.chk button{padding:8px 14px;border-radius:8px;border:0;background:var(--pri);color:#fff;font-weight:700;cursor:pointer}
+.chk button.ghost{background:transparent;color:var(--mut);border:1px solid var(--line)}
+.chk .fb{font-weight:700}.chk.ok{border-color:var(--ok)}.chk.ok .fb{color:var(--ok)}.chk .fb.bad{color:var(--bad)}
+figure{margin:18px 0}figure img{width:100%;border:1px solid var(--line);border-radius:10px}figcaption{color:var(--mut);font-size:14px}
+.thanks{background:linear-gradient(135deg,color-mix(in srgb,var(--pri) 14%,transparent),color-mix(in srgb,var(--acc) 14%,transparent));padding:8px 24px;border-radius:12px;font-size:1.05rem}
+.sig{margin-top:1.4em}.ph{background:var(--warnbg);padding:2px 8px;border-radius:5px;font-size:.9em}
+footer{text-align:center;color:var(--mut);padding:30px 16px;font-size:14px}
+.ficha{border:1px solid var(--line);border-radius:12px;padding:6px 18px 12px;margin:18px 0;background:color-mix(in srgb,var(--pri) 4%,transparent)}
+.ficha h4{margin:12px 0 6px;font-size:1.05rem}.ficha .id{display:inline-block;background:var(--acc);color:#1E293B;font-weight:800;border-radius:6px;padding:1px 8px;margin-right:8px;font-size:.85rem}
+.ficha .pq{margin-bottom:0}.ficha ul{margin-top:4px}
+.dic .t{margin:10px 0}.dic .t th{background:color-mix(in srgb,var(--pri) 16%,transparent)}
+main{min-width:0}pre{padding-top:34px}
+@media(max-width:900px){.wrap{grid-template-columns:minmax(0,1fr)}.toc{position:static;max-height:none}section{padding:16px}h1{font-size:1.6rem}.chk input{width:100%}}
+</style></head><body><header class="top"><a class="brand" href="../../">Power BI · Braga Treinamentos</a>
+<nav><a href="../../">Todas as aulas</a><a href="../aula-14/">← Anterior</a><button id="tema" type="button">Tema</button></nav></header>
+<div class="wrap"><aside class="toc"><b>Nesta aula</b><ol>
+<li><a href="#inicio">Boas-vindas</a></li><li><a href="#briefing">O pedido</a></li><li><a href="#arquivos">Arquivos e dicionário</a></li>
+<li><a href="#importar">Etapa 1 · Importar</a></li><li><a href="#calendario">Etapa 2 · Calendário</a></li><li><a href="#modelo">Etapa 3 · Relacionar e testar</a></li>
+<li><a href="#colunas">Etapa 4 · Colunas calculadas</a></li><li><a href="#medidas">Etapa 5 · Medidas</a></li><li><a href="#dash">Etapa 6 · Dashboard</a></li>
+<li><a href="#nota">Autoavaliação</a></li><li><a href="#fim">Palavras finais</a></li></ol>
+<div class="prog"><b>Seu progresso</b><div class="bar"><i id="barra"></i></div><span id="progtxt">0 de 0 conferências</span></div></aside><main>
+<p class="crumb">Curso Power BI / Aula 15 · Projeto final guiado</p>
+<h1>Aula 15 · Projeto guiado: seu primeiro dashboard completo</h1>
+<p class="lead">Esta é a versão com <strong>passo a passo e muitas dicas</strong>. O foco é o DAX: você vai criar <strong>3 colunas calculadas</strong> e <strong>5 medidas</strong>, e o código do calendário eu já entrego. Cada etapa termina com um número para você conferir.</p>
+<section id="inicio"><h2><span>01</span> Boas-vindas</h2>
+<p>Você chegou ao fim do curso. Agora vem a melhor parte: fazer sozinho, mas com a minha ajuda quando travar. Nesta aula não existe pegadinha escondida nem arquivo bagunçado. Os dados são simples e o objetivo é você sentir que <strong>consegue</strong>.</p>
+<div class="call tip"><b>✓</b><div><strong>Como cada exercício funciona</strong><br>1) Leia o <em>Para ter</em> (o que o negócio precisa). 2) Responda ao <em>Pense</em> (qual tabela, qual coluna, qual função?). 3) Tente. 4) Se travar, abra a <em>Dica 1</em>; se ainda travar, a <em>Dica 2</em>; depois a <em>Dica 3</em>. 5) Só então olhe a <em>Solução</em>. 6) Digite o resultado na caixa para conferir.</div></div>
+<div class="call info"><b>i</b><div><strong>Quer um desafio maior?</strong> Depois desta aula, faça a <a href="../aula-16/">Aula 16 (Desafio) · Projeto final completo</a>, com 6 fontes, tratamento pesado e 20 medidas.</div></div>
+<h3>O que você já aprendeu (e vai usar hoje)</h3>
+<table class="t"><tr><th>Aulas</th><th>Tema</th><th>Onde entra hoje</th></tr>
+<tr><td>2 e 3</td><td>Importar e atualizar dados, Power Query</td><td>Etapa 1</td></tr>
+<tr><td>4</td><td>Relacionamentos</td><td>Etapa 3</td></tr>
+<tr><td>5 e 12</td><td>DAX básico e intermediário</td><td>Etapas 4 e 5</td></tr>
+<tr><td>10</td><td>Calendário</td><td>Etapa 2</td></tr>
+<tr><td>6, 9 e 13</td><td>Dashboard, design e interatividade</td><td>Etapa 6</td></tr></table>
+<p><strong>Tempo estimado:</strong> 1h30 a 2h. <strong>Entrega:</strong> um arquivo <code>.pbix</code> com 1 página.</p></section>
+<section id="briefing"><h2><span>02</span> O pedido</h2>
+<p>Você é analista de BI da <strong>Pet Feliz</strong>, rede de pet shops com 4 lojas em São Paulo. A gerente comercial mandou:</p>
+<blockquote class="mail"><p><em>“Oi! Tenho as vendas do primeiro semestre de 2026 em um CSV, as lojas em um TXT e os produtos numa planilha. Preciso de um painel simples: quanto faturamos, quanto sobrou de lucro, qual a margem, quantos pedidos tivemos e o ticket médio. Quero ver por mês, por categoria e por loja. Obrigada!”</em></p></blockquote>
+<h3>O que você vai entregar</h3>
+<ul><li>3 fontes importadas e com os tipos certos</li><li>Calendário (código fornecido) marcado como tabela de datas</li><li>3 relacionamentos</li><li><strong>3 colunas calculadas</strong>: Faturamento Linha, Custo Linha, Faixa de Preço</li><li><strong>5 medidas</strong>: Faturamento, Lucro, Margem de Lucro, Pedidos, Ticket Médio</li><li>1 página de dashboard</li></ul></section>
+<section id="arquivos"><h2><span>03</span> Arquivos e dicionário de dados</h2>
+<p>Baixe tudo e descompacte em uma pasta simples, como <code>C:\Cursos\PetFelizFacil\</code>. Não mude os nomes.</p>
+<p><a class="btn" href="../arquivos/Aula14-2_ProjetoGuiado_PetFeliz_ALUNO.zip" download>⬇ Pacote completo (.zip)</a> <a class="btn alt" href="../arquivos/Caderno_Aluno_14-2.xlsx" download>⬇ Caderno do aluno (.xlsx)</a> <a class="btn alt" href="../arquivos/PetFeliz_tema.json" download>⬇ Tema de cores (.json)</a></p>
+<table class="t"><tr><th>Arquivo</th><th>Formato</th><th>O que é</th><th>Baixar</th></tr>
+<tr><td><code>Vendas.csv</code></td><td>CSV com ponto e vírgula</td><td>Uma linha por item vendido (jan a jun/2026)</td><td><a href="../arquivos/facil/Vendas.csv" download>Vendas.csv</a></td></tr>
+<tr><td><code>Lojas.txt</code></td><td>TXT separado por tabulação</td><td>As 4 lojas</td><td><a href="../arquivos/facil/Lojas.txt" download>Lojas.txt</a></td></tr>
+<tr><td><code>Produtos.xlsx</code></td><td>Excel</td><td>12 produtos, com custo e preço de tabela</td><td><a href="../arquivos/facil/Produtos.xlsx" download>Produtos.xlsx</a></td></tr></table>
+<h3>Dicionário de dados</h3>
+<div class="dic"><table class="t"><tr><th>Tabela</th><th>Coluna</th><th>O que é</th></tr>
+<tr><td rowspan="7">Vendas → <code>fVendas</code></td><td>IDPedido</td><td>Número do pedido. Um pedido tem vários itens, então o número se repete</td></tr>
+<tr><td>Data</td><td>Dia da venda (vem como texto dd/mm/aaaa)</td></tr><tr><td>CodLoja</td><td>Código da loja (1 a 4)</td></tr><tr><td>SKU</td><td>Código do produto (P01 a P12)</td></tr>
+<tr><td>Qtd</td><td>Unidades vendidas na linha</td></tr><tr><td>PrecoUnit</td><td>Preço de cada unidade (vírgula como decimal)</td></tr><tr><td>Desconto</td><td>0,05 significa 5% de desconto</td></tr>
+<tr><td rowspan="2">Lojas → <code>dLojas</code></td><td>CodLoja · NomeLoja</td><td>Chave e nome da loja</td></tr><tr><td>Cidade · UF</td><td>Localização</td></tr>
+<tr><td rowspan="3">Produtos → <code>dProdutos</code></td><td>SKU</td><td>Chave do produto</td></tr><tr><td>Produto · Categoria</td><td>Nome e grupo</td></tr><tr><td>CustoUnit · PrecoLista</td><td>Quanto custa para a loja e preço de tabela</td></tr></table></div>
+<div class="call info"><b>i</b><div><strong>Como funciona a “Conferência”</strong><br>Digite o seu número e clique em <em>Conferir</em>. Se não bater, não se preocupe: volte e procure a diferença. Depois de 3 erros aparece o botão <em>Mostrar resposta</em>.</div></div></section>
+<section id="importar"><h2><span>04</span> Etapa 1 · Importar os dados</h2><p><strong>Objetivo:</strong> trazer as 3 fontes para o Power BI e deixar os tipos de dado certos.</p><ol class="steps"><li><span class="lab">Passo 1.1</span> Abra o Power BI Desktop e salve como <code>PetFeliz_Facil_SeuNome.pbix</code>.</li><li><span class="lab">Passo 1.2</span> <em>Obter dados → Texto/CSV</em> e escolha <code>Vendas.csv</code>. Na janela de prévia confira o delimitador (ponto e vírgula) e clique em <strong>Transformar Dados</strong> (não em Carregar).</li><li><span class="lab">Passo 1.3</span> No Power Query, ajuste os tipos: <code>Data</code> → <em>Data</em>; <code>PrecoUnit</code> e <code>Desconto</code> → <em>Número decimal</em>; <code>IDPedido</code>, <code>CodLoja</code>, <code>Qtd</code> → <em>Número inteiro</em>.</li><li><span class="lab">Passo 1.4</span> <em>Nova Fonte → Texto/CSV</em> para <code>Lojas.txt</code> (delimitador: tabulação). <em>Nova Fonte → Excel</em> para <code>Produtos.xlsx</code> (marque a aba <em>Produtos</em>).</li><li><span class="lab">Passo 1.5</span> Renomeie as consultas: <code>fVendas</code>, <code>dLojas</code>, <code>dProdutos</code>. Clique em <strong>Fechar e Aplicar</strong>.</li></ol><div class="call warn"><b>!</b><div><strong>Se a data ou o preço vierem errados</strong><br>O Power BI está lendo no formato dos Estados Unidos. Use <em>Tipo de Dados → Usando a Localidade…</em> e escolha <code>Português (Brasil)</code>. Isso resolve data como 15/03/2026 e preço como 139,90 de uma vez.</div></div><div class="chk" data-id="i1" data-q="Quantas linhas tem a tabela fVendas?" data-h="d5f4e2bf373eb3171329ef7752614a935536bbd285352e06a8de7b2f79cb8134" data-fmt="int"></div><div class="chk" data-id="i2" data-q="Quantas linhas tem a tabela dLojas?" data-h="7cd55d3331f948559ac971f24c8aa52b3f0ed3353327e827e1b0efd0e7da0a7d" data-fmt="int"></div><div class="chk" data-id="i3" data-q="Quantas linhas tem a tabela dProdutos?" data-h="e80f6754754931a421d64f0b438cb08889e96148874b622755e802ee8cf58c34" data-fmt="int"></div><div class="chk" data-id="i4" data-q="Depois de ajustar os tipos, quantas colunas de fVendas ficaram como “Número decimal”?" data-h="6d156f13dbcec26209a5db249e006b32651ee4543ee14e1d916e51a61bd85548" data-fmt="int"></div><details class="dica"><summary>Dica</summary><p>Se o número de linhas da fVendas não bateu, confira se você não importou outro arquivo por engano e se a primeira linha virou o cabeçalho (<em>Usar primeira linha como cabeçalhos</em>).</p></details></section>
+<section id="calendario"><h2><span>05</span> Etapa 2 · Calendário (código pronto)</h2>
+<p><strong>Objetivo:</strong> criar uma tabela com todos os dias de 2026. Todo dashboard bom tem uma. Aqui eu entrego o código; você só cola e entende.</p>
+<ol class="steps"><li><span class="lab">Passo 2.1</span> Na visão de <strong>Tabela</strong>, clique em <em>Nova tabela</em> (Modelagem ou Ferramentas de tabela).</li>
+<li><span class="lab">Passo 2.2</span> Apague tudo o que estiver na barra de fórmulas e cole o código abaixo. Tecle Enter.</li></ol>
+<pre><button class="cp" type="button">Copiar</button><code>dCalendario =
+SELECTCOLUMNS (
+    CALENDAR ( DATE ( 2026, 1, 1 ), DATE ( 2026, 12, 31 ) ),
+    &quot;Data&quot;, [Date],
+    &quot;Ano&quot;, YEAR ( [Date] ),
+    &quot;MesNum&quot;, MONTH ( [Date] ),
+    &quot;Mes&quot;, SWITCH ( MONTH ( [Date] ), 1, &quot;Jan&quot;, 2, &quot;Fev&quot;, 3, &quot;Mar&quot;, 4, &quot;Abr&quot;, 5, &quot;Mai&quot;, 6, &quot;Jun&quot;,
+                    7, &quot;Jul&quot;, 8, &quot;Ago&quot;, 9, &quot;Set&quot;, 10, &quot;Out&quot;, 11, &quot;Nov&quot;, &quot;Dez&quot; ),
+    &quot;AnoMes&quot;, FORMAT ( [Date], &quot;yyyy-mm&quot; )
+)</code></pre>
+<h3>O que cada linha faz</h3>
+<table class="t"><tr><th>Linha</th><th>O que faz</th></tr>
+<tr><td><code>CALENDAR ( DATE(2026,1,1), DATE(2026,12,31) )</code></td><td>Cria uma coluna chamada [Date] com todos os dias do ano (365 linhas)</td></tr>
+<tr><td><code>SELECTCOLUMNS ( ... )</code></td><td>Escolhe e nomeia as colunas da tabela nova</td></tr>
+<tr><td><code>"Data", [Date]</code></td><td>Renomeia a coluna de dias para Data (é a que liga ao fVendas)</td></tr>
+<tr><td><code>YEAR / MONTH</code></td><td>Extraem o ano e o número do mês de cada dia</td></tr>
+<tr><td><code>SWITCH ( MONTH(...), 1, "Jan", ... )</code></td><td>Troca o número do mês pelo nome abreviado</td></tr>
+<tr><td><code>FORMAT ( [Date], "yyyy-mm" )</code></td><td>Cria um texto como 2026-03, útil para ordenar meses</td></tr></table>
+<ol class="steps" start="3"><li><span class="lab">Passo 2.3</span> Com a tabela selecionada: <em>Ferramentas de Tabela → Marcar como tabela de datas</em> e escolha a coluna <code>Data</code>.</li>
+<li><span class="lab">Passo 2.4</span> Clique na coluna <code>Mes</code> → <em>Classificar por coluna</em> → <code>MesNum</code>. Sem isso os meses saem em ordem alfabética (Abr, Fev, Jan…).</li></ol><div class="chk" data-id="k1" data-q="Quantas linhas tem a dCalendario? (um ano inteiro de 2026)" data-h="70cf7b61101c8d49ee1e3f09a2bd7c56d0f20f96d758fcfb09c56da048fe9401" data-fmt="int"></div></section>
+<section id="modelo"><h2><span>06</span> Etapa 3 · Relacionar e testar</h2><p><strong>Objetivo:</strong> ligar a tabela de fatos (vendas) às três dimensões: calendário, lojas e produtos. É o desenho em estrela da Aula 4.</p><div class="call info"><b>?</b><div><strong>Pense:</strong> qual coluna de fVendas aparece também em cada dimensão? Qual é o lado “1” (a dimensão, onde cada valor aparece uma vez) e qual é o lado “muitos”?</div></div><ol class="steps"><li><span class="lab">Passo 3.1</span> Abra a <strong>Visão de Modelo</strong>.</li><li><span class="lab">Passo 3.2</span> Arraste a coluna da dimensão até a coluna igual da fVendas, três vezes.</li><li><span class="lab">Passo 3.3</span> Cada relacionamento deve ficar <strong>1 para muitos (1:*)</strong> com filtro em uma direção, saindo da dimensão para a fato.</li></ol><div class="chk" data-id="m1" data-q="Quantos relacionamentos você criou?" data-h="e9ced821ca64de65efdd9910709ac7458d1f8ff6fe421c6ec6f8913190f3995b" data-fmt="int"></div><details class="dica"><summary>Dica 1</summary><p>As três ligações são: <code>dCalendario[Data]</code> com <code>fVendas[Data]</code>, <code>dLojas[CodLoja]</code> com <code>fVendas[CodLoja]</code> e <code>dProdutos[SKU]</code> com <code>fVendas[SKU]</code>.</p></details><h3>Teste: seus relacionamentos estão certos?</h3><p>Não confie: prove. Crie uma página <code>_Testes</code> e monte três <strong>tabelas</strong>, cada uma com uma coluna de uma dimensão e <em>Soma de fVendas[Qtd]</em> (o Power BI soma sozinho). Se o relacionamento estiver certo, os números abaixo aparecem e <strong>não existe linha “(Em branco)”</strong>.</p><div class="chk" data-id="t1" data-q="Tabela com dLojas[NomeLoja] + Soma de fVendas[Qtd]: quantos itens vendeu a loja Paulista? E nenhuma linha “(Em branco)” aparece." data-h="35f4a04991576eb1aa70db10aeabd33226d5cafc7f9a8306cf8bd129018fc579" data-fmt="int"></div><div class="chk" data-id="t2" data-q="Tabela com dProdutos[Categoria] + Soma de fVendas[Qtd]: quantos itens da categoria Ração?" data-h="267c2687705952fbfb059d4fb9bcb76c16e830c49e79fea4a6bb30c0ced82693" data-fmt="int"></div><div class="chk" data-id="t3" data-q="Tabela com dCalendario[Mes] + Soma de fVendas[Qtd]: quantos itens em Março?" data-h="7faaab3e0a027398ff83d0c924958797fb369adfdaecbbf449abde0c21822c54" data-fmt="int"></div><div class="call tip"><b>✓</b><div><strong>Se deu errado</strong><br>• O mesmo valor se repete em todas as linhas → falta o relacionamento daquela dimensão.<br>• Aparece “(Em branco)” → há código na fato que não existe na dimensão (confira os tipos de dado e se os nomes das colunas são iguais).<br>• Não consegue criar 1:* → a coluna da dimensão tem valores repetidos.</div></div></section>
+<section id="colunas"><h2><span>07</span> Etapa 4 · Três colunas calculadas</h2><p>Uma <strong>coluna calculada</strong> faz uma conta <strong>em cada linha</strong> da tabela e guarda o resultado. Para criar: selecione a tabela e clique em <em>Ferramentas de Tabela → Nova coluna</em>. A fórmula tem o formato <code>NomeDaColuna = conta</code>.</p><div class="call tip"><b>✓</b><div><strong>Regra de ouro</strong><br>Dentro de uma coluna calculada, escrever <code>fVendas[Qtd]</code> significa “o valor de Qtd <em>desta linha</em>”. Para buscar algo de outra tabela (como o custo), usa-se <code>RELATED</code>.</div></div><div class="ficha"><h4><span class="id">C1</span> Crie a coluna [Faturamento Linha]</h4><p><b>Para ter:</b> quanto cada linha de venda rendeu, já com o desconto.</p><p><b>Onde criar:</b> tabela <code>fVendas</code></p><p class="pq"><b>Pense:</b></p><ul><li>Quais três colunas de fVendas entram na conta?</li><li>O desconto vem como 0,05 (5%). Se a pessoa paga 95% do valor, qual é o fator? (1 − desconto)</li><li>Qual operador liga as três partes?</li></ul><details class="dica"><summary>Dica 1 · por onde começar</summary><p>Selecione a tabela fVendas, clique em Nova coluna e comece com o nome: <code>Faturamento Linha =</code>.</p></details><details class="dica"><summary>Dica 2 · qual função usar</summary><p>Você só precisa de multiplicações e de uma subtração entre parênteses. Não precisa de nenhuma função.</p></details><details class="dica"><summary>Dica 3 · quase a resposta</summary><p>Qtd × PrecoUnit × (1 − Desconto). Use colchetes e o nome da tabela: <code>fVendas[Qtd]</code>.</p></details><div class="chk" data-id="cc1" data-q="Some a coluna Faturamento Linha (arraste para um cartão e escolha Soma). Total?" data-h="1d4ef4ca20e84ee7f7612cd16aa0be9a627e92a947f6cf2f240007565134048f" data-fmt="brl"></div></div><div class="ficha"><h4><span class="id">C2</span> Crie a coluna [Custo Linha]</h4><p><b>Para ter:</b> quanto custou, para a loja, o que foi vendido na linha.</p><p><b>Onde criar:</b> tabela <code>fVendas</code></p><p class="pq"><b>Pense:</b></p><ul><li>Onde está o custo de cada produto? Em fVendas?</li><li>Como a fVendas “enxerga” a tabela dProdutos? (lembre do relacionamento que você fez)</li><li>Qual função busca um valor do lado “1” a partir do lado “muitos”?</li></ul><details class="dica"><summary>Dica 1 · por onde começar</summary><p>O custo mora em <code>dProdutos[CustoUnit]</code>, não em fVendas. Você precisa trazê-lo para cada linha.</p></details><details class="dica"><summary>Dica 2 · qual função usar</summary><p>A função se chama <code>RELATED</code>. Ela recebe uma coluna da outra tabela: <code>RELATED ( dProdutos[CustoUnit] )</code>.</p></details><details class="dica"><summary>Dica 3 · quase a resposta</summary><p>Custo Linha = Qtd × RELATED(custo unitário).</p></details><div class="chk" data-id="cc2" data-q="Some a coluna Custo Linha. Total?" data-h="6da506c5b555de9dfb90e7c082f6c53d7731fbce5180e270dfbdd69925d24e03" data-fmt="brl"></div></div><div class="ficha"><h4><span class="id">C3</span> Crie a coluna [Faixa de Preço]</h4><p><b>Para ter:</b> classificar cada produto em Econômico (preço de tabela abaixo de R$ 30), Intermediário (de R$ 30 até menos de R$ 100) ou Premium (R$ 100 ou mais).</p><p><b>Onde criar:</b> tabela <code>dProdutos</code></p><p class="pq"><b>Pense:</b></p><ul><li>A coluna fica em fVendas ou em dProdutos? Onde está PrecoLista?</li><li>São três resultados possíveis. Uma função IF resolve dois. Como resolver três?</li><li>Os textos entram entre aspas duplas.</li></ul><details class="dica"><summary>Dica 1 · por onde começar</summary><p>Selecione a tabela <strong>dProdutos</strong> (não a fVendas) e crie a coluna: <code>Faixa de Preço =</code>.</p></details><details class="dica"><summary>Dica 2 · qual função usar</summary><p>Use <code>IF</code> dentro de outro <code>IF</code>: o primeiro testa “menor que 30”; se não for, o segundo testa “menor que 100”.</p></details><details class="dica"><summary>Dica 3 · quase a resposta</summary><p>IF ( PrecoLista &lt; 30, "Econômico", IF ( PrecoLista &lt; 100, "Intermediário", "Premium" ) )</p></details><div class="chk" data-id="cc3" data-q="Quantos produtos têm Faixa de Preço = Premium?" data-h="1d0758dc0cc132ac11a3fca74aad0b2132200cbd205ff1e8c76db849a236b69f" data-fmt="int"></div><div class="chk" data-id="cc3b" data-q="Quantos produtos têm Faixa de Preço = Econômico?" data-h="768bb7b1f9250ed78132a7c17fcdfa0cc6019b1d5b79a4feab6377bc9d4d5524" data-fmt="int"></div></div></section>
+<section id="medidas"><h2><span>08</span> Etapa 5 · Cinco medidas</h2><p>Uma <strong>medida</strong> faz a conta <strong>sobre o que está filtrado</strong> na tela (por mês, por loja, por categoria…). Para criar: <em>Página Inicial → Nova medida</em>. Crie uma tabela chamada <code>_Medidas</code> para guardá-las (<em>Inserir dados → Nome: _Medidas → Carregar</em>) e use <em>Nova medida</em> com ela selecionada.</p><div class="call tip"><b>✓</b><div><strong>Diferença que cai em prova</strong><br><em>Coluna calculada</em> = conta linha a linha, guardada na tabela. <em>Medida</em> = conta sobre um conjunto de linhas, recalculada a cada filtro. Por isso, uma medida usa funções como <code>SUM</code>, <code>DISTINCTCOUNT</code> e <code>DIVIDE</code>.</div></div><p>Para conferir, use cartões e as segmentações <em>Mes</em>, <em>NomeLoja</em> e <em>Categoria</em>. Quando a conferência não citar filtro, <strong>não filtre nada</strong>.</p><div class="ficha"><h4><span class="id">M1</span> Crie a medida [Faturamento]</h4><p><b>Para ter:</b> o total vendido em R$.</p><p><b>Onde criar:</b> tabela <code>_Medidas</code></p><p class="pq"><b>Pense:</b></p><ul><li>Qual coluna guarda o faturamento de cada linha? (você criou na Etapa 4)</li><li>Basta somar essa coluna? Precisa de iterador (função terminada em X)?</li></ul><details class="dica"><summary>Dica 1 · por onde começar</summary><p>Você já fez a conta linha a linha na coluna C1. A medida só precisa somar essa coluna.</p></details><details class="dica"><summary>Dica 2 · qual função usar</summary><p>A função mais simples do DAX: <code>SUM</code>.</p></details><details class="dica"><summary>Dica 3 · quase a resposta</summary><p>SUM ( fVendas[Faturamento Linha] )</p></details><div class="chk" data-id="md1" data-q="Medida [Faturamento] sem filtro" data-h="7a69ff957ee93649d5cb283553bd534884eefda44cc42f306550ee47830b3866" data-fmt="brl"></div><div class="chk" data-id="md1b" data-q="[Faturamento] com a segmentação Mes = Mar" data-h="86e048d053a95c07f85c82f58b7328fc845e0564591403e0012e5af701a78cbe" data-fmt="brl"></div></div><div class="ficha"><h4><span class="id">M2</span> Crie a medida [Lucro]</h4><p><b>Para ter:</b> quanto sobrou: o faturamento menos o custo.</p><p><b>Onde criar:</b> tabela <code>_Medidas</code></p><p class="pq"><b>Pense:</b></p><ul><li>Que medida você já tem e pode reaproveitar?</li><li>Qual coluna guarda o custo de cada linha? Como somá-la?</li></ul><details class="dica"><summary>Dica 1 · por onde começar</summary><p>Lucro = o que entrou − o que custou. Uma das partes você já criou como medida.</p></details><details class="dica"><summary>Dica 2 · qual função usar</summary><p>Use [Faturamento] (entre colchetes, sem nome de tabela) menos a soma da coluna de custo.</p></details><details class="dica"><summary>Dica 3 · quase a resposta</summary><p>[Faturamento] - SUM ( fVendas[Custo Linha] )</p></details><div class="chk" data-id="md2" data-q="Medida [Lucro] sem filtro" data-h="26d0dfcb783a3c9f6545c051eb463118194cc7beaa19103101f8596ee7430bd0" data-fmt="brl"></div><div class="chk" data-id="md2b" data-q="[Lucro] com Loja = Santos e Mes = Jun" data-h="9e3e45ab20936d22099f64769a67def95cf9f334509eabcfacd881ea279103c3" data-fmt="brl"></div></div><div class="ficha"><h4><span class="id">M3</span> Crie a medida [Margem de Lucro]</h4><p><b>Para ter:</b> quantos % do faturamento viraram lucro.</p><p><b>Onde criar:</b> tabela <code>_Medidas</code></p><p class="pq"><b>Pense:</b></p><ul><li>Margem = lucro dividido por quê?</li><li>Qual função divide sem dar erro se o denominador for zero?</li><li>Como mostrar como porcentagem? (formatação da medida)</li></ul><details class="dica"><summary>Dica 1 · por onde começar</summary><p>Você já tem as duas medidas necessárias: [Lucro] e [Faturamento].</p></details><details class="dica"><summary>Dica 2 · qual função usar</summary><p>Use <code>DIVIDE ( numerador, denominador )</code>.</p></details><details class="dica"><summary>Dica 3 · quase a resposta</summary><p>DIVIDE ( [Lucro], [Faturamento] ). Depois, em <em>Ferramentas de medida</em>, escolha formato <strong>%</strong> com 2 casas.</p></details><div class="chk" data-id="md3" data-q="Medida [Margem de Lucro] sem filtro (em %)" data-h="742637e65a91027d6136cac44e1302929ddbaa5cee48bcb757988968f3bbb727" data-fmt="pct"></div><div class="chk" data-id="md3b" data-q="[Margem de Lucro] da categoria Ração (em %)" data-h="c10bde8ad8b6fc5c02772787cce7631dae508cc2a984dc955c021b7783fa3e9f" data-fmt="pct"></div></div><div class="ficha"><h4><span class="id">M4</span> Crie a medida [Pedidos]</h4><p><b>Para ter:</b> quantos pedidos diferentes houve.</p><p><b>Onde criar:</b> tabela <code>_Medidas</code></p><p class="pq"><b>Pense:</b></p><ul><li>Um pedido tem vários itens (várias linhas). Contar linhas serve?</li><li>Qual coluna identifica o pedido? Qual função conta valores diferentes?</li></ul><details class="dica"><summary>Dica 1 · por onde começar</summary><p>Se você contar linhas, um pedido com 3 itens conta 3 vezes. Você quer contar cada pedido uma vez só.</p></details><details class="dica"><summary>Dica 2 · qual função usar</summary><p>A função se chama <code>DISTINCTCOUNT</code> (contagem distinta).</p></details><details class="dica"><summary>Dica 3 · quase a resposta</summary><p>DISTINCTCOUNT ( fVendas[IDPedido] )</p></details><div class="chk" data-id="md4" data-q="Medida [Pedidos] sem filtro" data-h="6fbe9244809c8e19d0c12f2843fe56f1eb510ac4134e46156b844bdc8cb942d9" data-fmt="int"></div><div class="chk" data-id="md4b" data-q="[Pedidos] com Loja = Moema e Categoria = Ração" data-h="b92df7733f80ebbd7c4e4ff613a6ec4058098ce5074f15185eb87b8b3cbeb0b7" data-fmt="int"></div></div><div class="ficha"><h4><span class="id">M5</span> Crie a medida [Ticket Médio]</h4><p><b>Para ter:</b> quanto cada pedido vale, em média.</p><p><b>Onde criar:</b> tabela <code>_Medidas</code></p><p class="pq"><b>Pense:</b></p><ul><li>Ticket médio = quanto vendeu ÷ quantos pedidos.</li><li>Quais duas medidas já resolvem isso?</li></ul><details class="dica"><summary>Dica 1 · por onde começar</summary><p>Reaproveite medidas: [Faturamento] e [Pedidos] estão prontas.</p></details><details class="dica"><summary>Dica 2 · qual função usar</summary><p>De novo a função que divide com segurança: <code>DIVIDE</code>.</p></details><details class="dica"><summary>Dica 3 · quase a resposta</summary><p>DIVIDE ( [Faturamento], [Pedidos] )</p></details><div class="chk" data-id="md5" data-q="Medida [Ticket Médio] sem filtro" data-h="68eebfd97bdfa10195dc76e6ff28907d92578e9d7952082b4728b0b007d54ec0" data-fmt="brl"></div><div class="chk" data-id="md5b" data-q="[Ticket Médio] com Loja = Santos e Mes = Jun" data-h="179b7078e6a1ff059b39c8cd81b4a013f6bae99b68fa6f13f3e6f4946b1e7b65" data-fmt="brl"></div></div><div class="call info"><b>★</b><div><strong>Bônus (opcional)</strong><br>Agora que você tem a coluna [Faixa de Preço], arraste-a para uma tabela junto com [Faturamento].</div></div><div class="chk" data-id="bn1" data-q="Bônus: [Faturamento] por Faixa de Preço. Quanto vendeu a faixa Premium?" data-h="420f59ad928a72fd1d487dbad4125f0b0e8f996a1f294edb90cbc77ac5123382" data-fmt="brl"></div></section>
+<section id="dash"><h2><span>09</span> Etapa 6 · O dashboard</h2>
+<p><strong>Objetivo:</strong> uma página que responda ao pedido da gerente. Monte do jeito que achar melhor; depois compare com a referência.</p>
+<ol class="steps"><li><span class="lab">Passo 6.1</span> Abra uma página nova. Em <em>Exibição → Temas → Procurar temas</em> aplique o <code>PetFeliz_tema.json</code> (opcional).</li>
+<li><span class="lab">Passo 6.2</span> Linha de cima: <strong>4 cartões</strong> com [Faturamento], [Lucro], [Margem de Lucro] e [Pedidos]. Se quiser, um quinto com [Ticket Médio].</li>
+<li><span class="lab">Passo 6.3</span> <strong>Gráfico de linhas</strong>: eixo X <code>dCalendario[Mes]</code>, valores [Faturamento]. Ele só sai na ordem certa porque você classificou Mes por MesNum.</li>
+<li><span class="lab">Passo 6.4</span> <strong>Barras</strong>: <code>dProdutos[Categoria]</code> com [Faturamento]; e <code>dLojas[NomeLoja]</code> com [Lucro].</li>
+<li><span class="lab">Passo 6.5</span> Uma <strong>segmentação</strong> de <code>dLojas[NomeLoja]</code> para filtrar a página inteira.</li>
+<li><span class="lab">Passo 6.6</span> Capriche: títulos claros, uma cor para cada ideia, formato de moeda R$ nos valores.</li></ol><div class="chk" data-id="e1" data-q="Dashboard: com a segmentação Loja = Santos, o cartão de Faturamento mostra?" data-h="6aec14d47e04bc449a7e8690d6ca97449f36d9292a3b7dd270ac1cd4e85b106d" data-fmt="brl"></div>
+</section>
+<section id="nota"><h2><span>10</span> Autoavaliação</h2>
+<table class="t"><tr><th>Critério</th><th>Pontos</th></tr><tr><td>Importação e tipos de dado (Etapa 1)</td><td>15</td></tr><tr><td>Calendário e relacionamentos, com os testes batendo</td><td>20</td></tr><tr><td>3 colunas calculadas conferidas</td><td>20</td></tr><tr><td>5 medidas conferidas</td><td>30</td></tr><tr><td>Dashboard claro e completo</td><td>15</td></tr></table>
+<p><strong>90 ou mais:</strong> pronto para o desafio completo (Aula 16 (Desafio)). <strong>70 a 89:</strong> refaça as etapas em que errou. <strong>Abaixo de 70:</strong> sem drama, refaça com calma. É na segunda vez que a ideia fixa.</p></section>
+<section id="fim"><h2><span>11</span> Palavras finais</h2><div class="thanks">
+<p><strong>Parabéns!</strong> Você importou dados, criou um calendário, ligou as tabelas, escreveu colunas calculadas e medidas e montou um dashboard. Isso é Power BI de verdade.</p>
+<p>Eu espero que você tenha gostado do curso. <strong>Eu gostei muito</strong> de construir cada aula. Obrigado pela confiança e pela dedicação.</p>
+<p>Quando se sentir pronto, faça a <a href="../aula-16/">Aula 16 (Desafio) · Projeto final completo</a>. É o mesmo caminho, com mais fontes, mais pegadinhas e mais DAX.</p>
+<p>E lembre-se: <strong>eu me coloco à sua inteira disposição.</strong> Dúvida no DAX, no relacionamento, no dashboard ou na carreira, é só me chamar.</p>
+<p class="sig">Um grande abraço,<br><strong>Prof. Johnny Braga</strong><br>Braga Treinamentos<br><span class="ph">[inclua aqui seu e-mail / WhatsApp / LinkedIn]</span></p></div>
+<p class="nav"><a class="btn alt" href="../aula-14/">← Aula 14</a> <a class="btn" href="../aula-16/">Aula 16 (Desafio) · Projeto completo →</a></p></section>
+</main></div><footer>© Braga Treinamentos · Dados fictícios criados para este curso. Recursos e licenças do Power BI mudam com frequência.</footer><script>
+(function(){
+var R=document.documentElement;
+function sv(k,v){try{localStorage.setItem('pf15g_'+k,v)}catch(e){}}
+function ld(k){try{return localStorage.getItem('pf15g_'+k)}catch(e){return null}}
+var t=ld('tema');if(t)R.setAttribute('data-theme',t);
+document.getElementById('tema').onclick=function(){var d=R.getAttribute('data-theme')==='dark'||(!R.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);var n=d?'light':'dark';R.setAttribute('data-theme',n);sv('tema',n)};
+document.querySelectorAll('.cp').forEach(function(b){b.onclick=function(){var c=b.parentNode.querySelector('code').innerText;(navigator.clipboard?navigator.clipboard.writeText(c):Promise.reject()).then(function(){b.textContent='Copiado!'},function(){b.textContent='Selecione e copie'});setTimeout(function(){b.textContent='Copiar'},1800)}});
+
+// Standalone SHA256
+function sha256Sync(ascii) {
+  function rightRotate(value, amount) { return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), lengthProperty = 'length', i, j, result = '', words = [];
+  var asciiBitLength = ascii[lengthProperty] * 8, hash = [], k = [], primeCounter = 0, isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++) {
+    if (!isComposite[candidate]) {
+      for (i = 0; i < 313; i += candidate) isComposite[i] = candidate;
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
     }
-    .holding-box .badge {
-      display: inline-block;
-      background: var(--accent, #f2c811);
-      color: #121212;
-      font-weight: 800;
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      margin-bottom: 16px;
+  }
+  ascii += '\x80';
+  while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii[lengthProperty]; i++) {
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength | 0);
+  for (j = 0; j < words[lengthProperty];) {
+    var w = words.slice(j, j += 16), oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++) {
+      var w15 = w[i - 15], w2 = w[i - 2], a = hash[0], e = hash[4];
+      var temp1 = hash[7] + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) + ((e & hash[5]) ^ ((~e) & hash[6])) + k[i] + (w[i] = (i < 16) ? w[i] : (w[i - 16] + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3)) + w[i - 7] + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))) | 0);
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
     }
-    .holding-box h1 {
-      margin: 0 0 16px;
-      font-size: 2.2rem;
-      font-family: var(--display, inherit);
+    for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
+  }
+  for (i = 0; i < 8; i++) {
+    for (j = 3; j + 1; j--) {
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
     }
-    .holding-box p {
-      font-size: 1.15rem;
-      color: var(--ink-2, #4a5263);
-      max-width: 54ch;
-      margin: 0 auto 28px;
+  }
+  return result;
+}
+
+function parse(s){
+  s = String(s).replace(/R\$|%|\s/g, '');
+  if (s.indexOf(',') > -1) {
+    s = s.replace(/\./g, '').replace(',', '.');
+  } else if (/^\d{1,3}(\.\d{3})+$/.test(s)) {
+    s = s.replace(/\./g, '');
+  }
+  return parseFloat(s);
+}
+
+var boxes = document.querySelectorAll('.chk');
+var total = boxes.length;
+function upd(){
+  var n = document.querySelectorAll('.chk.ok').length;
+  document.getElementById('barra').style.width = (100 * n / total) + '%';
+  document.getElementById('progtxt').textContent = n + ' de ' + total + ' conferências';
+}
+
+boxes.forEach(function(b){
+  var id = b.dataset.id, expectedHash = b.dataset.h, f = b.dataset.fmt;
+  b.innerHTML = '<div class="qt">' + b.dataset.q + '</div><input type="text" inputmode="decimal" placeholder="Seu resultado" aria-label="Seu resultado"><button type="button">Conferir</button><span class="fb"></span>';
+  var inp = b.querySelector('input'), btn = b.querySelector('button'), fb = b.querySelector('.fb');
+  function ok(msg){
+    b.classList.add('ok');
+    fb.className = 'fb';
+    fb.textContent = msg || '✓ Correto! Valor conferido com sucesso.';
+    sv(id, '1');
+    upd();
+  }
+  btn.onclick = function(){
+    var v = parse(inp.value);
+    if (isNaN(v)) {
+      fb.className = 'fb bad';
+      fb.textContent = 'Digite um número válido.';
+      return;
     }
-    .holding-box .actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    var good = false;
+    if (f === 'int') {
+      good = (sha256Sync(id + ':' + Math.round(v)) === expectedHash);
+    } else {
+      var cents = Math.round(v * 100);
+      var c0 = sha256Sync(id + ':' + (cents / 100).toFixed(2));
+      var cM = sha256Sync(id + ':' + ((cents - 1) / 100).toFixed(2));
+      var cP = sha256Sync(id + ':' + ((cents + 1) / 100).toFixed(2));
+      good = (c0 === expectedHash || cM === expectedHash || cP === expectedHash);
     }
-    .holding-box a.btn-action {
-      display: inline-block;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 15px;
+    if (good) {
+      ok();
+      return;
     }
-    .holding-box a.btn-primary {
-      background: #0F766E;
-      color: #fff;
-    }
-    .holding-box a.btn-sec {
-      background: var(--soft, #f3f2ec);
-      color: var(--ink, #1d2330);
-      border: 1px solid var(--line, #e6e4dc);
-    }
-  </style>
-</head>
-<body data-aula="aula-15">
-<header class="topbar">
-  <div class="in">
-    <a class="brand" href="/"><span class="logo"><i></i><i></i><i></i></span><span class="bt">Power BI · Braga Treinamentos</span></a>
-    <div class="navbtns">
-      <a href="/">Todas as aulas</a>
-      <a class="hide-s" href="/curso-powerbi/site/aula-14/">← Anterior</a>
-      <a href="/curso-powerbi/site/aula-16/">Próxima →</a>
-      <button class="theme-tg" type="button" aria-label="Alternar tema claro ou escuro">Tema</button>
-    </div>
-  </div>
-</header>
-<main>
-  <div class="wrap">
-    <div class="holding-box">
-      <span class="badge">Próxima Aula</span>
-      <h1>Aula 15</h1>
-      <p>O conteúdo da Aula 15 está sendo preparado e será disponibilizado em breve pelo professor.</p>
-      <p style="font-size: 0.95rem; color: var(--ink-3, #7a8191);">Você já pode avançar para o <strong>Desafio Prático</strong> na Aula 16 ou revisar as aulas anteriores.</p>
-      <div class="actions">
-        <a class="btn-action btn-sec" href="/curso-powerbi/site/aula-14/">← Voltar para Aula 14</a>
-        <a class="btn-action btn-primary" href="/curso-powerbi/site/aula-16/">Ir para o Desafio (Aula 16) →</a>
-      </div>
-    </div>
-  </div>
-</main>
-<script src="/curso-powerbi/site/assets/curso.js"></script>
-</body>
-</html>
+    fb.className = 'fb bad';
+    fb.textContent = 'Ainda não bateu. Revise a etapa e tente novamente.';
+  };
+  inp.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') btn.click();
+  });
+  if (ld(id) === '1') {
+    ok('✓ Conferido anteriormente');
+  }
+});
+upd();
+})();
+</script></body></html>
