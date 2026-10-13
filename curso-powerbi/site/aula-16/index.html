@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aula 16 · Desafio: Projeto Pet Feliz</title>
+<meta name="description" content="Projeto final do curso de Power BI: importe fontes diferentes, trate no Power Query, relacione, crie medidas DAX e monte o dashboard da Pet Feliz, com números de conferência em cada etapa.">
+<style>
+:root{--bg:#F5F8F7;--card:#fff;--ink:#1E293B;--mut:#64748B;--line:#E2E8F0;--pri:#0F766E;--pri2:#0B5A54;--acc:#F59E0B;--ok:#16A34A;--bad:#DC2626;--code:#0F172A;--codeink:#E2E8F0;--infobg:#ECFEFF;--tipbg:#F0FDF4;--warnbg:#FFFBEB}
+:root[data-theme=dark]{--bg:#0F172A;--card:#1E293B;--ink:#E2E8F0;--mut:#94A3B8;--line:#334155;--pri:#2DD4BF;--pri2:#5EEAD4;--code:#020617;--infobg:#0C2A33;--tipbg:#0F2A1E;--warnbg:#33260A}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]):not([data-theme=dark]){--bg:#0F172A;--card:#1E293B;--ink:#E2E8F0;--mut:#94A3B8;--line:#334155;--pri:#2DD4BF;--pri2:#5EEAD4;--code:#020617;--infobg:#0C2A33;--tipbg:#0F2A1E;--warnbg:#33260A}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Inter,"Segoe UI",system-ui,sans-serif}
+a{color:var(--pri)}
+.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;background:var(--pri);color:#fff;flex-wrap:wrap}
+.top a{color:#fff;text-decoration:none;font-weight:600}.top nav{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.top button{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:8px;padding:5px 12px;cursor:pointer}
+.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px;max-width:1180px;margin:0 auto;padding:24px 16px}
+.toc{position:sticky;top:64px;align-self:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:15px;max-height:calc(100vh - 90px);overflow:auto}
+.toc ol{padding-left:20px;margin:8px 0}.toc li{margin:4px 0}.toc a{text-decoration:none}
+.prog{margin-top:14px}.bar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;width:0;background:var(--pri);transition:width .3s}
+.crumb{color:var(--mut);margin:0;font-size:14px}
+h1{font-size:2rem;line-height:1.25;margin:.2em 0 .4em}
+.lead{font-size:1.15rem;color:var(--mut)}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:22px 0}
+h2{margin-top:0;font-size:1.5rem;display:flex;gap:12px;align-items:baseline}h2 span{color:var(--acc);font-weight:800}
+h3{margin:1.4em 0 .4em;font-size:1.15rem;color:var(--pri)}
+.t{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px;display:block;overflow-x:auto}
+.t th,.t td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.t th{background:color-mix(in srgb,var(--pri) 12%,transparent)}
+code{background:color-mix(in srgb,var(--pri) 12%,transparent);padding:1px 6px;border-radius:5px;font-size:.92em}
+pre{position:relative;background:var(--code);color:var(--codeink);padding:16px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.5}pre code{background:none;padding:0;color:inherit}
+.cp{position:absolute;right:8px;top:8px;background:#334155;color:#fff;border:0;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px}
+.call{display:flex;gap:14px;padding:14px 16px;border-radius:10px;margin:16px 0;border-left:5px solid}
+.call>b{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:15px}
+.info{background:var(--infobg);border-color:#0891B2}.info>b{background:#0891B2}
+.tip{background:var(--tipbg);border-color:var(--ok)}.tip>b{background:var(--ok)}
+.warn{background:var(--warnbg);border-color:var(--acc)}.warn>b{background:var(--acc)}
+.steps{list-style:none;padding:0;counter-reset:s}.steps li{padding:10px 14px;border-left:4px solid var(--pri);background:color-mix(in srgb,var(--pri) 6%,transparent);margin:8px 0;border-radius:0 8px 8px 0}
+.lab{display:inline-block;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--pri);padding:2px 8px;border-radius:5px;margin-right:8px}
+.mail{border-left:5px solid var(--acc);background:var(--warnbg);margin:16px 0;padding:6px 18px;border-radius:0 10px 10px 0}
+.btn{display:inline-block;background:var(--pri);color:#fff!important;text-decoration:none;padding:10px 18px;border-radius:10px;font-weight:700;margin:4px 8px 4px 0}.btn.alt{background:transparent;color:var(--pri)!important;border:2px solid var(--pri)}
+details{border:1px solid var(--line);border-radius:10px;margin:12px 0;padding:8px 14px}details summary{cursor:pointer;font-weight:700}
+.dica{background:var(--infobg)}.sol{background:var(--warnbg)}
+.q{padding:12px 0;border-top:1px dashed var(--line)}
+.chk{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.chk .qt{flex:1 1 100%;font-weight:600;font-size:15px}
+.chk input{padding:8px 10px;border:1px solid var(--line);border-radius:8px;width:190px;background:var(--card);color:var(--ink);font-size:16px}
+.chk button{padding:8px 14px;border-radius:8px;border:0;background:var(--pri);color:#fff;font-weight:700;cursor:pointer}
+.chk button.ghost{background:transparent;color:var(--mut);border:1px solid var(--line)}
+.chk .fb{font-weight:700}.chk.ok{border-color:var(--ok)}.chk.ok .fb{color:var(--ok)}.chk .fb.bad{color:var(--bad)}
+figure{margin:18px 0}figure img{width:100%;border:1px solid var(--line);border-radius:10px}figcaption{color:var(--mut);font-size:14px}
+.thanks{background:linear-gradient(135deg,color-mix(in srgb,var(--pri) 14%,transparent),color-mix(in srgb,var(--acc) 14%,transparent));padding:8px 24px;border-radius:12px;font-size:1.05rem}
+.sig{margin-top:1.4em}.ph{background:var(--warnbg);padding:2px 8px;border-radius:5px;font-size:.9em}
+footer{text-align:center;color:var(--mut);padding:30px 16px;font-size:14px}
+.ficha{border:1px solid var(--line);border-radius:12px;padding:6px 18px 12px;margin:18px 0;background:color-mix(in srgb,var(--pri) 4%,transparent)}
+.ficha h4{margin:12px 0 6px;font-size:1.05rem}.ficha .id{display:inline-block;background:var(--acc);color:#1E293B;font-weight:800;border-radius:6px;padding:1px 8px;margin-right:8px;font-size:.85rem}
+.ficha .pq{margin-bottom:0}.ficha ul{margin-top:4px}
+.dic .t{margin:10px 0}.dic .t th{background:color-mix(in srgb,var(--pri) 16%,transparent)}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.toc{position:static;max-height:none}section{padding:16px}h1{font-size:1.6rem}.chk input{width:100%}}
+</style></head><body><header class="top">
+  <a class="brand" href="../../">Power BI · Braga Treinamentos</a>
+  <nav><a href="../../">Todas as aulas</a><a href="../aula-15/">← Anterior</a><button id="tema" type="button">Tema</button></nav>
+</header>
+<div class="wrap">
+<aside class="toc"><b>Nesta aula</b>
+<ol>
+<li><a href="#boasvindas">Boas-vindas ao desafio</a></li>
+<li><a href="#resumo">O que já aprendemos</a></li>
+<li><a href="#briefing">O briefing da Pet Feliz</a></li>
+<li><a href="#arquivos">Arquivos e dicionário</a></li>
+<li><a href="#importar">Etapa 1 · Importar</a></li>
+<li><a href="#tratar">Etapa 2 · Tratar (Power Query)</a></li>
+<li><a href="#modelar">Etapa 3 · Relacionar e testar</a></li>
+<li><a href="#dax">Etapa 4 · DAX</a></li>
+<li><a href="#dash">Etapa 5 · Dashboard</a></li>
+<li><a href="#refresh">Etapa 6 · Teste de atualização</a></li>
+<li><a href="#nota">Como você será avaliado</a></li>
+<li><a href="#fim">Palavras finais</a></li>
+</ol>
+<div class="prog"><b>Seu progresso</b><div class="bar"><i id="barra"></i></div><span id="progtxt">0 de 0 conferências</span></div>
+</aside>
+<main>
+<p class="crumb">Curso Power BI / Aula 16 de 16 · Desafio para continuar progredindo</p>
+<h1>Aula 16 · Desafio: do arquivo bruto ao dashboard</h1>
+<p class="lead">Hoje não tem “siga o meu passo a passo”. Hoje é a sua vez. Eu vou te dizer <strong>o que</strong> precisa ser feito e <strong>como saber se acertou</strong>. O <strong>como fazer</strong> é com você — e, se travar, tem dicas e conferências automáticas a cada etapa.</p>
+
+<section id="boasvindas">
+<h2><span>01</span> Boas-vindas ao desafio</h2>
+<p>Chegamos ao grande desafio prático. Nas aulas anteriores eu segurei a sua mão: mostrei cada clique, cada fórmula. Agora vou soltar. Não porque você está sozinho, mas porque você já sabe.</p>
+<p>No mundo real ninguém entrega um arquivo limpinho, em um único formato, com tudo no lugar. O que chega é uma pasta com CSV de um sistema, TXT de outro, uma planilha da diretoria com título nas primeiras linhas, um JSON de um sistema novo… e um pedido: <em>“preciso de um dashboard até sexta”</em>. Esse é o seu desafio.</p>
+<div class="call info"><b>i</b><div><strong>Como usar esta aula</strong><br>1) Leia o briefing. 2) Faça cada etapa <strong>sozinho</strong>, pensando. 3) Ao terminar, digite o seu resultado na caixa de conferência. 4) Só abra “Preciso de uma dica” se travar por mais de 10 minutos. 5) Ao concluir todas as etapas, salve seu arquivo .pbix e envie para avaliação do professor.</div></div>
+<p><strong>Tempo estimado:</strong> 4 a 6 horas, em uma ou duas sessões. <strong>Entrega:</strong> um arquivo <code>.pbix</code> com 3 páginas.</p>
+</section>
+
+<section id="resumo">
+<h2><span>02</span> O que já aprendemos juntos</h2>
+<p>Antes de começar, olhe para trás. Tudo isto você já domina — e vai usar hoje:</p>
+<table class="t">
+<tr><th>Aula</th><th>Tema</th><th>Onde você usa no projeto</th></tr>
+<tr><td>1</td><td>Power BI para Business Intelligence</td><td>O objetivo: transformar dado em decisão</td></tr>
+<tr><td>2</td><td>Importando dados do Excel e o Power Query</td><td>Etapa 1 e 2</td></tr>
+<tr><td>3</td><td>Atualizando os dados</td><td>Etapa 6 (teste de atualização)</td></tr>
+<tr><td>4</td><td>Relacionamentos</td><td>Etapa 3 (esquema estrela)</td></tr>
+<tr><td>5</td><td>Primeiros passos com DAX</td><td>Etapa 4 (medidas básicas)</td></tr>
+<tr><td>6</td><td>Projeto Dashboard de Vendas</td><td>Etapa 5 (primeiro dashboard)</td></tr>
+<tr><td>7</td><td>Dados reais do IBGE (API)</td><td>Importar de fontes diferentes</td></tr>
+<tr><td>8</td><td>Power Query intermediário</td><td>Pasta de arquivos, unpivot, tipos, tratamento de erros</td></tr>
+<tr><td>9</td><td>Inspiração e design de dashboards</td><td>Layout, cores, hierarquia visual</td></tr>
+<tr><td>10</td><td>Calendário e inteligência de tempo</td><td>dCalendario, YTD, ano anterior</td></tr>
+<tr><td>11</td><td>Projeto Cafeteria Grão de Ouro</td><td>Seu modelo de referência</td></tr>
+<tr><td>12</td><td>DAX intermediário</td><td>CALCULATE, filtros, RELATED, ranking</td></tr>
+<tr><td>13</td><td>Interatividade e storytelling</td><td>Segmentações, drill-through, indicadores</td></tr>
+<tr><td>14</td><td>Publicação, segurança e projeto final</td><td>Publicar e apresentar o resultado</td></tr>
+</table>
+<p>Resumindo em uma frase: <strong>importamos, tratamos, modelamos, calculamos e contamos uma história</strong>. É exatamente essa ordem que você vai seguir hoje, nas Etapas 1 a 5.</p>
+<div class="call tip"><b>✓</b><div><strong>O ciclo que você vai repetir a vida inteira</strong><br><code>Importar → Tratar → Relacionar → Calcular (DAX) → Visualizar → Atualizar</code></div></div>
+</section>
+
+<section id="briefing">
+<h2><span>03</span> O briefing da Pet Feliz</h2>
+<p>Você acaba de ser contratado como analista de BI da <strong>Pet Feliz</strong>, rede com 8 lojas de produtos para animais (SP, RJ, MG, PR e RS). Quem manda o e-mail é a diretora comercial:</p>
+<blockquote class="mail">
+<p><em>“Olá! Hoje eu junto informação de seis fontes diferentes à mão. As vendas vêm do sistema da loja em CSV, um arquivo por mês. O cadastro de lojas vem do ERP em TXT. Produtos é uma planilha do pessoal de compras. Clientes vem de um sistema antigo. As metas estão numa planilha larga e as devoluções chegam em JSON do e-commerce.</em></p>
+<p><em>Preciso de um dashboard com 3 páginas: <strong>visão geral</strong> (faturamento, lucro, margem, evolução e comparação com o ano passado), <strong>lojas e metas</strong> (quem está batendo a meta?) e <strong>produtos e clientes</strong>. Tem que atualizar sozinho quando chegar o arquivo de setembro. Obrigada!”</em></p>
+</blockquote>
+<h3>O que você precisa entregar</h3>
+<ul>
+<li>Um arquivo <code>PetFeliz_SeuNome.pbix</code> com <strong>3 páginas</strong> conforme o pedido.</li>
+<li>Os <strong>6 grupos de fontes</strong> importados e tratados no Power Query.</li>
+<li>Um <strong>modelo em estrela</strong> com tabelas <code>f…</code> (fatos) e <code>d…</code> (dimensões) e calendário marcado como tabela de datas.</li>
+<li>No mínimo <strong>15 medidas</strong> DAX, organizadas em uma tabela de medidas.</li>
+<li>Os <strong>testes de atualização</strong> da Etapa 6 funcionando.</li>
+</ul>
+<div class="call warn"><b>!</b><div><strong>Aviso do professor: os dados têm pegadinhas</strong><br>Eu coloquei de propósito os problemas que você vai encontrar no mundo real: linhas repetidas, lojas de teste, espaços sobrando, datas como texto, números com vírgula, planilha com título em cima, vendas sem cliente. Quem não tratar, vai errar o resultado — e você saberá, porque cada etapa tem um número de conferência.</div></div>
+</section>
+
+<section id="arquivos">
+<h2><span>04</span> Seus arquivos e o dicionário de dados</h2>
+<p>Baixe tudo antes de começar. Você pode baixar o <strong>pacote completo</strong> (um zip só) ou cada arquivo separado. Descompacte em uma pasta fácil (ex.: <code>C:\Cursos\PetFeliz\</code>) e <strong>não mude os nomes</strong>.</p>
+<p><a class="btn" href="../arquivos/Aula15_ProjetoFinal_PetFeliz_ALUNO.zip" download>⬇ Pacote completo (.zip)</a>
+<a class="btn alt" href="../arquivos/Caderno_do_Aluno.xlsx" download>⬇ Caderno do aluno (.xlsx)</a>
+<a class="btn alt" href="../arquivos/PetFeliz_tema.json" download>⬇ Tema de cores (.json)</a></p>
+<h3>Baixar arquivo por arquivo</h3>
+<table class="t">
+<tr><th>Arquivo</th><th>Formato</th><th>O que é</th><th>Cuidado</th><th>Baixar</th></tr>
+<tr><td><code>Vendas\</code> (20 arquivos)</td><td>CSV ;</td><td>Uma linha por item vendido, jan/2025 a ago/2026</td><td>Decimal com vírgula, data em texto</td><td><a href="../arquivos/Vendas_20_CSVs.zip" download>Vendas_20_CSVs.zip</a></td></tr>
+<tr><td><code>Lojas.txt</code></td><td>TXT tabulado</td><td>Cadastro de lojas</td><td>Tem uma loja que não é loja</td><td><a href="../arquivos/Lojas.txt" download>Lojas.txt</a></td></tr>
+<tr><td><code>Produtos.xlsx</code></td><td>Excel</td><td>Cadastro de produtos com custo</td><td>Título nas primeiras linhas</td><td><a href="../arquivos/Produtos.xlsx" download>Produtos.xlsx</a></td></tr>
+<tr><td><code>Clientes.csv</code></td><td>CSV ANSI</td><td>Cadastro de clientes</td><td>Acentos: confira a codificação</td><td><a href="../arquivos/Clientes.csv" download>Clientes.csv</a></td></tr>
+<tr><td><code>Metas_2026.xlsx</code></td><td>Excel largo</td><td>Meta mensal por loja (meses em colunas)</td><td>Precisa “desdinamizar”</td><td><a href="../arquivos/Metas_2026.xlsx" download>Metas_2026.xlsx</a></td></tr>
+<tr><td><code>Devolucoes.json</code></td><td>JSON aninhado</td><td>Devoluções do e-commerce</td><td>Lista dentro de lista</td><td><a href="../arquivos/Devolucoes.json" download>Devolucoes.json</a></td></tr>
+<tr><td><code>Novos_Dados\</code></td><td>CSV</td><td>Vendas de setembro/2026</td><td><strong>Não importe agora!</strong> Só na Etapa 6</td><td><a href="../arquivos/Novos_Dados_Setembro.zip" download>Novos_Dados_Setembro.zip</a></td></tr>
+</table>
+<p>O <strong>Caderno do aluno</strong> reúne o dicionário de dados, as fichas de todas as medidas (com espaço para o seu resultado) e a ficha de testes do modelo. Use-o como rascunho: ele não traz respostas.</p>
+<h3>Dicionário de dados: o que significa cada coluna</h3>
+<p>Antes de criar qualquer medida, descubra onde está cada informação. Esta consulta você vai fazer o projeto inteiro.</p>
+<div class="dic">
+<table class="t"><tr><th colspan="3">Vendas (20 CSVs) → vira <code>fVendas</code></th></tr>
+<tr><td>IDPedido</td><td>número inteiro</td><td>Número do pedido. Um pedido tem vários itens, então o número se repete em várias linhas</td></tr>
+<tr><td>Data</td><td>data (vem como texto dd/mm/aaaa)</td><td>Dia da venda</td></tr>
+<tr><td>CodLoja</td><td>inteiro</td><td>Código da loja (o 99 é uma loja de teste)</td></tr>
+<tr><td>IDCliente</td><td>texto</td><td>Cliente cadastrado. Vazio = venda sem cliente identificado</td></tr>
+<tr><td>SKU</td><td>texto</td><td>Código do produto (pode vir minúsculo e com espaço)</td></tr>
+<tr><td>Qtd</td><td>inteiro</td><td>Unidades vendidas na linha</td></tr>
+<tr><td>PrecoUnit</td><td>decimal (vírgula)</td><td>Preço praticado por unidade, em R$</td></tr>
+<tr><td>Desconto</td><td>decimal (vírgula)</td><td>0,05 = 5% de desconto sobre a linha</td></tr></table>
+<table class="t"><tr><th colspan="3">Lojas.txt → <code>dLojas</code></th></tr>
+<tr><td>CodLoja · NomeLoja</td><td>inteiro · texto</td><td>Chave e nome da loja</td></tr>
+<tr><td>Cidade · UF · Regiao</td><td>texto</td><td>Localização (Regiao: Sudeste ou Sul)</td></tr>
+<tr><td>Gerente · DataAbertura</td><td>texto · data</td><td>Gerente e abertura da loja</td></tr></table>
+<table class="t"><tr><th colspan="3">Produtos.xlsx → <code>dProdutos</code></th></tr>
+<tr><td>SKU</td><td>texto</td><td>Chave do produto</td></tr>
+<tr><td>Produto · Categoria · Marca</td><td>texto</td><td>Descrição e agrupamentos</td></tr>
+<tr><td>CustoUnit</td><td>decimal</td><td>Custo de cada unidade para a Pet Feliz (usado no CMV)</td></tr>
+<tr><td>PrecoLista</td><td>decimal</td><td>Preço de tabela (a venda pode ter preço diferente)</td></tr></table>
+<table class="t"><tr><th colspan="3">Clientes.csv → <code>dClientes</code></th></tr>
+<tr><td>IDCliente</td><td>texto</td><td>Chave do cliente</td></tr>
+<tr><td>NomeCliente · Sexo · Cidade</td><td>texto</td><td>Dados do cliente</td></tr>
+<tr><td>DataCadastro</td><td>data (texto dd/mm/aaaa)</td><td>Quando o cliente se cadastrou</td></tr></table>
+<table class="t"><tr><th colspan="3">Metas_2026.xlsx → <code>fMetas</code></th></tr>
+<tr><td>CodLoja · Loja</td><td>inteiro · texto</td><td>Loja da meta</td></tr>
+<tr><td>Jan … Dez</td><td>inteiro (12 colunas)</td><td>Meta de faturamento do mês, em R$. Depois de desdinamizar viram duas colunas (Mês e Meta)</td></tr></table>
+<table class="t"><tr><th colspan="3">Devolucoes.json → <code>fDevolucoes</code></th></tr>
+<tr><td>idDevolucao · pedido · loja · motivo</td><td>inteiro · texto</td><td>Identificação da devolução</td></tr>
+<tr><td>dataDevolucao</td><td>texto aaaa-mm-dd</td><td>Dia da devolução</td></tr>
+<tr><td>itens → sku · qtd · valorReembolsado</td><td>lista de registros</td><td>Itens devolvidos e quanto foi reembolsado. Precisa expandir duas vezes</td></tr></table>
+</div>
+<div class="call info"><b>i</b><div><strong>Como funciona a “Conferência”</strong><br>Em cada etapa você vai ver caixinhas assim. Digite o seu número e clique em <em>Conferir</em>. Se bater, ótimo. Se não bater, <strong>pare e procure o porquê</strong>: essa investigação é a parte mais valiosa do exercício.</div></div>
+</section>
+
+<section id="importar">
+<h2><span>05</span> Etapa 1 · Importar seis fontes diferentes</h2>
+<p><strong>Seu objetivo:</strong> trazer todos os dados para o Power BI Desktop, cada um com o conector certo. Nada de abrir no Excel e copiar e colar.</p>
+<h3>O que precisa ser feito</h3>
+<ol class="steps">
+<li><span class="lab">Passo 1.1</span> Crie um novo arquivo no Power BI Desktop e salve como <code>PetFeliz_SeuNome.pbix</code>.</li>
+<li><span class="lab">Passo 1.2</span> Importe <strong>as 20 planilhas de vendas de uma vez</strong>, usando o conector que lê uma <strong>pasta</strong> inteira (lembra da Aula 8?). Assim, quando chegar o arquivo de setembro, basta colocá-lo na pasta.</li>
+<li><span class="lab">Passo 1.3</span> Importe <code>Lojas.txt</code> (conector de Texto/CSV; atenção ao delimitador).</li>
+<li><span class="lab">Passo 1.4</span> Importe <code>Produtos.xlsx</code> (conector de Excel; escolha a aba <em>Cadastro</em>).</li>
+<li><span class="lab">Passo 1.5</span> Importe <code>Clientes.csv</code> (confira a <strong>origem do arquivo</strong>: os acentos precisam aparecer certos).</li>
+<li><span class="lab">Passo 1.6</span> Importe <code>Metas_2026.xlsx</code> (aba <em>Metas</em>).</li>
+<li><span class="lab">Passo 1.7</span> Importe <code>Devolucoes.json</code> (conector JSON).</li>
+</ol>
+<p>Sem tratar nada ainda. Só importe e olhe os dados no Power Query.</p>
+<h3>Confira</h3>
+<div class="chk" data-id="c1" data-q="Quantas linhas tem a consulta de Vendas combinada, antes de qualquer limpeza?" data-h="f4662c28614836b7fc6f4b7f18183514447c947202c6db4087337c9941e41a60" data-fmt="int"></div>
+<div class="chk" data-id="c2" data-q="Quantas linhas tem a tabela Lojas?" data-h="5758bd3757b9432edc17711e00fd81332d5351e39c57cc7c45cb4e06fe5ca91a" data-fmt="int"></div>
+<div class="chk" data-id="c3" data-q="Quantas linhas tem Clientes?" data-h="85683cae33ccf26bbc3a9f7ba9a9d00b86aaaef7d7006440a3c93217241679a6" data-fmt="int"></div>
+<div class="chk" data-id="c4" data-q="Quantas devoluções existem no JSON (uma por registro da lista)?" data-h="417dc198eb2c80d0e6d8f9ee61d4408c02473ccf2039dd9dd3f93d980d3d32b2" data-fmt="int"></div>
+<details class="dica"><summary>Preciso de uma dica</summary>
+<ul><li>Pasta: <em>Obter Dados → Pasta</em> e depois <em>Combinar e Transformar</em>. Nas Vendas, delimitador é <code>;</code>.</li>
+<li>JSON: ele abre como uma <em>List</em> ou <em>Record</em>. Clique em <em>Para Tabela</em> e depois expanda as colunas. A lista <code>itens</code> precisa ser expandida também, em duas fases.</li>
+<li>Produtos.xlsx: as linhas de título atrapalham — mas deixe isso para a Etapa 2.</li></ul></details>
+</section>
+
+<section id="tratar">
+<h2><span>06</span> Etapa 2 · Tratar no Power Query</h2>
+<p><strong>Seu objetivo:</strong> deixar cada tabela pronta para o modelo. Aqui está a diferença entre um dashboard que parece certo e um dashboard que <em>está</em> certo.</p>
+<h3>Checklist de tratamento (pense: o que está errado em cada tabela?)</h3>
+<table class="t">
+<tr><th>Tabela</th><th>O que você deve resolver</th></tr>
+<tr><td><strong>Vendas</strong></td><td>Tipos corretos (data como <em>Data</em>, preço e desconto como número decimal — cuidado com a <strong>vírgula</strong> e a <strong>localidade</strong>), códigos de produto sem espaços e padronizados, <strong>linhas 100% duplicadas</strong> removidas, <strong>loja de teste</strong> removida</td></tr>
+<tr><td><strong>Lojas</strong></td><td>Remover a loja que não é loja; manter só as colunas úteis; nomes sem “Pet Feliz ” são opcionais, mas ajudam nos gráficos</td></tr>
+<tr><td><strong>Produtos</strong></td><td>Promover o cabeçalho correto, remover linhas de título, tipos numéricos</td></tr>
+<tr><td><strong>Clientes</strong></td><td>Acentos corretos, data de cadastro como data</td></tr>
+<tr><td><strong>Metas</strong></td><td><strong>Desdinamizar</strong> as colunas de mês; criar uma coluna de <strong>Data</strong> (dia 1 de cada mês de 2026) e o <strong>número do mês</strong></td></tr>
+<tr><td><strong>Devoluções</strong></td><td>Expandir o JSON até ter 1 linha por item devolvido: pedido, data, loja, motivo, SKU, quantidade, valor reembolsado</td></tr>
+</table>
+<div class="call warn"><b>!</b><div><strong>Atenção à ordem</strong><br>Padronize o texto do SKU <em>antes</em> de remover duplicatas e antes de relacionar com Produtos. Quem não padroniza fica com produtos “sem custo” e o lucro sai errado.</div></div>
+<h3>Confira</h3>
+<div class="chk" data-id="c5" data-q="Quantas linhas DUPLICADAS você removeu das Vendas?" data-h="0ddec33d1e3846ec83f94d982b39e3091c44e332f4aab0f831a67d5d86056e3d" data-fmt="int"></div>
+<div class="chk" data-id="c6" data-q="Quantas linhas da loja de teste você removeu?" data-h="3ec96e9b2f17bb9d0428d0c74f176fb50f7a653a3d1d3432600f21d56badfd57" data-fmt="int"></div>
+<div class="chk" data-id="c7" data-q="Quantas linhas finais tem fVendas?" data-h="3348522e9d6e5c98a340cc66ffee546af818f701e8aeb3d20880db6bfc26cf4f" data-fmt="int"></div>
+<div class="chk" data-id="c8" data-q="Quantas linhas de Vendas estão SEM IDCliente? (não remova, apenas observe)" data-h="9f79005f0db24f1075b02b6ee37df2eedd98f98b61029418b0c7eba5b09c9d14" data-fmt="int"></div>
+<div class="chk" data-id="c9" data-q="Quantas linhas tem a tabela Produtos depois de tratada?" data-h="b0bb965f645f4e28dfa3b38514536d8fe1dea3e8c1825bf824f1038ea365b4b9" data-fmt="int"></div>
+<div class="chk" data-id="c10" data-q="Quantas linhas tem Metas depois do Desdinamizar (8 lojas × 12 meses)?" data-h="e52382b6f39420151eb5a8d76e1f4cbfd218ca2e2f9acf21b23bd4f46f2f8c6d" data-fmt="int"></div>
+<details class="dica"><summary>Preciso de uma dica</summary>
+<ul><li>Tipo com <em>Usando a localidade…</em> → <code>Português (Brasil)</code> resolve vírgula e data de uma vez.</li>
+<li>Para o SKU: <em>Transformar → Formato → Cortar</em> e <em>MAIÚSCULAS</em>.</li>
+<li>Para remover duplicatas de linhas inteiras: selecione <strong>todas</strong> as colunas, botão direito, <em>Remover Duplicatas</em>.</li>
+<li>Nas Metas: selecione <em>CodLoja</em> e <em>Loja</em>, <em>Transformar → Desdinamizar Outras Colunas</em>.</li></ul></details>
+
+</section>
+
+<section id="modelar">
+<h2><span>07</span> Etapa 3 · Relacionar (esquema estrela) e testar</h2>
+<p><strong>Seu objetivo:</strong> montar o modelo para que um filtro em qualquer dimensão chegue a todas as tabelas de fatos certas, e <strong>provar</strong> que está certo, antes de escrever uma medida sequer.</p>
+<h3>O que precisa ser feito</h3>
+<ol class="steps">
+<li><span class="lab">Passo 3.1</span> Renomeie suas tabelas com o padrão do curso: <code>fVendas</code>, <code>fDevolucoes</code>, <code>fMetas</code>, <code>dLojas</code>, <code>dProdutos</code>, <code>dClientes</code>.</li>
+<li><span class="lab">Passo 3.2</span> Crie a <code>dCalendario</code> (DAX, como na Aula 10) cobrindo <strong>01/01/2025 a 31/12/2026</strong>, com Ano, Mês número, Mês nome, AnoMes e <strong>marque como tabela de datas</strong>.</li>
+<li><span class="lab">Passo 3.3</span> Crie todos os relacionamentos <strong>1:N, direção única</strong>, das dimensões para os fatos. Pense: quais colunas ligam <code>fVendas</code>, <code>fDevolucoes</code> e <code>fMetas</code> ao calendário, às lojas e aos produtos?</li>
+<li><span class="lab">Passo 3.4</span> Esconda as colunas de chave dos fatos que não vão para os relatórios.</li>
+</ol>
+<div class="call info"><b>?</b><div><strong>Pergunte-se:</strong> por que não existe relacionamento direto entre <code>fVendas</code> e <code>fDevolucoes</code>? E por que <code>fMetas</code> precisa da <code>dLojas</code> e do calendário, mas não de <code>dProdutos</code>?</div></div>
+<div class="chk" data-id="c11" data-q="Quantos relacionamentos você criou no total?" data-h="ef4174c2ec96ffab103c166f34747628d8936b858a8014d18d029f3347c3289e" data-fmt="int"></div><div class="chk" data-id="c12" data-q="Quantos deles têm a dCalendario no lado 1?" data-h="bc0506504b37474ce822acae7422725b0ff2037e078ac3bbac93b422d175f0df" data-fmt="int"></div>
+<details class="dica"><summary>Preciso de uma dica</summary>
+<ul><li>fVendas: Data → dCalendario, CodLoja → dLojas, SKU → dProdutos, IDCliente → dClientes (4)</li>
+<li>fDevolucoes: DataDevolucao → dCalendario, Loja → dLojas, SKU → dProdutos (3)</li>
+<li>fMetas: Data → dCalendario, CodLoja → dLojas (2)</li></ul></details>
+
+<h3>Teste do modelo 1 · Sem DAX: a prova das somas</h3>
+<p>Não confie no que você desenhou. Teste. No Power BI, crie uma página chamada <code>_Testes</code> e monte visuais do tipo <strong>Tabela</strong>: uma coluna de uma <strong>dimensão</strong> e uma coluna numérica de uma <strong>fato</strong> (o Power BI soma sozinho). Se o relacionamento estiver certo, o número que aparece é o esperado. Se estiver errado, você vê o erro em segundos.</p>
+<div class="call tip"><b>✓</b><div><strong>A regra do teste</strong><br>(1) Cada dimensão deve mostrar <strong>só os seus itens</strong>, sem a linha “(Em branco)”. (2) A <strong>soma das linhas</strong> deve ser o total da fato. (3) Se o número se repete igual em todas as linhas, <strong>falta relacionamento</strong>.</div></div><div class="chk" data-id="r1" data-q="Tabela com dLojas[NomeLoja] + Soma de fVendas[Qtd]: quantas linhas aparecem (sem contar o total) e NENHUMA é “(Em branco)”?" data-h="834e01794258a16ae375f8f6edaf2f0aac2a732d227701bdfbd89b11b1706b98" data-fmt="int"></div><div class="chk" data-id="r2" data-q="Mesma tabela: quantos itens vendeu a loja Pet Feliz Paulista (todos os anos)?" data-h="48d264490c70c44771ce188e52ec41e12ef818ffd6598d72df713d3e00a48f19" data-fmt="int"></div><div class="chk" data-id="r3" data-q="Tabela com dProdutos[Categoria] + Soma de fVendas[Qtd]: quantos itens da categoria Ração?" data-h="23e70553c291156dff6fb942b5336ccc502a993918fc69c7f486c5749fb99d9a" data-fmt="int"></div><div class="chk" data-id="r4" data-q="Tabela com dCalendario[Ano] + Soma de fVendas[Qtd]: quantos itens em 2026?" data-h="bb9a08c980f0a934cdef29245c718c1b17ea17a4adbfcf57305ebd393b658aa7" data-fmt="int"></div><div class="chk" data-id="r5" data-q="Tabela com dClientes[Sexo] + Soma de fVendas[Qtd]: quantos itens aparecem na linha “(Em branco)”? (são as vendas sem cliente identificado)" data-h="a6029f084096dc25be02f6f0a23b9fd2572b87c5ffb79feec6a375271448457f" data-fmt="int"></div><div class="chk" data-id="r6" data-q="Troque para a tabela dLojas[NomeLoja] + Soma de fDevolucoes[ValorReembolsado]: total devolvido pela Pet Feliz Barra (todos os anos)" data-h="27d29d33f022eaa13c7c4ed39191bfd8239d1f2e5c1abf53c8e86b7abaee088b" data-fmt="brl"></div><div class="chk" data-id="r7" data-q="dProdutos[Categoria] + Soma de fDevolucoes[ValorReembolsado]: total devolvido da categoria Ração" data-h="311e6c485e01c106291b617a7069a29c057d65f1e3c98b41362a53e85c5c4e12" data-fmt="brl"></div><div class="chk" data-id="r8" data-q="dCalendario[Ano] + Soma de fDevolucoes[ValorReembolsado]: total devolvido em 2025" data-h="96c51c353b6db339c70cf01ef46958d2878d3067ae7d170e94bcd1145e754ffa" data-fmt="brl"></div><div class="chk" data-id="r9" data-q="dLojas[NomeLoja] + Soma de fMetas[Meta]: meta de 2026 (ano cheio) da Pet Feliz Santos" data-h="94165abf690f01c639292c8269d779df19ec1aeb2321e905cd8b4f675aa409bf" data-fmt="brl"></div><div class="chk" data-id="r10" data-q="dProdutos[Categoria] + Soma de fMetas[Meta]: qual valor aparece em CADA categoria? (se o modelo está certo, é o total da meta de 2026, repetido, porque a meta não tem relação com produto)" data-h="ba8c26f34ec692475221b26ec0374567b61cd454e03e34b76566eb85c8ea4fc2" data-fmt="brl"></div><details class="dica"><summary>Preciso de uma dica</summary><ul>
+<li>Para somar fVendas[Qtd], clique na coluna no painel Dados e, em <em>Resumir por</em>, escolha <em>Soma</em>.</li>
+<li>A linha “(Em branco)” em dClientes[Sexo] é <strong>esperada</strong>: são vendas sem cliente identificado.</li>
+<li>No r10, se cada categoria mostra um valor diferente, você criou um relacionamento que não devia existir entre fMetas e dProdutos (ou filtro bidirecional).</li></ul></details>
+<h3>Teste do modelo 2 · Medidas de auditoria</h3>
+<p>Agora o teste do jeito dos profissionais. Crie uma pasta (tabela de medidas) chamada <code>_Testes</code> e crie as 8 medidas abaixo. Cada uma <strong>conta problemas</strong> do modelo: o certo é dar 0 (exceto a que eu avisei).</p>
+<table class="t"><tr><th>Medida</th><th>O que ela deve contar</th></tr>
+<tr><td>Teste Órfãos Produto (vendas)</td><td>Linhas de fVendas cujo SKU não existe em dProdutos</td></tr>
+<tr><td>Teste Órfãos Loja (vendas)</td><td>Linhas de fVendas cuja loja não existe em dLojas</td></tr>
+<tr><td>Teste Vendas sem Cliente</td><td>Linhas de fVendas sem cliente na dClientes</td></tr>
+<tr><td>Teste Órfãos Produto (devoluções)</td><td>Linhas de fDevolucoes cujo SKU não existe em dProdutos</td></tr>
+<tr><td>Teste Órfãos Loja (metas)</td><td>Linhas de fMetas cuja loja não existe em dLojas</td></tr>
+<tr><td>Teste Chave Duplicada Lojas / Produtos / Clientes</td><td>Quantas linhas a dimensão tem a mais do que chaves distintas (a chave de uma dimensão tem que ser única)</td></tr></table>
+<p>Coloque as medidas em um visual de Cartão ou Tabela e confira:</p><div class="chk" data-id="r11" data-q="Teste Órfãos Produto (vendas)" data-h="bd9fed037bab3df664df8fe2085796d7dd73f92f01cf73bbee82b2e3fb3ab684" data-fmt="int"></div><div class="chk" data-id="r12" data-q="Teste Órfãos Loja (vendas)" data-h="ac361bda49fb970f82c90349e92a73a86c4decba5561eae3d11bfb0b91bd731b" data-fmt="int"></div><div class="chk" data-id="r13" data-q="Teste Vendas sem Cliente (esperado: as 2.213 linhas sem IDCliente, e isso NÃO é erro)" data-h="78b4b9f91b00a34b311b2d3c1330eee5c189e90c5a3704957c301f483c9bfad8" data-fmt="int"></div><div class="chk" data-id="r14" data-q="Teste Órfãos Produto (devoluções)" data-h="cd40aec54dfc9d66f425428d3c5f783818465f02a9889e585c3c721f3062e8df" data-fmt="int"></div><div class="chk" data-id="r15" data-q="Teste Órfãos Loja (metas)" data-h="aea9972b3e19ca6d2832bf622afb22f1c1cd36f87d0cd6adbdc5d9f4bc46fb02" data-fmt="int"></div><div class="chk" data-id="r16" data-q="Soma das 3 medidas “Teste Chave Duplicada” (Lojas + Produtos + Clientes)" data-h="6e85cc4e6dd6c7df568588c53849b0f505a421d69495a93924e775cb6ebf5e05" data-fmt="int"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Você precisa percorrer a fato linha a linha (<code>FILTER</code>) e, em cada linha, procurar o par na dimensão (<code>RELATED</code>). Se não achar, a busca devolve vazio (<code>ISBLANK</code>). Conte (<code>COUNTROWS</code>) as linhas assim. Para a chave duplicada: <code>COUNTROWS</code> menos <code>DISTINCTCOUNT</code> da coluna chave.</p></details>
+
+<h3>Se o teste falhou: diagnóstico</h3>
+<table class="t"><tr><th>O que você viu</th><th>Causa provável</th><th>Como corrigir</th></tr><tr><td>Aparece “(Em branco)” na tabela de lojas ou de produtos</td><td>Existe código na fato que não existe na dimensão (loja 99 de teste não removida, SKU com espaço/minúsculo)</td><td>Voltar ao Power Query: remover a loja 99 e padronizar o SKU (Cortar + MAIÚSCULAS) em fVendas, dProdutos e fDevolucoes</td></tr><tr><td>A soma por dimensão não fecha com o total</td><td>Linha da fato sem par na dimensão, ou relacionamento com direção/cardinalidade errada</td><td>Conferir no Modelo: seta 1 → * partindo da dimensão para a fato; chave única na dimensão</td></tr><tr><td>O valor se repete igual em todas as linhas (ex.: devolução igual para todas as lojas)</td><td>Não há relacionamento entre a dimensão e essa fato</td><td>Criar o relacionamento que falta (por exemplo, fDevolucoes[Loja] → dLojas[CodLoja])</td></tr><tr><td>Datas fora do calendário / Ano em branco</td><td>dCalendario não cobre todo o período, ou o relacionamento está com coluna de data errada</td><td>Calendário de 01/01/2025 a 31/12/2026 e relacionamento por Data (não por Ano ou Mês)</td></tr><tr><td>Não consegue criar o relacionamento “1 para muitos”; vira muitos-para-muitos</td><td>A chave da dimensão tem valores repetidos (duplicatas, espaços)</td><td>Remover duplicatas e padronizar a chave na dimensão</td></tr><tr><td>Meta muda quando filtra por categoria de produto</td><td>Relacionamento indevido entre fMetas e dProdutos (ou filtro bidirecional)</td><td>Remover; meta só se relaciona com dLojas e dCalendario</td></tr></table>
+<p>O teste 3 (relacionamento + medidas, com segmentações cruzadas) está no fim da Etapa 4, quando você já terá Faturamento, Devoluções e Meta.</p>
+</section>
+
+<section id="dax">
+<h2><span>08</span> Etapa 4 · DAX: pense, crie a medida e prove que está certa</h2>
+<p>Aqui eu <strong>não dou a fórmula</strong>. Cada medida tem uma <strong>ficha</strong> com três partes: <strong>Para ter</strong> (o que o negócio precisa ver), <strong>Pense</strong> (as perguntas que você deve se fazer: qual tabela? qual coluna? precisa de iterador? precisa de <code>CALCULATE</code>?) e <strong>Confira</strong> (o número que prova que você acertou). Crie as medidas numa tabela <code>_Medidas</code>, com o nome exatamente como mostrado entre colchetes.</p>
+<div class="call tip"><b>✓</b><div><strong>O método</strong><br>1) Descubra a <em>tabela</em> onde está a informação. 2) Descubra a <em>coluna</em>. 3) Pergunte: é uma conta linha a linha (iterador, termina em X) ou uma soma simples? 4) O contexto de filtro já resolve ou preciso mudá-lo com <code>CALCULATE</code>? 5) Digite o resultado na caixinha. Se não bater, volte ao passo 1.</div></div>
+<p>Filtros de conferência: use a página <code>_Testes</code> com cartões e as segmentações Ano e Mês. Quando a ficha não disser nada, <strong>não aplique filtro</strong>.</p><h3>Bloco A · Medidas básicas</h3><div class="ficha"><h4><span class="id">A1</span> Crie: [Faturamento]</h4><p><b>Para ter:</b> o valor vendido em R$, já com o desconto de cada linha.</p><p class="pq"><b>Pense:</b></p><ul><li>Qual tabela guarda o que foi vendido?</li><li>Quais colunas entram na conta? (quantidade, preço e… o que mais?)</li><li>O desconto está em % (0,05 = 5%): como transformar isso em “quanto sobra a pagar”?</li><li>A conta mistura colunas da mesma linha: basta somar uma coluna ou preciso de uma função “iteradora” (as que terminam em X)?</li></ul><div class="chk" data-id="d1" data-q="Faturamento total, todos os anos (sem filtro)" data-h="2994cb874ee45f9fb774176d63ec4e1c2867eeadbfc08aa21c566dafb9af36a0" data-fmt="brl"></div><div class="chk" data-id="d2" data-q="Faturamento de 2026 (segmentação Ano = 2026)" data-h="5af188eade3c46740f929cf5a737241598caa6d59b5e778af0d0161324b4d40c" data-fmt="brl"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Multiplicar três colunas por linha e depois somar tudo é trabalho de um iterador. Qual?</p></details></div><div class="ficha"><h4><span class="id">A2</span> Crie: [Devoluções e Faturamento Líquido]</h4><p><b>Para ter:</b> quanto voltou para o cliente e quanto sobra do faturamento depois disso.</p><p class="pq"><b>Pense:</b></p><ul><li>Em qual tabela está o valor reembolsado?</li><li>Aqui há conta entre colunas ou só uma coluna a somar? Então precisa de iterador?</li><li>Para o Líquido: quais duas medidas que você JÁ criou resolvem? (reaproveitar medidas é o jeito certo)</li></ul><div class="chk" data-id="d3" data-q="Devoluções de 2026" data-h="34e1bf9984fbdde36e2007133139fecbf2e549f9c88108fb9412f3cded9abea8" data-fmt="brl"></div><div class="chk" data-id="d4" data-q="Faturamento Líquido de 2026" data-h="7900692e06c6837b1bbd5c814b3d7f5e30d9d624341e96b3468f4fc124870ea3" data-fmt="brl"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Soma simples de uma coluna; o Líquido é uma subtração entre medidas.</p></details></div><div class="ficha"><h4><span class="id">A3</span> Crie: [CMV, Lucro e Margem de Lucro]</h4><p><b>Para ter:</b> o custo do que foi vendido, o lucro e quanto o lucro representa do líquido.</p><p class="pq"><b>Pense:</b></p><ul><li>O custo unitário mora em fVendas ou em outra tabela? Qual?</li><li>A conta roda linha a linha em fVendas, mas o custo está “do outro lado” do relacionamento. Qual função busca o valor do lado 1 dentro de uma linha da fato?</li><li>Lucro = o que sobra de quê menos o quê?</li><li>Margem é lucro dividido por quê? Qual função divide sem dar erro quando o denominador é zero?</li></ul><div class="chk" data-id="d5" data-q="CMV de 2026" data-h="9b53e919ba40209048b52002c83bc435d3e38db35af3c51d896fd7d306af634f" data-fmt="brl"></div><div class="chk" data-id="d6" data-q="Lucro de 2026" data-h="cadb5651fc45084d5820ba9a677af58302e78c44069c542e181449f6008bbe95" data-fmt="brl"></div><div class="chk" data-id="d7" data-q="Margem de Lucro de 2026 (em %)" data-h="e6f4431fd40d535041301b9bb3294f3212cdb74a3ce53ab9979a575b240e2665" data-fmt="pct"></div><details class="dica"><summary>Preciso de uma dica</summary><p>RELATED dentro de um iterador (SUMX) para o CMV; DIVIDE para a margem.</p></details></div><div class="ficha"><h4><span class="id">A4</span> Crie: [Pedidos e Ticket Médio]</h4><p><b>Para ter:</b> quantos pedidos diferentes houve e quanto cada pedido vale em média.</p><p class="pq"><b>Pense:</b></p><ul><li>Um pedido tem vários itens (várias linhas). Contar linhas serve?</li><li>Qual coluna identifica o pedido? Qual função conta valores diferentes?</li><li>Ticket médio = faturamento dividido por quê?</li></ul><div class="chk" data-id="d8" data-q="Pedidos em 2026" data-h="ba1b59cac1a97a025048ab2b3fe0e63b9e9171a1ecfce96d9d61d4019acd10d5" data-fmt="int"></div><div class="chk" data-id="d9" data-q="Ticket médio em 2026" data-h="0966b074b909076ec94c55670698b6e25ac4bb61128ec5c3b8621dd7eb10cacf" data-fmt="brl"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Contagem distinta de IDPedido; o ticket é um DIVIDE entre duas medidas.</p></details></div><div class="ficha"><h4><span class="id">A5</span> Crie: [Clientes Ativos (a pegadinha)]</h4><p><b>Para ter:</b> quantos clientes IDENTIFICADOS compraram.</p><p class="pq"><b>Pense:</b></p><ul><li>Algumas vendas não têm IDCliente. O que a contagem distinta faz com o vazio?</li><li>Como excluir o vazio da contagem? (dica: filtro dentro de CALCULATE)</li></ul><div class="chk" data-id="d10" data-q="Clientes ativos em 2026" data-h="441aadb9090362da7ab0f3e9cddf6c94853bf834dda8e6fea1623317e248b5cf" data-fmt="int"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Se deu 2.113, o vazio entrou na conta como se fosse um cliente.</p></details></div><div class="ficha"><h4><span class="id">A6</span> Crie: [Itens Vendidos]</h4><p><b>Para ter:</b> o total de unidades vendidas.</p><p class="pq"><b>Pense:</b></p><ul><li>Qual coluna guarda a quantidade? Precisa de iterador?</li></ul><div class="chk" data-id="d10b" data-q="Itens vendidos em 2026" data-h="a784f05d6409864d8bc18273bb8d3eac1c81c28d7acb6400b17c3b6898655292" data-fmt="int"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Soma simples.</p></details></div><h3>Bloco B · Inteligência de tempo</h3><div class="ficha"><h4><span class="id">B1</span> Crie: [Fat. Ano Anterior e Crescimento %]</h4><p><b>Para ter:</b> o faturamento do mesmo período do ano passado e quanto cresceu.</p><p class="pq"><b>Pense:</b></p><ul><li>Qual função “volta” o calendário um ano mantendo o mesmo período?</li><li>Ela precisa receber qual coluna? De qual tabela? Por que não da fVendas?</li><li>Crescimento = (atual ÷ anterior) − 1. Como escrever isso reaproveitando medidas?</li></ul><div class="chk" data-id="d11" data-q="Com Ano = 2026 e Mês = Ago: Fat. Ano Anterior (agosto/2025)" data-h="442c624e0b686a0d713cdbed3aac77662fe9f8dcbb7ea8cc743d9fcc181a72ce" data-fmt="brl"></div><div class="chk" data-id="d12" data-q="Crescimento % de agosto/26 sobre agosto/25" data-h="b9dbdba89aaa73c95e1f0538939499febb26c8e252f6e20a77224eef614e291f" data-fmt="pct"></div><details class="dica"><summary>Preciso de uma dica</summary><p>CALCULATE([Faturamento], SAMEPERIODLASTYEAR(...)) — mas qual coluna entra?</p></details></div><div class="ficha"><h4><span class="id">B2</span> Crie: [Acumulado no Ano (YTD)]</h4><p><b>Para ter:</b> o somatório de janeiro até o mês que estiver selecionado, e quanto ele cresceu sobre o ano anterior.</p><p class="pq"><b>Pense:</b></p><ul><li>Qual função acumula desde 1º de janeiro?</li><li>Qual coluna de data ela exige? Ela precisa estar marcada como tabela de datas?</li><li>Para comparar com o ano passado, que medida de B1 você pode combinar com o acumulado?</li></ul><div class="chk" data-id="d13" data-q="Acumulado com Ano = 2026 e Mês = Ago" data-h="6b118d32c64cdcc330908b151eb0bc27726793ffb66aafd25ce52d9dbf745ef6" data-fmt="brl"></div><div class="chk" data-id="d14" data-q="Crescimento do acumulado Jan–Ago/26 sobre Jan–Ago/25 (%)" data-h="dd9138434f7026c611a18cdaae09751a9c5ad3b2ba551f859d43a29ebf4b32dd" data-fmt="pct"></div><details class="dica"><summary>Preciso de uma dica</summary><p>TOTALYTD, e o comparativo pede o acumulado “do ano anterior”.</p></details></div><div class="ficha"><h4><span class="id">B3</span> Crie: [Melhor mês da história]</h4><p><b>Para ter:</b> o faturamento do melhor mês, sem nenhum filtro de ano.</p><p class="pq"><b>Pense:</b></p><ul><li>Você precisa olhar todos os meses ao mesmo tempo e pegar o maior. Qual função itera meses e devolve o máximo?</li><li>Qual coluna identifica “um mês de um ano” sem misturar janeiro de 2025 com janeiro de 2026?</li><li>Se a medida estiver numa segmentação de ano, o que precisa ignorar o filtro?</li></ul><div class="chk" data-id="d15" data-q="Faturamento do melhor mês (todos os anos)" data-h="28f2b44d826ff193956e44a40a590fa1487dd9f09ec68852dfd82d555e518fd7" data-fmt="brl"></div><details class="dica"><summary>Preciso de uma dica</summary><p>MAXX sobre os valores de AnoMes, ignorando filtros do calendário.</p></details></div><h3>Bloco C · Metas</h3><div class="ficha"><h4><span class="id">C1</span> Crie: [Meta e % de Atingimento]</h4><p><b>Para ter:</b> a meta somada e quanto do alvo foi atingido.</p><p class="pq"><b>Pense:</b></p><ul><li>Em qual tabela está a meta? A meta tem relacionamento com quais dimensões?</li><li>% de atingimento = realizado ÷ meta. Quais medidas?</li><li>As metas são de 12 meses, mas só temos vendas até agosto. Que filtro você aplica para comparar parecido com parecido?</li></ul><div class="chk" data-id="d16" data-q="Meta de Jan a Ago/2026, todas as lojas" data-h="2024c74791472b6f6f5de14d44dacb4ddc87c305d9acb5de15315d92f97ec976" data-fmt="brl"></div><div class="chk" data-id="d17" data-q="% de atingimento Jan–Ago/2026" data-h="b5675f6f18216e184f61f2de4bcb0b285b386c00a1eaa94df72c07dbca5071f8" data-fmt="pct"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Selecione Ano = 2026 e Meses de Jan a Ago nas segmentações.</p></details></div><div class="ficha"><h4><span class="id">C2</span> Crie: [Lojas Acima da Meta]</h4><p><b>Para ter:</b> quantas lojas chegaram a 100% ou mais. (Filtro: Ano = 2026, Jan a Ago.)</p><p class="pq"><b>Pense:</b></p><ul><li>Você precisa avaliar “loja por loja” e contar as que passam. Qual função devolve a lista de lojas?</li><li>Qual função filtra essa lista por uma condição calculada? Qual função conta o resultado?</li></ul><div class="chk" data-id="d18" data-q="Número de lojas que bateram a meta" data-h="f13cdcb31e96434b0be1e4d6ea1a7b08c2c220f7e8322715c2b4dd5849aba4b7" data-fmt="int"></div><div class="chk" data-id="d19" data-q="Atingimento da melhor loja (%)" data-h="ba952adaa568cd2cbb4692c46740eebf7181760d0607c026e7370a01c6fe73dd" data-fmt="pct"></div><details class="dica"><summary>Preciso de uma dica</summary><p>COUNTROWS + FILTER + VALUES, usando a medida de atingimento.</p></details></div><h3>Bloco D · Descobertas</h3><div class="ficha"><h4><span class="id">D1</span> Crie: [Descobertas (sem dica)]</h4><p><b>Para ter:</b> responder perguntas de negócio usando as medidas que você já criou. Filtro: Ano = 2026.</p><p class="pq"><b>Pense:</b></p><ul><li>D1) Qual loja mais fatura? D2) Qual categoria mais fatura e qual tem a maior margem bruta ((Faturamento − CMV) ÷ Faturamento)? São a mesma? D3) Qual o produto nº 1 em faturamento? D4) Em que posição do ranking de lojas está a Pet Feliz Barra?</li></ul><div class="chk" data-id="d20" data-q="D1 · Faturamento da loja líder em 2026" data-h="efe79afaba83923f1e8bd4d4724d1b4a490fab63b2e02102f81b03cd811d811e" data-fmt="brl"></div><div class="chk" data-id="d21" data-q="D2 · Faturamento da categoria líder em 2026" data-h="0972468bcf9a610073abad8268725ae467cdf1beb45ab258a031e7baeefd98ff" data-fmt="brl"></div><div class="chk" data-id="d22" data-q="D2 · Margem bruta da categoria com maior margem (%)" data-h="2b3c408ce33ee427e059fa00fdfe335e193c16f510062264054905dd7904dafb" data-fmt="pct"></div><div class="chk" data-id="d23" data-q="D3 · Faturamento do produto nº 1 em 2026" data-h="38ceccf494819ade53082707ea61da4b4f57179845995f526a95dfd9f6ff0e1e" data-fmt="brl"></div><div class="chk" data-id="d24" data-q="D4 · Posição da Pet Feliz Barra no ranking de faturamento 2026" data-h="9c34205ecc31f138803502158a377ee5c331ab008d7433296ce358fd1419f501" data-fmt="int"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Monte tabelas com a dimensão certa e as medidas certas. Para o ranking, procure uma função que ordena.</p></details></div><h3>Bloco E · Teste final do modelo (relacionamentos + medidas)</h3>
+<p>Agora você prova que as <strong>medidas atravessam os relacionamentos</strong> do jeito certo. Use as segmentações Loja, Categoria, Ano e Mês e cartões com [Faturamento], [Devoluções] e [Meta].</p><div class="chk" data-id="r17" data-q="Segmentações: Loja = Pet Feliz Santos e Ano = 2026. Faturamento?" data-h="017a2a8d7ac0a8e8492f6ef03d7895a5bd2fd3eb5925815b46cee4f7e51b47c3" data-fmt="brl"></div><div class="chk" data-id="r18" data-q="Mesma seleção: Devoluções?" data-h="5f6d799a108128816f5aac9bed73fc97c80725773ca5a04f2750bd10c345ed25" data-fmt="brl"></div><div class="chk" data-id="r19" data-q="Mesma seleção: Meta (ano cheio 2026 da loja)?" data-h="9852b83f774b9d0a70dd3e09d184a19ed2a837e8600e29418c352958e95baee6" data-fmt="brl"></div><div class="chk" data-id="r20" data-q="Acrescente Categoria = Ração: Faturamento de Santos × Ração em 2026?" data-h="9458011b6949cbd5e10901dc4ac6fae0f5ff21967479d83a7df9f82f37da3e0d" data-fmt="brl"></div><div class="chk" data-id="r21" data-q="Mesma seleção (Santos × Ração × 2026): Devoluções?" data-h="853901e16f9e8b0376095d3dfffb6dbe9d75155d8cb6afa75dbdd6b8245595b3" data-fmt="brl"></div><div class="chk" data-id="r22" data-q="Mesma seleção: a Meta continua igual à de r19? Digite o valor que aparece (a meta não é filtrada por produto)" data-h="3cb68411e55a8a040b927a44068a93811d854566d61983c94d9a5dff8c7716af" data-fmt="brl"></div><div class="chk" data-id="r23" data-q="Com Loja = Pet Feliz Santos selecionada, quantas categorias continuam aparecendo na segmentação de Categoria? (filtro NÃO deve “subir” de volta às dimensões)" data-h="1bc13521f1d9010602d89b1801fbc06a43bce92cc93d31abf8ae5bfe6a676900" data-fmt="int"></div><div class="chk" data-id="r24" data-q="Cartão Devoluções com Ano = 2026 e Mês = Mai: valor? (prova o relacionamento fDevolucoes → dCalendario)" data-h="b1c77484571d3daf975ddb8bdf7568bd894834a7e44946f71e2037b86dba87e8" data-fmt="brl"></div><details class="dica"><summary>Preciso de uma dica</summary><p>Se r18 ou r21 deram o mesmo valor com e sem filtro de loja, falta o relacionamento fDevolucoes → dLojas. Se r21 deu o valor da loja inteira, falta fDevolucoes → dProdutos. Se r22 mudou ao filtrar a categoria, existe um relacionamento ou filtro bidirecional que não deveria existir. Se r24 não variou por mês, falta fDevolucoes → dCalendario.</p></details>
+
+</section>
+
+<section id="dash">
+<h2><span>09</span> Etapa 5 · O dashboard</h2>
+<p><strong>Seu objetivo:</strong> contar a história da Pet Feliz em 3 páginas. Aqui eu <strong>não dou o desenho pronto</strong>: dou o que precisa existir. O visual é seu — depois você compara com a referência (seção 12).</p>
+<h3>Regras gerais</h3>
+<ul>
+<li>Tela 16:9 (1920×1080 ou o padrão do Power BI), mesma paleta e mesma tipografia nas 3 páginas (o tema em JSON está no pacote: <em>Exibição → Temas → Procurar temas</em>).</li>
+<li>Título claro em cada página, 1 mensagem por gráfico, cores com significado (verde = bom, laranja = atenção).</li>
+<li>Segmentações sincronizadas entre as páginas (Ano e Loja, no mínimo).</li>
+<li>Formatação brasileira: <code>R$ 1.234,56</code>; percentuais com 1 casa.</li>
+</ul>
+<h3>Página 1 · Visão Geral</h3>
+<ul>
+<li>6 cartões: Faturamento, Devoluções, Faturamento Líquido, Lucro, Margem de Lucro, Ticket Médio (com número de pedidos).</li>
+<li>Gráfico de linhas: faturamento mensal <strong>2026 × 2025</strong>.</li>
+<li>Barras: faturamento por categoria e margem bruta por categoria.</li>
+</ul>
+<h3>Página 2 · Lojas e Metas</h3>
+<ul>
+<li>Cartões: Meta, Realizado, % Atingimento, nº de lojas que bateram a meta.</li>
+<li>Barras de % de atingimento por loja <strong>com cor condicional</strong> (verde ≥ 100%, laranja &lt; 100%) e linha de referência em 100%.</li>
+<li>Faturamento por loja com participação no total.</li>
+</ul>
+<h3>Página 3 · Produtos e Clientes</h3>
+<ul>
+<li>Cartões: Clientes ativos, Pedidos, Itens vendidos, Crescimento Ago/26 × Ago/25.</li>
+<li>Top 10 produtos por faturamento (use filtro Top N).</li>
+<li>Faturamento por região e pedidos por mês.</li>
+</ul>
+<h3>Para subir de nível (bônus)</h3>
+<ul>
+<li><strong>Drill-through</strong> da página de Lojas para uma página de detalhe da loja.</li>
+<li><strong>Dica de ferramenta</strong> (tooltip) com a tendência mensal ao passar o mouse na barra da loja.</li>
+<li><strong>Parâmetro de campo</strong> para alternar o gráfico entre Faturamento, Lucro e Pedidos.</li>
+<li><strong>Indicadores (bookmarks)</strong> para alternar “Visão em R$” e “Visão em %”.</li>
+</ul>
+<div class="chk" data-id="e1" data-q="Com Ano = 2026 e Loja = Pet Feliz Santos, qual é o % de atingimento da meta Jan–Ago? (o seu dashboard responde isso?)" data-h="29b9bcff6a74964a4c6fb27c35e457d5dbf696b5ba3a0b26c8efd97bcabd9e9c" data-fmt="pct"></div>
+</section>
+
+<section id="refresh">
+<h2><span>10</span> Etapa 6 · Teste de atualização</h2>
+<p>A diretora disse: <em>“tem que atualizar sozinho quando chegar o arquivo de setembro”</em>. Vamos ver se o seu modelo é de profissional.</p>
+<ol class="steps">
+<li><span class="lab">Passo 6.1</span> Copie <code>Novos_Dados\Vendas_2026_09.csv</code> para dentro da pasta <code>Vendas\</code>.</li>
+<li><span class="lab">Passo 6.2</span> No Power BI, clique em <strong>Atualizar</strong>. Não edite nenhuma consulta, nenhuma fórmula, nada.</li>
+<li><span class="lab">Passo 6.3</span> Confira o faturamento total e o faturamento de Setembro/2026.</li>
+</ol>
+<div class="chk" data-id="f1" data-q="Faturamento de Setembro/2026 depois de atualizar" data-h="a4ff0603fd7bb6074bac35c9fe54d669c0ba4920f6735898e65f8663c0d299fe" data-fmt="brl"></div>
+<div class="chk" data-id="f2" data-q="Faturamento total (todos os anos) depois de atualizar" data-h="935fec3d26789eab06ebcb778253450f8c82c742e29dd8b08e09622743e9bec1" data-fmt="brl"></div>
+<div class="call warn"><b>!</b><div><strong>Se não bateu:</strong> o arquivo de setembro também tem duplicatas, loja de teste e SKU com espaços. Se o seu tratamento foi feito <em>por regra</em> (e não “deletando as linhas problema na mão”), ele cuida disso sozinho. Se não, volte à Etapa 2: você acabou de descobrir por que tratamento manual não escala.</div></div>
+</section>
+
+<section id="nota">
+<h2><span>11</span> Como você será avaliado (autoavaliação)</h2>
+<p>Marque você mesmo cada item. Se for entregar para mim, a régua é a mesma.</p>
+<table class="t"><tr><th>Critério</th><th>Pontos</th></tr>
+<tr><td>Importação: 6 fontes com os conectores certos e pasta de vendas</td><td>15</td></tr>
+<tr><td>Tratamento: todos os números das Etapas 1 e 2 conferem</td><td>15</td></tr>
+<tr><td>Modelo: estrela, 9 relacionamentos, calendário marcado, nomes padronizados</td><td>15</td></tr>
+<tr><td>DAX: medidas do Bloco A–D conferem (≈1 ponto por conferência)</td><td>25</td></tr>
+<tr><td>Dashboard: 3 páginas, clareza, consistência visual, interatividade</td><td>20</td></tr>
+<tr><td>Atualização: Etapa 6 funcionando sem mexer em nada</td><td>10</td></tr>
+<tr><td><strong>Bônus</strong>: drill-through, tooltip, parâmetro de campo, bookmarks</td><td>+10</td></tr></table>
+<p><strong>90 ou mais:</strong> você está pronto para o mercado. <strong>70 a 89:</strong> ótimo, refaça os pontos fracos. <strong>Abaixo de 70:</strong> sem drama — volte à aula do ponto fraco e refaça o projeto; é na segunda vez que o aprendizado se fixa.</p>
+</section>
+
+<section id="fim">
+<h2><span>12</span> Palavras finais</h2>
+<div class="thanks">
+<p><strong>Meus parabéns e meu muito obrigado.</strong></p>
+<p>Se você chegou até aqui, você importou dados de fontes diferentes, tratou, modelou, calculou e contou uma história com dados. Isso é, de verdade, o trabalho de um analista de BI.</p>
+<p>Eu espero que você tenha gostado do curso. <strong>Eu gostei muito</strong> de construir cada aula e de imaginar você do outro lado, travando, descobrindo e acertando. Obrigado pela confiança, pelo tempo e pela dedicação.</p>
+<p>Daqui para frente: <strong>publique o seu projeto</strong> no seu portfólio e no LinkedIn (sem dados sigilosos!), refaça com um tema seu — uma loja, um time, um orçamento pessoal — e, se quiser uma meta clara, estude para a certificação <strong>PL-300</strong>. Você já tem a base.</p>
+<p>E lembre-se: <strong>eu me coloco à sua inteira disposição.</strong> Dúvida na hora de montar o dashboard, no DAX que não fecha, na revisão do seu projeto ou numa decisão de carreira — me chame. Será um prazer ajudar.</p>
+<p class="sig">Um grande abraço,<br><strong>Prof. Johnny Braga</strong><br>Braga Treinamentos<br><span class="ph">[inclua aqui seu e-mail / WhatsApp / LinkedIn]</span></p>
+</div>
+<p class="nav"><a class="btn alt" href="../aula-15/">← Aula anterior</a> <a class="btn" href="../../">Voltar à lista de aulas</a></p>
+</section>
+</main></div>
+<footer>© Braga Treinamentos · Dados fictícios criados para este curso. Recursos e licenças do Power BI mudam com frequência.</footer>
+<script>
+(function(){
+var R=document.documentElement;
+function sv(k,v){try{localStorage.setItem('pf15_'+k,v)}catch(e){}}
+function ld(k){try{return localStorage.getItem('pf15_'+k)}catch(e){return null}}
+var t=ld('tema');if(t)R.setAttribute('data-theme',t);
+document.getElementById('tema').onclick=function(){var d=R.getAttribute('data-theme')==='dark'||(!R.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme:dark)').matches);var n=d?'light':'dark';R.setAttribute('data-theme',n);sv('tema',n)};
+document.querySelectorAll('.cp').forEach(function(b){b.onclick=function(){var c=b.parentNode.querySelector('code').innerText;(navigator.clipboard?navigator.clipboard.writeText(c):Promise.reject()).then(function(){b.textContent='Copiado!'},function(){b.textContent='Selecione e copie'});setTimeout(function(){b.textContent='Copiar'},1800)}});
+
+// Standalone SHA256
+function sha256Sync(ascii) {
+  function rightRotate(value, amount) { return (value >>> amount) | (value << (32 - amount)); }
+  var mathPow = Math.pow, maxWord = mathPow(2, 32), lengthProperty = 'length', i, j, result = '', words = [];
+  var asciiBitLength = ascii[lengthProperty] * 8, hash = [], k = [], primeCounter = 0, isComposite = {};
+  for (var candidate = 2; primeCounter < 64; candidate++) {
+    if (!isComposite[candidate]) {
+      for (i = 0; i < 313; i += candidate) isComposite[i] = candidate;
+      hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+      k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+    }
+  }
+  ascii += '\x80';
+  while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+  for (i = 0; i < ascii[lengthProperty]; i++) {
+    j = ascii.charCodeAt(i);
+    if (j >> 8) return;
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+  words[words[lengthProperty]] = (asciiBitLength | 0);
+  for (j = 0; j < words[lengthProperty];) {
+    var w = words.slice(j, j += 16), oldHash = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++) {
+      var w15 = w[i - 15], w2 = w[i - 2], a = hash[0], e = hash[4];
+      var temp1 = hash[7] + (rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25)) + ((e & hash[5]) ^ ((~e) & hash[6])) + k[i] + (w[i] = (i < 16) ? w[i] : (w[i - 16] + (rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3)) + w[i - 7] + (rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10))) | 0);
+      var temp2 = (rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22)) + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(temp1 + temp2) | 0].concat(hash);
+      hash[4] = (hash[4] + temp1) | 0;
+    }
+    for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
+  }
+  for (i = 0; i < 8; i++) {
+    for (j = 3; j + 1; j--) {
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += ((b < 16) ? 0 : '') + b.toString(16);
+    }
+  }
+  return result;
+}
+
+function parse(s){
+  s = String(s).replace(/R\$|%|\s/g, '');
+  if (s.indexOf(',') > -1) {
+    s = s.replace(/\./g, '').replace(',', '.');
+  } else if (/^\d{1,3}(\.\d{3})+$/.test(s)) {
+    s = s.replace(/\./g, '');
+  }
+  return parseFloat(s);
+}
+
+var boxes = document.querySelectorAll('.chk');
+var total = boxes.length;
+function upd(){
+  var n = document.querySelectorAll('.chk.ok').length;
+  document.getElementById('barra').style.width = (100 * n / total) + '%';
+  document.getElementById('progtxt').textContent = n + ' de ' + total + ' conferências';
+}
+
+boxes.forEach(function(b){
+  var id = b.dataset.id, expectedHash = b.dataset.h, f = b.dataset.fmt;
+  b.innerHTML = '<div class="qt">' + b.dataset.q + '</div><input type="text" inputmode="decimal" placeholder="Seu resultado" aria-label="Seu resultado"><button type="button">Conferir</button><span class="fb"></span>';
+  var inp = b.querySelector('input'), btn = b.querySelector('button'), fb = b.querySelector('.fb');
+  function ok(msg){
+    b.classList.add('ok');
+    fb.className = 'fb';
+    fb.textContent = msg || '✓ Correto! Valor conferido com sucesso.';
+    sv(id, '1');
+    upd();
+  }
+  btn.onclick = function(){
+    var v = parse(inp.value);
+    if (isNaN(v)) {
+      fb.className = 'fb bad';
+      fb.textContent = 'Digite um número válido.';
+      return;
+    }
+    var good = false;
+    if (f === 'int') {
+      good = (sha256Sync(id + ':' + Math.round(v)) === expectedHash);
+    } else {
+      var cents = Math.round(v * 100);
+      var c0 = sha256Sync(id + ':' + (cents / 100).toFixed(2));
+      var cM = sha256Sync(id + ':' + ((cents - 1) / 100).toFixed(2));
+      var cP = sha256Sync(id + ':' + ((cents + 1) / 100).toFixed(2));
+      good = (c0 === expectedHash || cM === expectedHash || cP === expectedHash);
+    }
+    if (good) {
+      ok();
+      return;
+    }
+    fb.className = 'fb bad';
+    fb.textContent = 'Ainda não bateu. Revise a etapa e tente novamente.';
+  };
+  inp.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') btn.click();
+  });
+  if (ld(id) === '1') {
+    ok('✓ Conferido anteriormente');
+  }
+});
+upd();
+})();
+</script></body></html>
