@@ -1,0 +1,36 @@
+{
+ "name": "Pet Feliz",
+ "dataColors": [
+  "#0F766E",
+  "#F59E0B",
+  "#1E293B",
+  "#38BDF8",
+  "#A3E635",
+  "#F472B6",
+  "#94A3B8",
+  "#7C3AED"
+ ],
+ "background": "#FFFFFF",
+ "foreground": "#1E293B",
+ "tableAccent": "#0F766E",
+ "good": "#16A34A",
+ "bad": "#DC2626",
+ "neutral": "#F59E0B",
+ "textClasses": {
+  "label": {
+   "fontFace": "Segoe UI",
+   "fontSize": 11,
+   "color": "#475569"
+  },
+  "title": {
+   "fontFace": "Segoe UI Semibold",
+   "fontSize": 14,
+   "color": "#1E293B"
+  },
+  "callout": {
+   "fontFace": "Segoe UI Semibold",
+   "fontSize": 28,
+   "color": "#1E293B"
+  }
+ }
+}

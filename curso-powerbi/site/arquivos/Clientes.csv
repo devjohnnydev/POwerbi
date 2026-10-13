@@ -1,0 +1,3201 @@
+IDCliente;NomeCliente;Sexo;Cidade;DataCadastro
+C00001;André Oliveira Silva;F;Santos;23/12/2024
+C00002;Carla Lima Almeida;M;Curitiba;27/08/2023
+C00003;Vítor Nascimento Araújo;M;Belo Horizonte;29/10/2022
+C00004;Carla Pereira Oliveira;M;Porto Alegre;02/07/2026
+C00005;Isabela Almeida Almeida;F;Rio de Janeiro;03/07/2025
+C00006;Tiago Barbosa Almeida;F;Campinas;02/02/2024
+C00007;Elisa Pereira Oliveira;M;Rio de Janeiro;20/01/2023
+C00008;Carla Carvalho Pereira;M;São Paulo;01/02/2025
+C00009;Nelson Carvalho Cardoso;F;São Paulo;13/09/2023
+C00010;Olívia Gonçalves Pereira;M;Campinas;11/01/2024
+C00011;Letícia Souza Cardoso;M;Curitiba;26/01/2026
+C00012;Paulo Almeida Souza;F;Porto Alegre;10/08/2023
+C00013;Yasmin Gonçalves Gonçalves;F;Porto Alegre;06/01/2024
+C00014;Ana Pereira Carvalho;F;Campinas;29/03/2025
+C00015;Carla Souza Santos;F;São Paulo;06/04/2025
+C00016;Quésia Ribeiro Ribeiro;M;São Paulo;13/09/2024
+C00017;Elisa Araújo Cardoso;F;Rio de Janeiro;21/07/2024
+C00018;Bruno Lima Lima;M;Santos;16/12/2023
+C00019;André Ribeiro Silva;M;Rio de Janeiro;22/02/2025
+C00020;Letícia Carvalho Fernandes;F;Curitiba;04/01/2022
+C00021;Beatriz Ribeiro Fernandes;M;Santos;10/07/2023
+C00022;João Santos Oliveira;F;Porto Alegre;18/03/2026
+C00023;Karina Silva Souza;M;Belo Horizonte;01/09/2023
+C00024;Wagner Pereira Lima;M;Santos;21/08/2024
+C00025;Fábio Fernandes Ribeiro;M;Porto Alegre;18/06/2026
+C00026;Letícia Almeida Pereira;F;Porto Alegre;30/09/2022
+C00027;Isabela Silva Silva;M;Campinas;22/05/2023
+C00028;Diego Araújo Silva;F;São Paulo;08/04/2024
+C00029;Karina Silva Barbosa;M;Santos;24/10/2024
+C00030;Quésia Almeida Carvalho;M;Porto Alegre;16/08/2024
+C00031;João Nascimento Oliveira;F;Porto Alegre;17/11/2022
+C00032;Hugo Fernandes Gonçalves;F;Belo Horizonte;22/12/2024
+C00033;Carla Gonçalves Fernandes;M;São Paulo;09/04/2026
+C00034;Yasmin Gonçalves Fernandes;F;São Paulo;16/10/2025
+C00035;Yasmin Almeida Oliveira;F;Curitiba;16/11/2023
+C00036;Karina Santos Pereira;M;Curitiba;28/10/2024
+C00037;Karina Almeida Cardoso;F;Belo Horizonte;01/07/2023
+C00038;Sônia Lima Gonçalves;M;São Paulo;10/02/2025
+C00039;Olívia Pereira Lima;F;São Paulo;25/02/2022
+C00040;Cláudio Gonçalves Carvalho;M;Rio de Janeiro;29/01/2023
+C00041;Márcio Almeida Cardoso;M;Campinas;07/02/2026
+C00042;Yasmin Pereira Barbosa;F;São Paulo;18/06/2023
+C00043;Nelson Almeida Pereira;F;Santos;25/10/2025
+C00044;Karina Gonçalves Oliveira;M;Belo Horizonte;18/06/2026
+C00045;Paulo Fernandes Ribeiro;F;São Paulo;21/02/2026
+C00046;Nelson Almeida Araújo;M;Curitiba;04/05/2025
+C00047;Cláudio Lima Araújo;M;Rio de Janeiro;16/03/2025
+C00048;Paulo Carvalho Oliveira;F;Campinas;22/06/2022
+C00049;Lucas Cardoso Souza;F;São Paulo;04/01/2023
+C00050;Tiago Lima Almeida;M;Campinas;21/06/2022
+C00051;Bruno Nascimento Lima;F;Rio de Janeiro;26/06/2023
+C00052;Isabela Souza Araújo;F;São Paulo;09/02/2025
+C00053;Hugo Fernandes Souza;F;São Paulo;21/12/2023
+C00054;Tiago Fernandes Barbosa;F;Santos;31/07/2024
+C00055;Elisa Souza Ribeiro;F;Campinas;21/08/2025
+C00056;Bruno Silva Gonçalves;M;São Paulo;30/06/2026
+C00057;Rodrigo Santos Araújo;F;São Paulo;02/03/2024
+C00058;Fábio Lima Carvalho;M;Porto Alegre;22/08/2024
+C00059;Ana Cardoso Gonçalves;M;Curitiba;06/05/2022
+C00060;Isabela Oliveira Pereira;M;Campinas;11/10/2025
+C00061;Olívia Araújo Oliveira;F;Curitiba;06/05/2025
+C00062;Elisa Cardoso Araújo;M;Belo Horizonte;14/04/2023
+C00063;Olívia Fernandes Araújo;F;Belo Horizonte;16/05/2022
+C00064;Mariana Pereira Gonçalves;M;Rio de Janeiro;02/10/2022
+C00065;Ana Carvalho Fernandes;M;Belo Horizonte;08/09/2024
+C00066;Ana Ribeiro Carvalho;M;São Paulo;19/03/2026
+C00067;André Pereira Cardoso;M;Curitiba;29/08/2023
+C00068;Vítor Almeida Silva;M;Belo Horizonte;17/12/2022
+C00069;Nelson Fernandes Almeida;M;São Paulo;02/08/2025
+C00070;Mariana Souza Barbosa;F;Porto Alegre;03/03/2026
+C00071;João Souza Pereira;F;Campinas;26/07/2024
+C00072;Úrsula Carvalho Araújo;F;Campinas;05/02/2022
+C00073;Karina Pereira Lima;F;Rio de Janeiro;12/04/2026
+C00074;Yasmin Oliveira Oliveira;M;Santos;28/12/2023
+C00075;Diego Almeida Nascimento;M;Santos;24/06/2024
+C00076;Mariana Pereira Ribeiro;F;Porto Alegre;04/09/2024
+C00077;Elisa Gonçalves Pereira;M;São Paulo;16/02/2026
+C00078;Ana Souza Barbosa;M;Rio de Janeiro;10/01/2026
+C00079;Tiago Ribeiro Ribeiro;F;Campinas;19/09/2023
+C00080;Wagner Araújo Araújo;F;Santos;14/09/2023
+C00081;Sônia Fernandes Silva;M;Porto Alegre;28/05/2026
+C00082;Isabela Ribeiro Gonçalves;F;São Paulo;23/08/2022
+C00083;Diego Ribeiro Pereira;M;São Paulo;10/05/2022
+C00084;Gabriela Souza Ribeiro;F;São Paulo;14/08/2026
+C00085;João Santos Silva;F;Rio de Janeiro;07/04/2026
+C00086;Beatriz Fernandes Silva;F;Porto Alegre;27/08/2023
+C00087;Nelson Cardoso Carvalho;F;Porto Alegre;07/08/2024
+C00088;André Ribeiro Souza;F;Curitiba;18/01/2024
+C00089;Isabela Almeida Barbosa;M;Rio de Janeiro;07/12/2022
+C00090;Gabriela Silva Nascimento;F;Rio de Janeiro;28/01/2026
+C00091;Carla Silva Silva;M;Porto Alegre;14/05/2026
+C00092;Yasmin Fernandes Santos;M;Rio de Janeiro;04/01/2024
+C00093;Elisa Silva Almeida;M;Campinas;04/07/2022
+C00094;Cláudio Carvalho Carvalho;M;São Paulo;09/07/2025
+C00095;Nelson Santos Araújo;F;Porto Alegre;31/03/2025
+C00096;Márcio Nascimento Barbosa;F;Porto Alegre;15/06/2025
+C00097;João Ribeiro Araújo;F;Santos;09/08/2025
+C00098;Olívia Lima Pereira;F;Santos;29/03/2026
+C00099;Elisa Fernandes Barbosa;F;São Paulo;24/04/2024
+C00100;Hugo Santos Souza;M;Belo Horizonte;17/05/2024
+C00101;Cláudio Fernandes Ribeiro;M;São Paulo;25/07/2023
+C00102;Vítor Gonçalves Ribeiro;F;Campinas;19/11/2022
+C00103;Bruno Gonçalves Gonçalves;M;Santos;29/10/2023
+C00104;Carla Silva Lima;M;Curitiba;08/11/2022
+C00105;Letícia Ribeiro Ribeiro;M;Curitiba;13/02/2026
+C00106;Fábio Oliveira Silva;M;Rio de Janeiro;11/11/2023
+C00107;Quésia Santos Santos;F;Curitiba;26/05/2022
+C00108;Wagner Barbosa Pereira;M;Belo Horizonte;14/10/2023
+C00109;Úrsula Ribeiro Santos;F;Campinas;25/06/2025
+C00110;Vítor Ribeiro Oliveira;F;Curitiba;27/02/2026
+C00111;Mariana Pereira Barbosa;F;Santos;08/02/2026
+C00112;Quésia Araújo Ribeiro;M;Santos;24/04/2025
+C00113;André Barbosa Cardoso;M;Porto Alegre;02/03/2024
+C00114;Letícia Cardoso Lima;F;Porto Alegre;11/03/2026
+C00115;Zélia Oliveira Santos;F;Belo Horizonte;07/01/2025
+C00116;Yasmin Ribeiro Fernandes;M;São Paulo;18/06/2024
+C00117;Rodrigo Oliveira Almeida;M;São Paulo;24/08/2025
+C00118;Yasmin Araújo Oliveira;M;Santos;12/05/2022
+C00119;Olívia Silva Souza;M;Campinas;27/01/2025
+C00120;Karina Ribeiro Lima;F;Rio de Janeiro;02/05/2023
+C00121;Quésia Almeida Souza;F;Curitiba;11/10/2022
+C00122;André Fernandes Lima;M;Santos;21/05/2026
+C00123;Rodrigo Nascimento Carvalho;F;Porto Alegre;09/06/2022
+C00124;Nelson Souza Nascimento;F;São Paulo;28/09/2023
+C00125;Letícia Barbosa Lima;F;Porto Alegre;06/04/2024
+C00126;Cláudio Oliveira Souza;F;Campinas;25/02/2026
+C00127;Zélia Souza Barbosa;F;São Paulo;22/01/2025
+C00128;Fábio Ribeiro Cardoso;F;São Paulo;16/03/2024
+C00129;Fábio Carvalho Carvalho;M;São Paulo;03/06/2023
+C00130;Hugo Nascimento Gonçalves;M;São Paulo;14/10/2024
+C00131;Rodrigo Fernandes Silva;F;Rio de Janeiro;21/09/2023
+C00132;Cláudio Lima Silva;F;Belo Horizonte;21/12/2024
+C00133;Elisa Pereira Lima;M;Rio de Janeiro;13/11/2025
+C00134;Vítor Almeida Nascimento;M;Campinas;06/01/2023
+C00135;Quésia Lima Nascimento;M;São Paulo;27/02/2022
+C00136;Karina Almeida Souza;M;Belo Horizonte;23/06/2023
+C00137;Tiago Santos Lima;M;São Paulo;12/06/2025
+C00138;Lucas Nascimento Santos;F;Belo Horizonte;22/03/2026
+C00139;Nelson Lima Lima;M;Curitiba;13/02/2022
+C00140;Cláudio Gonçalves Cardoso;F;Rio de Janeiro;20/05/2022
+C00141;Olívia Silva Santos;M;Rio de Janeiro;07/02/2024
+C00142;Isabela Barbosa Nascimento;M;São Paulo;10/05/2023
+C00143;Rodrigo Pereira Araújo;F;Porto Alegre;11/04/2022
+C00144;Fábio Nascimento Araújo;M;São Paulo;20/10/2024
+C00145;Bruno Santos Silva;F;São Paulo;04/05/2026
+C00146;João Oliveira Nascimento;F;Campinas;28/08/2025
+C00147;Tiago Carvalho Souza;F;Belo Horizonte;29/11/2023
+C00148;Quésia Ribeiro Almeida;F;Santos;12/10/2025
+C00149;Wagner Pereira Nascimento;F;Curitiba;27/11/2022
+C00150;Wagner Souza Cardoso;F;Rio de Janeiro;01/11/2024
+C00151;Karina Cardoso Pereira;M;São Paulo;02/06/2022
+C00152;João Almeida Pereira;F;São Paulo;17/07/2023
+C00153;Quésia Nascimento Cardoso;M;São Paulo;28/05/2025
+C00154;Beatriz Santos Araújo;F;Rio de Janeiro;03/12/2025
+C00155;Zélia Nascimento Silva;F;São Paulo;29/05/2024
+C00156;André Oliveira Lima;F;Belo Horizonte;12/12/2023
+C00157;Tiago Silva Oliveira;M;Santos;04/11/2023
+C00158;Mariana Araújo Fernandes;M;Porto Alegre;28/11/2022
+C00159;Beatriz Pereira Fernandes;F;Curitiba;06/11/2025
+C00160;Cláudio Nascimento Nascimento;F;Curitiba;17/03/2023
+C00161;Carla Souza Souza;F;São Paulo;11/11/2023
+C00162;Márcio Ribeiro Barbosa;F;Porto Alegre;08/05/2022
+C00163;Letícia Silva Souza;M;Curitiba;24/04/2024
+C00164;Ana Santos Silva;M;Rio de Janeiro;12/10/2024
+C00165;Gabriela Fernandes Nascimento;M;Curitiba;02/04/2025
+C00166;Carla Fernandes Almeida;F;Campinas;17/09/2024
+C00167;Karina Santos Lima;F;Curitiba;06/10/2022
+C00168;Wagner Souza Gonçalves;M;Campinas;28/02/2026
+C00169;João Silva Fernandes;F;Santos;08/05/2023
+C00170;Carla Santos Gonçalves;F;Curitiba;01/01/2024
+C00171;Gabriela Carvalho Pereira;F;Porto Alegre;19/04/2024
+C00172;Isabela Souza Araújo;M;Porto Alegre;13/07/2024
+C00173;Úrsula Ribeiro Pereira;M;Rio de Janeiro;02/10/2024
+C00174;Quésia Santos Carvalho;M;Porto Alegre;02/05/2025
+C00175;Tiago Nascimento Silva;F;Campinas;24/09/2024
+C00176;Letícia Araújo Carvalho;F;Porto Alegre;25/05/2026
+C00177;Isabela Pereira Almeida;F;Belo Horizonte;10/05/2026
+C00178;Mariana Nascimento Fernandes;M;Porto Alegre;12/10/2022
+C00179;Elisa Fernandes Santos;F;Rio de Janeiro;11/10/2022
+C00180;Yasmin Santos Silva;F;Rio de Janeiro;16/05/2025
+C00181;Mariana Gonçalves Pereira;F;Curitiba;11/12/2025
+C00182;Mariana Santos Nascimento;F;Rio de Janeiro;19/07/2025
+C00183;Elisa Oliveira Pereira;M;Rio de Janeiro;14/08/2023
+C00184;Mariana Barbosa Silva;F;São Paulo;08/02/2026
+C00185;Ana Carvalho Cardoso;F;Rio de Janeiro;04/12/2025
+C00186;Letícia Barbosa Pereira;F;São Paulo;12/10/2024
+C00187;Beatriz Ribeiro Ribeiro;F;Porto Alegre;25/05/2024
+C00188;Rodrigo Lima Gonçalves;F;Belo Horizonte;04/02/2023
+C00189;Zélia Carvalho Araújo;F;Porto Alegre;03/04/2024
+C00190;Beatriz Araújo Silva;F;Porto Alegre;16/02/2025
+C00191;Carla Araújo Lima;M;Belo Horizonte;12/06/2026
+C00192;Paulo Gonçalves Almeida;M;São Paulo;29/04/2023
+C00193;Isabela Ribeiro Almeida;M;São Paulo;11/04/2022
+C00194;Quésia Araújo Pereira;M;São Paulo;28/02/2025
+C00195;Beatriz Oliveira Santos;F;Santos;16/11/2024
+C00196;Bruno Gonçalves Nascimento;M;Curitiba;07/08/2022
+C00197;Gabriela Souza Carvalho;F;Santos;29/09/2023
+C00198;Cláudio Gonçalves Pereira;F;São Paulo;25/07/2026
+C00199;Márcio Oliveira Barbosa;F;Curitiba;05/09/2022
+C00200;Tiago Lima Pereira;F;São Paulo;25/04/2026
+C00201;Yasmin Ribeiro Oliveira;M;Rio de Janeiro;11/07/2025
+C00202;André Carvalho Silva;F;Rio de Janeiro;11/10/2025
+C00203;Mariana Nascimento Silva;F;Rio de Janeiro;10/02/2023
+C00204;Gabriela Almeida Oliveira;M;São Paulo;23/03/2026
+C00205;Sônia Barbosa Lima;M;Curitiba;07/03/2025
+C00206;Rodrigo Almeida Oliveira;M;Curitiba;11/02/2024
+C00207;Karina Pereira Araújo;F;Belo Horizonte;05/04/2022
+C00208;Úrsula Barbosa Fernandes;F;Santos;09/11/2025
+C00209;Sônia Araújo Lima;F;Campinas;28/04/2025
+C00210;Úrsula Fernandes Santos;M;Campinas;28/06/2026
+C00211;Tiago Pereira Santos;M;Porto Alegre;19/09/2024
+C00212;Carla Almeida Santos;F;Porto Alegre;08/07/2026
+C00213;Paulo Araújo Silva;M;São Paulo;16/04/2025
+C00214;Nelson Lima Silva;M;Santos;09/10/2025
+C00215;João Souza Fernandes;M;São Paulo;18/04/2022
+C00216;Carla Gonçalves Pereira;M;Santos;21/04/2026
+C00217;Márcio Fernandes Ribeiro;F;Curitiba;07/08/2022
+C00218;Olívia Nascimento Ribeiro;M;Santos;04/05/2024
+C00219;Paulo Nascimento Souza;M;Porto Alegre;23/01/2023
+C00220;Márcio Nascimento Silva;F;Porto Alegre;16/06/2026
+C00221;Úrsula Ribeiro Carvalho;M;Rio de Janeiro;05/03/2025
+C00222;Carla Pereira Oliveira;M;São Paulo;12/08/2026
+C00223;Sônia Souza Ribeiro;M;Porto Alegre;28/04/2026
+C00224;João Pereira Barbosa;M;Curitiba;27/08/2026
+C00225;Mariana Fernandes Oliveira;M;Santos;30/08/2024
+C00226;Isabela Silva Carvalho;M;Campinas;14/09/2023
+C00227;Vítor Santos Cardoso;F;Campinas;24/05/2022
+C00228;Yasmin Ribeiro Fernandes;M;Rio de Janeiro;09/08/2025
+C00229;Paulo Gonçalves Fernandes;F;Curitiba;16/09/2025
+C00230;Ana Carvalho Araújo;F;Porto Alegre;29/10/2024
+C00231;Bruno Santos Ribeiro;F;Curitiba;01/11/2024
+C00232;Tiago Carvalho Pereira;F;Curitiba;28/06/2025
+C00233;Gabriela Fernandes Araújo;M;Belo Horizonte;01/07/2024
+C00234;Cláudio Araújo Pereira;M;São Paulo;14/10/2023
+C00235;Cláudio Cardoso Barbosa;M;Campinas;06/03/2024
+C00236;Fábio Souza Nascimento;M;Rio de Janeiro;11/11/2023
+C00237;Márcio Ribeiro Carvalho;M;São Paulo;12/10/2023
+C00238;Letícia Cardoso Santos;M;Porto Alegre;27/01/2022
+C00239;Nelson Silva Santos;M;Curitiba;09/05/2024
+C00240;Ana Almeida Barbosa;F;São Paulo;14/04/2025
+C00241;Vítor Barbosa Gonçalves;F;Porto Alegre;09/01/2025
+C00242;Karina Cardoso Oliveira;M;Curitiba;06/07/2025
+C00243;Isabela Cardoso Carvalho;F;Rio de Janeiro;07/05/2025
+C00244;Hugo Ribeiro Fernandes;F;Belo Horizonte;07/06/2024
+C00245;Karina Almeida Araújo;F;São Paulo;03/01/2022
+C00246;Úrsula Carvalho Santos;M;Belo Horizonte;04/05/2023
+C00247;Lucas Cardoso Araújo;F;Curitiba;28/03/2023
+C00248;João Lima Souza;F;São Paulo;15/05/2025
+C00249;Rodrigo Almeida Almeida;F;Curitiba;03/06/2024
+C00250;Márcio Santos Pereira;F;Curitiba;05/06/2024
+C00251;Letícia Araújo Lima;M;Curitiba;01/10/2022
+C00252;Letícia Souza Almeida;M;São Paulo;06/05/2022
+C00253;Yasmin Fernandes Carvalho;F;Porto Alegre;29/11/2025
+C00254;Karina Fernandes Santos;F;Porto Alegre;28/02/2026
+C00255;Isabela Gonçalves Araújo;M;Porto Alegre;10/12/2024
+C00256;Sônia Ribeiro Santos;F;Porto Alegre;14/02/2023
+C00257;Paulo Silva Souza;F;Porto Alegre;18/09/2024
+C00258;Gabriela Fernandes Fernandes;M;Santos;26/10/2024
+C00259;Fábio Pereira Carvalho;M;Belo Horizonte;15/08/2024
+C00260;Márcio Gonçalves Carvalho;F;Porto Alegre;26/07/2025
+C00261;Quésia Almeida Cardoso;F;Curitiba;18/04/2025
+C00262;Cláudio Gonçalves Barbosa;F;Curitiba;06/05/2023
+C00263;Fábio Barbosa Nascimento;F;São Paulo;24/07/2026
+C00264;Karina Ribeiro Ribeiro;M;Santos;15/04/2022
+C00265;Karina Ribeiro Gonçalves;M;Porto Alegre;09/01/2023
+C00266;Karina Fernandes Silva;M;Curitiba;19/10/2023
+C00267;João Souza Barbosa;F;Curitiba;29/04/2023
+C00268;Carla Araújo Ribeiro;M;Santos;27/08/2025
+C00269;Hugo Oliveira Araújo;M;Belo Horizonte;09/01/2024
+C00270;Márcio Barbosa Nascimento;M;Porto Alegre;14/03/2026
+C00271;Lucas Pereira Gonçalves;F;Porto Alegre;25/11/2025
+C00272;João Pereira Lima;F;São Paulo;09/01/2022
+C00273;Zélia Fernandes Almeida;F;Campinas;28/09/2025
+C00274;Beatriz Cardoso Pereira;F;Belo Horizonte;06/02/2023
+C00275;Tiago Oliveira Almeida;F;São Paulo;11/07/2025
+C00276;Gabriela Gonçalves Ribeiro;M;Belo Horizonte;17/08/2023
+C00277;Letícia Nascimento Araújo;F;Porto Alegre;02/07/2023
+C00278;João Carvalho Cardoso;M;São Paulo;11/11/2023
+C00279;Lucas Silva Barbosa;M;Curitiba;14/04/2022
+C00280;Elisa Silva Cardoso;M;Rio de Janeiro;07/01/2025
+C00281;Wagner Gonçalves Fernandes;F;São Paulo;21/02/2024
+C00282;Wagner Oliveira Santos;F;Porto Alegre;26/03/2025
+C00283;João Ribeiro Carvalho;M;Curitiba;26/10/2023
+C00284;Hugo Silva Araújo;F;Porto Alegre;14/10/2024
+C00285;Karina Carvalho Barbosa;M;Campinas;29/05/2023
+C00286;Wagner Gonçalves Fernandes;F;Belo Horizonte;07/02/2026
+C00287;Mariana Lima Fernandes;F;Belo Horizonte;13/10/2023
+C00288;Letícia Almeida Pereira;F;Rio de Janeiro;13/07/2022
+C00289;Isabela Fernandes Lima;M;Curitiba;05/08/2022
+C00290;Beatriz Oliveira Barbosa;M;Rio de Janeiro;28/05/2022
+C00291;Elisa Fernandes Barbosa;F;Rio de Janeiro;13/11/2024
+C00292;Wagner Santos Silva;M;Rio de Janeiro;11/09/2024
+C00293;Ana Silva Almeida;M;São Paulo;26/07/2025
+C00294;Hugo Carvalho Oliveira;F;Belo Horizonte;16/02/2024
+C00295;Vítor Barbosa Souza;M;São Paulo;19/08/2025
+C00296;Beatriz Souza Pereira;M;Campinas;30/12/2023
+C00297;Zélia Araújo Gonçalves;F;Santos;20/07/2024
+C00298;João Almeida Silva;F;Curitiba;10/10/2023
+C00299;Beatriz Fernandes Oliveira;M;Porto Alegre;15/09/2025
+C00300;Sônia Araújo Pereira;M;Curitiba;13/01/2025
+C00301;Bruno Almeida Gonçalves;M;Santos;12/06/2026
+C00302;Paulo Lima Silva;F;Porto Alegre;26/05/2022
+C00303;Mariana Santos Pereira;M;Campinas;28/03/2026
+C00304;Karina Cardoso Carvalho;M;São Paulo;12/08/2022
+C00305;Tiago Fernandes Gonçalves;M;Santos;24/10/2023
+C00306;Sônia Souza Fernandes;F;Curitiba;23/09/2022
+C00307;Paulo Gonçalves Araújo;F;Campinas;29/08/2025
+C00308;Wagner Ribeiro Carvalho;M;Porto Alegre;06/04/2026
+C00309;Bruno Gonçalves Oliveira;F;São Paulo;04/03/2025
+C00310;Tiago Lima Nascimento;F;Santos;22/08/2024
+C00311;André Pereira Araújo;F;São Paulo;09/04/2025
+C00312;Wagner Nascimento Carvalho;M;Belo Horizonte;19/12/2022
+C00313;Rodrigo Ribeiro Oliveira;M;Santos;31/05/2025
+C00314;Tiago Lima Oliveira;F;Porto Alegre;31/12/2024
+C00315;João Araújo Oliveira;M;São Paulo;28/01/2022
+C00316;Ana Souza Santos;M;São Paulo;24/08/2023
+C00317;Márcio Cardoso Lima;F;Santos;28/03/2023
+C00318;Quésia Oliveira Cardoso;M;Rio de Janeiro;03/06/2023
+C00319;Úrsula Carvalho Barbosa;M;Belo Horizonte;01/06/2022
+C00320;Yasmin Cardoso Nascimento;F;São Paulo;05/02/2023
+C00321;Diego Fernandes Nascimento;M;São Paulo;12/02/2024
+C00322;Wagner Silva Almeida;F;Belo Horizonte;27/07/2026
+C00323;Yasmin Ribeiro Carvalho;M;Porto Alegre;26/09/2022
+C00324;Lucas Lima Oliveira;M;Curitiba;12/07/2023
+C00325;Letícia Barbosa Ribeiro;F;Rio de Janeiro;02/02/2022
+C00326;Sônia Lima Gonçalves;M;Campinas;08/07/2026
+C00327;Márcio Pereira Oliveira;M;Porto Alegre;24/01/2025
+C00328;Carla Almeida Cardoso;M;São Paulo;09/08/2024
+C00329;Ana Souza Nascimento;M;São Paulo;20/09/2025
+C00330;Letícia Cardoso Lima;F;Belo Horizonte;30/05/2026
+C00331;Paulo Pereira Souza;M;Curitiba;20/04/2026
+C00332;Karina Fernandes Cardoso;M;Rio de Janeiro;29/08/2022
+C00333;Olívia Barbosa Almeida;M;Campinas;30/01/2023
+C00334;Karina Carvalho Ribeiro;F;São Paulo;27/09/2025
+C00335;Úrsula Araújo Oliveira;F;Belo Horizonte;07/09/2024
+C00336;Carla Oliveira Santos;M;São Paulo;29/06/2026
+C00337;Ana Barbosa Ribeiro;M;Belo Horizonte;16/01/2022
+C00338;Mariana Pereira Oliveira;M;Porto Alegre;06/10/2023
+C00339;Gabriela Lima Carvalho;F;Rio de Janeiro;26/06/2024
+C00340;Tiago Silva Silva;M;Porto Alegre;21/03/2025
+C00341;Paulo Carvalho Oliveira;F;São Paulo;03/12/2025
+C00342;Olívia Gonçalves Gonçalves;F;São Paulo;21/02/2023
+C00343;João Almeida Souza;M;Porto Alegre;18/02/2022
+C00344;Wagner Araújo Lima;M;Rio de Janeiro;03/04/2023
+C00345;Wagner Silva Souza;M;Curitiba;04/02/2025
+C00346;Wagner Barbosa Cardoso;M;São Paulo;08/08/2022
+C00347;Nelson Almeida Lima;F;Porto Alegre;30/04/2023
+C00348;Ana Gonçalves Santos;M;Curitiba;15/08/2024
+C00349;Fábio Nascimento Pereira;M;Rio de Janeiro;25/02/2024
+C00350;André Santos Barbosa;F;Porto Alegre;21/04/2026
+C00351;Quésia Silva Araújo;F;Porto Alegre;21/08/2023
+C00352;Isabela Gonçalves Pereira;M;Campinas;28/06/2023
+C00353;Paulo Almeida Ribeiro;M;São Paulo;17/03/2025
+C00354;Diego Carvalho Araújo;F;Curitiba;20/11/2025
+C00355;Fábio Araújo Araújo;F;Belo Horizonte;06/10/2025
+C00356;Paulo Barbosa Barbosa;M;São Paulo;28/08/2023
+C00357;Diego Santos Almeida;M;São Paulo;06/10/2024
+C00358;André Barbosa Oliveira;M;Curitiba;19/11/2022
+C00359;Zélia Lima Barbosa;M;Campinas;01/07/2022
+C00360;Fábio Silva Fernandes;F;São Paulo;08/12/2022
+C00361;Nelson Cardoso Gonçalves;M;Rio de Janeiro;07/01/2024
+C00362;Elisa Silva Oliveira;M;Rio de Janeiro;11/04/2022
+C00363;Wagner Lima Ribeiro;M;São Paulo;20/05/2023
+C00364;Carla Fernandes Souza;F;Campinas;21/05/2026
+C00365;Yasmin Lima Souza;M;São Paulo;12/05/2023
+C00366;Nelson Pereira Lima;M;São Paulo;28/10/2025
+C00367;Úrsula Barbosa Almeida;M;Rio de Janeiro;04/04/2022
+C00368;Ana Fernandes Oliveira;F;Porto Alegre;31/07/2023
+C00369;Letícia Fernandes Lima;M;Campinas;25/12/2024
+C00370;Hugo Oliveira Carvalho;M;São Paulo;08/10/2024
+C00371;Tiago Nascimento Fernandes;M;Santos;03/02/2026
+C00372;Márcio Araújo Carvalho;M;Campinas;20/05/2025
+C00373;Ana Oliveira Araújo;F;Rio de Janeiro;30/12/2023
+C00374;Cláudio Araújo Cardoso;F;São Paulo;09/03/2025
+C00375;Yasmin Nascimento Gonçalves;M;São Paulo;15/12/2022
+C00376;Yasmin Santos Carvalho;M;Porto Alegre;23/04/2024
+C00377;Sônia Almeida Barbosa;M;Curitiba;15/04/2024
+C00378;Ana Cardoso Barbosa;M;Curitiba;11/08/2024
+C00379;Sônia Cardoso Almeida;F;Rio de Janeiro;19/02/2022
+C00380;Tiago Araújo Fernandes;F;Campinas;14/07/2024
+C00381;Quésia Pereira Ribeiro;F;Porto Alegre;13/02/2026
+C00382;Márcio Oliveira Nascimento;F;Belo Horizonte;19/06/2025
+C00383;Diego Carvalho Lima;M;Campinas;07/11/2023
+C00384;Rodrigo Araújo Fernandes;M;Belo Horizonte;09/02/2024
+C00385;Fábio Araújo Lima;M;Belo Horizonte;27/07/2026
+C00386;Úrsula Santos Barbosa;M;Rio de Janeiro;12/01/2023
+C00387;Márcio Silva Almeida;M;Campinas;10/02/2024
+C00388;Úrsula Oliveira Oliveira;F;São Paulo;19/03/2022
+C00389;Karina Oliveira Araújo;M;Campinas;15/05/2026
+C00390;Beatriz Cardoso Gonçalves;F;Rio de Janeiro;16/06/2022
+C00391;Sônia Ribeiro Gonçalves;F;Curitiba;15/12/2024
+C00392;Vítor Lima Araújo;F;São Paulo;05/02/2025
+C00393;Isabela Fernandes Oliveira;M;São Paulo;27/06/2024
+C00394;Quésia Pereira Barbosa;M;Belo Horizonte;18/08/2022
+C00395;Diego Carvalho Oliveira;F;Rio de Janeiro;08/06/2024
+C00396;Isabela Lima Fernandes;F;Curitiba;04/08/2026
+C00397;Lucas Almeida Lima;M;Campinas;16/09/2022
+C00398;Karina Lima Barbosa;F;São Paulo;11/04/2025
+C00399;Sônia Oliveira Oliveira;M;Santos;11/09/2025
+C00400;Vítor Pereira Ribeiro;M;São Paulo;28/06/2022
+C00401;Letícia Carvalho Pereira;M;Porto Alegre;21/02/2024
+C00402;Letícia Almeida Cardoso;F;Belo Horizonte;13/01/2023
+C00403;Letícia Silva Nascimento;M;Campinas;19/06/2025
+C00404;Zélia Araújo Barbosa;M;Porto Alegre;13/06/2026
+C00405;Karina Gonçalves Nascimento;F;São Paulo;29/04/2022
+C00406;Vítor Pereira Oliveira;M;Campinas;10/06/2022
+C00407;Letícia Nascimento Lima;M;Campinas;07/06/2023
+C00408;Rodrigo Barbosa Barbosa;M;Campinas;17/07/2025
+C00409;Hugo Ribeiro Cardoso;F;Belo Horizonte;10/08/2024
+C00410;Elisa Oliveira Lima;M;São Paulo;04/07/2025
+C00411;Elisa Gonçalves Fernandes;F;São Paulo;26/05/2026
+C00412;Hugo Fernandes Almeida;M;São Paulo;28/10/2023
+C00413;Quésia Ribeiro Oliveira;M;Santos;20/11/2022
+C00414;Elisa Gonçalves Ribeiro;F;Curitiba;03/08/2025
+C00415;Cláudio Nascimento Oliveira;F;Porto Alegre;06/04/2024
+C00416;Beatriz Nascimento Barbosa;F;São Paulo;10/04/2024
+C00417;Gabriela Lima Ribeiro;F;Rio de Janeiro;21/06/2025
+C00418;Olívia Oliveira Souza;F;Belo Horizonte;03/01/2026
+C00419;Karina Santos Pereira;M;Rio de Janeiro;26/10/2025
+C00420;Tiago Lima Nascimento;M;Rio de Janeiro;09/06/2024
+C00421;Quésia Cardoso Ribeiro;F;Campinas;09/03/2025
+C00422;Elisa Carvalho Gonçalves;M;Campinas;10/07/2022
+C00423;Letícia Barbosa Santos;F;Curitiba;19/11/2023
+C00424;Karina Pereira Fernandes;F;São Paulo;25/11/2024
+C00425;Ana Oliveira Carvalho;F;Porto Alegre;26/11/2023
+C00426;Quésia Araújo Oliveira;F;Campinas;10/01/2023
+C00427;Vítor Silva Santos;F;Porto Alegre;26/12/2024
+C00428;Ana Almeida Lima;M;Santos;08/07/2025
+C00429;Sônia Fernandes Ribeiro;F;Belo Horizonte;12/04/2024
+C00430;Márcio Souza Pereira;F;São Paulo;13/04/2025
+C00431;Bruno Lima Ribeiro;M;Santos;29/04/2023
+C00432;João Souza Carvalho;M;Belo Horizonte;24/10/2024
+C00433;Lucas Souza Cardoso;M;Belo Horizonte;04/08/2025
+C00434;Zélia Cardoso Pereira;M;Porto Alegre;11/01/2026
+C00435;Letícia Nascimento Nascimento;M;Porto Alegre;21/03/2026
+C00436;Cláudio Cardoso Ribeiro;F;São Paulo;30/08/2023
+C00437;Úrsula Nascimento Almeida;F;Curitiba;16/06/2023
+C00438;Bruno Cardoso Oliveira;M;Campinas;22/11/2024
+C00439;Carla Almeida Nascimento;F;São Paulo;07/12/2025
+C00440;Fábio Nascimento Ribeiro;M;Porto Alegre;06/05/2025
+C00441;Isabela Lima Almeida;M;São Paulo;28/03/2026
+C00442;Beatriz Araújo Barbosa;F;Rio de Janeiro;02/05/2026
+C00443;Ana Oliveira Pereira;M;Rio de Janeiro;23/06/2026
+C00444;Carla Pereira Silva;F;Curitiba;13/04/2026
+C00445;Bruno Cardoso Gonçalves;M;São Paulo;05/01/2025
+C00446;Olívia Gonçalves Fernandes;M;Rio de Janeiro;13/05/2024
+C00447;João Silva Barbosa;F;Campinas;14/03/2023
+C00448;Úrsula Santos Carvalho;M;Santos;06/10/2023
+C00449;Gabriela Araújo Fernandes;M;Santos;02/06/2024
+C00450;Quésia Oliveira Gonçalves;M;Campinas;06/02/2023
+C00451;Fábio Oliveira Silva;F;Santos;14/03/2023
+C00452;Ana Souza Nascimento;M;Curitiba;10/03/2023
+C00453;Carla Lima Silva;F;Curitiba;13/10/2023
+C00454;Karina Fernandes Ribeiro;F;Rio de Janeiro;02/05/2025
+C00455;Ana Silva Fernandes;F;Belo Horizonte;02/01/2026
+C00456;Diego Cardoso Silva;M;São Paulo;04/11/2022
+C00457;Elisa Nascimento Santos;M;Porto Alegre;21/06/2023
+C00458;Diego Fernandes Cardoso;M;Belo Horizonte;18/01/2023
+C00459;Karina Lima Lima;F;Belo Horizonte;26/10/2025
+C00460;Paulo Araújo Araújo;F;São Paulo;02/05/2023
+C00461;Olívia Carvalho Barbosa;F;Porto Alegre;03/05/2025
+C00462;Paulo Pereira Almeida;M;Porto Alegre;20/02/2024
+C00463;Ana Souza Carvalho;M;Porto Alegre;03/03/2025
+C00464;Elisa Almeida Nascimento;M;Belo Horizonte;16/07/2022
+C00465;Bruno Silva Silva;M;Porto Alegre;24/04/2023
+C00466;Úrsula Araújo Lima;M;Belo Horizonte;01/01/2023
+C00467;André Gonçalves Cardoso;M;Belo Horizonte;07/10/2025
+C00468;Hugo Barbosa Almeida;F;São Paulo;25/05/2025
+C00469;Márcio Ribeiro Gonçalves;M;Campinas;15/04/2022
+C00470;Ana Pereira Oliveira;M;Campinas;06/03/2024
+C00471;Fábio Souza Oliveira;M;São Paulo;01/01/2026
+C00472;Mariana Carvalho Araújo;M;São Paulo;30/12/2024
+C00473;Ana Carvalho Pereira;M;Curitiba;05/08/2023
+C00474;Yasmin Silva Souza;F;Santos;14/04/2022
+C00475;Isabela Araújo Santos;F;Rio de Janeiro;24/01/2026
+C00476;Rodrigo Cardoso Silva;M;Porto Alegre;14/02/2025
+C00477;Yasmin Barbosa Silva;F;São Paulo;03/03/2026
+C00478;Ana Nascimento Lima;M;São Paulo;22/01/2025
+C00479;Cláudio Santos Silva;F;Santos;20/07/2022
+C00480;Yasmin Santos Cardoso;M;São Paulo;10/12/2023
+C00481;Lucas Silva Carvalho;F;São Paulo;05/07/2022
+C00482;Nelson Nascimento Silva;M;Belo Horizonte;25/01/2025
+C00483;Diego Cardoso Araújo;F;Porto Alegre;07/08/2024
+C00484;Gabriela Almeida Oliveira;F;Belo Horizonte;31/01/2024
+C00485;André Carvalho Barbosa;F;São Paulo;24/11/2022
+C00486;Bruno Nascimento Gonçalves;F;Curitiba;16/09/2023
+C00487;Nelson Carvalho Pereira;M;Rio de Janeiro;25/04/2022
+C00488;Zélia Santos Nascimento;M;Santos;19/05/2025
+C00489;Nelson Fernandes Lima;F;São Paulo;26/06/2022
+C00490;Elisa Santos Fernandes;F;Campinas;21/05/2026
+C00491;Yasmin Gonçalves Lima;M;São Paulo;26/10/2023
+C00492;Olívia Oliveira Almeida;F;Santos;06/10/2024
+C00493;Carla Cardoso Barbosa;F;Curitiba;11/11/2025
+C00494;Isabela Silva Oliveira;M;São Paulo;07/02/2024
+C00495;Cláudio Barbosa Carvalho;M;Santos;12/03/2023
+C00496;Tiago Souza Souza;M;Porto Alegre;30/05/2022
+C00497;Beatriz Gonçalves Oliveira;F;Curitiba;21/02/2024
+C00498;Isabela Ribeiro Ribeiro;M;Curitiba;10/12/2025
+C00499;João Silva Almeida;M;São Paulo;11/04/2024
+C00500;Tiago Lima Ribeiro;F;Curitiba;21/09/2023
+C00501;Ana Souza Araújo;M;Santos;26/09/2024
+C00502;Lucas Barbosa Gonçalves;F;São Paulo;12/10/2025
+C00503;Rodrigo Fernandes Araújo;M;Belo Horizonte;11/09/2022
+C00504;Bruno Silva Almeida;M;Porto Alegre;17/05/2022
+C00505;Isabela Barbosa Souza;F;São Paulo;15/02/2024
+C00506;Vítor Souza Souza;F;Campinas;09/05/2023
+C00507;Nelson Santos Nascimento;F;São Paulo;08/07/2023
+C00508;Olívia Silva Pereira;F;Belo Horizonte;14/01/2026
+C00509;Wagner Fernandes Santos;M;Campinas;04/03/2025
+C00510;Zélia Almeida Nascimento;F;Porto Alegre;06/02/2026
+C00511;Olívia Carvalho Silva;F;Belo Horizonte;08/02/2026
+C00512;Letícia Souza Silva;M;Campinas;15/08/2024
+C00513;Úrsula Souza Lima;F;Belo Horizonte;25/04/2024
+C00514;Diego Silva Pereira;M;Santos;12/06/2023
+C00515;Yasmin Souza Silva;F;São Paulo;04/05/2025
+C00516;Tiago Gonçalves Carvalho;M;Porto Alegre;08/11/2025
+C00517;João Oliveira Carvalho;F;Campinas;22/01/2023
+C00518;Letícia Lima Ribeiro;F;Belo Horizonte;24/04/2023
+C00519;Karina Ribeiro Nascimento;F;São Paulo;28/03/2022
+C00520;Fábio Souza Silva;M;São Paulo;05/08/2025
+C00521;Yasmin Santos Oliveira;M;São Paulo;15/12/2024
+C00522;Ana Araújo Barbosa;M;Belo Horizonte;31/10/2022
+C00523;Bruno Lima Silva;F;Belo Horizonte;12/05/2022
+C00524;Rodrigo Silva Cardoso;F;Porto Alegre;04/07/2025
+C00525;Márcio Souza Carvalho;M;Belo Horizonte;01/04/2024
+C00526;Vítor Pereira Pereira;F;São Paulo;13/10/2024
+C00527;Nelson Pereira Fernandes;M;Belo Horizonte;15/05/2023
+C00528;Wagner Almeida Nascimento;M;Porto Alegre;07/03/2025
+C00529;Vítor Cardoso Silva;M;Belo Horizonte;26/06/2022
+C00530;Carla Lima Almeida;M;Curitiba;25/06/2023
+C00531;Hugo Ribeiro Ribeiro;M;São Paulo;24/01/2024
+C00532;Mariana Fernandes Souza;F;Belo Horizonte;14/01/2026
+C00533;Úrsula Araújo Almeida;F;Campinas;06/07/2022
+C00534;Hugo Ribeiro Lima;F;São Paulo;21/08/2025
+C00535;Mariana Souza Cardoso;M;São Paulo;06/06/2026
+C00536;Zélia Araújo Almeida;M;Porto Alegre;29/11/2023
+C00537;Fábio Santos Lima;F;Porto Alegre;05/06/2025
+C00538;Mariana Araújo Araújo;M;Porto Alegre;11/09/2023
+C00539;Zélia Barbosa Gonçalves;M;Campinas;27/02/2025
+C00540;Beatriz Fernandes Ribeiro;M;Belo Horizonte;22/03/2026
+C00541;João Lima Nascimento;F;São Paulo;25/07/2026
+C00542;Hugo Pereira Almeida;F;Rio de Janeiro;24/06/2026
+C00543;Paulo Santos Nascimento;F;Porto Alegre;12/08/2024
+C00544;Ana Nascimento Oliveira;F;São Paulo;10/06/2023
+C00545;João Pereira Oliveira;F;São Paulo;07/01/2023
+C00546;Isabela Pereira Cardoso;M;Rio de Janeiro;28/08/2025
+C00547;Sônia Souza Araújo;M;Santos;22/11/2025
+C00548;Cláudio Oliveira Almeida;F;São Paulo;02/12/2024
+C00549;Diego Silva Ribeiro;M;Campinas;19/08/2025
+C00550;Tiago Almeida Ribeiro;M;Porto Alegre;28/01/2024
+C00551;João Santos Nascimento;M;Belo Horizonte;02/08/2026
+C00552;Quésia Cardoso Ribeiro;F;Campinas;12/11/2022
+C00553;Diego Santos Santos;M;Campinas;10/08/2026
+C00554;Hugo Souza Pereira;M;Porto Alegre;13/07/2024
+C00555;André Gonçalves Souza;F;Campinas;26/01/2022
+C00556;Hugo Almeida Almeida;M;São Paulo;22/03/2024
+C00557;Isabela Lima Carvalho;M;São Paulo;29/12/2023
+C00558;Nelson Almeida Silva;F;São Paulo;17/12/2025
+C00559;Cláudio Fernandes Lima;F;Campinas;07/11/2023
+C00560;Ana Gonçalves Souza;F;Campinas;01/11/2022
+C00561;André Barbosa Fernandes;M;Porto Alegre;13/01/2024
+C00562;Lucas Pereira Souza;F;Rio de Janeiro;09/02/2023
+C00563;Hugo Barbosa Araújo;F;São Paulo;14/09/2025
+C00564;Sônia Oliveira Santos;F;Santos;20/07/2023
+C00565;Márcio Oliveira Cardoso;M;Belo Horizonte;27/10/2022
+C00566;Beatriz Pereira Almeida;F;Rio de Janeiro;27/04/2026
+C00567;Beatriz Silva Almeida;F;São Paulo;07/05/2025
+C00568;Cláudio Carvalho Ribeiro;F;São Paulo;12/01/2024
+C00569;Karina Nascimento Fernandes;F;Rio de Janeiro;23/04/2023
+C00570;Úrsula Souza Gonçalves;F;Curitiba;25/09/2024
+C00571;Zélia Oliveira Santos;M;Rio de Janeiro;17/12/2023
+C00572;Mariana Santos Carvalho;M;Porto Alegre;10/10/2024
+C00573;João Barbosa Silva;F;São Paulo;31/05/2024
+C00574;Karina Santos Carvalho;F;Belo Horizonte;30/01/2026
+C00575;Olívia Fernandes Ribeiro;F;São Paulo;06/03/2024
+C00576;Sônia Gonçalves Ribeiro;F;São Paulo;10/05/2024
+C00577;André Lima Lima;M;São Paulo;07/01/2025
+C00578;Paulo Pereira Ribeiro;M;Belo Horizonte;17/01/2023
+C00579;Lucas Lima Carvalho;F;Santos;26/12/2024
+C00580;Úrsula Carvalho Gonçalves;M;Santos;29/07/2022
+C00581;Carla Cardoso Lima;M;Belo Horizonte;02/07/2025
+C00582;Lucas Barbosa Cardoso;M;Curitiba;18/04/2022
+C00583;Diego Fernandes Santos;F;Porto Alegre;26/01/2025
+C00584;Lucas Silva Cardoso;M;Porto Alegre;02/06/2022
+C00585;Diego Carvalho Oliveira;F;Santos;27/05/2026
+C00586;Beatriz Carvalho Barbosa;F;Santos;03/10/2025
+C00587;Lucas Oliveira Almeida;M;São Paulo;31/12/2023
+C00588;Mariana Nascimento Cardoso;M;São Paulo;19/12/2025
+C00589;Paulo Lima Souza;M;São Paulo;12/10/2025
+C00590;Bruno Silva Gonçalves;F;Porto Alegre;12/11/2022
+C00591;Gabriela Ribeiro Pereira;M;São Paulo;25/10/2022
+C00592;Wagner Oliveira Almeida;M;São Paulo;01/09/2024
+C00593;Úrsula Almeida Fernandes;M;Rio de Janeiro;20/07/2026
+C00594;Tiago Souza Silva;M;Campinas;06/10/2022
+C00595;Ana Ribeiro Silva;F;São Paulo;29/12/2022
+C00596;Bruno Fernandes Almeida;M;Belo Horizonte;11/08/2024
+C00597;Márcio Lima Nascimento;F;Rio de Janeiro;21/01/2023
+C00598;Sônia Carvalho Ribeiro;M;Curitiba;23/04/2023
+C00599;Rodrigo Cardoso Lima;F;Porto Alegre;25/08/2025
+C00600;Márcio Gonçalves Nascimento;F;Curitiba;02/03/2023
+C00601;Tiago Araújo Araújo;F;Porto Alegre;03/09/2022
+C00602;Quésia Cardoso Silva;M;Santos;27/09/2023
+C00603;André Carvalho Fernandes;M;Campinas;06/05/2024
+C00604;Wagner Oliveira Lima;F;Belo Horizonte;16/05/2026
+C00605;Gabriela Cardoso Carvalho;M;Campinas;02/04/2025
+C00606;Sônia Barbosa Araújo;F;Porto Alegre;18/02/2023
+C00607;Carla Lima Pereira;F;Belo Horizonte;09/12/2023
+C00608;Diego Pereira Ribeiro;F;Campinas;27/01/2024
+C00609;Úrsula Silva Barbosa;M;Rio de Janeiro;26/09/2024
+C00610;Márcio Lima Silva;M;São Paulo;23/09/2023
+C00611;Rodrigo Pereira Fernandes;F;Santos;06/06/2025
+C00612;Olívia Oliveira Silva;F;Santos;14/08/2022
+C00613;Nelson Ribeiro Nascimento;F;Rio de Janeiro;22/02/2024
+C00614;Márcio Lima Silva;M;Campinas;02/11/2023
+C00615;Paulo Almeida Silva;M;Belo Horizonte;28/02/2022
+C00616;João Barbosa Araújo;F;São Paulo;14/09/2023
+C00617;Hugo Araújo Almeida;F;Curitiba;14/12/2024
+C00618;Carla Oliveira Ribeiro;M;Santos;29/08/2024
+C00619;Diego Silva Nascimento;F;Rio de Janeiro;15/12/2024
+C00620;Letícia Barbosa Almeida;F;Santos;22/08/2023
+C00621;Isabela Souza Almeida;M;Santos;09/04/2024
+C00622;Ana Santos Lima;M;Curitiba;19/06/2026
+C00623;Letícia Barbosa Barbosa;F;Santos;11/04/2024
+C00624;Isabela Araújo Ribeiro;F;Curitiba;07/08/2026
+C00625;Fábio Santos Araújo;M;Santos;23/09/2025
+C00626;Olívia Silva Santos;M;Porto Alegre;09/03/2023
+C00627;Cláudio Ribeiro Gonçalves;M;Santos;23/06/2025
+C00628;Lucas Silva Souza;F;Campinas;26/10/2024
+C00629;Yasmin Oliveira Almeida;M;Rio de Janeiro;12/03/2025
+C00630;Beatriz Souza Gonçalves;F;Curitiba;22/03/2022
+C00631;Beatriz Araújo Cardoso;F;Curitiba;06/08/2022
+C00632;Úrsula Lima Carvalho;M;Curitiba;27/08/2025
+C00633;Bruno Oliveira Lima;F;Curitiba;29/03/2024
+C00634;Nelson Cardoso Nascimento;M;Belo Horizonte;01/02/2025
+C00635;Diego Cardoso Araújo;M;Rio de Janeiro;04/08/2022
+C00636;Lucas Araújo Barbosa;F;Rio de Janeiro;17/10/2023
+C00637;Sônia Carvalho Gonçalves;F;Santos;29/04/2022
+C00638;Isabela Silva Fernandes;M;Porto Alegre;03/05/2025
+C00639;Cláudio Oliveira Araújo;M;São Paulo;21/02/2026
+C00640;Lucas Silva Barbosa;F;Santos;27/06/2023
+C00641;Tiago Barbosa Oliveira;F;São Paulo;06/09/2024
+C00642;Úrsula Souza Pereira;M;Santos;17/05/2025
+C00643;Sônia Almeida Nascimento;F;Rio de Janeiro;01/09/2022
+C00644;João Pereira Araújo;F;Campinas;22/03/2022
+C00645;André Gonçalves Cardoso;F;Campinas;10/09/2024
+C00646;Olívia Carvalho Silva;F;Santos;12/07/2023
+C00647;Karina Fernandes Almeida;M;Santos;17/12/2024
+C00648;Karina Oliveira Lima;F;Curitiba;22/01/2023
+C00649;Cláudio Pereira Lima;M;São Paulo;01/04/2025
+C00650;Olívia Oliveira Pereira;F;Belo Horizonte;05/12/2025
+C00651;Olívia Oliveira Ribeiro;M;Curitiba;23/03/2026
+C00652;Fábio Gonçalves Silva;M;São Paulo;21/09/2023
+C00653;Márcio Lima Almeida;F;São Paulo;29/03/2025
+C00654;Ana Fernandes Souza;F;Belo Horizonte;12/07/2026
+C00655;Elisa Santos Cardoso;F;São Paulo;07/03/2023
+C00656;Beatriz Gonçalves Almeida;M;Campinas;03/03/2023
+C00657;Bruno Silva Fernandes;F;Belo Horizonte;24/12/2024
+C00658;Wagner Gonçalves Almeida;M;Belo Horizonte;01/07/2022
+C00659;Diego Nascimento Cardoso;F;Porto Alegre;19/03/2026
+C00660;Rodrigo Nascimento Barbosa;F;São Paulo;19/04/2025
+C00661;Vítor Cardoso Santos;F;Santos;08/01/2023
+C00662;Úrsula Cardoso Pereira;F;Campinas;18/08/2026
+C00663;Yasmin Cardoso Pereira;F;São Paulo;03/10/2022
+C00664;Gabriela Silva Pereira;M;São Paulo;16/03/2025
+C00665;Carla Gonçalves Fernandes;M;Campinas;15/01/2024
+C00666;Diego Araújo Barbosa;M;Campinas;24/12/2024
+C00667;Sônia Souza Carvalho;F;Belo Horizonte;18/11/2025
+C00668;Cláudio Cardoso Ribeiro;F;Porto Alegre;26/11/2022
+C00669;Cláudio Cardoso Oliveira;M;Santos;10/04/2026
+C00670;Quésia Fernandes Araújo;F;Curitiba;05/04/2024
+C00671;João Souza Oliveira;M;São Paulo;18/07/2025
+C00672;Wagner Pereira Araújo;M;São Paulo;27/12/2023
+C00673;Gabriela Pereira Carvalho;F;Belo Horizonte;30/04/2025
+C00674;Olívia Barbosa Silva;F;Campinas;24/03/2026
+C00675;Wagner Fernandes Almeida;F;Belo Horizonte;23/09/2022
+C00676;Úrsula Silva Lima;M;Curitiba;04/03/2022
+C00677;Diego Araújo Santos;M;Belo Horizonte;24/05/2023
+C00678;Beatriz Pereira Gonçalves;F;Curitiba;07/08/2024
+C00679;Olívia Oliveira Carvalho;M;Campinas;10/09/2023
+C00680;Cláudio Araújo Carvalho;M;Rio de Janeiro;03/01/2023
+C00681;Beatriz Fernandes Carvalho;F;Campinas;28/01/2023
+C00682;Lucas Silva Gonçalves;F;Rio de Janeiro;02/07/2024
+C00683;Mariana Araújo Nascimento;M;Curitiba;09/07/2024
+C00684;Elisa Barbosa Oliveira;F;Rio de Janeiro;18/07/2022
+C00685;Bruno Araújo Almeida;F;Campinas;27/02/2024
+C00686;Quésia Oliveira Almeida;M;São Paulo;02/07/2025
+C00687;Olívia Ribeiro Pereira;F;Belo Horizonte;17/08/2026
+C00688;Tiago Oliveira Silva;F;Belo Horizonte;13/12/2025
+C00689;Mariana Fernandes Ribeiro;F;Porto Alegre;31/03/2023
+C00690;Úrsula Araújo Gonçalves;F;Campinas;04/02/2023
+C00691;Letícia Oliveira Carvalho;F;São Paulo;17/01/2022
+C00692;Wagner Oliveira Oliveira;M;Rio de Janeiro;20/01/2026
+C00693;Cláudio Carvalho Gonçalves;M;Porto Alegre;02/06/2024
+C00694;Isabela Lima Almeida;F;São Paulo;14/11/2023
+C00695;Carla Oliveira Fernandes;M;Rio de Janeiro;09/02/2022
+C00696;Cláudio Gonçalves Nascimento;M;Belo Horizonte;15/06/2024
+C00697;Sônia Oliveira Gonçalves;F;Porto Alegre;08/09/2024
+C00698;Fábio Almeida Carvalho;M;Rio de Janeiro;14/08/2025
+C00699;Mariana Santos Cardoso;M;Campinas;02/08/2026
+C00700;Sônia Oliveira Carvalho;F;São Paulo;30/08/2024
+C00701;Beatriz Lima Fernandes;F;São Paulo;18/07/2024
+C00702;Elisa Nascimento Fernandes;M;Rio de Janeiro;15/02/2023
+C00703;Úrsula Araújo Almeida;M;Porto Alegre;23/11/2023
+C00704;Diego Fernandes Carvalho;F;Rio de Janeiro;31/01/2025
+C00705;Tiago Fernandes Carvalho;F;Porto Alegre;06/06/2022
+C00706;Beatriz Pereira Nascimento;M;Campinas;26/03/2022
+C00707;Hugo Lima Fernandes;F;Campinas;27/08/2026
+C00708;Gabriela Lima Pereira;M;Curitiba;17/11/2025
+C00709;Cláudio Carvalho Fernandes;F;São Paulo;22/01/2026
+C00710;Zélia Araújo Nascimento;M;São Paulo;16/05/2022
+C00711;Úrsula Cardoso Nascimento;M;Belo Horizonte;06/08/2026
+C00712;Úrsula Carvalho Carvalho;F;Santos;23/01/2026
+C00713;Hugo Gonçalves Cardoso;M;Rio de Janeiro;06/07/2022
+C00714;Vítor Oliveira Santos;M;São Paulo;28/06/2023
+C00715;Rodrigo Araújo Silva;F;Curitiba;09/01/2025
+C00716;Letícia Nascimento Oliveira;M;Porto Alegre;07/07/2022
+C00717;Hugo Barbosa Gonçalves;F;Rio de Janeiro;22/08/2023
+C00718;Sônia Santos Lima;F;Campinas;27/12/2022
+C00719;Carla Ribeiro Barbosa;M;Porto Alegre;02/06/2022
+C00720;Fábio Nascimento Cardoso;F;Curitiba;23/10/2023
+C00721;Bruno Ribeiro Pereira;F;Rio de Janeiro;17/02/2023
+C00722;Elisa Oliveira Cardoso;M;Curitiba;16/12/2024
+C00723;Fábio Silva Carvalho;F;Campinas;23/05/2022
+C00724;Elisa Oliveira Cardoso;F;Curitiba;06/06/2022
+C00725;Gabriela Souza Pereira;M;Campinas;28/06/2025
+C00726;Zélia Carvalho Araújo;F;Porto Alegre;08/06/2025
+C00727;Ana Carvalho Pereira;F;Belo Horizonte;15/08/2023
+C00728;Wagner Souza Pereira;M;São Paulo;06/02/2023
+C00729;Cláudio Pereira Fernandes;F;Belo Horizonte;10/08/2024
+C00730;Olívia Nascimento Lima;F;Belo Horizonte;05/05/2023
+C00731;Carla Almeida Lima;F;Porto Alegre;30/05/2026
+C00732;Letícia Ribeiro Souza;F;Curitiba;20/11/2023
+C00733;Márcio Silva Lima;M;Curitiba;06/06/2025
+C00734;Nelson Nascimento Araújo;M;Rio de Janeiro;04/02/2022
+C00735;Márcio Carvalho Souza;F;Curitiba;28/04/2022
+C00736;Tiago Carvalho Almeida;F;Campinas;04/09/2024
+C00737;Diego Pereira Cardoso;F;Curitiba;28/09/2025
+C00738;Isabela Oliveira Oliveira;M;São Paulo;12/05/2024
+C00739;Márcio Santos Oliveira;M;Curitiba;03/08/2022
+C00740;Hugo Fernandes Oliveira;F;São Paulo;30/01/2024
+C00741;Wagner Silva Silva;F;Porto Alegre;13/05/2022
+C00742;Gabriela Pereira Araújo;F;Porto Alegre;22/07/2022
+C00743;Letícia Nascimento Souza;M;Campinas;08/01/2024
+C00744;Carla Souza Silva;M;São Paulo;12/09/2024
+C00745;Bruno Souza Almeida;M;São Paulo;29/04/2026
+C00746;Diego Oliveira Pereira;F;São Paulo;14/05/2022
+C00747;Márcio Santos Gonçalves;M;Porto Alegre;14/04/2026
+C00748;Karina Cardoso Santos;M;Porto Alegre;07/08/2023
+C00749;Beatriz Nascimento Carvalho;M;Rio de Janeiro;05/07/2023
+C00750;Bruno Almeida Almeida;M;Curitiba;27/10/2022
+C00751;Sônia Almeida Santos;M;Belo Horizonte;30/06/2023
+C00752;Sônia Carvalho Barbosa;F;Santos;09/08/2022
+C00753;Márcio Santos Gonçalves;F;Campinas;28/11/2023
+C00754;Olívia Santos Gonçalves;M;São Paulo;02/09/2022
+C00755;Fábio Fernandes Araújo;F;Campinas;20/01/2026
+C00756;Isabela Carvalho Cardoso;M;Campinas;10/03/2026
+C00757;Márcio Almeida Nascimento;M;Rio de Janeiro;10/05/2025
+C00758;Letícia Cardoso Almeida;F;São Paulo;17/04/2022
+C00759;Letícia Cardoso Santos;M;Campinas;19/08/2024
+C00760;Nelson Cardoso Oliveira;F;Porto Alegre;27/03/2026
+C00761;Cláudio Silva Lima;F;Curitiba;25/11/2023
+C00762;Gabriela Carvalho Araújo;F;Curitiba;20/03/2025
+C00763;Márcio Araújo Gonçalves;F;Belo Horizonte;23/04/2023
+C00764;Hugo Cardoso Ribeiro;F;Campinas;28/12/2023
+C00765;Márcio Almeida Ribeiro;F;Campinas;18/02/2023
+C00766;Yasmin Lima Ribeiro;F;Belo Horizonte;25/11/2025
+C00767;Hugo Barbosa Lima;F;São Paulo;06/01/2022
+C00768;Nelson Nascimento Lima;F;Porto Alegre;13/10/2024
+C00769;Olívia Lima Souza;F;Belo Horizonte;11/12/2022
+C00770;André Souza Souza;F;Santos;24/04/2023
+C00771;Elisa Fernandes Gonçalves;F;Rio de Janeiro;11/07/2024
+C00772;Rodrigo Ribeiro Pereira;M;Porto Alegre;03/06/2026
+C00773;Úrsula Ribeiro Souza;M;São Paulo;05/07/2024
+C00774;Olívia Fernandes Oliveira;M;São Paulo;05/04/2025
+C00775;Cláudio Santos Lima;M;Santos;08/04/2022
+C00776;Olívia Gonçalves Gonçalves;F;Porto Alegre;15/05/2022
+C00777;Rodrigo Silva Oliveira;F;Curitiba;22/09/2022
+C00778;Elisa Almeida Araújo;M;Porto Alegre;14/12/2025
+C00779;Fábio Cardoso Carvalho;F;Rio de Janeiro;30/10/2024
+C00780;Rodrigo Silva Oliveira;M;Campinas;16/03/2024
+C00781;Elisa Silva Cardoso;M;São Paulo;20/11/2024
+C00782;Olívia Almeida Cardoso;M;Santos;26/06/2026
+C00783;Mariana Almeida Cardoso;F;Campinas;16/01/2022
+C00784;Cláudio Santos Souza;F;São Paulo;08/03/2023
+C00785;Olívia Ribeiro Silva;F;Belo Horizonte;14/08/2025
+C00786;Beatriz Cardoso Araújo;F;Belo Horizonte;13/03/2026
+C00787;Zélia Fernandes Gonçalves;M;São Paulo;17/09/2024
+C00788;Márcio Fernandes Cardoso;M;Porto Alegre;10/11/2024
+C00789;Nelson Oliveira Carvalho;F;São Paulo;04/05/2026
+C00790;Rodrigo Silva Almeida;F;Campinas;11/12/2024
+C00791;Fábio Ribeiro Silva;F;São Paulo;04/10/2023
+C00792;Hugo Barbosa Carvalho;M;Campinas;26/09/2025
+C00793;Elisa Lima Almeida;M;Santos;25/07/2025
+C00794;Mariana Araújo Araújo;M;Curitiba;09/04/2026
+C00795;Olívia Gonçalves Souza;M;São Paulo;01/09/2025
+C00796;Mariana Barbosa Araújo;M;Santos;28/02/2023
+C00797;Tiago Almeida Oliveira;M;Curitiba;06/07/2023
+C00798;Carla Gonçalves Fernandes;M;Campinas;03/06/2026
+C00799;André Araújo Nascimento;F;São Paulo;19/09/2022
+C00800;Carla Ribeiro Araújo;F;Santos;12/03/2026
+C00801;Quésia Gonçalves Pereira;M;São Paulo;05/06/2026
+C00802;Letícia Barbosa Almeida;M;Belo Horizonte;23/07/2025
+C00803;Quésia Lima Santos;F;Porto Alegre;12/01/2026
+C00804;Letícia Lima Barbosa;F;Belo Horizonte;11/12/2023
+C00805;Cláudio Ribeiro Barbosa;F;Porto Alegre;18/12/2022
+C00806;Letícia Araújo Souza;M;Santos;20/01/2024
+C00807;Quésia Almeida Oliveira;M;Rio de Janeiro;10/06/2023
+C00808;Diego Santos Ribeiro;F;Curitiba;28/10/2023
+C00809;Úrsula Oliveira Silva;M;Belo Horizonte;06/04/2025
+C00810;Wagner Fernandes Ribeiro;F;Curitiba;25/02/2022
+C00811;Nelson Souza Almeida;F;São Paulo;23/10/2022
+C00812;Beatriz Gonçalves Souza;F;Belo Horizonte;05/05/2025
+C00813;Olívia Nascimento Ribeiro;M;São Paulo;19/10/2023
+C00814;Paulo Pereira Souza;F;Belo Horizonte;02/12/2022
+C00815;Fábio Fernandes Almeida;M;Campinas;27/03/2024
+C00816;Carla Carvalho Santos;F;São Paulo;11/02/2025
+C00817;Cláudio Ribeiro Gonçalves;M;Curitiba;07/02/2023
+C00818;Rodrigo Ribeiro Pereira;F;Rio de Janeiro;06/04/2024
+C00819;Karina Lima Lima;M;São Paulo;23/12/2025
+C00820;Sônia Pereira Souza;F;São Paulo;16/06/2023
+C00821;Úrsula Araújo Nascimento;F;Rio de Janeiro;13/02/2022
+C00822;Nelson Fernandes Ribeiro;F;Campinas;15/04/2023
+C00823;Ana Carvalho Pereira;M;Campinas;30/07/2023
+C00824;Beatriz Almeida Almeida;M;Belo Horizonte;12/04/2023
+C00825;Yasmin Lima Santos;F;Porto Alegre;03/12/2025
+C00826;Zélia Fernandes Carvalho;M;Rio de Janeiro;20/08/2023
+C00827;Gabriela Fernandes Fernandes;M;Rio de Janeiro;08/09/2023
+C00828;Gabriela Santos Carvalho;M;Santos;06/04/2024
+C00829;Paulo Pereira Nascimento;F;São Paulo;22/01/2023
+C00830;Wagner Santos Souza;F;São Paulo;06/02/2022
+C00831;Paulo Cardoso Gonçalves;F;Santos;23/10/2022
+C00832;Mariana Cardoso Lima;M;Curitiba;16/11/2023
+C00833;Bruno Souza Fernandes;F;Santos;16/06/2026
+C00834;Hugo Almeida Barbosa;F;São Paulo;30/06/2023
+C00835;Olívia Oliveira Barbosa;M;Rio de Janeiro;07/02/2023
+C00836;Yasmin Gonçalves Lima;M;Santos;01/04/2025
+C00837;Yasmin Oliveira Silva;F;São Paulo;21/11/2024
+C00838;Gabriela Cardoso Barbosa;M;Rio de Janeiro;16/07/2025
+C00839;Elisa Santos Carvalho;F;São Paulo;11/03/2024
+C00840;Hugo Cardoso Lima;M;Belo Horizonte;10/12/2023
+C00841;Úrsula Santos Lima;F;São Paulo;30/12/2023
+C00842;Carla Gonçalves Barbosa;F;Santos;27/07/2026
+C00843;Cláudio Araújo Souza;F;Campinas;31/05/2022
+C00844;Letícia Santos Pereira;M;São Paulo;02/11/2022
+C00845;Fábio Almeida Carvalho;M;Rio de Janeiro;27/02/2024
+C00846;Beatriz Almeida Santos;F;Curitiba;24/07/2023
+C00847;Mariana Ribeiro Fernandes;M;Curitiba;26/01/2026
+C00848;Bruno Araújo Ribeiro;M;Curitiba;10/05/2024
+C00849;Fábio Araújo Carvalho;F;São Paulo;22/06/2025
+C00850;Isabela Lima Cardoso;M;São Paulo;21/01/2025
+C00851;Diego Ribeiro Ribeiro;F;Campinas;06/07/2024
+C00852;Rodrigo Pereira Silva;F;São Paulo;23/05/2025
+C00853;Yasmin Silva Lima;F;Belo Horizonte;03/05/2026
+C00854;Úrsula Gonçalves Gonçalves;F;Campinas;05/08/2025
+C00855;Elisa Araújo Souza;M;Campinas;10/10/2024
+C00856;Bruno Pereira Araújo;F;São Paulo;05/04/2024
+C00857;Fábio Araújo Carvalho;F;Porto Alegre;04/04/2026
+C00858;Fábio Gonçalves Barbosa;F;São Paulo;27/12/2022
+C00859;Rodrigo Gonçalves Lima;F;Campinas;26/02/2023
+C00860;Bruno Almeida Gonçalves;F;Rio de Janeiro;28/07/2022
+C00861;André Fernandes Cardoso;M;Rio de Janeiro;28/02/2022
+C00862;Carla Araújo Pereira;F;Campinas;07/01/2024
+C00863;Bruno Oliveira Pereira;F;Santos;13/06/2026
+C00864;Sônia Oliveira Nascimento;F;São Paulo;28/03/2022
+C00865;Sônia Barbosa Gonçalves;F;Belo Horizonte;11/11/2022
+C00866;Márcio Nascimento Nascimento;M;Rio de Janeiro;16/10/2023
+C00867;Letícia Oliveira Pereira;M;Santos;23/01/2023
+C00868;Paulo Araújo Lima;M;Curitiba;04/04/2024
+C00869;Sônia Fernandes Nascimento;F;Santos;23/08/2024
+C00870;Letícia Gonçalves Nascimento;M;Santos;09/01/2024
+C00871;Elisa Pereira Souza;F;Porto Alegre;18/10/2022
+C00872;Tiago Silva Silva;F;São Paulo;28/03/2022
+C00873;Zélia Lima Gonçalves;M;Campinas;16/05/2024
+C00874;Quésia Fernandes Oliveira;M;São Paulo;05/09/2023
+C00875;Ana Carvalho Santos;M;Rio de Janeiro;26/01/2024
+C00876;Hugo Pereira Cardoso;F;Campinas;02/12/2023
+C00877;Beatriz Oliveira Barbosa;M;Belo Horizonte;30/08/2023
+C00878;Quésia Cardoso Fernandes;F;Santos;17/04/2024
+C00879;Nelson Pereira Souza;M;Porto Alegre;13/11/2023
+C00880;Mariana Oliveira Souza;M;Porto Alegre;02/03/2024
+C00881;Rodrigo Araújo Souza;M;Rio de Janeiro;03/11/2024
+C00882;Fábio Silva Oliveira;M;Campinas;07/08/2024
+C00883;Lucas Oliveira Pereira;F;Santos;23/11/2023
+C00884;Zélia Araújo Souza;M;São Paulo;18/10/2024
+C00885;Karina Almeida Souza;F;Santos;13/04/2024
+C00886;Gabriela Almeida Carvalho;M;Belo Horizonte;02/02/2024
+C00887;João Nascimento Araújo;M;Belo Horizonte;31/07/2024
+C00888;Ana Pereira Santos;F;São Paulo;21/07/2023
+C00889;Hugo Almeida Barbosa;F;São Paulo;21/05/2023
+C00890;Paulo Cardoso Carvalho;M;Campinas;14/08/2023
+C00891;Wagner Pereira Ribeiro;M;Rio de Janeiro;24/12/2024
+C00892;Lucas Gonçalves Pereira;M;Porto Alegre;26/06/2023
+C00893;Márcio Pereira Carvalho;F;Rio de Janeiro;10/05/2022
+C00894;André Nascimento Nascimento;M;São Paulo;16/11/2022
+C00895;Yasmin Silva Barbosa;F;Rio de Janeiro;27/02/2026
+C00896;Isabela Fernandes Almeida;M;Curitiba;15/08/2026
+C00897;João Almeida Nascimento;M;São Paulo;01/05/2023
+C00898;Rodrigo Pereira Fernandes;M;Curitiba;01/03/2022
+C00899;Letícia Fernandes Nascimento;M;Rio de Janeiro;21/02/2025
+C00900;Ana Almeida Souza;M;São Paulo;03/04/2024
+C00901;Beatriz Cardoso Barbosa;M;São Paulo;18/11/2022
+C00902;Letícia Ribeiro Cardoso;F;Santos;21/07/2022
+C00903;João Barbosa Pereira;M;São Paulo;13/12/2023
+C00904;Tiago Ribeiro Pereira;M;Campinas;10/11/2022
+C00905;Quésia Cardoso Santos;F;Curitiba;18/01/2023
+C00906;Isabela Nascimento Silva;F;São Paulo;18/08/2026
+C00907;Rodrigo Silva Gonçalves;M;Rio de Janeiro;20/08/2022
+C00908;Tiago Ribeiro Almeida;M;São Paulo;04/12/2025
+C00909;André Carvalho Pereira;M;Belo Horizonte;03/09/2025
+C00910;Rodrigo Lima Lima;M;Santos;08/12/2022
+C00911;João Oliveira Barbosa;F;Curitiba;08/10/2022
+C00912;Lucas Silva Gonçalves;M;São Paulo;05/12/2025
+C00913;Yasmin Oliveira Cardoso;F;Campinas;08/06/2022
+C00914;Fábio Gonçalves Santos;F;Porto Alegre;19/01/2024
+C00915;Yasmin Almeida Nascimento;M;Santos;25/08/2023
+C00916;Elisa Souza Araújo;F;Rio de Janeiro;03/04/2025
+C00917;Sônia Almeida Pereira;F;Curitiba;23/02/2022
+C00918;Nelson Nascimento Santos;M;São Paulo;14/05/2025
+C00919;Rodrigo Lima Carvalho;F;Santos;12/04/2023
+C00920;Cláudio Santos Fernandes;F;Santos;24/01/2023
+C00921;Carla Barbosa Carvalho;F;Belo Horizonte;23/11/2025
+C00922;Diego Silva Souza;F;Porto Alegre;26/04/2024
+C00923;João Souza Araújo;M;Campinas;28/02/2022
+C00924;João Carvalho Souza;F;Porto Alegre;18/06/2026
+C00925;Olívia Santos Pereira;M;Santos;27/11/2024
+C00926;Isabela Araújo Lima;F;Curitiba;10/03/2026
+C00927;Paulo Carvalho Souza;M;Porto Alegre;05/03/2022
+C00928;Rodrigo Cardoso Lima;F;Porto Alegre;27/12/2024
+C00929;Úrsula Pereira Oliveira;F;Porto Alegre;17/08/2023
+C00930;Tiago Lima Pereira;M;Campinas;12/02/2024
+C00931;Tiago Souza Silva;F;Curitiba;13/01/2024
+C00932;Sônia Fernandes Gonçalves;M;Campinas;22/03/2022
+C00933;Yasmin Barbosa Ribeiro;F;Campinas;14/11/2025
+C00934;Fábio Barbosa Lima;F;Campinas;11/05/2025
+C00935;Fábio Ribeiro Carvalho;M;São Paulo;21/10/2022
+C00936;Nelson Souza Santos;F;Curitiba;04/09/2024
+C00937;Isabela Nascimento Oliveira;M;São Paulo;23/02/2026
+C00938;João Barbosa Souza;M;São Paulo;27/06/2022
+C00939;Quésia Pereira Lima;F;Curitiba;11/05/2023
+C00940;Fábio Lima Silva;M;Rio de Janeiro;12/05/2023
+C00941;Zélia Cardoso Almeida;F;Curitiba;24/04/2023
+C00942;Quésia Araújo Cardoso;M;Belo Horizonte;08/03/2024
+C00943;Zélia Ribeiro Ribeiro;F;Campinas;07/04/2025
+C00944;Hugo Ribeiro Ribeiro;F;Campinas;24/12/2022
+C00945;Vítor Cardoso Santos;F;Belo Horizonte;11/10/2024
+C00946;Elisa Pereira Cardoso;F;Campinas;10/11/2024
+C00947;Nelson Lima Cardoso;F;Curitiba;23/07/2026
+C00948;Zélia Carvalho Pereira;F;Campinas;09/08/2024
+C00949;Tiago Araújo Silva;F;Curitiba;12/05/2023
+C00950;Mariana Cardoso Ribeiro;F;São Paulo;12/02/2025
+C00951;Márcio Carvalho Santos;F;Campinas;07/05/2023
+C00952;Gabriela Oliveira Gonçalves;M;Campinas;24/10/2024
+C00953;Elisa Oliveira Souza;M;São Paulo;16/05/2026
+C00954;Lucas Cardoso Carvalho;F;Santos;26/06/2022
+C00955;João Ribeiro Almeida;M;Porto Alegre;14/06/2025
+C00956;Hugo Lima Oliveira;F;São Paulo;14/04/2025
+C00957;Zélia Silva Souza;F;Santos;25/07/2023
+C00958;Ana Lima Nascimento;F;Rio de Janeiro;15/12/2023
+C00959;Yasmin Souza Araújo;F;Campinas;09/10/2023
+C00960;Paulo Cardoso Barbosa;F;São Paulo;15/10/2022
+C00961;Olívia Oliveira Santos;M;São Paulo;16/05/2025
+C00962;André Gonçalves Ribeiro;F;Campinas;27/02/2025
+C00963;Úrsula Barbosa Souza;M;Campinas;02/06/2026
+C00964;Úrsula Lima Lima;F;Campinas;17/07/2024
+C00965;Bruno Nascimento Silva;M;Santos;09/08/2026
+C00966;Nelson Araújo Carvalho;F;Belo Horizonte;04/04/2022
+C00967;Letícia Oliveira Cardoso;F;Porto Alegre;03/12/2023
+C00968;André Oliveira Oliveira;M;São Paulo;17/10/2025
+C00969;André Barbosa Carvalho;F;São Paulo;05/06/2022
+C00970;Bruno Santos Santos;M;Campinas;07/05/2025
+C00971;Vítor Oliveira Barbosa;M;Belo Horizonte;28/06/2025
+C00972;Márcio Santos Fernandes;F;Santos;09/09/2024
+C00973;André Nascimento Souza;M;Santos;22/01/2026
+C00974;Hugo Gonçalves Barbosa;M;São Paulo;12/11/2023
+C00975;Beatriz Araújo Carvalho;F;São Paulo;28/02/2025
+C00976;Ana Barbosa Araújo;M;Santos;03/04/2026
+C00977;Fábio Pereira Souza;M;Curitiba;30/12/2022
+C00978;Lucas Oliveira Fernandes;M;Campinas;22/12/2025
+C00979;Isabela Oliveira Souza;F;Curitiba;22/08/2026
+C00980;Gabriela Lima Carvalho;F;Belo Horizonte;24/01/2023
+C00981;Rodrigo Almeida Araújo;M;Rio de Janeiro;11/11/2025
+C00982;Ana Carvalho Lima;F;Campinas;23/12/2023
+C00983;Úrsula Souza Gonçalves;M;Belo Horizonte;15/08/2023
+C00984;Márcio Cardoso Nascimento;F;São Paulo;27/01/2026
+C00985;Bruno Fernandes Cardoso;F;Porto Alegre;07/08/2022
+C00986;Márcio Pereira Silva;F;São Paulo;03/04/2024
+C00987;Sônia Ribeiro Pereira;M;Curitiba;19/06/2026
+C00988;Olívia Lima Pereira;M;Rio de Janeiro;11/06/2022
+C00989;Olívia Araújo Souza;M;Curitiba;21/03/2026
+C00990;Elisa Nascimento Pereira;F;Campinas;12/06/2025
+C00991;Quésia Cardoso Ribeiro;M;Santos;20/04/2023
+C00992;Sônia Almeida Barbosa;F;Belo Horizonte;26/10/2024
+C00993;Lucas Gonçalves Oliveira;F;Curitiba;06/08/2022
+C00994;Beatriz Araújo Souza;F;Belo Horizonte;02/09/2022
+C00995;Wagner Souza Santos;M;Santos;26/05/2024
+C00996;André Oliveira Fernandes;F;Campinas;21/11/2023
+C00997;Mariana Fernandes Nascimento;M;Campinas;01/04/2022
+C00998;Paulo Silva Santos;F;Porto Alegre;18/12/2024
+C00999;Úrsula Gonçalves Nascimento;M;Rio de Janeiro;26/04/2026
+C01000;João Barbosa Santos;M;Curitiba;07/05/2024
+C01001;Mariana Santos Oliveira;M;Campinas;04/04/2024
+C01002;Carla Souza Araújo;F;São Paulo;10/09/2024
+C01003;Letícia Nascimento Gonçalves;M;São Paulo;06/07/2023
+C01004;João Souza Lima;M;Santos;09/09/2023
+C01005;Rodrigo Silva Silva;F;Rio de Janeiro;16/11/2022
+C01006;Beatriz Pereira Almeida;M;Belo Horizonte;29/08/2023
+C01007;Beatriz Fernandes Souza;F;Santos;03/07/2024
+C01008;Yasmin Carvalho Carvalho;F;Porto Alegre;20/05/2023
+C01009;Karina Santos Silva;F;Campinas;22/09/2025
+C01010;Carla Barbosa Santos;M;Rio de Janeiro;10/05/2026
+C01011;Mariana Barbosa Oliveira;M;Campinas;04/01/2026
+C01012;Sônia Santos Oliveira;M;Belo Horizonte;22/06/2026
+C01013;Quésia Nascimento Pereira;M;Curitiba;15/01/2022
+C01014;Zélia Fernandes Silva;M;Porto Alegre;15/06/2025
+C01015;Lucas Nascimento Ribeiro;F;Campinas;21/02/2026
+C01016;Vítor Oliveira Gonçalves;M;São Paulo;29/01/2024
+C01017;André Almeida Araújo;F;São Paulo;15/07/2023
+C01018;Cláudio Cardoso Santos;M;Curitiba;18/12/2023
+C01019;Quésia Gonçalves Santos;F;São Paulo;12/10/2023
+C01020;Gabriela Araújo Oliveira;F;Porto Alegre;02/12/2022
+C01021;Olívia Barbosa Gonçalves;F;Belo Horizonte;20/07/2024
+C01022;Letícia Souza Santos;M;Belo Horizonte;17/04/2024
+C01023;Letícia Souza Gonçalves;M;Porto Alegre;02/11/2023
+C01024;Wagner Carvalho Santos;F;Campinas;22/07/2022
+C01025;Beatriz Souza Santos;M;Porto Alegre;03/01/2022
+C01026;Gabriela Carvalho Pereira;F;São Paulo;10/02/2024
+C01027;Lucas Lima Silva;M;São Paulo;07/06/2022
+C01028;Diego Gonçalves Barbosa;F;Campinas;11/03/2026
+C01029;Vítor Ribeiro Oliveira;F;Belo Horizonte;22/12/2023
+C01030;Isabela Nascimento Fernandes;F;Rio de Janeiro;20/09/2022
+C01031;Zélia Nascimento Gonçalves;F;Campinas;04/10/2024
+C01032;Isabela Silva Almeida;F;Rio de Janeiro;06/07/2024
+C01033;Rodrigo Lima Ribeiro;M;São Paulo;03/08/2023
+C01034;Hugo Lima Barbosa;F;Porto Alegre;10/08/2024
+C01035;Karina Barbosa Souza;M;Curitiba;24/07/2023
+C01036;Ana Carvalho Carvalho;M;Santos;11/06/2023
+C01037;Olívia Lima Pereira;M;Curitiba;02/06/2023
+C01038;Mariana Gonçalves Gonçalves;F;Belo Horizonte;13/07/2026
+C01039;Paulo Cardoso Araújo;F;Rio de Janeiro;16/06/2024
+C01040;Beatriz Cardoso Oliveira;F;Campinas;16/01/2026
+C01041;Cláudio Lima Cardoso;F;Rio de Janeiro;28/07/2025
+C01042;Vítor Silva Oliveira;F;Rio de Janeiro;29/07/2026
+C01043;Quésia Souza Lima;F;Curitiba;22/03/2025
+C01044;Úrsula Lima Silva;M;Campinas;22/04/2025
+C01045;Vítor Fernandes Araújo;F;Campinas;10/03/2024
+C01046;Letícia Silva Cardoso;M;São Paulo;02/08/2023
+C01047;Bruno Lima Lima;M;Belo Horizonte;31/08/2024
+C01048;Paulo Lima Almeida;M;Santos;15/10/2024
+C01049;Lucas Fernandes Pereira;M;Santos;26/09/2024
+C01050;Olívia Almeida Ribeiro;F;Porto Alegre;10/05/2023
+C01051;Beatriz Nascimento Santos;F;Belo Horizonte;01/02/2023
+C01052;André Santos Araújo;M;Porto Alegre;17/12/2024
+C01053;Fábio Araújo Oliveira;F;Campinas;13/06/2024
+C01054;Sônia Cardoso Almeida;M;Santos;05/10/2023
+C01055;Tiago Ribeiro Oliveira;M;São Paulo;15/07/2025
+C01056;Márcio Pereira Ribeiro;F;São Paulo;09/09/2024
+C01057;Zélia Ribeiro Silva;F;São Paulo;04/01/2025
+C01058;Cláudio Pereira Ribeiro;F;Santos;08/01/2025
+C01059;Ana Lima Nascimento;M;Rio de Janeiro;29/04/2026
+C01060;Márcio Souza Almeida;M;Rio de Janeiro;08/01/2023
+C01061;Ana Gonçalves Fernandes;M;São Paulo;25/10/2022
+C01062;Cláudio Pereira Pereira;F;Curitiba;26/03/2026
+C01063;Quésia Nascimento Souza;F;Curitiba;31/01/2025
+C01064;Nelson Cardoso Barbosa;F;Campinas;05/09/2025
+C01065;Bruno Silva Silva;M;Porto Alegre;05/09/2025
+C01066;Ana Pereira Cardoso;F;São Paulo;21/12/2024
+C01067;Tiago Almeida Fernandes;F;São Paulo;02/05/2022
+C01068;João Barbosa Nascimento;M;Belo Horizonte;12/11/2024
+C01069;Sônia Lima Santos;M;Campinas;12/01/2026
+C01070;Ana Oliveira Lima;F;São Paulo;07/10/2022
+C01071;Ana Araújo Pereira;M;Rio de Janeiro;16/08/2026
+C01072;Fábio Pereira Nascimento;F;Curitiba;10/02/2022
+C01073;Wagner Oliveira Barbosa;M;Campinas;05/04/2025
+C01074;Olívia Fernandes Ribeiro;M;Santos;29/11/2024
+C01075;Vítor Souza Lima;M;Belo Horizonte;28/09/2024
+C01076;Carla Silva Almeida;F;Curitiba;05/06/2023
+C01077;Karina Pereira Ribeiro;F;Santos;20/05/2025
+C01078;Wagner Araújo Santos;F;São Paulo;19/04/2026
+C01079;Bruno Nascimento Souza;M;Rio de Janeiro;21/02/2026
+C01080;Cláudio Silva Barbosa;M;Rio de Janeiro;06/10/2025
+C01081;Márcio Pereira Silva;M;Santos;14/03/2022
+C01082;Bruno Santos Fernandes;F;São Paulo;01/02/2024
+C01083;Letícia Almeida Fernandes;M;São Paulo;25/11/2024
+C01084;Lucas Almeida Gonçalves;F;São Paulo;25/10/2022
+C01085;André Lima Barbosa;F;Santos;04/11/2022
+C01086;Cláudio Gonçalves Carvalho;F;Rio de Janeiro;27/02/2024
+C01087;Wagner Barbosa Nascimento;F;São Paulo;08/08/2026
+C01088;Bruno Almeida Silva;M;Rio de Janeiro;06/02/2022
+C01089;Vítor Carvalho Barbosa;M;Porto Alegre;15/01/2022
+C01090;Hugo Lima Silva;M;Curitiba;14/05/2024
+C01091;Mariana Gonçalves Gonçalves;F;São Paulo;05/01/2026
+C01092;Cláudio Silva Santos;F;Belo Horizonte;09/11/2022
+C01093;Lucas Almeida Oliveira;M;São Paulo;07/11/2022
+C01094;Márcio Gonçalves Almeida;F;São Paulo;15/03/2026
+C01095;Tiago Carvalho Pereira;M;Curitiba;22/11/2025
+C01096;Fábio Almeida Lima;F;Santos;23/06/2025
+C01097;Fábio Fernandes Santos;M;São Paulo;09/08/2022
+C01098;Márcio Gonçalves Santos;F;Porto Alegre;07/10/2025
+C01099;Wagner Carvalho Nascimento;F;Porto Alegre;13/07/2024
+C01100;Nelson Nascimento Fernandes;F;Campinas;26/04/2024
+C01101;Gabriela Souza Fernandes;M;São Paulo;11/08/2023
+C01102;Márcio Oliveira Carvalho;F;Santos;10/05/2024
+C01103;Lucas Pereira Pereira;F;Campinas;03/04/2024
+C01104;Elisa Cardoso Silva;M;Campinas;05/07/2022
+C01105;Lucas Barbosa Fernandes;F;São Paulo;02/12/2023
+C01106;Diego Barbosa Nascimento;M;São Paulo;23/02/2026
+C01107;Karina Nascimento Cardoso;F;Curitiba;07/10/2023
+C01108;Mariana Barbosa Carvalho;M;Santos;03/06/2023
+C01109;Gabriela Lima Carvalho;M;Campinas;12/04/2024
+C01110;João Pereira Almeida;F;São Paulo;15/04/2022
+C01111;Paulo Barbosa Lima;F;Campinas;30/01/2024
+C01112;Isabela Santos Fernandes;F;Belo Horizonte;23/07/2024
+C01113;Olívia Pereira Cardoso;F;Rio de Janeiro;15/09/2023
+C01114;Hugo Almeida Nascimento;M;Santos;03/09/2022
+C01115;Letícia Ribeiro Gonçalves;M;Belo Horizonte;21/11/2023
+C01116;Fábio Almeida Almeida;F;Rio de Janeiro;30/06/2024
+C01117;Ana Nascimento Pereira;F;Curitiba;25/02/2023
+C01118;Paulo Carvalho Ribeiro;F;Belo Horizonte;16/07/2023
+C01119;Cláudio Barbosa Santos;F;Porto Alegre;10/10/2024
+C01120;Olívia Souza Araújo;M;Rio de Janeiro;22/04/2022
+C01121;Letícia Carvalho Nascimento;F;Curitiba;01/05/2022
+C01122;Zélia Nascimento Souza;F;Campinas;11/04/2024
+C01123;Úrsula Santos Araújo;M;Porto Alegre;09/01/2026
+C01124;Úrsula Araújo Santos;M;São Paulo;11/11/2023
+C01125;Hugo Lima Fernandes;M;Porto Alegre;08/09/2022
+C01126;Gabriela Santos Oliveira;M;São Paulo;21/02/2022
+C01127;Nelson Gonçalves Cardoso;F;Campinas;31/03/2024
+C01128;Wagner Pereira Cardoso;F;Rio de Janeiro;31/12/2022
+C01129;Diego Silva Souza;F;Porto Alegre;24/04/2026
+C01130;Carla Lima Souza;F;Campinas;27/06/2025
+C01131;João Oliveira Carvalho;M;Rio de Janeiro;04/06/2022
+C01132;Nelson Santos Araújo;F;Curitiba;12/11/2025
+C01133;Karina Cardoso Araújo;M;Santos;24/05/2026
+C01134;Márcio Barbosa Souza;M;São Paulo;24/12/2024
+C01135;Bruno Ribeiro Fernandes;M;São Paulo;20/03/2023
+C01136;Mariana Fernandes Santos;F;Campinas;08/12/2024
+C01137;Hugo Almeida Araújo;M;Rio de Janeiro;05/01/2023
+C01138;Yasmin Lima Nascimento;F;Curitiba;04/06/2022
+C01139;Letícia Cardoso Barbosa;M;Campinas;28/09/2023
+C01140;Beatriz Santos Oliveira;M;Belo Horizonte;13/04/2024
+C01141;Carla Souza Ribeiro;F;Belo Horizonte;11/07/2026
+C01142;Mariana Nascimento Oliveira;M;Belo Horizonte;16/04/2026
+C01143;Mariana Souza Carvalho;M;Campinas;30/12/2024
+C01144;Gabriela Ribeiro Fernandes;F;São Paulo;29/10/2023
+C01145;Elisa Lima Gonçalves;F;Porto Alegre;30/04/2022
+C01146;Mariana Pereira Pereira;F;Santos;18/02/2022
+C01147;Bruno Araújo Silva;F;Santos;08/06/2026
+C01148;Gabriela Lima Souza;F;Porto Alegre;23/05/2022
+C01149;Carla Silva Araújo;M;São Paulo;05/03/2022
+C01150;Wagner Araújo Nascimento;M;Curitiba;01/04/2023
+C01151;Yasmin Fernandes Fernandes;F;São Paulo;13/09/2025
+C01152;João Araújo Lima;M;Curitiba;03/07/2026
+C01153;Mariana Souza Cardoso;M;Rio de Janeiro;10/04/2022
+C01154;Tiago Souza Silva;F;São Paulo;01/02/2022
+C01155;Tiago Lima Santos;M;São Paulo;10/02/2025
+C01156;Vítor Souza Cardoso;F;Curitiba;14/11/2022
+C01157;Ana Souza Souza;F;Curitiba;16/07/2022
+C01158;André Araújo Ribeiro;F;Campinas;23/08/2022
+C01159;Quésia Cardoso Silva;M;Curitiba;09/12/2022
+C01160;Ana Ribeiro Nascimento;M;Campinas;18/08/2025
+C01161;André Lima Santos;M;Belo Horizonte;01/08/2022
+C01162;Tiago Cardoso Santos;F;Santos;04/09/2023
+C01163;Beatriz Fernandes Lima;M;Curitiba;12/02/2025
+C01164;Cláudio Oliveira Ribeiro;M;Porto Alegre;12/11/2025
+C01165;André Araújo Cardoso;M;Rio de Janeiro;02/03/2022
+C01166;André Carvalho Silva;M;Rio de Janeiro;16/05/2026
+C01167;Nelson Carvalho Souza;M;Campinas;15/03/2024
+C01168;Gabriela Cardoso Nascimento;M;Belo Horizonte;26/01/2025
+C01169;Hugo Almeida Carvalho;F;Belo Horizonte;16/10/2022
+C01170;Paulo Souza Santos;M;Santos;22/08/2022
+C01171;Letícia Ribeiro Cardoso;M;Porto Alegre;10/07/2024
+C01172;Bruno Lima Oliveira;M;Campinas;15/05/2025
+C01173;Mariana Fernandes Lima;M;Santos;21/12/2024
+C01174;Wagner Carvalho Araújo;F;Rio de Janeiro;12/02/2024
+C01175;Gabriela Barbosa Nascimento;F;Campinas;14/01/2023
+C01176;André Araújo Ribeiro;M;Belo Horizonte;30/10/2023
+C01177;Ana Cardoso Oliveira;M;Curitiba;29/05/2024
+C01178;Diego Silva Barbosa;F;Belo Horizonte;13/01/2025
+C01179;Zélia Gonçalves Ribeiro;F;São Paulo;19/05/2022
+C01180;Isabela Gonçalves Oliveira;M;Rio de Janeiro;28/02/2022
+C01181;Vítor Gonçalves Pereira;M;Porto Alegre;08/08/2026
+C01182;Mariana Gonçalves Silva;F;Rio de Janeiro;27/03/2026
+C01183;Ana Gonçalves Almeida;F;Curitiba;21/10/2023
+C01184;Cláudio Oliveira Nascimento;M;Belo Horizonte;11/11/2022
+C01185;André Fernandes Cardoso;M;Porto Alegre;25/05/2022
+C01186;Bruno Fernandes Silva;F;Curitiba;05/01/2023
+C01187;Rodrigo Oliveira Ribeiro;F;Campinas;21/08/2025
+C01188;Beatriz Oliveira Pereira;M;Rio de Janeiro;27/09/2023
+C01189;Olívia Gonçalves Araújo;F;Belo Horizonte;22/08/2023
+C01190;Karina Ribeiro Oliveira;M;Belo Horizonte;17/01/2024
+C01191;Cláudio Araújo Gonçalves;M;São Paulo;16/07/2026
+C01192;Elisa Cardoso Gonçalves;M;São Paulo;04/01/2023
+C01193;Rodrigo Almeida Silva;M;Belo Horizonte;16/02/2023
+C01194;Bruno Carvalho Carvalho;M;Curitiba;12/07/2026
+C01195;Hugo Carvalho Fernandes;F;São Paulo;15/02/2025
+C01196;Ana Ribeiro Santos;F;Rio de Janeiro;23/10/2025
+C01197;Isabela Carvalho Lima;M;Santos;13/03/2023
+C01198;Úrsula Fernandes Araújo;F;São Paulo;27/04/2025
+C01199;Elisa Pereira Carvalho;M;Santos;05/11/2023
+C01200;Wagner Cardoso Almeida;M;Campinas;08/10/2025
+C01201;João Almeida Silva;F;Santos;09/02/2023
+C01202;Úrsula Gonçalves Fernandes;F;Santos;01/12/2023
+C01203;Beatriz Ribeiro Fernandes;F;Campinas;10/08/2022
+C01204;Hugo Gonçalves Nascimento;F;Porto Alegre;17/10/2024
+C01205;Diego Silva Santos;M;São Paulo;17/04/2026
+C01206;Beatriz Araújo Nascimento;F;Porto Alegre;05/01/2024
+C01207;Elisa Souza Lima;M;Rio de Janeiro;26/03/2022
+C01208;Nelson Fernandes Ribeiro;M;Porto Alegre;26/10/2025
+C01209;Rodrigo Araújo Lima;F;São Paulo;19/08/2026
+C01210;Lucas Lima Ribeiro;M;Belo Horizonte;04/07/2022
+C01211;Letícia Ribeiro Souza;F;Campinas;01/07/2024
+C01212;Gabriela Nascimento Souza;M;São Paulo;14/03/2024
+C01213;Fábio Oliveira Silva;F;Belo Horizonte;22/10/2024
+C01214;Wagner Fernandes Lima;M;São Paulo;23/12/2022
+C01215;Vítor Carvalho Cardoso;F;Belo Horizonte;13/05/2022
+C01216;Karina Barbosa Nascimento;F;São Paulo;22/12/2023
+C01217;Wagner Nascimento Oliveira;F;Campinas;23/05/2026
+C01218;Fábio Fernandes Barbosa;F;Curitiba;05/12/2022
+C01219;Hugo Santos Cardoso;M;Campinas;21/04/2025
+C01220;Paulo Ribeiro Cardoso;M;Curitiba;12/12/2024
+C01221;André Carvalho Fernandes;F;São Paulo;07/05/2024
+C01222;Márcio Lima Almeida;M;Santos;24/04/2024
+C01223;Úrsula Gonçalves Cardoso;F;São Paulo;03/08/2026
+C01224;Nelson Ribeiro Fernandes;F;São Paulo;08/01/2022
+C01225;Nelson Souza Lima;F;Curitiba;24/05/2026
+C01226;Zélia Silva Araújo;M;São Paulo;12/05/2025
+C01227;Bruno Ribeiro Santos;F;Curitiba;01/10/2023
+C01228;Karina Ribeiro Souza;F;Belo Horizonte;21/06/2025
+C01229;André Nascimento Fernandes;F;Belo Horizonte;23/02/2025
+C01230;Olívia Lima Carvalho;F;São Paulo;06/06/2024
+C01231;Isabela Fernandes Araújo;M;São Paulo;11/03/2022
+C01232;Zélia Carvalho Araújo;M;Porto Alegre;11/01/2024
+C01233;Ana Almeida Nascimento;F;Porto Alegre;21/01/2024
+C01234;Elisa Cardoso Souza;F;Campinas;23/08/2024
+C01235;Bruno Carvalho Souza;M;Belo Horizonte;19/04/2026
+C01236;Yasmin Pereira Fernandes;F;Belo Horizonte;25/04/2024
+C01237;Isabela Carvalho Silva;F;Porto Alegre;06/10/2024
+C01238;Diego Oliveira Almeida;M;Curitiba;28/02/2025
+C01239;Diego Gonçalves Carvalho;F;Campinas;17/04/2024
+C01240;Yasmin Ribeiro Ribeiro;M;Curitiba;03/07/2025
+C01241;Rodrigo Almeida Nascimento;M;Curitiba;03/12/2024
+C01242;Yasmin Santos Silva;F;Porto Alegre;27/07/2024
+C01243;Quésia Lima Ribeiro;F;Santos;16/08/2025
+C01244;Cláudio Pereira Gonçalves;F;Curitiba;19/10/2023
+C01245;João Almeida Oliveira;M;Campinas;28/06/2025
+C01246;Ana Pereira Nascimento;F;Porto Alegre;14/11/2022
+C01247;Gabriela Lima Lima;M;Santos;14/09/2025
+C01248;Beatriz Gonçalves Araújo;M;São Paulo;09/01/2026
+C01249;Úrsula Gonçalves Santos;M;Porto Alegre;20/02/2023
+C01250;Yasmin Nascimento Lima;F;Campinas;25/02/2024
+C01251;Ana Almeida Gonçalves;M;Belo Horizonte;11/01/2026
+C01252;Olívia Barbosa Pereira;M;São Paulo;22/11/2025
+C01253;Yasmin Ribeiro Oliveira;M;São Paulo;27/02/2023
+C01254;Rodrigo Santos Araújo;M;Curitiba;01/07/2026
+C01255;Yasmin Nascimento Oliveira;F;Campinas;05/10/2022
+C01256;Ana Pereira Araújo;M;Curitiba;08/01/2024
+C01257;Úrsula Gonçalves Souza;F;Curitiba;30/09/2024
+C01258;Wagner Lima Cardoso;M;Porto Alegre;20/01/2026
+C01259;Gabriela Ribeiro Almeida;M;Curitiba;22/01/2025
+C01260;Fábio Souza Souza;F;São Paulo;17/09/2023
+C01261;Tiago Cardoso Cardoso;F;Santos;22/02/2024
+C01262;Wagner Santos Santos;M;Campinas;12/02/2026
+C01263;André Souza Pereira;M;Santos;17/12/2023
+C01264;Diego Almeida Silva;M;Campinas;25/04/2024
+C01265;Ana Santos Cardoso;F;Rio de Janeiro;21/08/2022
+C01266;Vítor Araújo Araújo;M;Rio de Janeiro;05/07/2022
+C01267;Sônia Fernandes Silva;F;Curitiba;15/03/2022
+C01268;Beatriz Souza Oliveira;M;Rio de Janeiro;15/09/2025
+C01269;Cláudio Almeida Carvalho;F;Curitiba;14/07/2022
+C01270;Yasmin Lima Cardoso;F;Curitiba;16/10/2023
+C01271;André Pereira Ribeiro;F;São Paulo;26/12/2025
+C01272;Ana Nascimento Santos;M;Curitiba;02/06/2023
+C01273;Sônia Silva Cardoso;F;Curitiba;07/05/2024
+C01274;Mariana Pereira Silva;M;Santos;28/04/2022
+C01275;Mariana Gonçalves Carvalho;M;São Paulo;26/03/2022
+C01276;Rodrigo Gonçalves Oliveira;F;Belo Horizonte;20/09/2024
+C01277;Vítor Pereira Araújo;F;Belo Horizonte;15/07/2024
+C01278;Bruno Almeida Pereira;F;São Paulo;14/06/2025
+C01279;Márcio Almeida Araújo;M;Santos;18/11/2022
+C01280;Fábio Carvalho Carvalho;M;São Paulo;01/08/2022
+C01281;Quésia Santos Cardoso;M;Belo Horizonte;21/03/2023
+C01282;Diego Pereira Barbosa;F;Porto Alegre;13/07/2024
+C01283;Tiago Oliveira Carvalho;M;Rio de Janeiro;12/06/2023
+C01284;Cláudio Silva Oliveira;M;São Paulo;07/12/2024
+C01285;Diego Cardoso Lima;M;Campinas;18/05/2026
+C01286;Olívia Carvalho Nascimento;M;Rio de Janeiro;02/02/2025
+C01287;Vítor Cardoso Gonçalves;F;Curitiba;10/02/2026
+C01288;Márcio Ribeiro Araújo;M;São Paulo;26/06/2024
+C01289;Wagner Barbosa Lima;M;Belo Horizonte;14/12/2023
+C01290;Vítor Pereira Santos;F;Rio de Janeiro;06/01/2026
+C01291;Letícia Ribeiro Almeida;F;São Paulo;23/04/2024
+C01292;Lucas Almeida Araújo;F;Rio de Janeiro;06/09/2023
+C01293;Yasmin Fernandes Gonçalves;M;São Paulo;06/10/2023
+C01294;Zélia Gonçalves Silva;F;São Paulo;03/02/2024
+C01295;Wagner Araújo Santos;F;Belo Horizonte;24/01/2026
+C01296;Vítor Fernandes Cardoso;F;Curitiba;06/07/2024
+C01297;Zélia Cardoso Gonçalves;M;Belo Horizonte;01/05/2024
+C01298;Quésia Santos Araújo;F;Belo Horizonte;27/01/2025
+C01299;Márcio Fernandes Nascimento;F;Porto Alegre;27/08/2026
+C01300;Márcio Santos Ribeiro;F;Rio de Janeiro;25/05/2024
+C01301;Bruno Silva Carvalho;F;Porto Alegre;14/02/2026
+C01302;Rodrigo Pereira Pereira;M;Porto Alegre;01/10/2022
+C01303;Tiago Carvalho Ribeiro;M;São Paulo;19/05/2023
+C01304;Carla Nascimento Souza;F;Belo Horizonte;24/06/2022
+C01305;Sônia Oliveira Nascimento;F;Belo Horizonte;09/05/2023
+C01306;João Fernandes Santos;M;Campinas;20/03/2023
+C01307;Rodrigo Pereira Gonçalves;F;Rio de Janeiro;18/06/2024
+C01308;Sônia Araújo Cardoso;F;Belo Horizonte;28/06/2022
+C01309;Fábio Oliveira Ribeiro;M;São Paulo;20/02/2023
+C01310;Lucas Silva Souza;F;Santos;06/12/2023
+C01311;Bruno Souza Araújo;M;Porto Alegre;27/07/2026
+C01312;Tiago Almeida Barbosa;F;Campinas;19/11/2022
+C01313;Fábio Gonçalves Gonçalves;M;Campinas;24/02/2022
+C01314;Elisa Souza Souza;F;Santos;20/03/2022
+C01315;Hugo Nascimento Pereira;F;Curitiba;18/10/2023
+C01316;Paulo Araújo Silva;F;Santos;18/08/2024
+C01317;Wagner Pereira Santos;M;Campinas;13/09/2025
+C01318;Zélia Silva Souza;M;Porto Alegre;26/11/2024
+C01319;Ana Araújo Gonçalves;M;Curitiba;04/02/2024
+C01320;Ana Barbosa Gonçalves;M;Campinas;12/05/2024
+C01321;Ana Oliveira Barbosa;F;São Paulo;24/05/2025
+C01322;André Souza Barbosa;M;Rio de Janeiro;15/11/2024
+C01323;Olívia Cardoso Cardoso;F;Belo Horizonte;17/06/2022
+C01324;Elisa Almeida Silva;F;Rio de Janeiro;16/04/2024
+C01325;Isabela Almeida Gonçalves;M;Santos;11/06/2026
+C01326;Sônia Pereira Ribeiro;M;São Paulo;07/03/2023
+C01327;Rodrigo Fernandes Carvalho;M;Rio de Janeiro;10/07/2023
+C01328;Carla Almeida Pereira;M;Rio de Janeiro;14/07/2023
+C01329;Sônia Ribeiro Nascimento;M;São Paulo;04/01/2023
+C01330;Zélia Barbosa Silva;M;Santos;23/07/2024
+C01331;Gabriela Santos Souza;M;Campinas;30/06/2022
+C01332;Nelson Almeida Almeida;M;Belo Horizonte;28/07/2022
+C01333;Sônia Silva Barbosa;M;Campinas;30/09/2024
+C01334;Tiago Silva Souza;M;Campinas;24/12/2025
+C01335;Wagner Cardoso Almeida;M;Curitiba;07/02/2022
+C01336;Rodrigo Cardoso Almeida;F;Rio de Janeiro;27/02/2024
+C01337;Carla Almeida Gonçalves;F;Belo Horizonte;30/12/2022
+C01338;Rodrigo Barbosa Barbosa;F;Belo Horizonte;04/03/2026
+C01339;Lucas Oliveira Fernandes;F;Santos;30/06/2022
+C01340;Wagner Almeida Cardoso;F;Belo Horizonte;31/01/2023
+C01341;Gabriela Gonçalves Araújo;F;Rio de Janeiro;12/09/2024
+C01342;Elisa Barbosa Carvalho;M;São Paulo;26/08/2026
+C01343;Mariana Nascimento Almeida;F;Campinas;23/07/2026
+C01344;Mariana Santos Silva;M;Campinas;12/12/2022
+C01345;Bruno Almeida Lima;F;São Paulo;21/06/2024
+C01346;Vítor Santos Lima;M;Belo Horizonte;11/02/2022
+C01347;Carla Ribeiro Almeida;F;Rio de Janeiro;27/04/2023
+C01348;Zélia Oliveira Nascimento;F;Campinas;22/02/2025
+C01349;João Gonçalves Nascimento;F;Curitiba;03/07/2023
+C01350;Diego Nascimento Fernandes;F;Belo Horizonte;05/12/2023
+C01351;Bruno Pereira Gonçalves;F;São Paulo;28/12/2022
+C01352;Fábio Araújo Gonçalves;F;Campinas;01/03/2026
+C01353;Yasmin Carvalho Fernandes;M;São Paulo;06/04/2024
+C01354;Rodrigo Nascimento Cardoso;F;Curitiba;17/11/2024
+C01355;Gabriela Gonçalves Oliveira;M;Belo Horizonte;02/10/2024
+C01356;Tiago Cardoso Cardoso;M;Belo Horizonte;25/09/2025
+C01357;Elisa Fernandes Souza;M;Porto Alegre;12/02/2024
+C01358;Diego Souza Cardoso;M;Porto Alegre;21/08/2024
+C01359;Úrsula Santos Oliveira;M;Santos;26/12/2022
+C01360;Úrsula Nascimento Santos;F;Santos;13/10/2023
+C01361;Hugo Santos Souza;F;Curitiba;17/07/2026
+C01362;Isabela Almeida Souza;F;Belo Horizonte;29/01/2025
+C01363;Cláudio Barbosa Araújo;F;Porto Alegre;31/01/2024
+C01364;Diego Souza Souza;F;Curitiba;13/12/2022
+C01365;Tiago Lima Cardoso;M;São Paulo;22/05/2023
+C01366;João Barbosa Gonçalves;M;Belo Horizonte;06/12/2025
+C01367;Quésia Barbosa Souza;M;São Paulo;25/12/2025
+C01368;Mariana Gonçalves Souza;F;Curitiba;12/09/2025
+C01369;Úrsula Almeida Almeida;F;Belo Horizonte;24/10/2023
+C01370;Paulo Araújo Cardoso;M;Campinas;20/10/2022
+C01371;Gabriela Carvalho Araújo;F;Campinas;07/03/2026
+C01372;Ana Carvalho Ribeiro;F;Belo Horizonte;17/12/2024
+C01373;Yasmin Pereira Oliveira;F;Curitiba;06/05/2022
+C01374;Mariana Silva Silva;M;Campinas;01/06/2026
+C01375;Márcio Pereira Silva;F;São Paulo;29/08/2023
+C01376;Gabriela Araújo Araújo;F;São Paulo;19/01/2025
+C01377;Yasmin Oliveira Pereira;M;Porto Alegre;17/03/2025
+C01378;Isabela Lima Barbosa;M;Rio de Janeiro;18/09/2025
+C01379;Lucas Santos Lima;M;Curitiba;02/02/2022
+C01380;Beatriz Barbosa Ribeiro;F;Rio de Janeiro;12/06/2024
+C01381;Zélia Ribeiro Fernandes;M;Belo Horizonte;01/01/2023
+C01382;Tiago Lima Almeida;M;Santos;29/10/2022
+C01383;Paulo Almeida Ribeiro;F;Porto Alegre;23/02/2022
+C01384;Letícia Carvalho Silva;M;Santos;08/04/2024
+C01385;Úrsula Souza Silva;M;Santos;30/03/2024
+C01386;Lucas Pereira Fernandes;F;Belo Horizonte;26/11/2024
+C01387;Márcio Ribeiro Santos;M;Rio de Janeiro;01/01/2026
+C01388;Gabriela Fernandes Oliveira;F;Santos;22/06/2024
+C01389;Bruno Fernandes Souza;M;Porto Alegre;16/07/2024
+C01390;Beatriz Araújo Gonçalves;F;Belo Horizonte;24/01/2026
+C01391;João Araújo Fernandes;M;Curitiba;26/10/2023
+C01392;Lucas Nascimento Nascimento;M;São Paulo;11/07/2023
+C01393;Beatriz Silva Silva;F;Campinas;07/10/2022
+C01394;Elisa Oliveira Souza;M;Belo Horizonte;05/05/2023
+C01395;Vítor Santos Araújo;M;Curitiba;15/06/2024
+C01396;Úrsula Oliveira Pereira;M;Belo Horizonte;18/01/2022
+C01397;Tiago Silva Almeida;M;Belo Horizonte;12/04/2025
+C01398;João Silva Barbosa;F;Belo Horizonte;13/04/2025
+C01399;Karina Ribeiro Souza;M;São Paulo;22/08/2026
+C01400;Tiago Barbosa Carvalho;F;São Paulo;11/01/2025
+C01401;Fábio Barbosa Barbosa;M;Campinas;09/08/2024
+C01402;Diego Cardoso Silva;F;Santos;21/12/2024
+C01403;Letícia Fernandes Pereira;F;Belo Horizonte;24/07/2024
+C01404;Nelson Nascimento Silva;F;São Paulo;02/05/2026
+C01405;Mariana Gonçalves Ribeiro;M;Santos;20/10/2023
+C01406;João Silva Almeida;F;Curitiba;12/08/2022
+C01407;Elisa Fernandes Cardoso;M;Belo Horizonte;05/10/2022
+C01408;Rodrigo Ribeiro Carvalho;F;Santos;08/03/2026
+C01409;Nelson Pereira Carvalho;F;São Paulo;14/02/2022
+C01410;Gabriela Silva Pereira;F;Campinas;19/03/2024
+C01411;André Carvalho Gonçalves;M;Rio de Janeiro;21/10/2022
+C01412;Nelson Almeida Araújo;F;Campinas;23/08/2023
+C01413;Karina Araújo Araújo;M;Santos;08/10/2025
+C01414;Quésia Araújo Souza;M;Belo Horizonte;07/06/2026
+C01415;Karina Barbosa Oliveira;F;Santos;04/08/2026
+C01416;André Cardoso Almeida;M;Rio de Janeiro;01/10/2022
+C01417;Tiago Ribeiro Carvalho;F;São Paulo;20/04/2024
+C01418;Gabriela Cardoso Araújo;F;São Paulo;07/08/2022
+C01419;Isabela Fernandes Pereira;F;Santos;27/11/2025
+C01420;Lucas Gonçalves Barbosa;F;Porto Alegre;18/09/2025
+C01421;Lucas Oliveira Almeida;M;Santos;30/04/2025
+C01422;Diego Nascimento Araújo;M;São Paulo;17/06/2024
+C01423;Úrsula Cardoso Carvalho;F;São Paulo;25/05/2026
+C01424;Mariana Oliveira Lima;M;Santos;06/06/2022
+C01425;Rodrigo Santos Fernandes;M;Campinas;21/12/2025
+C01426;Karina Almeida Cardoso;M;Porto Alegre;30/08/2024
+C01427;Zélia Barbosa Pereira;F;São Paulo;18/08/2025
+C01428;Elisa Carvalho Pereira;M;Santos;31/01/2025
+C01429;Mariana Santos Barbosa;F;Belo Horizonte;02/12/2022
+C01430;Márcio Silva Lima;F;Santos;29/05/2024
+C01431;Gabriela Santos Pereira;M;Belo Horizonte;30/08/2025
+C01432;Carla Nascimento Fernandes;M;Curitiba;28/04/2025
+C01433;Beatriz Fernandes Ribeiro;M;Rio de Janeiro;28/05/2023
+C01434;Ana Fernandes Gonçalves;F;São Paulo;13/02/2025
+C01435;Elisa Araújo Silva;F;Santos;31/07/2026
+C01436;Hugo Araújo Cardoso;M;Campinas;20/11/2022
+C01437;Elisa Barbosa Barbosa;F;Santos;04/05/2023
+C01438;Cláudio Santos Santos;F;Rio de Janeiro;18/09/2024
+C01439;Elisa Almeida Nascimento;M;Santos;26/06/2023
+C01440;Letícia Santos Gonçalves;M;Santos;24/01/2026
+C01441;Quésia Oliveira Ribeiro;M;Curitiba;13/11/2024
+C01442;André Ribeiro Nascimento;M;São Paulo;22/09/2025
+C01443;Zélia Cardoso Lima;M;Santos;12/08/2022
+C01444;Cláudio Araújo Santos;M;Santos;11/08/2024
+C01445;Karina Nascimento Gonçalves;F;Belo Horizonte;06/08/2022
+C01446;Tiago Oliveira Cardoso;M;São Paulo;28/06/2022
+C01447;João Araújo Ribeiro;M;Rio de Janeiro;23/03/2022
+C01448;Tiago Almeida Nascimento;M;Campinas;13/09/2024
+C01449;Rodrigo Oliveira Santos;F;Porto Alegre;28/10/2023
+C01450;Zélia Souza Santos;M;São Paulo;31/10/2024
+C01451;Beatriz Santos Nascimento;F;Rio de Janeiro;28/02/2024
+C01452;Gabriela Pereira Araújo;M;Porto Alegre;13/04/2026
+C01453;Elisa Santos Oliveira;M;São Paulo;15/10/2025
+C01454;Yasmin Lima Cardoso;M;Santos;20/05/2025
+C01455;Vítor Fernandes Carvalho;F;Porto Alegre;16/10/2024
+C01456;Letícia Santos Barbosa;F;Curitiba;15/04/2026
+C01457;João Araújo Nascimento;M;Belo Horizonte;12/07/2025
+C01458;Paulo Silva Santos;M;Santos;26/11/2022
+C01459;Olívia Souza Silva;M;São Paulo;30/07/2023
+C01460;Zélia Gonçalves Lima;M;Belo Horizonte;24/12/2023
+C01461;Ana Oliveira Gonçalves;M;São Paulo;23/09/2022
+C01462;Sônia Nascimento Oliveira;M;Porto Alegre;09/04/2025
+C01463;Letícia Oliveira Santos;M;Belo Horizonte;18/05/2023
+C01464;Bruno Pereira Carvalho;M;Santos;29/07/2023
+C01465;Mariana Ribeiro Almeida;F;Porto Alegre;26/08/2022
+C01466;Cláudio Almeida Carvalho;M;Rio de Janeiro;09/03/2026
+C01467;Paulo Oliveira Santos;M;Belo Horizonte;26/07/2026
+C01468;Diego Barbosa Souza;M;São Paulo;03/03/2025
+C01469;Lucas Cardoso Almeida;F;São Paulo;06/04/2022
+C01470;Márcio Lima Araújo;F;Rio de Janeiro;04/08/2023
+C01471;Isabela Almeida Barbosa;M;Porto Alegre;30/10/2025
+C01472;Wagner Fernandes Araújo;F;Porto Alegre;11/04/2026
+C01473;Wagner Almeida Silva;F;São Paulo;12/05/2023
+C01474;Tiago Santos Cardoso;M;Porto Alegre;08/01/2025
+C01475;Mariana Araújo Oliveira;M;Porto Alegre;12/09/2024
+C01476;Mariana Araújo Araújo;M;Curitiba;25/03/2024
+C01477;Quésia Fernandes Souza;F;Curitiba;27/04/2026
+C01478;Vítor Pereira Oliveira;M;Rio de Janeiro;25/05/2026
+C01479;Bruno Silva Ribeiro;F;Santos;23/04/2025
+C01480;Márcio Ribeiro Oliveira;M;Rio de Janeiro;01/09/2025
+C01481;Sônia Lima Nascimento;F;Belo Horizonte;13/11/2022
+C01482;Márcio Gonçalves Cardoso;M;Campinas;04/02/2022
+C01483;Paulo Fernandes Barbosa;F;Belo Horizonte;27/03/2026
+C01484;Karina Fernandes Fernandes;M;São Paulo;11/02/2024
+C01485;Letícia Lima Gonçalves;F;Belo Horizonte;19/08/2023
+C01486;Carla Ribeiro Araújo;M;Curitiba;13/03/2025
+C01487;Lucas Carvalho Pereira;M;Curitiba;08/07/2022
+C01488;André Barbosa Silva;F;Santos;20/05/2023
+C01489;Vítor Gonçalves Almeida;F;Campinas;08/04/2022
+C01490;Hugo Barbosa Cardoso;F;Belo Horizonte;19/01/2024
+C01491;Sônia Souza Santos;F;Curitiba;15/08/2026
+C01492;Diego Gonçalves Araújo;F;Porto Alegre;24/04/2026
+C01493;Olívia Almeida Cardoso;M;Curitiba;14/08/2025
+C01494;Bruno Fernandes Araújo;M;Rio de Janeiro;04/07/2025
+C01495;Gabriela Almeida Oliveira;M;Santos;18/02/2024
+C01496;Quésia Ribeiro Santos;F;São Paulo;28/01/2023
+C01497;Letícia Gonçalves Cardoso;M;Curitiba;23/10/2024
+C01498;Isabela Araújo Lima;M;Rio de Janeiro;02/08/2023
+C01499;Fábio Souza Souza;M;Santos;02/12/2022
+C01500;André Nascimento Nascimento;F;São Paulo;09/07/2024
+C01501;Mariana Nascimento Cardoso;F;Campinas;27/08/2023
+C01502;Úrsula Fernandes Barbosa;M;São Paulo;22/06/2025
+C01503;Gabriela Almeida Pereira;F;Porto Alegre;24/02/2025
+C01504;Vítor Gonçalves Oliveira;F;Campinas;17/07/2023
+C01505;João Pereira Souza;M;Campinas;29/05/2022
+C01506;Nelson Souza Carvalho;M;Curitiba;25/06/2025
+C01507;Wagner Nascimento Ribeiro;M;Santos;04/07/2023
+C01508;Quésia Oliveira Lima;M;Belo Horizonte;24/08/2026
+C01509;Tiago Barbosa Lima;M;Santos;25/04/2026
+C01510;Bruno Gonçalves Carvalho;M;Porto Alegre;29/12/2023
+C01511;Quésia Araújo Fernandes;M;Rio de Janeiro;19/08/2022
+C01512;Paulo Santos Santos;F;Curitiba;20/03/2023
+C01513;Rodrigo Almeida Nascimento;M;São Paulo;11/02/2026
+C01514;Lucas Nascimento Araújo;M;Campinas;28/12/2023
+C01515;André Cardoso Carvalho;M;São Paulo;24/06/2022
+C01516;Gabriela Souza Santos;M;Belo Horizonte;23/10/2025
+C01517;Paulo Nascimento Pereira;M;Porto Alegre;24/04/2025
+C01518;Úrsula Nascimento Pereira;M;Curitiba;30/05/2024
+C01519;Beatriz Barbosa Santos;F;Belo Horizonte;04/08/2022
+C01520;Elisa Ribeiro Oliveira;M;Santos;07/07/2022
+C01521;Úrsula Silva Lima;M;São Paulo;01/03/2024
+C01522;Olívia Barbosa Santos;M;São Paulo;04/12/2022
+C01523;Paulo Nascimento Cardoso;F;Campinas;09/01/2024
+C01524;Olívia Silva Nascimento;F;Curitiba;27/10/2024
+C01525;Diego Silva Cardoso;F;São Paulo;08/03/2026
+C01526;Letícia Ribeiro Silva;M;Belo Horizonte;22/04/2022
+C01527;Isabela Barbosa Barbosa;F;Belo Horizonte;15/01/2023
+C01528;Lucas Almeida Lima;M;Rio de Janeiro;28/05/2026
+C01529;Carla Ribeiro Fernandes;M;São Paulo;31/10/2022
+C01530;Quésia Oliveira Silva;F;Rio de Janeiro;06/02/2022
+C01531;Fábio Barbosa Barbosa;F;Campinas;22/11/2025
+C01532;Carla Ribeiro Gonçalves;M;São Paulo;11/01/2026
+C01533;Cláudio Carvalho Lima;M;Porto Alegre;03/12/2023
+C01534;Paulo Almeida Ribeiro;M;Porto Alegre;30/06/2025
+C01535;Diego Pereira Nascimento;M;Curitiba;24/05/2022
+C01536;Cláudio Almeida Fernandes;M;Campinas;09/01/2025
+C01537;Diego Barbosa Souza;M;Belo Horizonte;31/12/2025
+C01538;André Carvalho Ribeiro;F;Curitiba;20/01/2023
+C01539;Elisa Santos Pereira;M;Santos;23/05/2024
+C01540;Gabriela Silva Cardoso;F;Belo Horizonte;25/10/2022
+C01541;Yasmin Fernandes Gonçalves;M;Curitiba;01/10/2024
+C01542;Karina Oliveira Ribeiro;M;São Paulo;10/01/2022
+C01543;Márcio Santos Barbosa;F;Campinas;16/11/2023
+C01544;Tiago Cardoso Ribeiro;M;São Paulo;05/06/2022
+C01545;Cláudio Barbosa Souza;M;São Paulo;18/10/2022
+C01546;Wagner Silva Araújo;M;Campinas;09/11/2025
+C01547;Rodrigo Santos Silva;M;Belo Horizonte;09/04/2025
+C01548;Elisa Lima Santos;M;Campinas;20/05/2022
+C01549;Márcio Araújo Barbosa;F;Belo Horizonte;20/03/2025
+C01550;Elisa Souza Barbosa;F;Belo Horizonte;10/08/2023
+C01551;Bruno Barbosa Ribeiro;F;Santos;24/11/2025
+C01552;Bruno Nascimento Fernandes;M;Porto Alegre;27/11/2025
+C01553;Elisa Santos Araújo;F;Belo Horizonte;27/06/2023
+C01554;Karina Almeida Barbosa;M;São Paulo;21/02/2024
+C01555;Carla Barbosa Barbosa;M;São Paulo;08/11/2023
+C01556;Quésia Santos Gonçalves;M;Campinas;19/11/2024
+C01557;Hugo Araújo Souza;M;Campinas;06/10/2022
+C01558;Úrsula Lima Santos;M;Santos;21/10/2023
+C01559;Nelson Ribeiro Oliveira;F;São Paulo;08/02/2025
+C01560;Letícia Pereira Lima;M;Belo Horizonte;27/08/2026
+C01561;Bruno Oliveira Oliveira;M;Campinas;09/06/2024
+C01562;Quésia Fernandes Oliveira;F;Curitiba;11/02/2022
+C01563;Ana Souza Souza;F;Santos;16/04/2023
+C01564;Úrsula Fernandes Gonçalves;F;Santos;13/06/2024
+C01565;Karina Fernandes Fernandes;M;Santos;29/04/2025
+C01566;Cláudio Fernandes Oliveira;F;Belo Horizonte;06/08/2025
+C01567;Isabela Pereira Santos;F;Belo Horizonte;05/05/2026
+C01568;Sônia Silva Almeida;M;Belo Horizonte;09/03/2025
+C01569;Lucas Fernandes Oliveira;F;São Paulo;30/11/2022
+C01570;Márcio Araújo Oliveira;M;Rio de Janeiro;18/01/2024
+C01571;Nelson Cardoso Silva;M;São Paulo;06/01/2024
+C01572;Márcio Souza Gonçalves;F;São Paulo;03/08/2026
+C01573;Ana Nascimento Araújo;F;Curitiba;07/05/2023
+C01574;Diego Ribeiro Barbosa;M;São Paulo;29/06/2024
+C01575;Fábio Almeida Lima;F;Campinas;14/04/2025
+C01576;Diego Souza Barbosa;F;São Paulo;04/04/2025
+C01577;Hugo Araújo Barbosa;F;Rio de Janeiro;06/02/2024
+C01578;Tiago Silva Ribeiro;M;São Paulo;25/11/2023
+C01579;Rodrigo Silva Ribeiro;F;São Paulo;09/05/2024
+C01580;Márcio Pereira Ribeiro;F;Belo Horizonte;21/06/2022
+C01581;Letícia Santos Barbosa;M;Santos;25/10/2025
+C01582;Paulo Carvalho Cardoso;M;São Paulo;14/09/2025
+C01583;Gabriela Lima Carvalho;M;Santos;28/02/2023
+C01584;Rodrigo Barbosa Fernandes;F;São Paulo;27/09/2025
+C01585;Rodrigo Ribeiro Pereira;M;Rio de Janeiro;10/08/2025
+C01586;André Araújo Silva;M;Rio de Janeiro;10/10/2022
+C01587;Cláudio Oliveira Barbosa;F;Campinas;19/11/2023
+C01588;Márcio Pereira Ribeiro;F;Porto Alegre;17/11/2024
+C01589;Beatriz Nascimento Araújo;M;São Paulo;04/10/2023
+C01590;Ana Almeida Almeida;F;Belo Horizonte;02/06/2025
+C01591;Olívia Carvalho Pereira;M;Porto Alegre;29/09/2024
+C01592;Vítor Santos Silva;M;Campinas;25/10/2025
+C01593;Gabriela Almeida Fernandes;F;Porto Alegre;13/04/2026
+C01594;Mariana Silva Ribeiro;F;Santos;04/04/2026
+C01595;Nelson Silva Fernandes;M;Rio de Janeiro;06/12/2022
+C01596;João Oliveira Santos;F;Curitiba;23/10/2022
+C01597;Fábio Oliveira Lima;M;Rio de Janeiro;24/11/2025
+C01598;Paulo Oliveira Carvalho;M;São Paulo;23/11/2025
+C01599;Mariana Santos Souza;F;Santos;29/06/2026
+C01600;Isabela Fernandes Fernandes;F;Belo Horizonte;18/01/2025
+C01601;Quésia Lima Barbosa;M;Santos;07/01/2023
+C01602;Sônia Gonçalves Lima;M;Belo Horizonte;01/07/2025
+C01603;Sônia Ribeiro Almeida;M;Campinas;17/06/2026
+C01604;Rodrigo Santos Almeida;F;Belo Horizonte;31/07/2026
+C01605;Fábio Almeida Oliveira;F;Curitiba;02/07/2022
+C01606;Márcio Gonçalves Carvalho;M;Rio de Janeiro;14/07/2024
+C01607;Elisa Pereira Almeida;F;Rio de Janeiro;24/06/2023
+C01608;Wagner Pereira Fernandes;F;Curitiba;15/11/2025
+C01609;Hugo Silva Lima;M;Porto Alegre;31/10/2022
+C01610;Mariana Silva Araújo;F;Rio de Janeiro;23/10/2025
+C01611;Beatriz Nascimento Fernandes;M;São Paulo;28/03/2024
+C01612;Sônia Ribeiro Souza;M;São Paulo;06/07/2025
+C01613;Bruno Pereira Lima;M;Porto Alegre;30/05/2023
+C01614;Úrsula Pereira Gonçalves;F;Porto Alegre;11/02/2022
+C01615;Ana Cardoso Almeida;F;São Paulo;04/06/2025
+C01616;Vítor Gonçalves Oliveira;F;Curitiba;05/03/2026
+C01617;Isabela Barbosa Oliveira;M;Porto Alegre;08/10/2023
+C01618;Rodrigo Santos Gonçalves;F;Porto Alegre;19/05/2024
+C01619;Rodrigo Barbosa Gonçalves;F;Rio de Janeiro;29/04/2024
+C01620;Diego Gonçalves Santos;M;São Paulo;21/10/2024
+C01621;Lucas Gonçalves Souza;F;Belo Horizonte;22/02/2025
+C01622;Quésia Souza Gonçalves;F;Santos;01/02/2024
+C01623;Beatriz Araújo Souza;M;Porto Alegre;15/08/2023
+C01624;Úrsula Gonçalves Carvalho;M;São Paulo;22/06/2024
+C01625;Mariana Barbosa Gonçalves;F;São Paulo;23/12/2023
+C01626;Olívia Oliveira Carvalho;F;Rio de Janeiro;11/04/2025
+C01627;Yasmin Nascimento Nascimento;M;Porto Alegre;13/01/2023
+C01628;Isabela Pereira Oliveira;M;São Paulo;24/09/2025
+C01629;Olívia Araújo Nascimento;M;Campinas;05/07/2024
+C01630;Wagner Nascimento Almeida;F;Porto Alegre;14/01/2024
+C01631;Lucas Pereira Araújo;F;Belo Horizonte;11/03/2022
+C01632;Elisa Pereira Santos;F;São Paulo;29/05/2024
+C01633;Karina Fernandes Santos;F;Rio de Janeiro;18/02/2024
+C01634;João Barbosa Lima;M;São Paulo;10/07/2026
+C01635;Letícia Souza Carvalho;F;Rio de Janeiro;27/01/2026
+C01636;Mariana Araújo Fernandes;M;Campinas;13/07/2024
+C01637;Olívia Araújo Oliveira;F;Belo Horizonte;22/03/2025
+C01638;Karina Carvalho Barbosa;M;Belo Horizonte;10/06/2023
+C01639;Elisa Araújo Fernandes;M;São Paulo;10/03/2026
+C01640;Beatriz Araújo Souza;F;Santos;08/04/2023
+C01641;Ana Lima Lima;M;Campinas;17/05/2026
+C01642;Gabriela Pereira Ribeiro;F;Campinas;08/10/2023
+C01643;Márcio Almeida Pereira;F;Curitiba;06/04/2026
+C01644;Sônia Nascimento Carvalho;F;Santos;13/09/2022
+C01645;André Souza Cardoso;M;Campinas;11/09/2025
+C01646;João Souza Oliveira;M;Curitiba;04/04/2024
+C01647;Úrsula Santos Cardoso;F;Campinas;11/07/2023
+C01648;Bruno Oliveira Santos;M;Santos;06/04/2023
+C01649;Vítor Cardoso Cardoso;M;Rio de Janeiro;15/10/2025
+C01650;Bruno Nascimento Lima;F;Santos;03/07/2024
+C01651;André Barbosa Oliveira;M;Rio de Janeiro;14/03/2026
+C01652;Diego Oliveira Nascimento;F;São Paulo;31/08/2024
+C01653;Ana Cardoso Cardoso;M;Belo Horizonte;22/11/2023
+C01654;Bruno Pereira Carvalho;F;Porto Alegre;24/04/2024
+C01655;Letícia Barbosa Fernandes;F;Porto Alegre;20/11/2024
+C01656;Hugo Ribeiro Carvalho;M;Rio de Janeiro;21/02/2025
+C01657;Carla Gonçalves Fernandes;M;São Paulo;18/03/2023
+C01658;Márcio Souza Nascimento;F;São Paulo;12/12/2023
+C01659;André Fernandes Almeida;M;Santos;02/03/2026
+C01660;Hugo Fernandes Santos;M;Rio de Janeiro;24/11/2025
+C01661;Paulo Nascimento Oliveira;F;São Paulo;15/02/2026
+C01662;Cláudio Gonçalves Lima;M;Belo Horizonte;02/05/2026
+C01663;Gabriela Souza Barbosa;F;Santos;19/12/2024
+C01664;Gabriela Souza Fernandes;M;São Paulo;03/07/2025
+C01665;Letícia Araújo Gonçalves;M;Santos;19/12/2023
+C01666;Hugo Souza Santos;F;Porto Alegre;02/01/2024
+C01667;Wagner Almeida Araújo;M;Curitiba;13/02/2026
+C01668;Hugo Araújo Ribeiro;F;Belo Horizonte;20/07/2022
+C01669;Mariana Carvalho Oliveira;M;Rio de Janeiro;13/09/2025
+C01670;Cláudio Santos Carvalho;M;São Paulo;08/02/2024
+C01671;Ana Fernandes Almeida;F;Porto Alegre;25/02/2024
+C01672;Cláudio Oliveira Souza;M;São Paulo;20/10/2023
+C01673;Karina Santos Silva;F;São Paulo;10/12/2022
+C01674;João Souza Carvalho;M;Santos;30/08/2024
+C01675;Beatriz Silva Oliveira;M;São Paulo;20/10/2022
+C01676;Lucas Araújo Souza;F;Curitiba;11/04/2023
+C01677;Isabela Lima Nascimento;F;Belo Horizonte;20/02/2025
+C01678;Karina Fernandes Santos;M;Campinas;27/08/2024
+C01679;Nelson Santos Oliveira;M;Rio de Janeiro;24/03/2022
+C01680;Elisa Barbosa Lima;M;Curitiba;23/02/2023
+C01681;Letícia Lima Fernandes;M;Curitiba;10/07/2026
+C01682;Beatriz Santos Barbosa;M;Porto Alegre;28/01/2025
+C01683;Márcio Pereira Lima;F;Curitiba;28/05/2024
+C01684;Carla Gonçalves Cardoso;F;São Paulo;22/08/2025
+C01685;Isabela Nascimento Pereira;M;Campinas;31/07/2022
+C01686;Diego Araújo Almeida;M;Porto Alegre;10/08/2023
+C01687;Karina Pereira Barbosa;M;Curitiba;10/04/2023
+C01688;Paulo Araújo Fernandes;F;São Paulo;04/05/2023
+C01689;João Carvalho Oliveira;M;Porto Alegre;18/08/2023
+C01690;Rodrigo Nascimento Pereira;M;Porto Alegre;10/07/2024
+C01691;Lucas Pereira Ribeiro;F;Campinas;13/11/2024
+C01692;Diego Silva Santos;F;São Paulo;14/06/2022
+C01693;Zélia Santos Cardoso;M;São Paulo;21/08/2026
+C01694;Diego Nascimento Nascimento;M;Rio de Janeiro;08/03/2026
+C01695;João Ribeiro Oliveira;M;São Paulo;29/03/2025
+C01696;Quésia Pereira Lima;F;São Paulo;19/01/2022
+C01697;Fábio Gonçalves Carvalho;M;Curitiba;06/06/2023
+C01698;Hugo Barbosa Lima;M;Belo Horizonte;07/11/2023
+C01699;Zélia Barbosa Barbosa;M;Porto Alegre;20/08/2025
+C01700;Mariana Souza Oliveira;F;Santos;14/10/2024
+C01701;Hugo Silva Cardoso;F;São Paulo;04/05/2025
+C01702;Diego Oliveira Almeida;F;Porto Alegre;27/06/2025
+C01703;Quésia Araújo Nascimento;M;Rio de Janeiro;10/02/2026
+C01704;Bruno Ribeiro Carvalho;F;São Paulo;29/04/2023
+C01705;Úrsula Oliveira Cardoso;F;Curitiba;15/01/2023
+C01706;Letícia Silva Fernandes;M;Porto Alegre;19/12/2023
+C01707;Letícia Nascimento Carvalho;F;Belo Horizonte;08/07/2022
+C01708;Mariana Nascimento Ribeiro;M;Campinas;16/11/2022
+C01709;Paulo Araújo Fernandes;M;Porto Alegre;12/07/2025
+C01710;Paulo Lima Barbosa;M;Porto Alegre;23/03/2022
+C01711;Nelson Souza Fernandes;F;Porto Alegre;01/08/2025
+C01712;Quésia Gonçalves Ribeiro;M;São Paulo;09/06/2024
+C01713;Nelson Silva Nascimento;F;Belo Horizonte;07/07/2022
+C01714;Nelson Oliveira Santos;F;Rio de Janeiro;22/04/2024
+C01715;João Nascimento Pereira;M;Rio de Janeiro;07/07/2024
+C01716;Isabela Barbosa Oliveira;F;Belo Horizonte;28/05/2023
+C01717;Nelson Santos Fernandes;F;Porto Alegre;01/05/2022
+C01718;Márcio Pereira Pereira;M;São Paulo;18/02/2024
+C01719;Zélia Pereira Nascimento;F;Porto Alegre;14/03/2026
+C01720;Bruno Almeida Nascimento;F;Porto Alegre;13/12/2022
+C01721;Lucas Fernandes Ribeiro;F;Belo Horizonte;17/06/2022
+C01722;Gabriela Carvalho Ribeiro;M;São Paulo;02/03/2022
+C01723;Letícia Gonçalves Gonçalves;M;Porto Alegre;02/09/2024
+C01724;Olívia Ribeiro Fernandes;F;Porto Alegre;11/08/2023
+C01725;Márcio Ribeiro Barbosa;M;São Paulo;16/07/2024
+C01726;Ana Fernandes Ribeiro;M;Rio de Janeiro;21/08/2025
+C01727;Bruno Lima Nascimento;M;Curitiba;09/09/2024
+C01728;Quésia Araújo Nascimento;F;Santos;03/03/2026
+C01729;Letícia Almeida Oliveira;F;Belo Horizonte;29/08/2024
+C01730;Fábio Ribeiro Almeida;M;Santos;04/08/2024
+C01731;Carla Gonçalves Santos;M;Porto Alegre;15/04/2023
+C01732;Karina Pereira Carvalho;M;Curitiba;22/01/2026
+C01733;Rodrigo Araújo Silva;F;Curitiba;14/11/2024
+C01734;Zélia Fernandes Souza;M;São Paulo;03/07/2024
+C01735;Paulo Carvalho Pereira;M;Porto Alegre;20/07/2023
+C01736;Isabela Lima Silva;F;Campinas;09/02/2025
+C01737;Cláudio Cardoso Barbosa;F;Rio de Janeiro;17/07/2026
+C01738;André Cardoso Lima;M;São Paulo;25/10/2023
+C01739;João Nascimento Oliveira;M;Rio de Janeiro;17/03/2023
+C01740;Rodrigo Nascimento Almeida;M;Rio de Janeiro;11/02/2023
+C01741;Sônia Gonçalves Pereira;M;Rio de Janeiro;21/07/2024
+C01742;Vítor Carvalho Santos;F;Belo Horizonte;09/02/2024
+C01743;Letícia Cardoso Almeida;F;Campinas;11/04/2026
+C01744;Úrsula Pereira Araújo;M;Curitiba;16/05/2024
+C01745;Carla Fernandes Barbosa;M;Porto Alegre;17/08/2022
+C01746;Quésia Carvalho Nascimento;M;Rio de Janeiro;04/04/2023
+C01747;Beatriz Lima Pereira;M;Curitiba;20/06/2025
+C01748;Nelson Barbosa Fernandes;F;Porto Alegre;22/09/2025
+C01749;Ana Souza Carvalho;F;Santos;01/08/2024
+C01750;Letícia Barbosa Silva;F;Santos;27/03/2025
+C01751;Isabela Araújo Carvalho;M;Porto Alegre;13/03/2024
+C01752;Tiago Carvalho Fernandes;F;Santos;08/08/2023
+C01753;Nelson Carvalho Gonçalves;F;Belo Horizonte;29/03/2024
+C01754;Letícia Carvalho Santos;M;São Paulo;03/05/2024
+C01755;Hugo Fernandes Souza;M;Belo Horizonte;28/06/2026
+C01756;Beatriz Nascimento Nascimento;F;Porto Alegre;01/07/2023
+C01757;Mariana Santos Lima;F;Porto Alegre;09/08/2026
+C01758;Mariana Cardoso Santos;F;São Paulo;29/08/2023
+C01759;Sônia Fernandes Gonçalves;F;Belo Horizonte;14/08/2022
+C01760;Fábio Lima Nascimento;F;Campinas;10/09/2022
+C01761;Vítor Santos Pereira;F;Campinas;22/04/2024
+C01762;Zélia Souza Cardoso;M;Curitiba;07/01/2022
+C01763;Bruno Fernandes Gonçalves;M;Rio de Janeiro;27/07/2024
+C01764;Vítor Fernandes Souza;F;Curitiba;05/07/2026
+C01765;Yasmin Gonçalves Lima;F;Belo Horizonte;25/05/2026
+C01766;Wagner Lima Almeida;M;Belo Horizonte;18/04/2025
+C01767;Úrsula Cardoso Silva;M;Santos;01/06/2024
+C01768;Fábio Silva Gonçalves;F;Campinas;13/07/2024
+C01769;Cláudio Fernandes Lima;F;Porto Alegre;19/03/2026
+C01770;Isabela Santos Oliveira;F;Belo Horizonte;22/11/2024
+C01771;Mariana Souza Lima;M;Rio de Janeiro;30/05/2024
+C01772;Quésia Souza Fernandes;F;Curitiba;19/12/2023
+C01773;Gabriela Oliveira Oliveira;M;Belo Horizonte;25/08/2026
+C01774;Elisa Cardoso Fernandes;F;Curitiba;25/07/2024
+C01775;Nelson Barbosa Carvalho;F;Porto Alegre;25/05/2023
+C01776;André Santos Oliveira;F;Rio de Janeiro;20/07/2025
+C01777;João Cardoso Barbosa;M;Belo Horizonte;11/06/2024
+C01778;Mariana Lima Oliveira;F;Belo Horizonte;09/08/2023
+C01779;Quésia Souza Nascimento;F;Rio de Janeiro;14/05/2023
+C01780;Yasmin Fernandes Carvalho;F;São Paulo;19/12/2024
+C01781;Hugo Nascimento Silva;F;São Paulo;22/01/2024
+C01782;Vítor Fernandes Carvalho;F;São Paulo;22/07/2025
+C01783;Nelson Fernandes Souza;M;Campinas;31/01/2024
+C01784;Paulo Almeida Oliveira;F;Belo Horizonte;03/05/2024
+C01785;Úrsula Cardoso Cardoso;M;Campinas;04/11/2022
+C01786;Zélia Fernandes Cardoso;F;São Paulo;23/05/2025
+C01787;Zélia Pereira Fernandes;M;Porto Alegre;19/09/2024
+C01788;Quésia Fernandes Santos;F;Santos;08/07/2026
+C01789;André Barbosa Silva;M;Santos;18/03/2026
+C01790;Elisa Nascimento Nascimento;F;Santos;07/10/2023
+C01791;Nelson Souza Santos;M;Rio de Janeiro;15/05/2022
+C01792;Tiago Barbosa Almeida;M;Porto Alegre;11/12/2025
+C01793;Ana Santos Almeida;F;Belo Horizonte;14/11/2025
+C01794;Karina Nascimento Almeida;M;Santos;12/07/2022
+C01795;Márcio Souza Almeida;M;Belo Horizonte;01/07/2022
+C01796;Sônia Almeida Almeida;F;Porto Alegre;21/11/2025
+C01797;Gabriela Pereira Oliveira;M;Rio de Janeiro;12/07/2022
+C01798;Olívia Cardoso Barbosa;F;Campinas;15/06/2026
+C01799;Carla Pereira Lima;F;Curitiba;07/05/2024
+C01800;Tiago Fernandes Barbosa;M;Santos;06/05/2023
+C01801;Wagner Pereira Lima;M;São Paulo;09/08/2026
+C01802;Zélia Lima Santos;M;Belo Horizonte;06/06/2026
+C01803;Ana Oliveira Pereira;F;Porto Alegre;25/02/2022
+C01804;Sônia Almeida Cardoso;M;Curitiba;12/06/2026
+C01805;Lucas Oliveira Carvalho;M;Rio de Janeiro;03/09/2023
+C01806;João Pereira Nascimento;F;Porto Alegre;07/10/2023
+C01807;Diego Araújo Araújo;M;Campinas;01/04/2026
+C01808;Zélia Nascimento Silva;M;Belo Horizonte;17/06/2023
+C01809;Wagner Araújo Silva;M;Rio de Janeiro;07/01/2023
+C01810;Paulo Cardoso Carvalho;M;São Paulo;20/07/2025
+C01811;Úrsula Oliveira Carvalho;F;Curitiba;25/01/2022
+C01812;Bruno Santos Santos;M;Campinas;22/04/2022
+C01813;Beatriz Silva Fernandes;F;São Paulo;17/04/2023
+C01814;Wagner Lima Nascimento;M;Curitiba;18/08/2025
+C01815;Elisa Almeida Almeida;F;Porto Alegre;13/11/2022
+C01816;Diego Gonçalves Cardoso;M;Belo Horizonte;03/05/2022
+C01817;Cláudio Cardoso Gonçalves;M;Campinas;19/04/2026
+C01818;Wagner Oliveira Souza;F;Rio de Janeiro;27/04/2026
+C01819;Gabriela Nascimento Santos;M;Belo Horizonte;11/07/2025
+C01820;Úrsula Nascimento Carvalho;F;Porto Alegre;27/03/2026
+C01821;Bruno Souza Gonçalves;M;São Paulo;26/10/2025
+C01822;Fábio Nascimento Santos;M;Belo Horizonte;22/01/2025
+C01823;Isabela Santos Araújo;M;São Paulo;08/09/2023
+C01824;Gabriela Nascimento Oliveira;M;São Paulo;23/12/2024
+C01825;Vítor Lima Carvalho;F;Belo Horizonte;29/04/2022
+C01826;Márcio Araújo Cardoso;F;Santos;11/02/2022
+C01827;Tiago Santos Nascimento;M;Santos;08/02/2025
+C01828;Mariana Souza Santos;M;Curitiba;30/08/2022
+C01829;Lucas Cardoso Oliveira;F;Porto Alegre;24/01/2023
+C01830;Paulo Ribeiro Carvalho;M;Curitiba;28/01/2025
+C01831;Quésia Oliveira Pereira;F;Campinas;14/06/2022
+C01832;Rodrigo Barbosa Lima;F;Curitiba;21/11/2022
+C01833;Quésia Almeida Gonçalves;F;São Paulo;24/10/2024
+C01834;Yasmin Araújo Barbosa;F;Belo Horizonte;23/09/2024
+C01835;Yasmin Lima Silva;M;São Paulo;01/01/2025
+C01836;Fábio Ribeiro Fernandes;M;Porto Alegre;24/06/2023
+C01837;Fábio Fernandes Almeida;F;Santos;10/08/2026
+C01838;Mariana Pereira Nascimento;M;Belo Horizonte;10/11/2024
+C01839;Úrsula Pereira Almeida;M;São Paulo;06/08/2024
+C01840;Beatriz Cardoso Carvalho;F;Porto Alegre;15/05/2022
+C01841;Mariana Gonçalves Oliveira;M;Rio de Janeiro;02/04/2025
+C01842;Vítor Oliveira Araújo;F;Rio de Janeiro;18/03/2025
+C01843;Cláudio Souza Souza;F;Porto Alegre;29/07/2025
+C01844;Beatriz Carvalho Silva;M;São Paulo;01/10/2025
+C01845;Gabriela Lima Barbosa;M;Campinas;01/04/2026
+C01846;Cláudio Gonçalves Gonçalves;F;Porto Alegre;21/06/2022
+C01847;Isabela Gonçalves Araújo;F;Belo Horizonte;22/10/2022
+C01848;Paulo Cardoso Cardoso;F;São Paulo;05/02/2023
+C01849;Lucas Santos Souza;F;Belo Horizonte;11/05/2023
+C01850;Hugo Fernandes Souza;M;Porto Alegre;08/12/2022
+C01851;Yasmin Ribeiro Araújo;F;Porto Alegre;02/06/2026
+C01852;Lucas Lima Gonçalves;F;São Paulo;08/10/2024
+C01853;Beatriz Cardoso Araújo;F;São Paulo;05/02/2026
+C01854;Márcio Nascimento Cardoso;F;Belo Horizonte;19/06/2023
+C01855;João Almeida Souza;M;Rio de Janeiro;14/02/2023
+C01856;Hugo Barbosa Ribeiro;F;Curitiba;03/06/2026
+C01857;Cláudio Cardoso Gonçalves;M;Santos;07/01/2023
+C01858;Quésia Fernandes Cardoso;M;Santos;14/11/2025
+C01859;Diego Carvalho Souza;F;Belo Horizonte;17/08/2022
+C01860;Zélia Oliveira Santos;M;Belo Horizonte;21/10/2024
+C01861;Bruno Ribeiro Almeida;M;São Paulo;08/12/2023
+C01862;Diego Barbosa Araújo;M;Santos;01/06/2025
+C01863;Karina Ribeiro Lima;M;São Paulo;11/02/2025
+C01864;Yasmin Santos Almeida;M;Curitiba;17/08/2022
+C01865;Beatriz Barbosa Cardoso;M;São Paulo;05/02/2024
+C01866;Karina Barbosa Cardoso;F;Belo Horizonte;14/03/2025
+C01867;Wagner Araújo Almeida;M;São Paulo;08/03/2025
+C01868;Beatriz Lima Cardoso;F;Porto Alegre;03/11/2023
+C01869;Mariana Souza Silva;M;São Paulo;08/12/2024
+C01870;Diego Pereira Santos;M;Rio de Janeiro;24/11/2023
+C01871;Úrsula Cardoso Carvalho;M;Belo Horizonte;26/01/2022
+C01872;Rodrigo Nascimento Cardoso;F;Campinas;07/06/2025
+C01873;Carla Fernandes Fernandes;F;Campinas;26/04/2025
+C01874;Carla Pereira Souza;F;Belo Horizonte;08/12/2024
+C01875;Bruno Lima Silva;M;Rio de Janeiro;12/02/2026
+C01876;Yasmin Carvalho Ribeiro;F;Santos;26/12/2024
+C01877;Diego Souza Araújo;F;São Paulo;17/02/2026
+C01878;Nelson Almeida Pereira;M;São Paulo;04/06/2026
+C01879;Quésia Souza Gonçalves;M;São Paulo;27/05/2026
+C01880;Letícia Ribeiro Gonçalves;M;São Paulo;30/06/2026
+C01881;Letícia Santos Souza;M;São Paulo;21/04/2023
+C01882;Hugo Silva Silva;M;Santos;09/04/2024
+C01883;Mariana Cardoso Souza;M;São Paulo;12/04/2026
+C01884;Isabela Carvalho Barbosa;F;Campinas;28/11/2022
+C01885;Hugo Lima Gonçalves;M;São Paulo;20/06/2024
+C01886;Olívia Cardoso Souza;M;São Paulo;09/07/2024
+C01887;Cláudio Carvalho Silva;F;Santos;27/11/2025
+C01888;Úrsula Ribeiro Fernandes;M;São Paulo;19/12/2025
+C01889;Gabriela Cardoso Oliveira;F;Campinas;21/06/2026
+C01890;Karina Pereira Carvalho;M;Porto Alegre;26/11/2024
+C01891;Olívia Souza Oliveira;F;Porto Alegre;13/12/2023
+C01892;Márcio Cardoso Oliveira;F;Santos;16/04/2025
+C01893;Carla Pereira Lima;M;Rio de Janeiro;09/06/2026
+C01894;Nelson Nascimento Oliveira;M;Santos;17/10/2025
+C01895;Mariana Santos Fernandes;M;Curitiba;27/12/2023
+C01896;Letícia Cardoso Pereira;F;Curitiba;09/02/2024
+C01897;Vítor Souza Araújo;F;Campinas;22/03/2026
+C01898;Olívia Lima Araújo;F;Curitiba;28/05/2025
+C01899;Letícia Souza Santos;F;Rio de Janeiro;27/06/2024
+C01900;Gabriela Nascimento Carvalho;M;Campinas;31/08/2024
+C01901;Letícia Santos Pereira;F;São Paulo;17/03/2024
+C01902;Paulo Nascimento Lima;F;Rio de Janeiro;31/03/2024
+C01903;Wagner Souza Cardoso;F;Curitiba;12/11/2025
+C01904;Elisa Oliveira Fernandes;M;Santos;08/05/2026
+C01905;Bruno Oliveira Silva;F;Belo Horizonte;20/06/2022
+C01906;Diego Souza Almeida;F;Belo Horizonte;09/04/2025
+C01907;Letícia Silva Gonçalves;F;Curitiba;13/12/2025
+C01908;Ana Carvalho Gonçalves;M;Rio de Janeiro;04/06/2025
+C01909;Elisa Gonçalves Souza;M;Rio de Janeiro;14/10/2022
+C01910;Vítor Oliveira Almeida;F;São Paulo;23/10/2025
+C01911;Yasmin Ribeiro Carvalho;F;Porto Alegre;05/10/2025
+C01912;Zélia Almeida Cardoso;F;Santos;27/12/2023
+C01913;Márcio Nascimento Araújo;F;Rio de Janeiro;22/11/2025
+C01914;Beatriz Nascimento Nascimento;F;São Paulo;29/04/2023
+C01915;Vítor Cardoso Fernandes;F;Rio de Janeiro;28/12/2025
+C01916;Quésia Silva Nascimento;F;Belo Horizonte;21/02/2025
+C01917;João Oliveira Barbosa;M;Campinas;14/01/2023
+C01918;Úrsula Nascimento Araújo;F;São Paulo;04/05/2022
+C01919;Isabela Pereira Araújo;F;Santos;20/02/2024
+C01920;Márcio Lima Oliveira;M;Campinas;07/12/2024
+C01921;Diego Gonçalves Araújo;M;Santos;22/05/2024
+C01922;João Oliveira Almeida;M;Campinas;19/08/2022
+C01923;Márcio Nascimento Pereira;F;São Paulo;29/07/2026
+C01924;Gabriela Nascimento Cardoso;M;São Paulo;28/05/2023
+C01925;Hugo Santos Lima;F;São Paulo;26/11/2022
+C01926;Letícia Pereira Oliveira;F;Porto Alegre;17/07/2026
+C01927;Zélia Fernandes Carvalho;F;Santos;11/07/2025
+C01928;Gabriela Pereira Araújo;M;Rio de Janeiro;17/12/2023
+C01929;Paulo Ribeiro Lima;F;Campinas;07/07/2024
+C01930;Elisa Oliveira Araújo;F;Belo Horizonte;16/11/2024
+C01931;Mariana Cardoso Araújo;M;Belo Horizonte;20/12/2025
+C01932;Mariana Gonçalves Carvalho;M;Rio de Janeiro;11/10/2022
+C01933;Fábio Silva Oliveira;F;São Paulo;05/08/2023
+C01934;Elisa Cardoso Araújo;F;Campinas;22/07/2025
+C01935;Elisa Barbosa Pereira;F;Campinas;06/11/2023
+C01936;Beatriz Almeida Barbosa;F;São Paulo;16/02/2023
+C01937;Yasmin Ribeiro Almeida;F;São Paulo;21/01/2026
+C01938;Yasmin Carvalho Santos;M;Porto Alegre;21/04/2022
+C01939;Gabriela Santos Araújo;F;Campinas;26/06/2025
+C01940;Wagner Santos Pereira;F;São Paulo;17/03/2026
+C01941;Yasmin Silva Souza;M;São Paulo;04/10/2023
+C01942;Nelson Araújo Oliveira;M;São Paulo;03/04/2026
+C01943;Yasmin Fernandes Fernandes;M;São Paulo;07/05/2024
+C01944;Sônia Carvalho Gonçalves;F;Campinas;20/08/2024
+C01945;Hugo Santos Oliveira;F;Curitiba;31/08/2024
+C01946;Carla Lima Nascimento;M;Rio de Janeiro;18/04/2022
+C01947;André Cardoso Souza;F;Curitiba;18/07/2026
+C01948;Karina Santos Ribeiro;F;Rio de Janeiro;27/04/2024
+C01949;Letícia Oliveira Carvalho;F;Belo Horizonte;10/05/2022
+C01950;Diego Silva Fernandes;F;Santos;21/02/2026
+C01951;Beatriz Santos Araújo;M;Belo Horizonte;19/09/2023
+C01952;Ana Souza Nascimento;M;Campinas;15/01/2023
+C01953;Olívia Oliveira Souza;M;Porto Alegre;11/02/2022
+C01954;Lucas Araújo Cardoso;M;Belo Horizonte;09/12/2025
+C01955;Wagner Souza Almeida;F;Santos;08/01/2025
+C01956;Wagner Souza Fernandes;M;Santos;11/12/2023
+C01957;Elisa Cardoso Oliveira;F;São Paulo;01/01/2026
+C01958;João Silva Almeida;F;São Paulo;25/10/2024
+C01959;Diego Nascimento Santos;M;Santos;14/08/2026
+C01960;Zélia Santos Cardoso;F;Porto Alegre;18/01/2025
+C01961;Carla Gonçalves Gonçalves;F;Curitiba;01/10/2025
+C01962;Ana Santos Araújo;F;Campinas;14/10/2024
+C01963;Gabriela Cardoso Gonçalves;F;São Paulo;14/07/2025
+C01964;Cláudio Pereira Souza;F;Porto Alegre;10/01/2024
+C01965;Lucas Fernandes Nascimento;F;São Paulo;15/11/2025
+C01966;Carla Gonçalves Souza;M;Campinas;22/05/2025
+C01967;Karina Cardoso Oliveira;M;Curitiba;05/02/2023
+C01968;Letícia Fernandes Gonçalves;F;Curitiba;21/05/2026
+C01969;Gabriela Almeida Araújo;M;São Paulo;30/11/2024
+C01970;Cláudio Santos Silva;M;Santos;09/12/2023
+C01971;Letícia Pereira Gonçalves;F;Campinas;11/12/2023
+C01972;Letícia Oliveira Santos;M;Campinas;20/03/2025
+C01973;Wagner Carvalho Carvalho;M;São Paulo;16/10/2025
+C01974;Carla Nascimento Souza;F;Rio de Janeiro;20/06/2026
+C01975;Úrsula Gonçalves Souza;M;São Paulo;13/06/2023
+C01976;Carla Almeida Lima;M;Porto Alegre;13/01/2022
+C01977;Elisa Santos Cardoso;F;São Paulo;14/08/2025
+C01978;Carla Nascimento Oliveira;F;Santos;24/01/2022
+C01979;Elisa Santos Gonçalves;M;Curitiba;14/03/2024
+C01980;Tiago Pereira Gonçalves;F;Rio de Janeiro;30/03/2023
+C01981;Vítor Fernandes Almeida;M;Curitiba;22/02/2025
+C01982;Karina Fernandes Barbosa;F;Rio de Janeiro;15/11/2025
+C01983;Carla Gonçalves Almeida;M;Rio de Janeiro;16/03/2025
+C01984;João Lima Santos;M;São Paulo;21/07/2023
+C01985;Letícia Cardoso Souza;F;São Paulo;16/05/2024
+C01986;Rodrigo Nascimento Lima;F;Porto Alegre;07/02/2025
+C01987;Vítor Oliveira Almeida;M;São Paulo;01/11/2023
+C01988;Yasmin Lima Fernandes;F;São Paulo;29/12/2022
+C01989;Fábio Almeida Carvalho;M;Campinas;05/06/2022
+C01990;Márcio Carvalho Cardoso;M;Rio de Janeiro;17/07/2026
+C01991;Nelson Pereira Pereira;M;Curitiba;05/05/2023
+C01992;Diego Fernandes Almeida;F;Belo Horizonte;04/08/2024
+C01993;Rodrigo Ribeiro Carvalho;M;Porto Alegre;17/08/2026
+C01994;Elisa Nascimento Silva;M;São Paulo;26/11/2024
+C01995;Rodrigo Almeida Lima;F;Santos;06/04/2025
+C01996;Gabriela Araújo Nascimento;F;Santos;20/03/2022
+C01997;Paulo Silva Santos;F;São Paulo;01/07/2024
+C01998;Márcio Santos Silva;M;Curitiba;23/09/2025
+C01999;Rodrigo Barbosa Lima;M;Campinas;01/11/2024
+C02000;Rodrigo Silva Lima;M;Porto Alegre;04/02/2023
+C02001;Cláudio Carvalho Gonçalves;F;Rio de Janeiro;05/03/2025
+C02002;Cláudio Barbosa Carvalho;M;Belo Horizonte;27/11/2024
+C02003;Vítor Ribeiro Pereira;F;Rio de Janeiro;19/02/2022
+C02004;Karina Almeida Silva;M;Belo Horizonte;05/02/2026
+C02005;João Gonçalves Carvalho;M;Rio de Janeiro;05/09/2024
+C02006;Wagner Fernandes Silva;F;Rio de Janeiro;08/04/2025
+C02007;Olívia Lima Oliveira;F;Rio de Janeiro;19/07/2025
+C02008;Beatriz Souza Araújo;F;São Paulo;28/07/2023
+C02009;Tiago Santos Barbosa;M;Curitiba;22/02/2026
+C02010;Fábio Souza Cardoso;F;São Paulo;14/02/2022
+C02011;Beatriz Oliveira Lima;F;São Paulo;05/11/2025
+C02012;Yasmin Oliveira Oliveira;M;Curitiba;19/05/2025
+C02013;Zélia Barbosa Oliveira;F;Belo Horizonte;01/07/2026
+C02014;Carla Araújo Barbosa;F;Porto Alegre;19/04/2026
+C02015;Hugo Silva Araújo;M;Belo Horizonte;09/06/2025
+C02016;Gabriela Barbosa Ribeiro;F;Belo Horizonte;07/01/2023
+C02017;Rodrigo Nascimento Carvalho;M;São Paulo;15/04/2022
+C02018;Lucas Ribeiro Gonçalves;F;Porto Alegre;28/01/2026
+C02019;João Lima Almeida;F;Curitiba;12/06/2026
+C02020;Yasmin Pereira Araújo;M;São Paulo;02/05/2026
+C02021;Elisa Pereira Pereira;M;São Paulo;25/10/2024
+C02022;Diego Carvalho Fernandes;F;São Paulo;22/08/2025
+C02023;Beatriz Araújo Barbosa;F;Porto Alegre;10/02/2026
+C02024;Wagner Fernandes Ribeiro;F;Curitiba;01/03/2025
+C02025;Wagner Santos Fernandes;F;Porto Alegre;12/08/2024
+C02026;Úrsula Cardoso Carvalho;M;Rio de Janeiro;11/10/2024
+C02027;Mariana Gonçalves Pereira;M;Campinas;21/01/2024
+C02028;Cláudio Souza Pereira;M;São Paulo;06/03/2024
+C02029;Elisa Souza Carvalho;F;Santos;29/05/2022
+C02030;Gabriela Gonçalves Fernandes;F;São Paulo;01/06/2024
+C02031;Cláudio Barbosa Nascimento;M;Rio de Janeiro;24/02/2025
+C02032;Lucas Oliveira Nascimento;M;Belo Horizonte;05/06/2025
+C02033;Wagner Carvalho Araújo;F;São Paulo;16/03/2025
+C02034;Quésia Gonçalves Gonçalves;M;Santos;02/12/2023
+C02035;Sônia Ribeiro Almeida;F;São Paulo;16/11/2023
+C02036;Diego Carvalho Carvalho;M;Rio de Janeiro;09/06/2025
+C02037;Yasmin Gonçalves Souza;M;Porto Alegre;25/01/2024
+C02038;Lucas Souza Santos;M;Santos;31/05/2025
+C02039;Bruno Silva Araújo;F;Belo Horizonte;03/11/2023
+C02040;Ana Cardoso Cardoso;F;Curitiba;05/01/2026
+C02041;Márcio Cardoso Araújo;M;São Paulo;30/09/2024
+C02042;Zélia Souza Carvalho;F;Campinas;25/10/2025
+C02043;Lucas Barbosa Barbosa;F;São Paulo;28/08/2023
+C02044;Elisa Lima Ribeiro;F;São Paulo;15/11/2022
+C02045;Sônia Carvalho Barbosa;F;Porto Alegre;19/07/2026
+C02046;Quésia Fernandes Santos;M;Belo Horizonte;30/06/2025
+C02047;Mariana Araújo Ribeiro;F;Curitiba;14/08/2023
+C02048;Paulo Fernandes Barbosa;M;Santos;27/08/2025
+C02049;Paulo Carvalho Pereira;F;Porto Alegre;19/01/2026
+C02050;Cláudio Nascimento Fernandes;F;São Paulo;14/07/2024
+C02051;Wagner Gonçalves Araújo;M;Curitiba;27/01/2023
+C02052;Úrsula Cardoso Santos;M;Belo Horizonte;18/09/2024
+C02053;Bruno Oliveira Ribeiro;F;Porto Alegre;12/02/2023
+C02054;Yasmin Barbosa Pereira;M;São Paulo;24/08/2025
+C02055;Úrsula Oliveira Barbosa;M;Belo Horizonte;28/02/2025
+C02056;Mariana Lima Silva;M;Rio de Janeiro;29/06/2023
+C02057;Cláudio Santos Nascimento;M;Rio de Janeiro;25/08/2023
+C02058;Sônia Souza Lima;M;Rio de Janeiro;25/03/2022
+C02059;Márcio Souza Silva;F;São Paulo;19/12/2023
+C02060;André Almeida Barbosa;M;São Paulo;03/04/2023
+C02061;Mariana Cardoso Santos;M;Porto Alegre;14/08/2022
+C02062;Lucas Carvalho Gonçalves;M;Curitiba;29/11/2024
+C02063;Bruno Carvalho Gonçalves;F;São Paulo;24/09/2024
+C02064;Gabriela Cardoso Santos;F;Porto Alegre;01/01/2022
+C02065;João Ribeiro Almeida;F;Belo Horizonte;01/09/2025
+C02066;Yasmin Araújo Lima;M;São Paulo;03/06/2025
+C02067;Úrsula Gonçalves Ribeiro;M;São Paulo;23/01/2023
+C02068;André Pereira Oliveira;M;Porto Alegre;08/07/2023
+C02069;Wagner Souza Santos;M;Porto Alegre;23/02/2022
+C02070;Vítor Ribeiro Cardoso;M;São Paulo;04/06/2022
+C02071;Tiago Cardoso Oliveira;F;Santos;10/11/2022
+C02072;Zélia Nascimento Fernandes;F;Porto Alegre;08/07/2026
+C02073;Carla Santos Souza;M;Curitiba;27/02/2022
+C02074;Isabela Barbosa Nascimento;F;São Paulo;02/04/2023
+C02075;Nelson Silva Barbosa;M;Santos;03/12/2024
+C02076;Sônia Nascimento Souza;F;Rio de Janeiro;21/11/2023
+C02077;Vítor Ribeiro Cardoso;F;Santos;19/10/2023
+C02078;Lucas Ribeiro Ribeiro;M;Porto Alegre;13/06/2026
+C02079;Lucas Lima Santos;M;Curitiba;25/01/2025
+C02080;Isabela Santos Oliveira;M;Porto Alegre;21/08/2024
+C02081;Carla Almeida Barbosa;F;Rio de Janeiro;17/11/2024
+C02082;Tiago Lima Souza;M;Belo Horizonte;20/02/2023
+C02083;Úrsula Gonçalves Nascimento;F;São Paulo;25/07/2025
+C02084;Isabela Barbosa Nascimento;M;São Paulo;09/11/2022
+C02085;Wagner Gonçalves Oliveira;F;Santos;09/12/2024
+C02086;Hugo Santos Pereira;M;Curitiba;14/01/2024
+C02087;Mariana Silva Pereira;F;Campinas;08/02/2023
+C02088;João Santos Gonçalves;F;Rio de Janeiro;17/03/2025
+C02089;Quésia Gonçalves Oliveira;F;Rio de Janeiro;02/04/2024
+C02090;Diego Almeida Ribeiro;F;Belo Horizonte;29/03/2022
+C02091;Sônia Nascimento Fernandes;F;São Paulo;21/11/2022
+C02092;Márcio Santos Barbosa;M;São Paulo;06/08/2022
+C02093;Zélia Lima Lima;F;São Paulo;03/09/2023
+C02094;Hugo Fernandes Cardoso;M;Rio de Janeiro;14/12/2023
+C02095;Lucas Carvalho Lima;M;São Paulo;09/12/2023
+C02096;Hugo Carvalho Araújo;F;Campinas;15/02/2024
+C02097;Hugo Gonçalves Cardoso;F;Belo Horizonte;22/04/2022
+C02098;Carla Santos Souza;M;Campinas;25/03/2024
+C02099;Zélia Ribeiro Lima;F;Belo Horizonte;16/07/2022
+C02100;Fábio Santos Silva;F;Santos;10/04/2025
+C02101;Karina Oliveira Lima;F;Santos;18/01/2022
+C02102;Márcio Araújo Gonçalves;M;Campinas;01/03/2024
+C02103;Mariana Fernandes Santos;F;Porto Alegre;19/10/2022
+C02104;Wagner Santos Silva;F;Rio de Janeiro;21/04/2025
+C02105;Úrsula Pereira Almeida;M;Rio de Janeiro;11/05/2025
+C02106;Bruno Barbosa Almeida;M;Rio de Janeiro;16/02/2024
+C02107;Ana Almeida Souza;F;São Paulo;26/04/2022
+C02108;André Oliveira Silva;F;Curitiba;09/02/2025
+C02109;Wagner Pereira Nascimento;F;São Paulo;06/05/2025
+C02110;Ana Gonçalves Nascimento;F;Belo Horizonte;21/08/2025
+C02111;Quésia Barbosa Almeida;F;Santos;12/04/2022
+C02112;Letícia Nascimento Oliveira;M;Curitiba;07/06/2023
+C02113;Paulo Souza Pereira;F;Rio de Janeiro;24/06/2024
+C02114;Sônia Carvalho Santos;F;São Paulo;18/12/2024
+C02115;Carla Oliveira Oliveira;M;São Paulo;12/05/2025
+C02116;Olívia Ribeiro Gonçalves;M;Porto Alegre;06/11/2024
+C02117;Beatriz Almeida Cardoso;F;Porto Alegre;10/01/2024
+C02118;Ana Pereira Oliveira;F;Campinas;26/04/2026
+C02119;Yasmin Carvalho Lima;M;Curitiba;18/08/2024
+C02120;Sônia Araújo Pereira;F;São Paulo;04/08/2022
+C02121;Beatriz Almeida Nascimento;F;São Paulo;25/01/2022
+C02122;Paulo Lima Ribeiro;F;Campinas;12/10/2025
+C02123;Tiago Lima Gonçalves;M;Porto Alegre;30/11/2024
+C02124;Yasmin Barbosa Nascimento;M;Curitiba;18/12/2024
+C02125;Nelson Oliveira Nascimento;M;Rio de Janeiro;01/05/2023
+C02126;Cláudio Oliveira Souza;F;Porto Alegre;27/04/2024
+C02127;Carla Ribeiro Souza;F;Belo Horizonte;02/05/2022
+C02128;Gabriela Ribeiro Pereira;M;Belo Horizonte;14/07/2024
+C02129;Olívia Oliveira Pereira;F;Belo Horizonte;08/10/2022
+C02130;Vítor Lima Santos;M;Porto Alegre;23/09/2024
+C02131;Olívia Santos Nascimento;M;Belo Horizonte;18/08/2025
+C02132;Bruno Fernandes Araújo;F;São Paulo;22/11/2022
+C02133;Gabriela Lima Lima;M;São Paulo;02/06/2026
+C02134;Rodrigo Oliveira Carvalho;F;Campinas;01/01/2022
+C02135;Wagner Souza Araújo;M;Santos;06/01/2025
+C02136;Isabela Lima Santos;M;São Paulo;15/12/2022
+C02137;Isabela Carvalho Souza;F;Campinas;17/12/2022
+C02138;Lucas Gonçalves Silva;F;Belo Horizonte;07/10/2024
+C02139;Paulo Gonçalves Silva;F;Belo Horizonte;28/01/2025
+C02140;Ana Santos Fernandes;M;Rio de Janeiro;08/05/2022
+C02141;Karina Silva Ribeiro;F;São Paulo;28/03/2022
+C02142;Karina Araújo Barbosa;M;São Paulo;22/06/2023
+C02143;Bruno Gonçalves Santos;M;Campinas;06/03/2023
+C02144;Fábio Araújo Cardoso;M;São Paulo;10/03/2024
+C02145;Sônia Lima Barbosa;F;Curitiba;27/09/2023
+C02146;Lucas Santos Carvalho;F;São Paulo;26/08/2024
+C02147;Letícia Nascimento Fernandes;M;Curitiba;22/12/2022
+C02148;Zélia Araújo Almeida;F;Santos;03/02/2026
+C02149;Gabriela Carvalho Nascimento;F;Campinas;20/11/2025
+C02150;Paulo Oliveira Oliveira;M;Campinas;15/11/2024
+C02151;Rodrigo Lima Silva;F;Santos;29/05/2024
+C02152;Zélia Araújo Cardoso;M;Curitiba;14/05/2026
+C02153;Quésia Lima Pereira;M;Campinas;16/04/2025
+C02154;Olívia Ribeiro Cardoso;F;Porto Alegre;28/10/2022
+C02155;Quésia Pereira Silva;M;Porto Alegre;31/07/2023
+C02156;Paulo Gonçalves Lima;F;Curitiba;10/07/2025
+C02157;Beatriz Silva Pereira;M;Porto Alegre;05/09/2024
+C02158;Gabriela Silva Lima;F;São Paulo;09/05/2024
+C02159;Beatriz Ribeiro Fernandes;M;São Paulo;06/08/2023
+C02160;Úrsula Pereira Oliveira;F;Campinas;23/05/2024
+C02161;Bruno Souza Pereira;F;São Paulo;02/08/2022
+C02162;Rodrigo Araújo Pereira;F;Belo Horizonte;11/04/2026
+C02163;Ana Barbosa Lima;M;Belo Horizonte;08/10/2022
+C02164;Wagner Cardoso Nascimento;F;São Paulo;06/06/2026
+C02165;Rodrigo Oliveira Lima;M;São Paulo;31/08/2023
+C02166;Isabela Cardoso Almeida;M;Santos;16/04/2022
+C02167;Gabriela Cardoso Souza;F;Rio de Janeiro;10/06/2026
+C02168;Letícia Pereira Araújo;F;São Paulo;08/08/2024
+C02169;Úrsula Santos Cardoso;M;São Paulo;22/03/2025
+C02170;Bruno Souza Silva;M;São Paulo;21/05/2026
+C02171;Sônia Fernandes Almeida;M;Rio de Janeiro;31/01/2023
+C02172;Zélia Souza Cardoso;F;Rio de Janeiro;12/04/2024
+C02173;Rodrigo Barbosa Lima;F;Belo Horizonte;03/07/2022
+C02174;Olívia Almeida Ribeiro;M;Porto Alegre;05/03/2025
+C02175;Wagner Fernandes Barbosa;F;São Paulo;12/06/2024
+C02176;Lucas Ribeiro Nascimento;M;Curitiba;07/06/2026
+C02177;Zélia Carvalho Fernandes;F;Curitiba;10/11/2024
+C02178;Letícia Barbosa Lima;M;São Paulo;30/11/2022
+C02179;Quésia Almeida Cardoso;F;São Paulo;16/05/2026
+C02180;Rodrigo Gonçalves Nascimento;F;Santos;30/05/2026
+C02181;Márcio Oliveira Santos;F;São Paulo;19/12/2023
+C02182;Tiago Barbosa Souza;M;Belo Horizonte;19/02/2024
+C02183;André Souza Pereira;M;Campinas;15/06/2025
+C02184;Nelson Araújo Oliveira;M;Porto Alegre;08/11/2023
+C02185;Quésia Araújo Oliveira;M;Curitiba;02/06/2022
+C02186;Gabriela Pereira Ribeiro;F;Rio de Janeiro;07/12/2022
+C02187;André Carvalho Souza;M;São Paulo;17/10/2023
+C02188;Hugo Barbosa Nascimento;M;São Paulo;06/09/2022
+C02189;Carla Ribeiro Araújo;M;Belo Horizonte;21/05/2022
+C02190;Zélia Carvalho Pereira;F;São Paulo;28/04/2023
+C02191;Zélia Nascimento Lima;F;São Paulo;23/10/2025
+C02192;Karina Nascimento Fernandes;M;São Paulo;12/12/2025
+C02193;Hugo Barbosa Lima;M;Campinas;03/02/2025
+C02194;Karina Carvalho Almeida;F;São Paulo;28/04/2025
+C02195;Isabela Souza Cardoso;F;São Paulo;17/05/2024
+C02196;Elisa Barbosa Santos;F;São Paulo;16/10/2022
+C02197;Karina Barbosa Araújo;M;Curitiba;12/09/2022
+C02198;Mariana Gonçalves Carvalho;M;Santos;05/04/2024
+C02199;André Barbosa Almeida;F;Rio de Janeiro;03/03/2026
+C02200;André Barbosa Nascimento;F;Curitiba;09/05/2026
+C02201;Cláudio Gonçalves Ribeiro;F;São Paulo;31/05/2022
+C02202;Rodrigo Lima Oliveira;M;Rio de Janeiro;28/03/2022
+C02203;Wagner Souza Nascimento;F;São Paulo;12/12/2023
+C02204;Carla Carvalho Santos;M;Rio de Janeiro;01/06/2023
+C02205;João Oliveira Silva;F;Santos;06/06/2026
+C02206;Nelson Santos Araújo;M;São Paulo;11/12/2023
+C02207;João Gonçalves Santos;F;Porto Alegre;18/11/2022
+C02208;Karina Silva Pereira;M;Campinas;18/07/2024
+C02209;Vítor Pereira Oliveira;M;São Paulo;02/04/2026
+C02210;Wagner Nascimento Nascimento;M;Belo Horizonte;06/03/2024
+C02211;Quésia Souza Souza;F;Rio de Janeiro;28/04/2025
+C02212;Cláudio Souza Araújo;F;Belo Horizonte;17/06/2026
+C02213;Zélia Barbosa Souza;F;Belo Horizonte;25/03/2022
+C02214;Bruno Gonçalves Araújo;M;São Paulo;17/09/2023
+C02215;Gabriela Souza Fernandes;F;São Paulo;08/04/2026
+C02216;Bruno Silva Lima;M;Santos;01/07/2022
+C02217;Carla Santos Araújo;M;São Paulo;02/03/2022
+C02218;Letícia Gonçalves Fernandes;F;Porto Alegre;06/02/2026
+C02219;João Santos Santos;F;Belo Horizonte;03/07/2024
+C02220;André Silva Lima;M;Porto Alegre;25/01/2026
+C02221;Ana Pereira Souza;F;Rio de Janeiro;19/06/2026
+C02222;Rodrigo Pereira Ribeiro;F;Belo Horizonte;15/09/2022
+C02223;Márcio Carvalho Oliveira;M;Belo Horizonte;31/03/2023
+C02224;Olívia Almeida Barbosa;M;Campinas;12/10/2025
+C02225;João Pereira Fernandes;M;Curitiba;09/08/2022
+C02226;Olívia Araújo Ribeiro;M;São Paulo;14/06/2022
+C02227;Karina Lima Santos;F;Campinas;11/12/2022
+C02228;Hugo Gonçalves Souza;M;Campinas;19/10/2023
+C02229;Beatriz Ribeiro Silva;M;Belo Horizonte;25/07/2025
+C02230;Úrsula Fernandes Araújo;M;Curitiba;07/07/2026
+C02231;Gabriela Souza Santos;M;Belo Horizonte;14/06/2026
+C02232;Vítor Araújo Gonçalves;F;Porto Alegre;17/02/2026
+C02233;Bruno Carvalho Lima;M;Belo Horizonte;27/08/2022
+C02234;Sônia Fernandes Silva;M;Campinas;15/01/2023
+C02235;Karina Santos Souza;F;Porto Alegre;11/03/2024
+C02236;Rodrigo Oliveira Santos;M;Rio de Janeiro;12/12/2025
+C02237;Nelson Carvalho Pereira;M;Porto Alegre;06/10/2025
+C02238;Elisa Cardoso Souza;M;Campinas;03/03/2025
+C02239;Hugo Cardoso Gonçalves;M;Porto Alegre;18/04/2025
+C02240;Carla Oliveira Ribeiro;M;Porto Alegre;09/04/2025
+C02241;Wagner Silva Silva;M;São Paulo;14/04/2024
+C02242;Vítor Souza Carvalho;M;Belo Horizonte;20/04/2023
+C02243;Vítor Ribeiro Silva;F;Santos;20/11/2024
+C02244;Elisa Gonçalves Araújo;F;Santos;03/04/2023
+C02245;Hugo Nascimento Souza;M;Porto Alegre;29/12/2023
+C02246;Fábio Fernandes Almeida;F;Belo Horizonte;25/03/2026
+C02247;Úrsula Barbosa Carvalho;M;Santos;10/05/2024
+C02248;Nelson Pereira Almeida;F;Campinas;27/12/2025
+C02249;Hugo Nascimento Ribeiro;M;Curitiba;22/11/2025
+C02250;Nelson Souza Silva;M;Rio de Janeiro;03/05/2026
+C02251;Beatriz Gonçalves Barbosa;F;São Paulo;09/09/2025
+C02252;Quésia Ribeiro Santos;M;São Paulo;19/04/2024
+C02253;Rodrigo Barbosa Pereira;M;São Paulo;02/12/2023
+C02254;Gabriela Pereira Souza;F;São Paulo;11/06/2026
+C02255;Olívia Ribeiro Gonçalves;F;São Paulo;21/07/2022
+C02256;Hugo Barbosa Almeida;F;Belo Horizonte;05/03/2025
+C02257;Olívia Cardoso Gonçalves;F;São Paulo;11/05/2025
+C02258;Diego Gonçalves Oliveira;M;Santos;06/04/2025
+C02259;Fábio Cardoso Ribeiro;F;Rio de Janeiro;30/05/2026
+C02260;Quésia Pereira Gonçalves;M;Santos;07/02/2025
+C02261;Ana Souza Oliveira;M;Curitiba;12/04/2024
+C02262;Yasmin Almeida Barbosa;M;São Paulo;27/10/2024
+C02263;Hugo Barbosa Cardoso;F;São Paulo;16/03/2023
+C02264;João Fernandes Carvalho;M;São Paulo;20/06/2025
+C02265;Paulo Barbosa Araújo;M;Campinas;06/05/2025
+C02266;Quésia Oliveira Silva;F;Santos;24/11/2022
+C02267;Carla Lima Fernandes;M;Rio de Janeiro;26/09/2022
+C02268;Olívia Pereira Ribeiro;F;Curitiba;09/09/2025
+C02269;Elisa Fernandes Almeida;F;São Paulo;23/02/2022
+C02270;Sônia Ribeiro Carvalho;M;Rio de Janeiro;02/09/2023
+C02271;Paulo Gonçalves Almeida;M;Campinas;23/08/2024
+C02272;Fábio Oliveira Ribeiro;M;São Paulo;10/12/2023
+C02273;Mariana Fernandes Pereira;F;Santos;14/07/2022
+C02274;Fábio Lima Souza;F;Campinas;21/12/2022
+C02275;Wagner Araújo Lima;M;Campinas;19/02/2024
+C02276;Isabela Barbosa Fernandes;M;São Paulo;11/02/2024
+C02277;Carla Ribeiro Carvalho;M;Rio de Janeiro;02/05/2026
+C02278;Elisa Silva Carvalho;M;Rio de Janeiro;22/06/2025
+C02279;Rodrigo Oliveira Silva;F;Belo Horizonte;25/11/2024
+C02280;Sônia Barbosa Barbosa;F;Porto Alegre;22/12/2023
+C02281;Márcio Ribeiro Souza;F;Curitiba;15/05/2025
+C02282;Karina Cardoso Carvalho;M;Porto Alegre;01/08/2025
+C02283;Bruno Oliveira Oliveira;F;Rio de Janeiro;14/05/2023
+C02284;Úrsula Fernandes Lima;F;Curitiba;24/09/2023
+C02285;Cláudio Santos Oliveira;F;São Paulo;24/12/2024
+C02286;Ana Ribeiro Carvalho;M;Campinas;19/07/2026
+C02287;Úrsula Gonçalves Araújo;F;Belo Horizonte;15/08/2026
+C02288;Wagner Silva Silva;M;Porto Alegre;26/08/2023
+C02289;Nelson Silva Lima;F;Curitiba;08/10/2022
+C02290;Vítor Nascimento Souza;M;São Paulo;24/04/2023
+C02291;Letícia Silva Cardoso;M;Santos;28/05/2025
+C02292;João Santos Cardoso;M;Campinas;28/02/2023
+C02293;Karina Cardoso Souza;F;Rio de Janeiro;08/11/2025
+C02294;Márcio Araújo Ribeiro;M;Rio de Janeiro;28/04/2026
+C02295;Paulo Carvalho Barbosa;M;São Paulo;23/01/2023
+C02296;Hugo Silva Silva;F;Curitiba;23/07/2024
+C02297;Hugo Ribeiro Pereira;F;Curitiba;27/12/2024
+C02298;Cláudio Araújo Araújo;F;Rio de Janeiro;03/05/2026
+C02299;Carla Ribeiro Lima;M;Belo Horizonte;05/07/2022
+C02300;Carla Cardoso Pereira;F;São Paulo;24/11/2022
+C02301;Beatriz Ribeiro Gonçalves;M;Porto Alegre;26/01/2026
+C02302;João Barbosa Ribeiro;F;Santos;29/03/2022
+C02303;Beatriz Souza Oliveira;M;Rio de Janeiro;19/04/2026
+C02304;Karina Oliveira Carvalho;M;Rio de Janeiro;17/11/2025
+C02305;Yasmin Barbosa Fernandes;M;São Paulo;10/07/2025
+C02306;Mariana Gonçalves Oliveira;M;São Paulo;28/06/2023
+C02307;Tiago Souza Almeida;M;Porto Alegre;29/07/2025
+C02308;Cláudio Nascimento Carvalho;M;Belo Horizonte;04/08/2025
+C02309;Sônia Silva Silva;F;Santos;24/05/2024
+C02310;Wagner Araújo Fernandes;F;São Paulo;02/04/2024
+C02311;Wagner Gonçalves Lima;M;São Paulo;05/05/2022
+C02312;Isabela Pereira Souza;F;São Paulo;11/05/2026
+C02313;Elisa Cardoso Ribeiro;F;Porto Alegre;06/12/2025
+C02314;Beatriz Fernandes Cardoso;M;Curitiba;29/03/2024
+C02315;Cláudio Cardoso Almeida;F;São Paulo;30/07/2025
+C02316;Vítor Carvalho Araújo;F;Campinas;14/04/2026
+C02317;João Silva Santos;F;São Paulo;03/09/2024
+C02318;Paulo Carvalho Nascimento;M;Rio de Janeiro;28/02/2023
+C02319;Úrsula Pereira Barbosa;M;Belo Horizonte;21/07/2024
+C02320;Yasmin Santos Silva;F;São Paulo;03/03/2023
+C02321;Zélia Cardoso Gonçalves;F;Porto Alegre;07/08/2022
+C02322;Lucas Silva Ribeiro;F;Belo Horizonte;10/04/2024
+C02323;Wagner Santos Nascimento;F;Belo Horizonte;20/10/2022
+C02324;Quésia Souza Gonçalves;F;Belo Horizonte;25/07/2022
+C02325;André Silva Barbosa;M;São Paulo;12/11/2023
+C02326;Úrsula Carvalho Araújo;M;Campinas;12/02/2026
+C02327;Sônia Lima Cardoso;M;Santos;18/07/2023
+C02328;Úrsula Carvalho Gonçalves;F;Curitiba;16/06/2026
+C02329;Fábio Nascimento Carvalho;M;São Paulo;31/03/2025
+C02330;Bruno Barbosa Santos;F;Porto Alegre;27/07/2023
+C02331;Tiago Souza Barbosa;F;São Paulo;14/04/2026
+C02332;Fábio Barbosa Gonçalves;M;Rio de Janeiro;06/04/2026
+C02333;André Araújo Araújo;M;Santos;06/03/2022
+C02334;Ana Carvalho Silva;F;Belo Horizonte;27/07/2026
+C02335;Nelson Oliveira Silva;F;São Paulo;29/07/2024
+C02336;Isabela Nascimento Nascimento;F;Curitiba;10/11/2023
+C02337;Olívia Gonçalves Santos;F;Porto Alegre;28/11/2024
+C02338;Rodrigo Pereira Lima;F;São Paulo;22/10/2022
+C02339;Elisa Barbosa Oliveira;M;São Paulo;01/12/2022
+C02340;Zélia Santos Santos;M;Campinas;19/03/2026
+C02341;Mariana Santos Nascimento;M;Curitiba;28/07/2022
+C02342;Ana Almeida Barbosa;F;São Paulo;22/01/2024
+C02343;Yasmin Oliveira Araújo;M;Porto Alegre;14/08/2023
+C02344;Bruno Oliveira Araújo;F;Rio de Janeiro;27/05/2023
+C02345;Bruno Gonçalves Santos;F;Rio de Janeiro;30/06/2023
+C02346;Sônia Fernandes Nascimento;M;Belo Horizonte;19/07/2025
+C02347;João Nascimento Fernandes;M;São Paulo;25/02/2022
+C02348;João Santos Silva;M;Belo Horizonte;01/01/2023
+C02349;Paulo Cardoso Nascimento;F;Porto Alegre;16/10/2023
+C02350;Vítor Fernandes Oliveira;F;São Paulo;14/02/2022
+C02351;Márcio Oliveira Souza;F;Campinas;19/01/2026
+C02352;Lucas Carvalho Silva;F;Santos;23/02/2023
+C02353;Diego Pereira Oliveira;M;Santos;12/09/2022
+C02354;Rodrigo Araújo Carvalho;F;São Paulo;10/08/2026
+C02355;Isabela Pereira Santos;M;Curitiba;12/04/2023
+C02356;Ana Souza Gonçalves;F;Rio de Janeiro;25/06/2023
+C02357;Elisa Santos Silva;F;Santos;16/08/2026
+C02358;André Gonçalves Oliveira;M;São Paulo;30/05/2023
+C02359;Yasmin Almeida Almeida;F;Curitiba;10/01/2025
+C02360;Yasmin Lima Santos;M;Curitiba;12/11/2024
+C02361;Gabriela Araújo Cardoso;M;São Paulo;12/02/2026
+C02362;Yasmin Almeida Fernandes;M;Rio de Janeiro;20/06/2022
+C02363;Paulo Santos Cardoso;F;Rio de Janeiro;02/09/2023
+C02364;Olívia Carvalho Santos;F;Santos;08/04/2022
+C02365;Lucas Fernandes Fernandes;M;Belo Horizonte;13/05/2022
+C02366;Rodrigo Lima Barbosa;F;Rio de Janeiro;03/05/2022
+C02367;Isabela Santos Cardoso;M;São Paulo;31/08/2025
+C02368;Rodrigo Ribeiro Ribeiro;F;Belo Horizonte;27/03/2023
+C02369;Fábio Oliveira Araújo;M;São Paulo;29/05/2026
+C02370;Lucas Almeida Souza;F;Rio de Janeiro;11/08/2023
+C02371;Carla Barbosa Ribeiro;F;São Paulo;04/10/2022
+C02372;Paulo Cardoso Araújo;F;Belo Horizonte;08/01/2022
+C02373;Yasmin Gonçalves Gonçalves;M;São Paulo;19/06/2025
+C02374;Letícia Barbosa Almeida;M;Santos;25/09/2025
+C02375;Fábio Oliveira Cardoso;M;São Paulo;02/08/2022
+C02376;Beatriz Oliveira Oliveira;F;Belo Horizonte;11/04/2026
+C02377;Diego Ribeiro Fernandes;F;São Paulo;02/09/2023
+C02378;João Araújo Almeida;M;Santos;10/01/2024
+C02379;Cláudio Pereira Ribeiro;F;Campinas;20/06/2025
+C02380;Rodrigo Pereira Cardoso;M;São Paulo;08/09/2023
+C02381;Quésia Nascimento Ribeiro;M;Curitiba;04/06/2025
+C02382;Fábio Santos Ribeiro;F;São Paulo;23/09/2024
+C02383;Karina Santos Nascimento;M;Santos;31/05/2022
+C02384;Nelson Barbosa Nascimento;F;Campinas;14/02/2025
+C02385;Lucas Gonçalves Nascimento;M;São Paulo;26/03/2026
+C02386;Paulo Pereira Fernandes;M;Campinas;13/02/2026
+C02387;Letícia Pereira Barbosa;F;Rio de Janeiro;10/02/2023
+C02388;Quésia Araújo Cardoso;F;São Paulo;20/06/2022
+C02389;Letícia Barbosa Ribeiro;M;São Paulo;14/07/2025
+C02390;João Cardoso Barbosa;M;Campinas;18/04/2023
+C02391;Lucas Araújo Silva;M;Rio de Janeiro;02/04/2026
+C02392;Fábio Araújo Carvalho;F;Santos;18/06/2024
+C02393;André Nascimento Araújo;M;Porto Alegre;30/01/2023
+C02394;Diego Lima Oliveira;M;Curitiba;27/11/2025
+C02395;Sônia Almeida Santos;F;Porto Alegre;14/04/2022
+C02396;Quésia Gonçalves Silva;F;São Paulo;29/01/2022
+C02397;Karina Nascimento Oliveira;M;São Paulo;30/07/2026
+C02398;Tiago Barbosa Araújo;F;Porto Alegre;30/12/2022
+C02399;Tiago Pereira Ribeiro;F;São Paulo;09/10/2025
+C02400;Hugo Nascimento Araújo;F;Campinas;11/11/2024
+C02401;Rodrigo Gonçalves Santos;F;Campinas;08/08/2026
+C02402;Cláudio Barbosa Santos;M;São Paulo;04/11/2024
+C02403;Nelson Gonçalves Pereira;F;Rio de Janeiro;06/06/2025
+C02404;Karina Nascimento Pereira;M;Belo Horizonte;18/09/2023
+C02405;Carla Cardoso Santos;F;São Paulo;12/01/2023
+C02406;Bruno Gonçalves Silva;M;São Paulo;14/12/2025
+C02407;Úrsula Cardoso Gonçalves;F;Belo Horizonte;27/03/2025
+C02408;Úrsula Nascimento Fernandes;M;São Paulo;22/06/2026
+C02409;Rodrigo Nascimento Carvalho;F;Porto Alegre;22/10/2024
+C02410;Paulo Santos Barbosa;F;São Paulo;03/12/2025
+C02411;Carla Oliveira Lima;M;São Paulo;09/06/2026
+C02412;Gabriela Gonçalves Pereira;M;Campinas;06/09/2025
+C02413;Wagner Pereira Fernandes;M;Rio de Janeiro;15/09/2023
+C02414;Diego Araújo Araújo;M;Santos;16/09/2022
+C02415;João Carvalho Almeida;M;Porto Alegre;11/10/2025
+C02416;Quésia Barbosa Cardoso;M;Curitiba;23/02/2024
+C02417;Márcio Pereira Araújo;F;Santos;06/12/2025
+C02418;Karina Ribeiro Araújo;M;São Paulo;19/09/2022
+C02419;Mariana Almeida Lima;F;Santos;24/09/2024
+C02420;Márcio Fernandes Oliveira;F;Belo Horizonte;21/08/2026
+C02421;Nelson Souza Nascimento;M;Campinas;21/08/2024
+C02422;Vítor Fernandes Silva;F;Santos;25/10/2022
+C02423;Lucas Ribeiro Barbosa;M;Belo Horizonte;18/06/2024
+C02424;Isabela Souza Silva;M;Campinas;10/11/2024
+C02425;Karina Barbosa Barbosa;M;Porto Alegre;29/12/2024
+C02426;Nelson Pereira Barbosa;M;Belo Horizonte;23/03/2022
+C02427;Isabela Souza Santos;F;Porto Alegre;17/03/2023
+C02428;Quésia Oliveira Santos;M;São Paulo;24/08/2024
+C02429;Ana Gonçalves Gonçalves;M;Curitiba;29/04/2022
+C02430;Olívia Fernandes Santos;M;Belo Horizonte;12/07/2024
+C02431;Letícia Cardoso Silva;M;Rio de Janeiro;31/01/2022
+C02432;Olívia Oliveira Carvalho;F;Belo Horizonte;16/08/2022
+C02433;Beatriz Oliveira Souza;M;Curitiba;09/04/2022
+C02434;Karina Pereira Araújo;F;Porto Alegre;24/10/2023
+C02435;Wagner Barbosa Gonçalves;M;Rio de Janeiro;10/02/2023
+C02436;Lucas Gonçalves Cardoso;F;Curitiba;05/04/2026
+C02437;Ana Ribeiro Lima;F;Santos;18/04/2026
+C02438;João Pereira Araújo;F;São Paulo;11/01/2024
+C02439;Yasmin Ribeiro Cardoso;M;São Paulo;31/01/2025
+C02440;João Cardoso Nascimento;M;São Paulo;30/01/2022
+C02441;Olívia Silva Pereira;F;Curitiba;22/08/2026
+C02442;Lucas Oliveira Santos;F;Rio de Janeiro;15/04/2024
+C02443;Rodrigo Nascimento Pereira;M;Rio de Janeiro;09/11/2022
+C02444;Wagner Ribeiro Nascimento;F;Rio de Janeiro;28/09/2023
+C02445;Karina Nascimento Lima;F;Rio de Janeiro;03/04/2025
+C02446;Ana Oliveira Carvalho;M;Rio de Janeiro;09/01/2023
+C02447;Zélia Ribeiro Barbosa;F;Belo Horizonte;31/01/2026
+C02448;André Pereira Ribeiro;F;Campinas;12/10/2025
+C02449;Ana Carvalho Barbosa;F;Santos;23/11/2022
+C02450;Carla Santos Santos;M;Campinas;27/06/2026
+C02451;Wagner Lima Santos;F;São Paulo;15/06/2024
+C02452;Paulo Ribeiro Santos;M;Rio de Janeiro;22/08/2026
+C02453;Rodrigo Carvalho Cardoso;M;São Paulo;31/05/2022
+C02454;Vítor Santos Nascimento;M;Santos;06/05/2023
+C02455;Gabriela Araújo Silva;M;Santos;06/02/2026
+C02456;Vítor Ribeiro Lima;F;Porto Alegre;16/10/2022
+C02457;Quésia Lima Santos;M;São Paulo;31/01/2023
+C02458;Hugo Araújo Barbosa;F;Campinas;15/06/2024
+C02459;Mariana Gonçalves Gonçalves;M;Porto Alegre;02/02/2023
+C02460;Paulo Santos Carvalho;F;Curitiba;12/02/2024
+C02461;Cláudio Oliveira Fernandes;M;Curitiba;12/12/2025
+C02462;Beatriz Lima Fernandes;M;São Paulo;05/12/2023
+C02463;Carla Pereira Santos;M;Santos;29/02/2024
+C02464;Wagner Oliveira Almeida;M;Belo Horizonte;14/11/2025
+C02465;Paulo Souza Lima;F;São Paulo;28/05/2025
+C02466;Olívia Santos Souza;M;Belo Horizonte;19/02/2025
+C02467;Olívia Lima Silva;F;Curitiba;29/08/2024
+C02468;André Gonçalves Gonçalves;M;São Paulo;29/07/2026
+C02469;Gabriela Fernandes Gonçalves;M;Santos;14/12/2023
+C02470;Letícia Araújo Araújo;F;Campinas;29/07/2026
+C02471;Karina Santos Araújo;M;São Paulo;25/11/2025
+C02472;Isabela Lima Oliveira;F;São Paulo;06/03/2023
+C02473;Zélia Santos Carvalho;F;São Paulo;10/05/2022
+C02474;Paulo Oliveira Barbosa;M;Santos;08/02/2025
+C02475;Olívia Silva Barbosa;M;Porto Alegre;29/12/2025
+C02476;Nelson Nascimento Ribeiro;M;Campinas;10/04/2023
+C02477;Fábio Almeida Barbosa;F;Belo Horizonte;27/06/2025
+C02478;Cláudio Lima Ribeiro;F;Belo Horizonte;16/04/2026
+C02479;Mariana Araújo Carvalho;M;São Paulo;17/01/2024
+C02480;Rodrigo Araújo Silva;M;Campinas;16/04/2022
+C02481;Wagner Silva Ribeiro;F;Curitiba;28/06/2022
+C02482;Ana Barbosa Fernandes;F;São Paulo;23/10/2022
+C02483;Quésia Lima Nascimento;M;Campinas;23/02/2022
+C02484;Cláudio Silva Pereira;M;São Paulo;05/05/2023
+C02485;Isabela Nascimento Oliveira;M;Campinas;12/02/2023
+C02486;Cláudio Ribeiro Fernandes;F;Rio de Janeiro;17/09/2024
+C02487;Rodrigo Carvalho Almeida;M;São Paulo;18/03/2023
+C02488;Vítor Almeida Gonçalves;F;São Paulo;28/06/2025
+C02489;João Cardoso Nascimento;F;São Paulo;13/08/2026
+C02490;Wagner Carvalho Cardoso;M;Santos;15/07/2026
+C02491;Mariana Barbosa Fernandes;F;Campinas;07/01/2023
+C02492;Vítor Araújo Pereira;M;Santos;06/08/2023
+C02493;Karina Souza Pereira;F;Belo Horizonte;27/01/2022
+C02494;André Ribeiro Barbosa;F;Porto Alegre;08/11/2022
+C02495;Karina Silva Gonçalves;M;Santos;07/07/2025
+C02496;Nelson Nascimento Almeida;M;São Paulo;12/10/2025
+C02497;Diego Cardoso Barbosa;F;São Paulo;16/05/2023
+C02498;Mariana Oliveira Oliveira;F;Belo Horizonte;02/02/2024
+C02499;Olívia Lima Santos;M;São Paulo;25/04/2024
+C02500;Sônia Nascimento Santos;M;Campinas;21/11/2023
+C02501;Elisa Almeida Almeida;F;Campinas;07/07/2024
+C02502;Sônia Souza Oliveira;M;Rio de Janeiro;16/07/2024
+C02503;Gabriela Nascimento Pereira;M;Campinas;25/12/2022
+C02504;Vítor Gonçalves Santos;M;Santos;24/07/2024
+C02505;Nelson Nascimento Silva;F;Campinas;02/04/2022
+C02506;Mariana Araújo Santos;M;Porto Alegre;03/02/2023
+C02507;André Souza Nascimento;M;São Paulo;05/04/2022
+C02508;Tiago Fernandes Santos;M;Porto Alegre;09/06/2026
+C02509;Diego Barbosa Pereira;F;Santos;18/07/2024
+C02510;João Oliveira Oliveira;F;Santos;30/01/2024
+C02511;Diego Silva Lima;F;Porto Alegre;20/02/2023
+C02512;Rodrigo Lima Lima;F;São Paulo;02/07/2022
+C02513;André Almeida Cardoso;F;Rio de Janeiro;12/09/2022
+C02514;Paulo Cardoso Santos;M;Belo Horizonte;07/08/2025
+C02515;Isabela Cardoso Nascimento;F;Campinas;16/12/2022
+C02516;Diego Araújo Lima;F;Rio de Janeiro;14/01/2026
+C02517;Bruno Lima Nascimento;F;Belo Horizonte;26/01/2024
+C02518;Olívia Cardoso Pereira;M;Porto Alegre;01/07/2022
+C02519;Isabela Santos Ribeiro;M;Santos;23/10/2022
+C02520;Nelson Oliveira Barbosa;M;Santos;30/07/2024
+C02521;Rodrigo Pereira Cardoso;M;Santos;04/01/2026
+C02522;Wagner Fernandes Nascimento;F;Curitiba;06/03/2023
+C02523;Carla Silva Barbosa;M;Belo Horizonte;07/01/2025
+C02524;Mariana Lima Gonçalves;M;Belo Horizonte;19/11/2025
+C02525;André Pereira Cardoso;F;Campinas;29/08/2025
+C02526;Karina Pereira Souza;F;Curitiba;20/10/2023
+C02527;Mariana Araújo Pereira;M;Porto Alegre;08/08/2024
+C02528;Nelson Almeida Lima;F;Curitiba;01/12/2023
+C02529;Tiago Almeida Santos;F;Belo Horizonte;10/09/2025
+C02530;Olívia Nascimento Almeida;F;Porto Alegre;30/05/2026
+C02531;Olívia Fernandes Lima;M;Campinas;15/02/2026
+C02532;Bruno Barbosa Lima;M;Santos;07/05/2026
+C02533;Sônia Oliveira Gonçalves;F;Santos;20/02/2023
+C02534;Isabela Santos Ribeiro;F;São Paulo;02/07/2025
+C02535;Quésia Santos Gonçalves;M;Campinas;09/03/2024
+C02536;Hugo Silva Oliveira;M;São Paulo;17/02/2024
+C02537;Nelson Santos Lima;F;Belo Horizonte;07/06/2022
+C02538;Vítor Fernandes Ribeiro;M;Belo Horizonte;21/08/2022
+C02539;Hugo Almeida Silva;F;Rio de Janeiro;25/07/2024
+C02540;Nelson Araújo Santos;M;Campinas;31/12/2022
+C02541;Diego Ribeiro Cardoso;F;São Paulo;26/04/2025
+C02542;Diego Souza Souza;F;Santos;14/05/2024
+C02543;Ana Cardoso Gonçalves;F;Belo Horizonte;23/03/2024
+C02544;Mariana Santos Silva;F;Porto Alegre;07/05/2023
+C02545;João Fernandes Lima;M;São Paulo;26/10/2025
+C02546;Karina Barbosa Cardoso;F;São Paulo;17/12/2023
+C02547;Nelson Lima Cardoso;F;Santos;06/03/2025
+C02548;Isabela Gonçalves Barbosa;F;São Paulo;01/06/2026
+C02549;Cláudio Gonçalves Santos;F;Belo Horizonte;04/12/2022
+C02550;Karina Lima Almeida;M;Rio de Janeiro;26/11/2025
+C02551;Olívia Gonçalves Fernandes;F;Belo Horizonte;01/06/2026
+C02552;Carla Souza Carvalho;F;Campinas;16/02/2026
+C02553;Carla Ribeiro Ribeiro;F;Campinas;23/02/2023
+C02554;Rodrigo Oliveira Nascimento;M;Porto Alegre;23/02/2025
+C02555;Isabela Fernandes Nascimento;M;Rio de Janeiro;28/01/2023
+C02556;Olívia Ribeiro Santos;F;Belo Horizonte;17/12/2022
+C02557;Mariana Nascimento Cardoso;F;Curitiba;02/05/2022
+C02558;André Carvalho Souza;F;Porto Alegre;04/07/2023
+C02559;Gabriela Pereira Cardoso;M;Rio de Janeiro;08/06/2024
+C02560;Sônia Barbosa Lima;F;Curitiba;18/09/2023
+C02561;Bruno Souza Santos;F;Rio de Janeiro;05/07/2026
+C02562;Mariana Oliveira Oliveira;M;Curitiba;25/08/2026
+C02563;Karina Almeida Silva;F;Belo Horizonte;07/03/2025
+C02564;Letícia Santos Silva;M;São Paulo;26/12/2025
+C02565;Hugo Silva Nascimento;F;Porto Alegre;08/01/2022
+C02566;André Santos Carvalho;F;Santos;09/03/2023
+C02567;Rodrigo Gonçalves Souza;M;Belo Horizonte;15/08/2025
+C02568;Lucas Fernandes Cardoso;F;São Paulo;05/04/2026
+C02569;Nelson Nascimento Lima;F;Rio de Janeiro;21/02/2024
+C02570;Úrsula Silva Gonçalves;M;Curitiba;09/12/2023
+C02571;Mariana Lima Carvalho;M;Porto Alegre;10/03/2024
+C02572;Úrsula Cardoso Souza;M;Campinas;27/04/2022
+C02573;Márcio Santos Pereira;F;São Paulo;22/07/2022
+C02574;Gabriela Barbosa Almeida;M;Campinas;26/04/2025
+C02575;Nelson Santos Carvalho;F;Santos;09/06/2023
+C02576;Lucas Pereira Cardoso;M;Porto Alegre;09/02/2023
+C02577;Gabriela Oliveira Souza;M;Belo Horizonte;05/06/2022
+C02578;Diego Santos Silva;M;São Paulo;21/08/2022
+C02579;Yasmin Gonçalves Barbosa;M;Rio de Janeiro;04/07/2022
+C02580;Letícia Ribeiro Oliveira;M;São Paulo;09/01/2024
+C02581;Letícia Carvalho Carvalho;M;Porto Alegre;02/05/2025
+C02582;Fábio Santos Ribeiro;F;Rio de Janeiro;15/12/2024
+C02583;Márcio Nascimento Cardoso;F;Rio de Janeiro;08/12/2024
+C02584;Fábio Pereira Nascimento;F;Curitiba;30/12/2023
+C02585;Yasmin Oliveira Araújo;M;Santos;24/05/2026
+C02586;Wagner Lima Gonçalves;M;Curitiba;25/06/2026
+C02587;Gabriela Santos Araújo;F;São Paulo;17/03/2024
+C02588;Paulo Cardoso Almeida;F;Porto Alegre;20/06/2023
+C02589;Ana Gonçalves Oliveira;M;Belo Horizonte;31/03/2024
+C02590;Ana Santos Ribeiro;M;Campinas;31/12/2025
+C02591;Hugo Carvalho Pereira;F;Santos;06/09/2025
+C02592;Hugo Fernandes Nascimento;F;Rio de Janeiro;01/07/2026
+C02593;Zélia Santos Ribeiro;M;Curitiba;08/05/2023
+C02594;João Almeida Almeida;F;Santos;14/08/2022
+C02595;Carla Pereira Oliveira;F;Santos;14/09/2023
+C02596;Yasmin Nascimento Barbosa;M;Campinas;21/03/2023
+C02597;Vítor Souza Fernandes;M;Porto Alegre;11/06/2024
+C02598;Olívia Carvalho Carvalho;F;Belo Horizonte;07/04/2022
+C02599;Bruno Santos Silva;F;São Paulo;01/05/2023
+C02600;Diego Pereira Gonçalves;F;Porto Alegre;14/05/2022
+C02601;Nelson Carvalho Silva;M;Santos;15/07/2025
+C02602;Carla Carvalho Pereira;F;Rio de Janeiro;30/11/2024
+C02603;Vítor Silva Almeida;F;São Paulo;25/12/2024
+C02604;Isabela Lima Fernandes;F;Santos;16/01/2026
+C02605;Márcio Nascimento Souza;M;Curitiba;13/11/2022
+C02606;Ana Carvalho Cardoso;M;Porto Alegre;04/08/2026
+C02607;Mariana Souza Ribeiro;F;Rio de Janeiro;07/05/2022
+C02608;Beatriz Souza Almeida;F;Rio de Janeiro;16/01/2024
+C02609;Sônia Ribeiro Santos;F;Santos;12/10/2023
+C02610;Quésia Lima Fernandes;F;Porto Alegre;28/01/2026
+C02611;Márcio Lima Souza;M;Rio de Janeiro;05/12/2024
+C02612;Sônia Ribeiro Araújo;F;Campinas;26/05/2024
+C02613;Elisa Pereira Silva;M;São Paulo;16/07/2024
+C02614;Úrsula Lima Oliveira;M;Rio de Janeiro;21/04/2023
+C02615;Úrsula Almeida Almeida;M;Porto Alegre;02/05/2024
+C02616;Úrsula Lima Pereira;F;São Paulo;11/05/2025
+C02617;Bruno Fernandes Lima;F;São Paulo;03/10/2025
+C02618;Gabriela Nascimento Oliveira;F;Curitiba;08/05/2026
+C02619;Mariana Carvalho Lima;F;Santos;20/02/2022
+C02620;Letícia Gonçalves Cardoso;F;Campinas;15/05/2022
+C02621;Cláudio Santos Oliveira;F;Campinas;22/07/2023
+C02622;Paulo Oliveira Araújo;M;Campinas;12/03/2022
+C02623;Carla Silva Gonçalves;F;Porto Alegre;07/08/2026
+C02624;Olívia Almeida Fernandes;M;Belo Horizonte;05/03/2023
+C02625;Paulo Araújo Barbosa;F;Belo Horizonte;07/11/2024
+C02626;Tiago Carvalho Cardoso;M;Santos;15/02/2025
+C02627;Paulo Carvalho Gonçalves;M;São Paulo;31/01/2025
+C02628;Fábio Barbosa Oliveira;M;Santos;06/04/2025
+C02629;Letícia Lima Oliveira;F;Porto Alegre;26/12/2022
+C02630;Márcio Carvalho Barbosa;M;Rio de Janeiro;22/04/2023
+C02631;Nelson Ribeiro Cardoso;F;Campinas;20/03/2022
+C02632;Bruno Barbosa Araújo;M;Porto Alegre;28/02/2025
+C02633;Sônia Ribeiro Almeida;M;Santos;08/10/2024
+C02634;Vítor Fernandes Gonçalves;F;Porto Alegre;20/02/2024
+C02635;Zélia Araújo Lima;F;São Paulo;30/05/2023
+C02636;Vítor Lima Santos;F;Rio de Janeiro;05/07/2024
+C02637;Rodrigo Souza Nascimento;F;Campinas;08/01/2026
+C02638;Lucas Araújo Ribeiro;F;São Paulo;09/09/2022
+C02639;Carla Lima Barbosa;M;Porto Alegre;18/10/2022
+C02640;Elisa Gonçalves Fernandes;F;Belo Horizonte;08/08/2026
+C02641;Diego Lima Barbosa;M;Rio de Janeiro;04/03/2024
+C02642;Beatriz Cardoso Pereira;M;Curitiba;29/10/2024
+C02643;Nelson Lima Cardoso;F;São Paulo;08/12/2024
+C02644;Carla Carvalho Gonçalves;M;Santos;18/01/2023
+C02645;Fábio Lima Cardoso;M;São Paulo;16/09/2023
+C02646;André Gonçalves Fernandes;M;Curitiba;18/09/2024
+C02647;Úrsula Gonçalves Ribeiro;F;Curitiba;05/06/2025
+C02648;Ana Oliveira Oliveira;F;Santos;12/04/2025
+C02649;Hugo Araújo Silva;F;São Paulo;24/12/2023
+C02650;Fábio Lima Carvalho;F;Campinas;07/07/2023
+C02651;Mariana Silva Fernandes;M;Porto Alegre;03/12/2022
+C02652;Karina Oliveira Fernandes;F;Campinas;29/10/2023
+C02653;Úrsula Ribeiro Lima;F;Santos;02/04/2024
+C02654;Lucas Souza Cardoso;F;Belo Horizonte;09/02/2022
+C02655;Bruno Souza Souza;F;São Paulo;06/12/2024
+C02656;Ana Carvalho Gonçalves;F;Porto Alegre;14/04/2023
+C02657;Sônia Barbosa Oliveira;F;Belo Horizonte;19/10/2022
+C02658;Olívia Oliveira Lima;M;São Paulo;24/02/2024
+C02659;João Carvalho Souza;F;São Paulo;04/04/2022
+C02660;Sônia Gonçalves Fernandes;M;Rio de Janeiro;19/12/2023
+C02661;Yasmin Nascimento Barbosa;F;São Paulo;16/04/2023
+C02662;Mariana Lima Carvalho;F;Santos;16/07/2023
+C02663;Karina Silva Oliveira;F;São Paulo;22/06/2025
+C02664;Wagner Pereira Gonçalves;F;Rio de Janeiro;25/06/2022
+C02665;Sônia Fernandes Cardoso;M;São Paulo;06/01/2025
+C02666;Cláudio Santos Carvalho;M;São Paulo;28/08/2022
+C02667;Rodrigo Oliveira Oliveira;F;Santos;06/10/2025
+C02668;João Santos Lima;M;Rio de Janeiro;06/07/2022
+C02669;Ana Cardoso Nascimento;M;São Paulo;13/01/2026
+C02670;Rodrigo Almeida Almeida;F;Curitiba;01/11/2025
+C02671;Quésia Pereira Ribeiro;F;Campinas;25/08/2026
+C02672;Gabriela Cardoso Almeida;M;Santos;04/11/2023
+C02673;Fábio Araújo Carvalho;M;Porto Alegre;08/02/2025
+C02674;Karina Nascimento Pereira;F;Campinas;21/05/2023
+C02675;Cláudio Barbosa Fernandes;F;Campinas;19/11/2022
+C02676;Hugo Barbosa Lima;F;São Paulo;03/02/2026
+C02677;Karina Barbosa Santos;F;Curitiba;30/07/2024
+C02678;Zélia Oliveira Cardoso;F;Curitiba;28/06/2022
+C02679;Quésia Carvalho Lima;F;Curitiba;07/09/2022
+C02680;Bruno Nascimento Cardoso;M;São Paulo;31/07/2025
+C02681;André Gonçalves Nascimento;F;São Paulo;16/04/2025
+C02682;Karina Cardoso Ribeiro;F;Belo Horizonte;07/01/2023
+C02683;Paulo Lima Ribeiro;M;Rio de Janeiro;23/06/2026
+C02684;Cláudio Barbosa Nascimento;M;Rio de Janeiro;09/02/2022
+C02685;Isabela Pereira Silva;F;Santos;10/12/2024
+C02686;Isabela Lima Nascimento;M;Santos;27/02/2024
+C02687;Quésia Fernandes Lima;F;São Paulo;27/07/2025
+C02688;André Nascimento Santos;M;Belo Horizonte;08/05/2026
+C02689;Diego Cardoso Santos;M;Porto Alegre;28/11/2022
+C02690;Carla Carvalho Cardoso;M;Santos;31/07/2022
+C02691;Diego Fernandes Araújo;F;Porto Alegre;04/10/2024
+C02692;Paulo Gonçalves Pereira;F;Curitiba;04/04/2025
+C02693;Beatriz Araújo Cardoso;M;Rio de Janeiro;07/04/2023
+C02694;Tiago Nascimento Pereira;F;Campinas;21/08/2023
+C02695;Beatriz Silva Lima;M;São Paulo;15/05/2022
+C02696;Bruno Silva Silva;F;Belo Horizonte;09/05/2024
+C02697;Nelson Lima Oliveira;M;Curitiba;22/04/2025
+C02698;Beatriz Oliveira Pereira;F;São Paulo;05/02/2025
+C02699;Quésia Lima Oliveira;F;Campinas;07/08/2025
+C02700;Quésia Pereira Lima;M;Porto Alegre;26/09/2023
+C02701;Elisa Almeida Barbosa;M;Curitiba;10/02/2025
+C02702;Gabriela Araújo Barbosa;F;Rio de Janeiro;05/04/2025
+C02703;Yasmin Souza Gonçalves;M;São Paulo;09/12/2025
+C02704;Paulo Fernandes Souza;F;Santos;25/08/2022
+C02705;Carla Oliveira Pereira;F;Belo Horizonte;16/07/2025
+C02706;Zélia Nascimento Silva;M;Rio de Janeiro;17/05/2023
+C02707;Sônia Souza Almeida;F;Rio de Janeiro;17/01/2024
+C02708;Sônia Cardoso Oliveira;M;Campinas;01/06/2022
+C02709;Mariana Santos Santos;M;São Paulo;01/08/2023
+C02710;Zélia Oliveira Ribeiro;M;São Paulo;29/07/2026
+C02711;Rodrigo Silva Ribeiro;F;Porto Alegre;31/03/2024
+C02712;Márcio Carvalho Cardoso;F;Rio de Janeiro;24/02/2026
+C02713;Ana Pereira Santos;M;Campinas;05/10/2025
+C02714;Fábio Silva Pereira;F;São Paulo;02/11/2023
+C02715;Lucas Santos Gonçalves;M;São Paulo;26/12/2022
+C02716;João Souza Almeida;M;Belo Horizonte;18/07/2024
+C02717;Diego Nascimento Pereira;M;São Paulo;27/06/2022
+C02718;Sônia Carvalho Silva;F;Campinas;03/05/2026
+C02719;Karina Ribeiro Oliveira;F;Porto Alegre;06/01/2023
+C02720;Rodrigo Almeida Barbosa;F;Santos;03/05/2024
+C02721;Vítor Nascimento Santos;F;Belo Horizonte;20/08/2026
+C02722;Zélia Gonçalves Santos;M;Porto Alegre;01/06/2026
+C02723;Carla Santos Santos;F;Belo Horizonte;21/01/2026
+C02724;Olívia Fernandes Pereira;F;Porto Alegre;30/07/2024
+C02725;Diego Almeida Lima;M;Curitiba;04/08/2024
+C02726;Úrsula Silva Oliveira;M;Curitiba;12/10/2023
+C02727;Isabela Silva Souza;F;Santos;18/04/2023
+C02728;Lucas Fernandes Souza;M;Curitiba;20/02/2025
+C02729;Isabela Cardoso Silva;M;Belo Horizonte;16/11/2024
+C02730;Carla Souza Gonçalves;F;São Paulo;02/01/2026
+C02731;Bruno Araújo Silva;F;Rio de Janeiro;14/04/2022
+C02732;Sônia Barbosa Carvalho;F;Campinas;08/06/2026
+C02733;Nelson Fernandes Fernandes;M;Curitiba;04/04/2022
+C02734;Wagner Cardoso Fernandes;F;Belo Horizonte;16/02/2026
+C02735;Bruno Ribeiro Fernandes;F;Campinas;12/05/2023
+C02736;Mariana Souza Fernandes;M;Santos;24/04/2023
+C02737;Ana Fernandes Santos;M;Curitiba;03/06/2025
+C02738;Bruno Araújo Cardoso;F;Rio de Janeiro;12/07/2025
+C02739;Fábio Pereira Silva;F;Porto Alegre;10/04/2025
+C02740;Olívia Barbosa Fernandes;F;Belo Horizonte;10/05/2023
+C02741;Zélia Souza Carvalho;M;Rio de Janeiro;21/07/2023
+C02742;Beatriz Cardoso Pereira;F;São Paulo;01/06/2026
+C02743;Mariana Nascimento Fernandes;F;Curitiba;12/06/2026
+C02744;Rodrigo Pereira Araújo;F;Rio de Janeiro;18/10/2024
+C02745;Bruno Gonçalves Nascimento;M;Campinas;23/12/2022
+C02746;Mariana Barbosa Barbosa;M;São Paulo;29/04/2023
+C02747;Sônia Souza Oliveira;M;Porto Alegre;06/05/2025
+C02748;Márcio Souza Ribeiro;F;Campinas;03/02/2024
+C02749;André Souza Silva;F;Porto Alegre;12/01/2022
+C02750;Isabela Pereira Ribeiro;F;Porto Alegre;22/04/2025
+C02751;Zélia Carvalho Santos;F;Porto Alegre;09/05/2022
+C02752;Tiago Nascimento Barbosa;M;Campinas;08/07/2022
+C02753;Tiago Barbosa Ribeiro;M;Santos;25/09/2022
+C02754;João Gonçalves Pereira;M;Curitiba;23/06/2023
+C02755;Karina Gonçalves Barbosa;M;Belo Horizonte;17/12/2025
+C02756;André Carvalho Carvalho;F;Belo Horizonte;27/09/2022
+C02757;João Lima Carvalho;F;São Paulo;26/03/2024
+C02758;Bruno Fernandes Silva;M;Porto Alegre;04/11/2025
+C02759;Isabela Almeida Santos;F;Porto Alegre;12/01/2023
+C02760;Hugo Silva Carvalho;M;Santos;07/12/2023
+C02761;Sônia Gonçalves Araújo;F;Santos;09/08/2023
+C02762;Nelson Araújo Barbosa;F;São Paulo;05/07/2024
+C02763;Olívia Oliveira Santos;M;Porto Alegre;15/02/2022
+C02764;Olívia Pereira Gonçalves;M;Rio de Janeiro;17/01/2026
+C02765;Hugo Gonçalves Ribeiro;F;São Paulo;22/11/2022
+C02766;Zélia Ribeiro Almeida;M;Porto Alegre;24/01/2023
+C02767;Olívia Fernandes Barbosa;F;Campinas;20/06/2022
+C02768;Beatriz Araújo Gonçalves;F;Rio de Janeiro;13/03/2025
+C02769;Bruno Cardoso Oliveira;M;Porto Alegre;07/04/2022
+C02770;João Gonçalves Carvalho;F;São Paulo;19/10/2025
+C02771;Tiago Santos Ribeiro;M;Belo Horizonte;09/10/2025
+C02772;Yasmin Pereira Oliveira;F;Curitiba;28/11/2023
+C02773;Úrsula Fernandes Barbosa;M;Porto Alegre;03/06/2025
+C02774;Letícia Nascimento Carvalho;F;Curitiba;10/10/2024
+C02775;Karina Fernandes Ribeiro;F;São Paulo;12/09/2024
+C02776;Cláudio Almeida Lima;F;São Paulo;19/11/2024
+C02777;Úrsula Fernandes Barbosa;F;Curitiba;03/09/2025
+C02778;Bruno Gonçalves Almeida;F;São Paulo;09/06/2026
+C02779;João Nascimento Silva;M;Campinas;25/12/2022
+C02780;Tiago Santos Cardoso;F;São Paulo;08/06/2023
+C02781;Karina Gonçalves Araújo;F;Rio de Janeiro;03/02/2024
+C02782;Quésia Fernandes Lima;F;Porto Alegre;18/10/2022
+C02783;Beatriz Souza Carvalho;M;Porto Alegre;31/07/2024
+C02784;Úrsula Pereira Pereira;F;Porto Alegre;22/12/2025
+C02785;Wagner Fernandes Nascimento;F;Porto Alegre;29/04/2026
+C02786;Karina Souza Araújo;M;São Paulo;12/11/2025
+C02787;Yasmin Souza Barbosa;F;Curitiba;29/05/2022
+C02788;Isabela Souza Pereira;M;São Paulo;15/10/2023
+C02789;Gabriela Almeida Araújo;M;Belo Horizonte;11/10/2024
+C02790;Isabela Araújo Ribeiro;F;Rio de Janeiro;20/04/2022
+C02791;Cláudio Fernandes Souza;F;Belo Horizonte;25/08/2025
+C02792;Beatriz Cardoso Lima;M;Curitiba;02/01/2025
+C02793;Paulo Carvalho Santos;F;São Paulo;08/06/2024
+C02794;Karina Ribeiro Oliveira;M;Rio de Janeiro;19/07/2022
+C02795;Ana Souza Almeida;F;Rio de Janeiro;15/01/2022
+C02796;Vítor Gonçalves Carvalho;M;Porto Alegre;27/08/2026
+C02797;Quésia Gonçalves Araújo;M;Curitiba;14/01/2025
+C02798;Hugo Almeida Silva;M;Santos;07/01/2022
+C02799;Bruno Araújo Pereira;F;Rio de Janeiro;04/04/2024
+C02800;Vítor Cardoso Carvalho;F;São Paulo;11/08/2023
+C02801;Úrsula Lima Pereira;F;São Paulo;29/07/2022
+C02802;Fábio Fernandes Almeida;M;Campinas;03/04/2025
+C02803;Letícia Araújo Carvalho;F;Porto Alegre;12/08/2026
+C02804;Gabriela Gonçalves Lima;M;Rio de Janeiro;07/02/2024
+C02805;João Gonçalves Carvalho;M;Curitiba;03/04/2023
+C02806;Rodrigo Fernandes Lima;M;Rio de Janeiro;24/09/2024
+C02807;André Barbosa Cardoso;F;São Paulo;29/07/2022
+C02808;Nelson Ribeiro Pereira;M;Porto Alegre;11/02/2025
+C02809;Rodrigo Araújo Gonçalves;M;São Paulo;09/11/2023
+C02810;Ana Souza Nascimento;F;Porto Alegre;26/06/2023
+C02811;Wagner Nascimento Silva;M;Porto Alegre;17/02/2025
+C02812;Cláudio Cardoso Cardoso;M;Rio de Janeiro;14/09/2025
+C02813;Rodrigo Nascimento Carvalho;F;São Paulo;26/06/2024
+C02814;Quésia Ribeiro Silva;M;Rio de Janeiro;19/08/2025
+C02815;Quésia Araújo Carvalho;M;São Paulo;19/02/2026
+C02816;André Silva Fernandes;F;Santos;25/08/2024
+C02817;Lucas Lima Almeida;M;Porto Alegre;12/03/2023
+C02818;Sônia Cardoso Fernandes;M;Santos;16/01/2024
+C02819;Beatriz Lima Barbosa;M;Rio de Janeiro;29/07/2022
+C02820;Carla Carvalho Araújo;F;São Paulo;26/01/2026
+C02821;Gabriela Almeida Gonçalves;F;Rio de Janeiro;19/04/2022
+C02822;Zélia Almeida Fernandes;F;São Paulo;09/04/2023
+C02823;Úrsula Pereira Souza;F;Curitiba;30/08/2023
+C02824;Cláudio Souza Fernandes;M;Porto Alegre;17/04/2024
+C02825;Bruno Almeida Gonçalves;M;São Paulo;21/08/2025
+C02826;Letícia Carvalho Barbosa;F;Belo Horizonte;25/03/2022
+C02827;Márcio Cardoso Cardoso;M;Belo Horizonte;01/04/2022
+C02828;Lucas Almeida Santos;M;Porto Alegre;27/10/2022
+C02829;João Nascimento Oliveira;M;Santos;15/11/2022
+C02830;Mariana Gonçalves Carvalho;F;Rio de Janeiro;06/03/2026
+C02831;Tiago Silva Nascimento;M;Porto Alegre;11/01/2022
+C02832;Nelson Cardoso Silva;M;Rio de Janeiro;13/09/2025
+C02833;Cláudio Lima Lima;M;Santos;28/01/2022
+C02834;Gabriela Almeida Barbosa;F;Rio de Janeiro;26/04/2023
+C02835;Tiago Silva Oliveira;F;São Paulo;23/03/2022
+C02836;Paulo Almeida Pereira;F;São Paulo;27/06/2024
+C02837;Olívia Barbosa Souza;F;São Paulo;18/04/2025
+C02838;Wagner Souza Barbosa;F;São Paulo;10/11/2025
+C02839;Sônia Silva Araújo;F;São Paulo;02/06/2023
+C02840;Ana Almeida Almeida;F;Rio de Janeiro;24/06/2023
+C02841;Mariana Fernandes Nascimento;M;Porto Alegre;05/07/2023
+C02842;Wagner Cardoso Souza;M;Rio de Janeiro;14/09/2024
+C02843;Karina Santos Fernandes;M;Porto Alegre;16/01/2025
+C02844;Vítor Gonçalves Fernandes;F;São Paulo;06/03/2023
+C02845;Carla Gonçalves Oliveira;F;São Paulo;06/01/2022
+C02846;Ana Oliveira Carvalho;M;Belo Horizonte;06/04/2026
+C02847;Diego Fernandes Fernandes;F;Belo Horizonte;02/05/2024
+C02848;Zélia Ribeiro Araújo;M;São Paulo;12/11/2023
+C02849;João Almeida Santos;F;Santos;11/03/2024
+C02850;Lucas Nascimento Ribeiro;M;Santos;08/04/2026
+C02851;Nelson Lima Lima;M;Campinas;27/03/2024
+C02852;Mariana Carvalho Souza;F;São Paulo;22/07/2022
+C02853;Tiago Almeida Lima;F;Santos;16/04/2024
+C02854;Cláudio Almeida Pereira;F;Porto Alegre;07/09/2022
+C02855;Nelson Santos Santos;M;São Paulo;25/11/2024
+C02856;Diego Nascimento Cardoso;M;Campinas;12/07/2026
+C02857;Úrsula Souza Almeida;M;Porto Alegre;30/03/2026
+C02858;Wagner Fernandes Lima;F;São Paulo;12/08/2023
+C02859;Yasmin Araújo Oliveira;F;São Paulo;06/07/2025
+C02860;Bruno Gonçalves Fernandes;M;Rio de Janeiro;05/03/2024
+C02861;Fábio Gonçalves Silva;F;Rio de Janeiro;30/07/2024
+C02862;Diego Gonçalves Carvalho;M;Santos;20/07/2022
+C02863;Zélia Araújo Gonçalves;F;Curitiba;02/01/2025
+C02864;Sônia Carvalho Pereira;F;São Paulo;21/07/2024
+C02865;Diego Lima Barbosa;F;Curitiba;30/11/2024
+C02866;Quésia Lima Pereira;M;São Paulo;17/04/2024
+C02867;Cláudio Silva Ribeiro;F;São Paulo;01/05/2022
+C02868;Wagner Santos Silva;M;São Paulo;17/12/2023
+C02869;Elisa Santos Fernandes;M;Rio de Janeiro;19/05/2023
+C02870;Isabela Carvalho Oliveira;M;São Paulo;15/11/2025
+C02871;Rodrigo Silva Souza;M;Porto Alegre;12/12/2024
+C02872;Fábio Pereira Lima;M;Rio de Janeiro;19/06/2023
+C02873;Vítor Santos Santos;M;Porto Alegre;01/09/2024
+C02874;Beatriz Araújo Silva;M;São Paulo;14/08/2023
+C02875;Zélia Ribeiro Barbosa;F;São Paulo;06/12/2024
+C02876;Wagner Araújo Carvalho;M;São Paulo;01/06/2023
+C02877;Mariana Barbosa Gonçalves;F;Rio de Janeiro;09/06/2023
+C02878;Wagner Lima Cardoso;M;Belo Horizonte;27/07/2026
+C02879;Diego Oliveira Santos;F;Rio de Janeiro;15/04/2022
+C02880;Fábio Almeida Silva;F;Rio de Janeiro;22/06/2025
+C02881;Sônia Almeida Lima;F;São Paulo;15/08/2025
+C02882;João Silva Oliveira;M;Curitiba;31/05/2026
+C02883;Vítor Santos Almeida;F;São Paulo;07/05/2025
+C02884;Ana Silva Lima;F;Campinas;06/03/2024
+C02885;Rodrigo Cardoso Cardoso;F;Santos;03/02/2022
+C02886;Hugo Santos Almeida;M;São Paulo;30/01/2023
+C02887;Karina Santos Gonçalves;M;Campinas;18/03/2026
+C02888;Gabriela Nascimento Araújo;M;Rio de Janeiro;01/06/2023
+C02889;Ana Pereira Fernandes;F;Porto Alegre;08/04/2026
+C02890;Márcio Santos Gonçalves;F;Santos;19/02/2026
+C02891;Quésia Souza Oliveira;M;São Paulo;26/06/2024
+C02892;Sônia Santos Cardoso;M;São Paulo;05/07/2022
+C02893;Sônia Oliveira Carvalho;F;São Paulo;05/04/2025
+C02894;Karina Araújo Fernandes;M;Campinas;28/05/2022
+C02895;Zélia Carvalho Gonçalves;F;São Paulo;16/03/2026
+C02896;Ana Nascimento Gonçalves;M;Santos;05/12/2025
+C02897;Vítor Ribeiro Lima;M;Campinas;22/05/2023
+C02898;Cláudio Santos Pereira;F;Campinas;01/03/2022
+C02899;Hugo Barbosa Pereira;F;Curitiba;17/12/2022
+C02900;Rodrigo Silva Gonçalves;F;Rio de Janeiro;03/08/2024
+C02901;Quésia Almeida Barbosa;F;Rio de Janeiro;24/09/2023
+C02902;Sônia Souza Ribeiro;F;Rio de Janeiro;29/04/2025
+C02903;Rodrigo Carvalho Almeida;M;Porto Alegre;16/04/2024
+C02904;Elisa Pereira Nascimento;M;Campinas;30/07/2023
+C02905;Diego Silva Almeida;M;São Paulo;16/04/2022
+C02906;Rodrigo Almeida Barbosa;F;Santos;28/04/2023
+C02907;Rodrigo Nascimento Silva;F;Curitiba;22/11/2023
+C02908;Rodrigo Ribeiro Nascimento;F;Campinas;07/12/2023
+C02909;Zélia Barbosa Carvalho;M;Belo Horizonte;05/10/2023
+C02910;Elisa Santos Carvalho;F;Porto Alegre;09/12/2022
+C02911;Olívia Cardoso Pereira;M;Porto Alegre;22/01/2024
+C02912;Wagner Gonçalves Barbosa;F;Curitiba;29/03/2026
+C02913;Quésia Cardoso Ribeiro;F;Porto Alegre;05/07/2024
+C02914;Hugo Pereira Fernandes;M;Rio de Janeiro;14/12/2025
+C02915;Bruno Barbosa Lima;M;Campinas;17/02/2025
+C02916;Rodrigo Fernandes Ribeiro;F;São Paulo;23/01/2024
+C02917;Cláudio Cardoso Barbosa;F;São Paulo;06/07/2026
+C02918;Nelson Silva Gonçalves;M;Belo Horizonte;26/08/2022
+C02919;Rodrigo Lima Almeida;M;São Paulo;28/02/2024
+C02920;Yasmin Pereira Pereira;M;Santos;20/07/2026
+C02921;Yasmin Fernandes Cardoso;M;Porto Alegre;07/11/2024
+C02922;Ana Santos Oliveira;F;Curitiba;22/04/2022
+C02923;André Oliveira Gonçalves;M;Santos;02/09/2022
+C02924;Vítor Ribeiro Barbosa;M;Belo Horizonte;06/05/2023
+C02925;André Fernandes Lima;M;Curitiba;25/03/2022
+C02926;Lucas Barbosa Gonçalves;F;Belo Horizonte;17/03/2025
+C02927;Vítor Oliveira Souza;M;Porto Alegre;29/06/2026
+C02928;Cláudio Carvalho Silva;F;Curitiba;10/07/2024
+C02929;Yasmin Fernandes Pereira;M;Campinas;09/03/2025
+C02930;Nelson Silva Araújo;F;Campinas;09/03/2026
+C02931;Diego Souza Gonçalves;M;Santos;21/03/2024
+C02932;Sônia Fernandes Barbosa;M;Curitiba;26/11/2022
+C02933;Yasmin Barbosa Lima;F;Rio de Janeiro;13/03/2023
+C02934;Beatriz Nascimento Silva;M;Campinas;11/03/2024
+C02935;Yasmin Ribeiro Cardoso;F;São Paulo;07/12/2025
+C02936;Carla Gonçalves Araújo;M;Belo Horizonte;03/09/2025
+C02937;Rodrigo Silva Santos;F;Rio de Janeiro;15/11/2022
+C02938;Wagner Gonçalves Nascimento;M;Rio de Janeiro;10/01/2022
+C02939;Lucas Pereira Oliveira;M;São Paulo;09/04/2023
+C02940;Yasmin Almeida Gonçalves;M;Belo Horizonte;20/05/2022
+C02941;Beatriz Santos Almeida;F;Porto Alegre;12/07/2022
+C02942;Lucas Almeida Ribeiro;F;Rio de Janeiro;09/05/2024
+C02943;Úrsula Pereira Silva;F;Belo Horizonte;09/10/2023
+C02944;Karina Lima Almeida;F;Belo Horizonte;21/09/2024
+C02945;Nelson Lima Lima;F;Campinas;16/12/2024
+C02946;Rodrigo Silva Barbosa;F;Porto Alegre;30/10/2022
+C02947;Cláudio Lima Souza;F;Curitiba;05/06/2024
+C02948;Lucas Fernandes Gonçalves;M;Campinas;13/08/2025
+C02949;Olívia Almeida Santos;F;Rio de Janeiro;03/07/2025
+C02950;Olívia Lima Oliveira;F;Campinas;19/02/2025
+C02951;Elisa Gonçalves Almeida;F;Rio de Janeiro;01/05/2025
+C02952;Úrsula Fernandes Ribeiro;M;Rio de Janeiro;15/10/2023
+C02953;Rodrigo Carvalho Silva;F;São Paulo;25/06/2026
+C02954;Vítor Lima Cardoso;F;Curitiba;05/04/2025
+C02955;Sônia Barbosa Nascimento;F;Belo Horizonte;14/02/2023
+C02956;Tiago Silva Oliveira;F;Santos;07/04/2025
+C02957;Rodrigo Fernandes Santos;M;Campinas;08/08/2022
+C02958;Márcio Fernandes Souza;M;Curitiba;15/05/2022
+C02959;Ana Souza Almeida;M;Curitiba;20/08/2026
+C02960;Ana Fernandes Barbosa;F;Campinas;18/04/2022
+C02961;Elisa Araújo Fernandes;M;Porto Alegre;22/10/2022
+C02962;Beatriz Cardoso Araújo;M;Belo Horizonte;24/04/2022
+C02963;Sônia Nascimento Barbosa;M;Campinas;03/11/2022
+C02964;Fábio Almeida Lima;M;Belo Horizonte;18/04/2025
+C02965;Vítor Carvalho Santos;M;Porto Alegre;17/05/2023
+C02966;Rodrigo Santos Pereira;F;Rio de Janeiro;29/05/2024
+C02967;Wagner Almeida Nascimento;M;Belo Horizonte;12/08/2026
+C02968;Cláudio Nascimento Silva;M;Campinas;29/12/2024
+C02969;Hugo Souza Pereira;M;Belo Horizonte;08/07/2026
+C02970;Cláudio Souza Ribeiro;F;Curitiba;11/11/2023
+C02971;Ana Gonçalves Souza;M;Curitiba;25/03/2023
+C02972;Gabriela Souza Ribeiro;F;São Paulo;26/10/2023
+C02973;Fábio Pereira Pereira;F;Belo Horizonte;14/09/2025
+C02974;Yasmin Barbosa Ribeiro;M;Santos;22/07/2022
+C02975;João Oliveira Santos;F;Santos;20/11/2022
+C02976;Vítor Santos Pereira;M;Rio de Janeiro;15/06/2022
+C02977;Bruno Carvalho Santos;F;Santos;03/05/2025
+C02978;Beatriz Carvalho Araújo;F;Porto Alegre;18/11/2024
+C02979;Fábio Araújo Ribeiro;F;Curitiba;04/08/2026
+C02980;Diego Gonçalves Barbosa;F;Campinas;09/10/2023
+C02981;Vítor Pereira Fernandes;F;Rio de Janeiro;03/10/2022
+C02982;Carla Silva Nascimento;F;São Paulo;08/02/2024
+C02983;Paulo Oliveira Araújo;F;Curitiba;26/07/2022
+C02984;Karina Souza Fernandes;F;Porto Alegre;25/12/2025
+C02985;Úrsula Pereira Fernandes;F;Rio de Janeiro;17/12/2023
+C02986;Carla Souza Oliveira;M;Porto Alegre;11/07/2024
+C02987;Rodrigo Carvalho Nascimento;F;Campinas;29/04/2026
+C02988;Rodrigo Cardoso Carvalho;F;Porto Alegre;06/07/2025
+C02989;Fábio Silva Santos;M;Rio de Janeiro;16/03/2024
+C02990;Beatriz Nascimento Nascimento;M;Rio de Janeiro;02/10/2025
+C02991;Bruno Nascimento Oliveira;F;São Paulo;13/08/2025
+C02992;Úrsula Barbosa Nascimento;M;Santos;28/09/2022
+C02993;Ana Araújo Carvalho;F;Curitiba;11/05/2025
+C02994;Vítor Fernandes Pereira;F;Santos;29/03/2026
+C02995;Beatriz Araújo Cardoso;M;Campinas;08/07/2026
+C02996;João Souza Barbosa;M;Belo Horizonte;07/04/2023
+C02997;Wagner Oliveira Santos;M;Santos;10/07/2025
+C02998;Letícia Cardoso Silva;F;São Paulo;07/02/2024
+C02999;Letícia Souza Oliveira;F;São Paulo;25/04/2025
+C03000;Cláudio Pereira Carvalho;M;Curitiba;16/12/2022
+C03001;Sônia Gonçalves Silva;M;Porto Alegre;01/07/2025
+C03002;Zélia Araújo Gonçalves;F;São Paulo;07/11/2025
+C03003;Carla Ribeiro Fernandes;M;Campinas;09/05/2026
+C03004;Diego Oliveira Barbosa;M;Porto Alegre;16/10/2024
+C03005;Diego Silva Lima;M;Porto Alegre;11/06/2025
+C03006;Cláudio Barbosa Santos;M;Porto Alegre;14/12/2023
+C03007;Paulo Nascimento Ribeiro;M;Belo Horizonte;16/09/2022
+C03008;Vítor Pereira Carvalho;M;Campinas;09/06/2023
+C03009;Yasmin Souza Oliveira;F;Campinas;04/05/2025
+C03010;Yasmin Ribeiro Cardoso;M;Campinas;03/03/2025
+C03011;Paulo Silva Cardoso;F;Santos;18/02/2025
+C03012;Gabriela Silva Nascimento;M;São Paulo;09/02/2023
+C03013;Mariana Barbosa Gonçalves;F;Rio de Janeiro;21/06/2022
+C03014;Carla Barbosa Santos;F;Santos;04/08/2025
+C03015;Fábio Nascimento Barbosa;M;São Paulo;24/08/2025
+C03016;Zélia Nascimento Pereira;M;Curitiba;15/03/2026
+C03017;Ana Fernandes Nascimento;F;Rio de Janeiro;05/09/2022
+C03018;Beatriz Oliveira Carvalho;M;Belo Horizonte;02/03/2023
+C03019;Karina Fernandes Almeida;M;São Paulo;18/07/2023
+C03020;Lucas Cardoso Nascimento;M;São Paulo;10/12/2022
+C03021;Mariana Souza Carvalho;F;Belo Horizonte;22/10/2022
+C03022;Gabriela Barbosa Oliveira;F;Curitiba;03/09/2024
+C03023;Diego Almeida Silva;M;Campinas;02/07/2022
+C03024;Ana Cardoso Pereira;F;São Paulo;02/04/2024
+C03025;Sônia Santos Almeida;M;Curitiba;26/11/2024
+C03026;Letícia Araújo Souza;M;Santos;18/03/2026
+C03027;Wagner Oliveira Silva;M;Rio de Janeiro;26/12/2023
+C03028;Rodrigo Carvalho Souza;M;Santos;17/05/2026
+C03029;Cláudio Souza Fernandes;M;Curitiba;07/01/2023
+C03030;Lucas Gonçalves Almeida;F;Campinas;01/10/2024
+C03031;Rodrigo Gonçalves Silva;M;São Paulo;02/05/2023
+C03032;Karina Barbosa Fernandes;M;Santos;01/02/2025
+C03033;João Lima Almeida;M;Porto Alegre;12/03/2024
+C03034;Yasmin Oliveira Araújo;M;Belo Horizonte;12/06/2025
+C03035;Paulo Araújo Cardoso;F;São Paulo;09/10/2023
+C03036;Olívia Araújo Gonçalves;M;Porto Alegre;22/02/2025
+C03037;Mariana Barbosa Fernandes;M;Santos;19/03/2025
+C03038;Nelson Almeida Nascimento;M;Santos;24/03/2024
+C03039;Fábio Carvalho Nascimento;F;Santos;08/12/2024
+C03040;Quésia Santos Barbosa;M;Campinas;03/03/2024
+C03041;Ana Carvalho Cardoso;F;Curitiba;23/10/2023
+C03042;André Cardoso Pereira;F;Campinas;04/12/2022
+C03043;Isabela Santos Souza;F;Santos;18/10/2025
+C03044;André Santos Ribeiro;M;Santos;13/02/2026
+C03045;Gabriela Nascimento Gonçalves;M;Santos;05/12/2022
+C03046;Diego Souza Carvalho;M;Porto Alegre;15/09/2024
+C03047;Sônia Fernandes Nascimento;F;Rio de Janeiro;28/08/2023
+C03048;Isabela Oliveira Gonçalves;M;Rio de Janeiro;26/02/2024
+C03049;Lucas Cardoso Pereira;F;Curitiba;21/07/2025
+C03050;Mariana Ribeiro Oliveira;M;Campinas;14/01/2024
+C03051;Diego Silva Almeida;F;São Paulo;09/05/2023
+C03052;Wagner Ribeiro Silva;F;Curitiba;13/02/2025
+C03053;Zélia Ribeiro Barbosa;M;Santos;05/06/2026
+C03054;Yasmin Araújo Ribeiro;M;São Paulo;02/06/2022
+C03055;Diego Gonçalves Barbosa;M;Curitiba;27/11/2022
+C03056;Letícia Carvalho Santos;M;Curitiba;18/08/2022
+C03057;Nelson Barbosa Silva;M;Campinas;06/05/2022
+C03058;Rodrigo Araújo Ribeiro;M;São Paulo;24/09/2025
+C03059;Vítor Cardoso Araújo;F;São Paulo;11/04/2026
+C03060;Diego Araújo Carvalho;M;São Paulo;28/08/2025
+C03061;Sônia Araújo Nascimento;F;Rio de Janeiro;05/05/2026
+C03062;Ana Araújo Souza;F;Belo Horizonte;22/05/2023
+C03063;Olívia Silva Santos;M;São Paulo;15/08/2022
+C03064;Beatriz Carvalho Lima;F;São Paulo;03/02/2025
+C03065;Úrsula Ribeiro Cardoso;M;Santos;22/12/2024
+C03066;João Almeida Carvalho;F;São Paulo;20/09/2025
+C03067;João Nascimento Nascimento;F;São Paulo;07/11/2025
+C03068;Wagner Ribeiro Carvalho;M;Belo Horizonte;07/09/2024
+C03069;Isabela Carvalho Oliveira;F;Porto Alegre;06/04/2023
+C03070;João Pereira Nascimento;M;Rio de Janeiro;31/03/2023
+C03071;Olívia Almeida Gonçalves;M;Belo Horizonte;28/07/2025
+C03072;Elisa Lima Ribeiro;M;São Paulo;25/12/2022
+C03073;Elisa Gonçalves Souza;F;Curitiba;17/04/2022
+C03074;Hugo Barbosa Ribeiro;F;Belo Horizonte;16/03/2026
+C03075;Letícia Ribeiro Silva;M;São Paulo;15/08/2024
+C03076;André Pereira Gonçalves;F;Rio de Janeiro;24/07/2023
+C03077;Ana Barbosa Araújo;F;Curitiba;15/05/2026
+C03078;Vítor Fernandes Santos;M;Campinas;11/03/2026
+C03079;Mariana Ribeiro Carvalho;M;Curitiba;16/04/2026
+C03080;Zélia Lima Ribeiro;M;Campinas;15/10/2025
+C03081;Zélia Carvalho Lima;F;Porto Alegre;01/08/2026
+C03082;Vítor Cardoso Carvalho;F;São Paulo;14/11/2024
+C03083;Isabela Carvalho Cardoso;M;São Paulo;28/12/2025
+C03084;Beatriz Oliveira Oliveira;F;São Paulo;03/03/2025
+C03085;Vítor Silva Nascimento;F;Porto Alegre;12/07/2022
+C03086;Gabriela Lima Almeida;F;Rio de Janeiro;18/07/2023
+C03087;Úrsula Almeida Gonçalves;F;Campinas;24/08/2026
+C03088;Cláudio Almeida Silva;F;Porto Alegre;31/05/2023
+C03089;Nelson Gonçalves Nascimento;F;Porto Alegre;19/05/2023
+C03090;Úrsula Araújo Cardoso;F;Rio de Janeiro;24/12/2024
+C03091;Diego Barbosa Cardoso;M;Belo Horizonte;10/06/2026
+C03092;Tiago Cardoso Araújo;M;São Paulo;19/06/2026
+C03093;Wagner Fernandes Barbosa;M;São Paulo;20/03/2026
+C03094;Quésia Oliveira Ribeiro;F;Rio de Janeiro;18/10/2022
+C03095;André Santos Barbosa;F;Campinas;11/11/2022
+C03096;Hugo Fernandes Cardoso;M;Porto Alegre;30/12/2022
+C03097;Vítor Santos Barbosa;F;Santos;16/12/2024
+C03098;Isabela Oliveira Cardoso;F;Belo Horizonte;18/07/2023
+C03099;Gabriela Gonçalves Silva;M;Santos;19/03/2023
+C03100;Ana Oliveira Gonçalves;F;Campinas;20/09/2022
+C03101;Cláudio Souza Santos;M;Belo Horizonte;01/08/2023
+C03102;Elisa Silva Nascimento;F;São Paulo;10/01/2025
+C03103;Carla Cardoso Lima;F;Rio de Janeiro;15/06/2022
+C03104;Letícia Fernandes Fernandes;F;Campinas;28/04/2022
+C03105;Nelson Gonçalves Fernandes;F;Santos;22/11/2025
+C03106;Letícia Souza Gonçalves;M;São Paulo;21/04/2025
+C03107;Olívia Araújo Carvalho;M;Santos;23/09/2022
+C03108;Mariana Lima Carvalho;F;Rio de Janeiro;08/07/2023
+C03109;Carla Ribeiro Almeida;M;Belo Horizonte;04/01/2026
+C03110;Tiago Carvalho Silva;F;São Paulo;25/04/2022
+C03111;Sônia Santos Barbosa;F;Campinas;04/12/2025
+C03112;Rodrigo Gonçalves Araújo;F;Santos;24/05/2024
+C03113;Gabriela Gonçalves Araújo;M;Belo Horizonte;02/11/2025
+C03114;André Almeida Gonçalves;F;Rio de Janeiro;06/06/2026
+C03115;João Pereira Fernandes;F;Campinas;23/01/2022
+C03116;Wagner Gonçalves Cardoso;F;São Paulo;10/02/2026
+C03117;Nelson Oliveira Fernandes;F;Campinas;12/11/2023
+C03118;Mariana Lima Cardoso;F;Belo Horizonte;15/01/2024
+C03119;Olívia Souza Souza;F;Rio de Janeiro;05/06/2025
+C03120;Ana Silva Barbosa;F;Santos;23/02/2026
+C03121;Tiago Fernandes Lima;F;Campinas;07/02/2025
+C03122;Fábio Araújo Silva;F;São Paulo;23/04/2022
+C03123;Mariana Nascimento Lima;M;Belo Horizonte;20/06/2022
+C03124;Carla Barbosa Araújo;F;São Paulo;11/02/2024
+C03125;Mariana Barbosa Barbosa;M;Rio de Janeiro;11/05/2025
+C03126;Letícia Oliveira Souza;M;Curitiba;19/06/2025
+C03127;Diego Souza Silva;F;Curitiba;31/05/2022
+C03128;Sônia Nascimento Santos;F;São Paulo;08/05/2024
+C03129;Carla Almeida Souza;F;Rio de Janeiro;19/03/2024
+C03130;João Carvalho Ribeiro;M;Santos;14/04/2022
+C03131;Carla Pereira Gonçalves;F;Porto Alegre;12/08/2025
+C03132;Isabela Lima Pereira;M;São Paulo;27/04/2025
+C03133;André Santos Ribeiro;F;Rio de Janeiro;05/03/2022
+C03134;Vítor Barbosa Almeida;M;Curitiba;01/06/2023
+C03135;Quésia Araújo Santos;F;Rio de Janeiro;23/11/2024
+C03136;Cláudio Souza Barbosa;F;Rio de Janeiro;08/02/2026
+C03137;Tiago Cardoso Almeida;M;São Paulo;05/01/2025
+C03138;Fábio Almeida Silva;F;Santos;13/10/2022
+C03139;Zélia Carvalho Barbosa;F;Curitiba;27/10/2022
+C03140;Olívia Oliveira Araújo;M;Rio de Janeiro;01/07/2025
+C03141;Yasmin Araújo Ribeiro;M;São Paulo;31/03/2024
+C03142;Lucas Almeida Barbosa;F;Santos;03/10/2024
+C03143;Bruno Souza Pereira;F;São Paulo;18/02/2023
+C03144;Tiago Carvalho Araújo;M;Rio de Janeiro;04/03/2026
+C03145;Mariana Silva Silva;F;Porto Alegre;27/06/2024
+C03146;Letícia Almeida Nascimento;M;São Paulo;30/04/2023
+C03147;João Araújo Souza;M;São Paulo;19/07/2022
+C03148;Karina Pereira Araújo;M;Porto Alegre;26/04/2023
+C03149;Paulo Almeida Lima;F;Porto Alegre;14/09/2023
+C03150;Vítor Barbosa Almeida;F;Belo Horizonte;13/07/2026
+C03151;Cláudio Santos Almeida;M;Santos;17/07/2024
+C03152;Hugo Fernandes Araújo;F;Belo Horizonte;27/01/2022
+C03153;André Nascimento Oliveira;M;Campinas;03/04/2026
+C03154;Sônia Souza Nascimento;F;Curitiba;24/09/2025
+C03155;João Ribeiro Nascimento;M;Belo Horizonte;26/06/2025
+C03156;João Silva Barbosa;F;Campinas;01/03/2026
+C03157;Carla Silva Barbosa;M;Curitiba;29/04/2025
+C03158;Hugo Fernandes Carvalho;F;Belo Horizonte;03/08/2026
+C03159;Mariana Lima Cardoso;F;São Paulo;09/06/2024
+C03160;Gabriela Barbosa Lima;F;Santos;05/12/2023
+C03161;Lucas Almeida Santos;M;Rio de Janeiro;27/09/2023
+C03162;Elisa Nascimento Pereira;M;Rio de Janeiro;15/05/2023
+C03163;Zélia Souza Carvalho;M;Porto Alegre;07/11/2024
+C03164;Yasmin Lima Pereira;M;São Paulo;12/02/2022
+C03165;Hugo Gonçalves Santos;M;Rio de Janeiro;31/08/2023
+C03166;Gabriela Almeida Lima;M;São Paulo;27/08/2022
+C03167;Diego Gonçalves Fernandes;M;Belo Horizonte;03/09/2022
+C03168;Wagner Ribeiro Ribeiro;F;São Paulo;05/01/2025
+C03169;Yasmin Cardoso Souza;F;Belo Horizonte;19/07/2026
+C03170;Nelson Lima Barbosa;F;Campinas;02/05/2025
+C03171;Vítor Almeida Fernandes;F;Belo Horizonte;20/12/2023
+C03172;Gabriela Nascimento Ribeiro;M;Rio de Janeiro;13/03/2023
+C03173;Lucas Pereira Ribeiro;F;Porto Alegre;13/03/2026
+C03174;Márcio Pereira Ribeiro;F;São Paulo;29/05/2025
+C03175;André Ribeiro Pereira;F;Belo Horizonte;04/02/2025
+C03176;Lucas Cardoso Pereira;M;Santos;04/05/2024
+C03177;Lucas Almeida Araújo;M;Porto Alegre;04/01/2024
+C03178;Nelson Barbosa Pereira;M;Rio de Janeiro;26/02/2024
+C03179;Elisa Oliveira Silva;F;Porto Alegre;04/11/2024
+C03180;Márcio Fernandes Santos;M;Porto Alegre;28/08/2024
+C03181;Isabela Almeida Pereira;M;Porto Alegre;25/09/2025
+C03182;Paulo Souza Ribeiro;F;Rio de Janeiro;06/07/2025
+C03183;Sônia Nascimento Carvalho;M;Porto Alegre;01/02/2026
+C03184;Lucas Silva Silva;M;Curitiba;07/10/2022
+C03185;Cláudio Santos Barbosa;M;São Paulo;06/11/2025
+C03186;André Ribeiro Barbosa;M;Porto Alegre;03/10/2025
+C03187;Gabriela Lima Nascimento;F;Rio de Janeiro;02/08/2026
+C03188;Mariana Nascimento Carvalho;F;Santos;27/09/2023
+C03189;Beatriz Pereira Cardoso;F;São Paulo;18/03/2025
+C03190;Vítor Carvalho Lima;F;Campinas;03/12/2025
+C03191;Paulo Carvalho Ribeiro;F;São Paulo;24/11/2023
+C03192;Yasmin Souza Oliveira;F;Campinas;22/07/2026
+C03193;Rodrigo Oliveira Barbosa;M;Belo Horizonte;18/10/2022
+C03194;João Carvalho Souza;F;Belo Horizonte;27/02/2022
+C03195;Vítor Almeida Nascimento;M;Campinas;16/04/2026
+C03196;Ana Araújo Gonçalves;F;Rio de Janeiro;23/03/2022
+C03197;Karina Barbosa Souza;F;Porto Alegre;07/08/2022
+C03198;Ana Ribeiro Souza;M;Rio de Janeiro;01/08/2022
+C03199;Nelson Souza Pereira;M;São Paulo;26/03/2025
+C03200;Rodrigo Cardoso Silva;M;Curitiba;09/08/2025

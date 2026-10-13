@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Gabarito Oficial do Professor · Aula 15 Pet Feliz</title>
+  <style>
+
+:root{--bg:#F6F7F9;--card:#fff;--ink:#16202E;--mut:#5B6778;--line:#DDE2EA;--pri:#1D3557;--acc:#C2410C;--ok:#15803D;--code:#0B1220;--codeink:#E2E8F0;--soft:#EDF1F7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D1420;--card:#16202E;--ink:#E5EAF2;--mut:#9AA8BC;--line:#2A3649;--pri:#8FB4E8;--acc:#FB923C;--ok:#4ADE80;--code:#05080F;--soft:#1B2638;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D1420;--card:#16202E;--ink:#E5EAF2;--mut:#9AA8BC;--line:#2A3649;--pri:#8FB4E8;--acc:#FB923C;--ok:#4ADE80;--code:#05080F;--soft:#1B2638;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Source Sans 3","Segoe UI",system-ui,sans-serif}
+.page{max-width:1080px;margin:0 auto;padding:24px 16px 60px}
+.badge{display:inline-block;background:var(--acc);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:4px}
+h1{font-family:"Source Serif 4",Georgia,serif;font-size:2rem;line-height:1.2;margin:.4em 0 .2em;text-wrap:balance}
+.lead{color:var(--mut);max-width:70ch}
+nav.idx{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}nav.idx a{background:var(--soft);color:var(--pri);padding:5px 12px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin:20px 0;min-width:0}
+h2{font-family:"Source Serif 4",Georgia,serif;color:var(--pri);margin:0 0 .6em;font-size:1.4rem}h3{margin:1.3em 0 .3em;font-size:1.05rem;color:var(--ink)}
+.tw{overflow-x:auto;margin:10px 0}.t{border-collapse:collapse;width:100%;font-size:14.5px;font-variant-numeric:tabular-nums}.t th,.t td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}.t th{background:var(--soft);color:var(--pri)}
+code{background:var(--soft);padding:1px 6px;border-radius:4px;font-size:.9em}
+pre{position:relative;background:var(--code);color:var(--codeink);padding:14px;border-radius:8px;overflow:auto;font-size:13px;line-height:1.5;margin:10px 0}pre code{background:none;color:inherit;padding:0}
+.cp{position:absolute;right:8px;top:8px;background:#334155;color:#fff;border:0;border-radius:5px;padding:3px 9px;cursor:pointer;font-size:12px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:12px 0}.kpi div{background:var(--soft);border-radius:8px;padding:10px 12px}.kpi b{display:block;font-size:1.25rem;color:var(--pri);font-variant-numeric:tabular-nums}.kpi span{font-size:13px;color:var(--mut)}
+.warn{border-left:4px solid var(--acc);background:var(--soft);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+figure{margin:14px 0}figure img{max-width:100%;border:1px solid var(--line);border-radius:8px}figcaption{color:var(--mut);font-size:13px}
+details{border:1px solid var(--line);border-radius:8px;padding:6px 12px;margin:10px 0}summary{cursor:pointer;font-weight:700}
+
+
+.prof-top {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 24px; background: #0F172A; color: #F8FAFC;
+  border-bottom: 2px solid var(--acc);
+}
+.prof-top .tag {
+  display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px;
+}
+.prof-top .tag .lock {
+  background: var(--acc); color: #fff; padding: 3px 8px; border-radius: 4px;
+  font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.prof-top nav { display: flex; gap: 12px; align-items: center; }
+.prof-top button {
+  background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 6px; padding: 6px 14px; cursor: pointer; font-size: 13px; font-weight: 600;
+}
+.prof-top button:hover { background: rgba(255,255,255,0.2); }
+
+.download-bar {
+  background: color-mix(in srgb, var(--pri) 8%, var(--card));
+  border: 1px solid var(--line); border-left: 5px solid var(--acc);
+  border-radius: 10px; padding: 18px 22px; margin: 20px 0;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;
+}
+.download-bar .txt h3 { margin: 0 0 4px; font-size: 1.1rem; color: var(--pri); }
+.download-bar .txt p { margin: 0; font-size: 14px; color: var(--mut); }
+.download-bar .btn-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-dl {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--pri); color: #fff !important; text-decoration: none;
+  font-weight: 700; font-size: 14px; padding: 9px 16px; border-radius: 8px;
+  transition: opacity 0.2s;
+}
+.btn-dl:hover { opacity: 0.9; }
+.btn-dl.accent { background: var(--acc); color: #fff !important; }
+
+  </style>
+</head>
+<body>
+<header class="prof-top">
+  <div class="tag">
+    <span class="lock">Área Restrita</span>
+    <span>Professor · Gabarito Aula 15 (Pet Feliz)</span>
+  </div>
+  <nav>
+    <button id="btnTema" type="button">Alternar Tema</button>
+  </nav>
+</header>
+<div class="page"><span class="badge">Uso exclusivo do professor</span><h1>Gabarito do professor · Aula 15 · Projeto Pet Feliz</h1>
+<p class="lead">Solução completa do projeto final: consultas M, modelo e relacionamentos, medidas DAX, testes do modelo, especificação do dashboard, números de conferência e os erros mais prováveis dos alunos.</p>
+<nav class="idx"><a href="#chave">Números-chave</a><a href="#m">1 · Power Query</a><a href="#modelo">2 · Modelo</a><a href="#testes">3 · Testes do modelo</a><a href="#dax">4 · DAX</a><a href="#dash">5 · Dashboard</a><a href="#set">6 · Atualização</a><a href="#erros">7 · Erros comuns</a><a href="#nota">8 · Correção</a></nav>
+<div class="download-bar">
+  <div class="txt">
+    <h3>Arquivos Oficiais do Professor</h3>
+    <p>Baixe a planilha com a auditoria numérica completa e o pacote de testes automatizados.</p>
+  </div>
+  <div class="btn-group">
+    <a class="btn-dl accent" href="Gabarito_Professor_Aula15.xlsx" download>
+      📥 Gabarito_Professor_Aula15.xlsx
+    </a>
+    <a class="btn-dl" href="Aula15_PACOTE_PROFESSOR.zip" download>
+      📦 Aula15_PACOTE_PROFESSOR.zip
+    </a>
+  </div>
+</div>
+
+<div class="warn"><strong>Como esses números foram obtidos.</strong> Recalculei tudo em Python, lendo os arquivos brutos do pacote do aluno e aplicando as regras de tratamento descritas aqui. As consultas M e as fórmulas DAX não foram executadas no Power BI Desktop (não há como rodá-lo neste ambiente). Rode uma vez a sua solução com este gabarito antes de liberar a aula.</div><section id="chave"><h2>Números-chave</h2><div class="kpi">
+<div><b>R$ 1.587.382,54</b><span>Faturamento total (jan/25–ago/26)</span></div><div><b>R$ 678.245,56</b><span>Faturamento 2026</span></div>
+<div><b>R$ 274.698,83</b><span>Lucro 2026</span></div><div><b>40,94%</b><span>Margem de lucro 2026</span></div>
+<div><b>17.887</b><span>Linhas finais de fVendas</span></div><div><b>R$ 1.614.067,92</b><span>Faturamento SEM tratar nada (errado)</span></div></div>
+<p>Dados: 20 CSVs mensais de vendas, Lojas.txt, Produtos.xlsx, Clientes.csv, Metas_2026.xlsx, Devolucoes.json, e Vendas_2026_09.csv para o teste de atualização. O gabarito completo, com as 64 conferências, está na planilha <code>Gabarito_Professor_Aula15.xlsx</code>.</p></section><section id="m"><h2>1 · Importar e tratar (Power Query)</h2><p>Crie primeiro o parâmetro <code>pPasta</code> (texto) com o caminho da pasta, terminando em barra invertida. Depois, uma consulta por tabela (cole no Editor Avançado).</p><h3>pPasta</h3><pre><button class="cp" type="button">Copiar</button><code>// Parâmetro (Texto). Valor atual: a pasta onde você descompactou o pacote
+// Início &gt; Gerenciar Parâmetros &gt; Novo Parâmetro   (Nome: pPasta | Tipo: Texto)
+&quot;C:\Cursos\PetFeliz\&quot; meta [IsParameterQuery=true, Type=&quot;Text&quot;, IsParameterQueryRequired=true]</code></pre><h3>fVendas</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Folder.Files(pPasta &amp; &quot;Vendas&quot;),
+    SoCsv = Table.SelectRows(Fonte, each Text.Lower([Extension]) = &quot;.csv&quot;),
+    Lidas = Table.AddColumn(SoCsv, &quot;Dados&quot;, each
+        Table.PromoteHeaders(
+            Csv.Document([Content], [Delimiter = &quot;;&quot;, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+            [PromoteAllScalars = true])),
+    Unidas = Table.Combine(Lidas[Dados]),
+    Tipos = Table.TransformColumnTypes(Unidas,
+        {{&quot;IDPedido&quot;, Int64.Type}, {&quot;Data&quot;, type date}, {&quot;CodLoja&quot;, Int64.Type},
+         {&quot;IDCliente&quot;, type text}, {&quot;SKU&quot;, type text}, {&quot;Qtd&quot;, Int64.Type},
+         {&quot;PrecoUnit&quot;, type number}, {&quot;Desconto&quot;, type number}}, &quot;pt-BR&quot;),
+    ClienteVazio = Table.ReplaceValue(Tipos, &quot;&quot;, null, Replacer.ReplaceValue, {&quot;IDCliente&quot;}),
+    SKUpadrao = Table.TransformColumns(ClienteVazio, {{&quot;SKU&quot;, each Text.Upper(Text.Trim(_)), type text}}),
+    SemDuplicadas = Table.Distinct(SKUpadrao),
+    SemLojaTeste = Table.SelectRows(SemDuplicadas, each [CodLoja] &lt;&gt; 99)
+in
+    SemLojaTeste</code></pre><div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Quantas linhas tem a consulta de Vendas combinada, antes de qualquer limpeza?</td><td><b>18.218</b></td></tr><tr><td>Quantas linhas DUPLICADAS você removeu das Vendas?</td><td><b>91</b></td></tr><tr><td>Quantas linhas da loja de teste você removeu?</td><td><b>240</b></td></tr><tr><td>Quantas linhas finais tem fVendas?</td><td><b>17.887</b></td></tr><tr><td>Quantas linhas de Vendas estão SEM IDCliente? (não remova, apenas observe)</td><td><b>2.213</b></td></tr></table></div><h3>dLojas</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Csv.Document(File.Contents(pPasta &amp; &quot;Lojas.txt&quot;),
+        [Delimiter = &quot;#(tab)&quot;, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+    Tipos = Table.TransformColumnTypes(Cabecalho,
+        {{&quot;CodLoja&quot;, Int64.Type}, {&quot;NomeLoja&quot;, type text}, {&quot;Cidade&quot;, type text}, {&quot;UF&quot;, type text},
+         {&quot;Regiao&quot;, type text}, {&quot;Gerente&quot;, type text}, {&quot;DataAbertura&quot;, type date}}, &quot;en-US&quot;),
+    SemLojaTeste = Table.SelectRows(Tipos, each [CodLoja] &lt;&gt; 99)
+in
+    SemLojaTeste</code></pre><div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Quantas linhas tem a tabela Lojas?</td><td><b>9</b></td></tr></table></div><h3>dProdutos</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Excel.Workbook(File.Contents(pPasta &amp; &quot;Produtos.xlsx&quot;), null, true),
+    Aba = Fonte{[Item = &quot;Cadastro&quot;, Kind = &quot;Sheet&quot;]}[Data],
+    SemTitulo = Table.Skip(Aba, 3),
+    Cabecalho = Table.PromoteHeaders(SemTitulo, [PromoteAllScalars = true]),
+    Tipos = Table.TransformColumnTypes(Cabecalho,
+        {{&quot;SKU&quot;, type text}, {&quot;Produto&quot;, type text}, {&quot;Categoria&quot;, type text}, {&quot;Marca&quot;, type text},
+         {&quot;CustoUnit&quot;, type number}, {&quot;PrecoLista&quot;, type number}}, &quot;en-US&quot;),
+    SKUpadrao = Table.TransformColumns(Tipos, {{&quot;SKU&quot;, each Text.Upper(Text.Trim(_)), type text}})
+in
+    SKUpadrao</code></pre><div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Quantas linhas tem a tabela Produtos depois de tratada?</td><td><b>32</b></td></tr></table></div><h3>dClientes</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Csv.Document(File.Contents(pPasta &amp; &quot;Clientes.csv&quot;),
+        [Delimiter = &quot;;&quot;, Encoding = 1252, QuoteStyle = QuoteStyle.None]),
+    Cabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+    Tipos = Table.TransformColumnTypes(Cabecalho,
+        {{&quot;IDCliente&quot;, type text}, {&quot;NomeCliente&quot;, type text}, {&quot;Sexo&quot;, type text},
+         {&quot;Cidade&quot;, type text}, {&quot;DataCadastro&quot;, type date}}, &quot;pt-BR&quot;)
+in
+    Tipos</code></pre><div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Quantas linhas tem Clientes?</td><td><b>3.200</b></td></tr></table></div><h3>fMetas</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Excel.Workbook(File.Contents(pPasta &amp; &quot;Metas_2026.xlsx&quot;), null, true),
+    Aba = Fonte{[Item = &quot;Metas&quot;, Kind = &quot;Sheet&quot;]}[Data],
+    Cabecalho = Table.PromoteHeaders(Aba, [PromoteAllScalars = true]),
+    Desdinamizada = Table.UnpivotOtherColumns(Cabecalho, {&quot;CodLoja&quot;, &quot;Loja&quot;}, &quot;Mes&quot;, &quot;Meta&quot;),
+    NumeroMes = Table.AddColumn(Desdinamizada, &quot;MesNum&quot;, each
+        List.PositionOf({&quot;Jan&quot;,&quot;Fev&quot;,&quot;Mar&quot;,&quot;Abr&quot;,&quot;Mai&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Ago&quot;,&quot;Set&quot;,&quot;Out&quot;,&quot;Nov&quot;,&quot;Dez&quot;}, [Mes]) + 1, Int64.Type),
+    ComData = Table.AddColumn(NumeroMes, &quot;Data&quot;, each #date(2026, [MesNum], 1), type date),
+    Tipos = Table.TransformColumnTypes(ComData, {{&quot;CodLoja&quot;, Int64.Type}, {&quot;Meta&quot;, Int64.Type}, {&quot;Mes&quot;, type text}})
+in
+    Tipos</code></pre><div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Quantas linhas tem Metas depois do Desdinamizar (8 lojas × 12 meses)?</td><td><b>96</b></td></tr></table></div><h3>fDevolucoes</h3><pre><button class="cp" type="button">Copiar</button><code>let
+    Fonte = Json.Document(File.Contents(pPasta &amp; &quot;Devolucoes.json&quot;)),
+    Lista = Fonte[devolucoes],
+    Tabela = Table.FromList(Lista, Splitter.SplitByNothing(), {&quot;R&quot;}),
+    Nivel1 = Table.ExpandRecordColumn(Tabela, &quot;R&quot;,
+        {&quot;idDevolucao&quot;, &quot;pedido&quot;, &quot;dataDevolucao&quot;, &quot;loja&quot;, &quot;motivo&quot;, &quot;itens&quot;}),
+    Nivel2 = Table.ExpandListColumn(Nivel1, &quot;itens&quot;),
+    Nivel3 = Table.ExpandRecordColumn(Nivel2, &quot;itens&quot;, {&quot;sku&quot;, &quot;qtd&quot;, &quot;valorReembolsado&quot;}),
+    Tipos = Table.TransformColumnTypes(Nivel3,
+        {{&quot;idDevolucao&quot;, Int64.Type}, {&quot;pedido&quot;, Int64.Type}, {&quot;dataDevolucao&quot;, type date}, {&quot;loja&quot;, Int64.Type},
+         {&quot;motivo&quot;, type text}, {&quot;sku&quot;, type text}, {&quot;qtd&quot;, Int64.Type}, {&quot;valorReembolsado&quot;, type number}}, &quot;en-US&quot;),
+    Renomeadas = Table.RenameColumns(Tipos,
+        {{&quot;idDevolucao&quot;, &quot;IDDevolucao&quot;}, {&quot;pedido&quot;, &quot;IDPedido&quot;}, {&quot;dataDevolucao&quot;, &quot;DataDevolucao&quot;},
+         {&quot;loja&quot;, &quot;Loja&quot;}, {&quot;motivo&quot;, &quot;Motivo&quot;}, {&quot;sku&quot;, &quot;SKU&quot;}, {&quot;qtd&quot;, &quot;Qtd&quot;}, {&quot;valorReembolsado&quot;, &quot;ValorReembolsado&quot;}}),
+    SKUpadrao = Table.TransformColumns(Renomeadas, {{&quot;SKU&quot;, each Text.Upper(Text.Trim(_)), type text}})
+in
+    SKUpadrao</code></pre><div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Quantas devoluções existem no JSON (uma por registro da lista)?</td><td><b>244</b></td></tr></table></div><div class="warn"><strong>Ordem importa:</strong> o SKU é padronizado (Cortar + MAIÚSCULAS) antes de <code>Table.Distinct</code> e antes de qualquer relacionamento. Na ordem inversa, o aluno ainda remove 91 duplicatas, mas 177 linhas ficam sem custo no CMV.</div></section><section id="modelo"><h2>2 · Modelo e relacionamentos</h2><p>Esquema estrela, 9 relacionamentos, todos <b>muitos-para-um</b>, filtro em uma direção (dimensão → fato). Calendário marcado como tabela de datas.</p><div class="tw"><table class="t"><tr><th>#</th><th>Fato (lado *)</th><th>Dimensão (lado 1)</th></tr><tr><td>1</td><td><code>fVendas[Data]</code></td><td><code>dCalendario[Data]</code></td></tr><tr><td>2</td><td><code>fVendas[CodLoja]</code></td><td><code>dLojas[CodLoja]</code></td></tr><tr><td>3</td><td><code>fVendas[SKU]</code></td><td><code>dProdutos[SKU]</code></td></tr><tr><td>4</td><td><code>fVendas[IDCliente]</code></td><td><code>dClientes[IDCliente]</code></td></tr><tr><td>5</td><td><code>fDevolucoes[DataDevolucao]</code></td><td><code>dCalendario[Data]</code></td></tr><tr><td>6</td><td><code>fDevolucoes[Loja]</code></td><td><code>dLojas[CodLoja]</code></td></tr><tr><td>7</td><td><code>fDevolucoes[SKU]</code></td><td><code>dProdutos[SKU]</code></td></tr><tr><td>8</td><td><code>fMetas[Data]</code></td><td><code>dCalendario[Data]</code></td></tr><tr><td>9</td><td><code>fMetas[CodLoja]</code></td><td><code>dLojas[CodLoja]</code></td></tr></table></div><p><b>Por que nada liga fVendas a fDevolucoes?</b> Duas fatos nunca se ligam entre si. Elas conversam pelas dimensões compartilhadas (calendário, lojas, produtos). Por isso uma segmentação de loja filtra vendas, devoluções e metas ao mesmo tempo. <b>Por que fMetas não liga a dProdutos?</b> A meta é por loja e mês; não existe meta por produto.</p><h3>Calendário (DAX)</h3><pre><button class="cp" type="button">Copiar</button><code>dCalendario =
+SELECTCOLUMNS (
+    CALENDAR ( DATE ( 2025, 1, 1 ), DATE ( 2026, 12, 31 ) ),
+    &quot;Data&quot;, [Date],
+    &quot;Ano&quot;, YEAR ( [Date] ),
+    &quot;MesNum&quot;, MONTH ( [Date] ),
+    &quot;Mes&quot;, FORMAT ( [Date], &quot;mmm&quot;, &quot;pt-BR&quot; ),
+    &quot;AnoMes&quot;, FORMAT ( [Date], &quot;yyyy-mm&quot; ),
+    &quot;Trimestre&quot;, &quot;T&quot; &amp; ROUNDUP ( MONTH ( [Date] ) / 3, 0 )
+)
+// Depois: Ferramentas de Tabela &gt; Marcar como tabela de datas &gt; coluna Data
+// Classificar &quot;Mes&quot; por &quot;MesNum&quot;</code></pre></section><section id="testes"><h2>3 · Testes do modelo</h2><p>O aluno prova os relacionamentos em três rodadas. Os valores abaixo são o que ele deve ver.</p><h3>Teste 1 · sem DAX (somas implícitas)</h3><div class="tw"><table class="t"><tr><th>ID</th><th>O que o aluno faz</th><th>Esperado</th></tr><tr><td>r1</td><td>Tabela com dLojas[NomeLoja] + Soma de fVendas[Qtd]: quantas linhas aparecem (sem contar o total) e NENHUMA é “(Em branco)”?</td><td><b>8</b></td></tr><tr><td>r2</td><td>Mesma tabela: quantos itens vendeu a loja Pet Feliz Paulista (todos os anos)?</td><td><b>4.656</b></td></tr><tr><td>r3</td><td>Tabela com dProdutos[Categoria] + Soma de fVendas[Qtd]: quantos itens da categoria Ração?</td><td><b>8.648</b></td></tr><tr><td>r4</td><td>Tabela com dCalendario[Ano] + Soma de fVendas[Qtd]: quantos itens em 2026?</td><td><b>10.924</b></td></tr><tr><td>r5</td><td>Tabela com dClientes[Sexo] + Soma de fVendas[Qtd]: quantos itens aparecem na linha “(Em branco)”? (são as vendas sem cliente identificado)</td><td><b>3.153</b></td></tr><tr><td>r6</td><td>Troque para a tabela dLojas[NomeLoja] + Soma de fDevolucoes[ValorReembolsado]: total devolvido pela Pet Feliz Barra (todos os anos)</td><td><b>R$ 2.880,18</b></td></tr><tr><td>r7</td><td>dProdutos[Categoria] + Soma de fDevolucoes[ValorReembolsado]: total devolvido da categoria Ração</td><td><b>R$ 7.889,01</b></td></tr><tr><td>r8</td><td>dCalendario[Ano] + Soma de fDevolucoes[ValorReembolsado]: total devolvido em 2025</td><td><b>R$ 8.964,57</b></td></tr><tr><td>r9</td><td>dLojas[NomeLoja] + Soma de fMetas[Meta]: meta de 2026 (ano cheio) da Pet Feliz Santos</td><td><b>R$ 97.500,00</b></td></tr><tr><td>r10</td><td>dProdutos[Categoria] + Soma de fMetas[Meta]: qual valor aparece em CADA categoria? (se o modelo está certo, é o total da meta de 2026, repetido, porque a meta não tem relação com produto)</td><td><b>R$ 1.221.000,00</b></td></tr></table></div><h3>Teste 2 · medidas de auditoria</h3><div class="tw"><table class="t"><tr><th>Medida</th><th>Fórmula</th><th>Esperado</th></tr><tr><td>Teste Órfãos Produto (vendas)</td><td><code>COUNTROWS ( FILTER ( fVendas, ISBLANK ( RELATED ( dProdutos[SKU] ) ) ) )</code></td><td><b>0</b></td></tr><tr><td>Teste Órfãos Loja (vendas)</td><td><code>COUNTROWS ( FILTER ( fVendas, ISBLANK ( RELATED ( dLojas[CodLoja] ) ) ) )</code></td><td><b>0</b></td></tr><tr><td>Teste Vendas sem Cliente</td><td><code>COUNTROWS ( FILTER ( fVendas, ISBLANK ( RELATED ( dClientes[IDCliente] ) ) ) )</code></td><td><b>2.213</b> (é esperado)</td></tr><tr><td>Teste Órfãos Produto (devoluções)</td><td><code>COUNTROWS ( FILTER ( fDevolucoes, ISBLANK ( RELATED ( dProdutos[SKU] ) ) ) )</code></td><td><b>0</b></td></tr><tr><td>Teste Órfãos Loja (metas)</td><td><code>COUNTROWS ( FILTER ( fMetas, ISBLANK ( RELATED ( dLojas[CodLoja] ) ) ) )</code></td><td><b>0</b></td></tr><tr><td>Teste Chave Duplicada Lojas</td><td><code>COUNTROWS ( dLojas ) - DISTINCTCOUNT ( dLojas[CodLoja] )</code></td><td><b>0</b></td></tr><tr><td>Teste Chave Duplicada Produtos</td><td><code>COUNTROWS ( dProdutos ) - DISTINCTCOUNT ( dProdutos[SKU] )</code></td><td><b>0</b></td></tr><tr><td>Teste Chave Duplicada Clientes</td><td><code>COUNTROWS ( dClientes ) - DISTINCTCOUNT ( dClientes[IDCliente] )</code></td><td><b>0</b></td></tr></table></div><h3>Teste 3 · relacionamentos + medidas (Bloco E)</h3><div class="tw"><table class="t"><tr><th>ID</th><th>O que o aluno faz</th><th>Esperado</th></tr><tr><td>r17</td><td>Segmentações: Loja = Pet Feliz Santos e Ano = 2026. Faturamento?</td><td><b>R$ 68.812,92</b></td></tr><tr><td>r18</td><td>Mesma seleção: Devoluções?</td><td><b>R$ 328,31</b></td></tr><tr><td>r19</td><td>Mesma seleção: Meta (ano cheio 2026 da loja)?</td><td><b>R$ 97.500,00</b></td></tr><tr><td>r20</td><td>Acrescente Categoria = Ração: Faturamento de Santos × Ração em 2026?</td><td><b>R$ 29.058,85</b></td></tr><tr><td>r21</td><td>Mesma seleção (Santos × Ração × 2026): Devoluções?</td><td><b>R$ 219,70</b></td></tr><tr><td>r22</td><td>Mesma seleção: a Meta continua igual à de r19? Digite o valor que aparece (a meta não é filtrada por produto)</td><td><b>R$ 97.500,00</b></td></tr><tr><td>r23</td><td>Com Loja = Pet Feliz Santos selecionada, quantas categorias continuam aparecendo na segmentação de Categoria? (filtro NÃO deve “subir” de volta às dimensões)</td><td><b>5</b></td></tr><tr><td>r24</td><td>Cartão Devoluções com Ano = 2026 e Mês = Mai: valor? (prova o relacionamento fDevolucoes → dCalendario)</td><td><b>R$ 837,65</b></td></tr></table></div><h3>Diagnóstico</h3><div class="tw"><table class="t"><tr><th>O que o aluno viu</th><th>Causa provável</th><th>Correção</th></tr><tr><td>Aparece “(Em branco)” na tabela de lojas ou de produtos</td><td>Existe código na fato que não existe na dimensão (loja 99 de teste não removida, SKU com espaço/minúsculo)</td><td>Voltar ao Power Query: remover a loja 99 e padronizar o SKU (Cortar + MAIÚSCULAS) em fVendas, dProdutos e fDevolucoes</td></tr><tr><td>A soma por dimensão não fecha com o total</td><td>Linha da fato sem par na dimensão, ou relacionamento com direção/cardinalidade errada</td><td>Conferir no Modelo: seta 1 → * partindo da dimensão para a fato; chave única na dimensão</td></tr><tr><td>O valor se repete igual em todas as linhas (ex.: devolução igual para todas as lojas)</td><td>Não há relacionamento entre a dimensão e essa fato</td><td>Criar o relacionamento que falta (por exemplo, fDevolucoes[Loja] → dLojas[CodLoja])</td></tr><tr><td>Datas fora do calendário / Ano em branco</td><td>dCalendario não cobre todo o período, ou o relacionamento está com coluna de data errada</td><td>Calendário de 01/01/2025 a 31/12/2026 e relacionamento por Data (não por Ano ou Mês)</td></tr><tr><td>Não consegue criar o relacionamento “1 para muitos”; vira muitos-para-muitos</td><td>A chave da dimensão tem valores repetidos (duplicatas, espaços)</td><td>Remover duplicatas e padronizar a chave na dimensão</td></tr><tr><td>Meta muda quando filtra por categoria de produto</td><td>Relacionamento indevido entre fMetas e dProdutos (ou filtro bidirecional)</td><td>Remover; meta só se relaciona com dLojas e dCalendario</td></tr></table></div><p>Referências por dimensão (todos os anos, vendas): Pet Feliz Paulista: R$ 291.017,53; Pet Feliz Moema: R$ 269.669,76; Pet Feliz Barra: R$ 212.833,13; Pet Feliz Campinas: R$ 196.450,69; Pet Feliz Savassi: R$ 177.692,58; Pet Feliz Batel: R$ 174.215,26; Pet Feliz Santos: R$ 155.918,63; Pet Feliz Moinhos: R$ 109.584,96.</p></section><section id="dax"><h2>4 · Medidas DAX e valores esperados</h2><pre><button class="cp" type="button">Copiar</button><code>Faturamento = SUMX ( fVendas, fVendas[Qtd] * fVendas[PrecoUnit] * ( 1 - fVendas[Desconto] ) )
+
+Devoluções = SUM ( fDevolucoes[ValorReembolsado] )
+
+Faturamento Líquido = [Faturamento] - [Devoluções]
+
+CMV = SUMX ( fVendas, fVendas[Qtd] * RELATED ( dProdutos[CustoUnit] ) )
+
+Lucro = [Faturamento Líquido] - [CMV]
+
+Margem de Lucro = DIVIDE ( [Lucro], [Faturamento Líquido] )
+
+Margem Bruta % = DIVIDE ( [Faturamento] - [CMV], [Faturamento] )
+
+Pedidos = DISTINCTCOUNT ( fVendas[IDPedido] )
+
+Ticket Médio = DIVIDE ( [Faturamento], [Pedidos] )
+
+Itens Vendidos = SUM ( fVendas[Qtd] )
+
+Clientes Ativos = CALCULATE ( DISTINCTCOUNT ( fVendas[IDCliente] ), NOT ISBLANK ( fVendas[IDCliente] ) )
+
+Fat. Ano Anterior = CALCULATE ( [Faturamento], SAMEPERIODLASTYEAR ( dCalendario[Data] ) )
+
+Crescimento % = DIVIDE ( [Faturamento] - [Fat. Ano Anterior], [Fat. Ano Anterior] )
+
+Fat. Acumulado no Ano = TOTALYTD ( [Faturamento], dCalendario[Data] )
+
+Fat. Acumulado Ano Anterior = CALCULATE ( [Fat. Acumulado no Ano], SAMEPERIODLASTYEAR ( dCalendario[Data] ) )
+
+Crescimento Acumulado % = DIVIDE ( [Fat. Acumulado no Ano] - [Fat. Acumulado Ano Anterior], [Fat. Acumulado Ano Anterior] )
+
+Melhor Mês (R$) = MAXX ( ALL ( dCalendario[AnoMes] ), [Faturamento] )
+
+Meta = SUM ( fMetas[Meta] )
+
+% Atingimento = DIVIDE ( [Faturamento], [Meta] )
+
+Lojas Acima da Meta = COUNTROWS ( FILTER ( VALUES ( dLojas[NomeLoja] ), [% Atingimento] &gt;= 1 ) )
+
+Ranking Loja = RANKX ( ALLSELECTED ( dLojas[NomeLoja] ), [Faturamento], , DESC, DENSE )</code></pre><h3>Fichas do aluno e resultados</h3><div class="tw"><table class="t"><tr><th>Ficha</th><th>Medida(s)</th><th>Conferências e resultado</th></tr><tr><td>A1</td><td>[Faturamento]</td><td>Faturamento total, todos os anos (sem filtro) → <b>R$ 1.587.382,54</b><br>Faturamento de 2026 (segmentação Ano = 2026) → <b>R$ 678.245,56</b></td></tr><tr><td>A2</td><td>[Devoluções e Faturamento Líquido]</td><td>Devoluções de 2026 → <b>R$ 7.221,77</b><br>Faturamento Líquido de 2026 → <b>R$ 671.023,79</b></td></tr><tr><td>A3</td><td>[CMV, Lucro e Margem de Lucro]</td><td>CMV de 2026 → <b>R$ 396.324,96</b><br>Lucro de 2026 → <b>R$ 274.698,83</b><br>Margem de Lucro de 2026 (em %) → <b>40,94%</b></td></tr><tr><td>A4</td><td>[Pedidos e Ticket Médio]</td><td>Pedidos em 2026 → <b>4.057</b><br>Ticket médio em 2026 → <b>R$ 167,18</b></td></tr><tr><td>A5</td><td>[Clientes Ativos (a pegadinha)]</td><td>Clientes ativos em 2026 → <b>2.112</b></td></tr><tr><td>A6</td><td>[Itens Vendidos]</td><td>Itens vendidos em 2026 → <b>10.924</b></td></tr><tr><td>B1</td><td>[Fat. Ano Anterior e Crescimento %]</td><td>Com Ano = 2026 e Mês = Ago: Fat. Ano Anterior (agosto/2025) → <b>R$ 73.826,49</b><br>Crescimento % de agosto/26 sobre agosto/25 → <b>21,95%</b></td></tr><tr><td>B2</td><td>[Acumulado no Ano (YTD)]</td><td>Acumulado com Ano = 2026 e Mês = Ago → <b>R$ 678.245,56</b><br>Crescimento do acumulado Jan–Ago/26 sobre Jan–Ago/25 (%) → <b>30,59%</b></td></tr><tr><td>B3</td><td>[Melhor mês da história]</td><td>Faturamento do melhor mês (todos os anos) → <b>R$ 115.544,02</b></td></tr><tr><td>C1</td><td>[Meta e % de Atingimento]</td><td>Meta de Jan a Ago/2026, todas as lojas → <b>R$ 715.600,00</b><br>% de atingimento Jan–Ago/2026 → <b>94,78%</b></td></tr><tr><td>C2</td><td>[Lojas Acima da Meta]</td><td>Número de lojas que bateram a meta → <b>2</b><br>Atingimento da melhor loja (%) → <b>124,44%</b></td></tr><tr><td>D1</td><td>[Descobertas (sem dica)]</td><td>D1 · Faturamento da loja líder em 2026 → <b>R$ 119.213,16</b><br>D2 · Faturamento da categoria líder em 2026 → <b>R$ 304.683,71</b><br>D2 · Margem bruta da categoria com maior margem (%) → <b>50,87%</b><br>D3 · Faturamento do produto nº 1 em 2026 → <b>R$ 78.513,10</b><br>D4 · Posição da Pet Feliz Barra no ranking de faturamento 2026 → <b>3</b></td></tr></table></div><div class="warn"><strong>Filtros:</strong> as conferências assumem as segmentações Ano e Mês. Metas: Ano = 2026 e meses Jan–Ago. Sem filtro quando a pergunta não cita nenhum.</div></section><section id="dash"><h2>5 · Dashboard de referência</h2><p>Mapa de campos de cada visual. O tema (<code>PetFeliz_tema.json</code>) define as cores.</p><div class="tw"><table class="t"><tr><th>Página</th><th>Visual</th><th>Campos</th></tr><tr><td>1 Visão Geral</td><td>6 Cartões</td><td>[Faturamento], [Devoluções], [Faturamento Líquido], [Lucro], [Margem de Lucro], [Ticket Médio] (+ [Pedidos] como legenda)</td></tr><tr><td>1</td><td>Linhas: 2026 × 2025</td><td>Eixo X dCalendario[Mes] (classificado por MesNum) · Legenda dCalendario[Ano] · Y [Faturamento]</td></tr><tr><td>1</td><td>Barras por categoria</td><td>Eixo dProdutos[Categoria] · [Faturamento]</td></tr><tr><td>1</td><td>Barras margem bruta</td><td>Eixo dProdutos[Categoria] · [Margem Bruta %]</td></tr><tr><td>2 Lojas e Metas</td><td>4 Cartões</td><td>[Meta], [Faturamento], [% Atingimento], [Lojas Acima da Meta]  (Ano 2026, Jan–Ago)</td></tr><tr><td>2</td><td>Barras % atingimento</td><td>Eixo dLojas[NomeLoja] · [% Atingimento] · cor condicional (≥1 verde; &lt;1 laranja) · linha constante 100%</td></tr><tr><td>2</td><td>Barras faturamento por loja</td><td>Eixo dLojas[NomeLoja] · [Faturamento] · rótulo com % do total</td></tr><tr><td>3 Produtos e Clientes</td><td>4 Cartões</td><td>[Clientes Ativos], [Pedidos], [Itens Vendidos], [Crescimento %] (Ago/26)</td></tr><tr><td>3</td><td>Top 10 produtos</td><td>Eixo dProdutos[Produto] · [Faturamento] · filtro Top N = 10</td></tr><tr><td>3</td><td>Faturamento por região</td><td>Eixo dLojas[Regiao] · [Faturamento]</td></tr><tr><td>3</td><td>Pedidos por mês</td><td>Eixo dCalendario[Mes] · [Pedidos]</td></tr><tr><td>Todas</td><td>Segmentações sincronizadas</td><td>dCalendario[Ano], dCalendario[Mes], dLojas[NomeLoja]</td></tr></table></div><h3>Tabelas de referência (2026, jan–ago)</h3><div class="tw"><table class="t"><tr><th>Loja</th><th>Faturamento</th><th>Líquido</th><th>Lucro</th><th>Margem</th><th>Meta Jan–Ago</th><th>Atingimento</th><th>Rank</th></tr><tr><td>Pet Feliz Paulista</td><td>R$ 119.213,16</td><td>R$ 117.754,08</td><td>R$ 47.675,72</td><td>40,49%</td><td>R$ 138.900,00</td><td>85,83%</td><td>1</td></tr><tr><td>Pet Feliz Moema</td><td>R$ 115.278,56</td><td>R$ 113.825,08</td><td>R$ 46.509,69</td><td>40,86%</td><td>R$ 122.200,00</td><td>94,34%</td><td>2</td></tr><tr><td>Pet Feliz Barra</td><td>R$ 84.203,31</td><td>R$ 83.081,71</td><td>R$ 34.143,20</td><td>41,10%</td><td>R$ 90.600,00</td><td>92,94%</td><td>3</td></tr><tr><td>Pet Feliz Campinas</td><td>R$ 80.794,58</td><td>R$ 80.022,87</td><td>R$ 32.781,44</td><td>40,97%</td><td>R$ 96.900,00</td><td>83,38%</td><td>4</td></tr><tr><td>Pet Feliz Savassi</td><td>R$ 73.406,80</td><td>R$ 72.722,11</td><td>R$ 30.089,26</td><td>41,38%</td><td>R$ 77.700,00</td><td>94,47%</td><td>5</td></tr><tr><td>Pet Feliz Batel</td><td>R$ 73.073,71</td><td>R$ 72.185,04</td><td>R$ 29.454,12</td><td>40,80%</td><td>R$ 79.600,00</td><td>91,80%</td><td>6</td></tr><tr><td>Pet Feliz Santos</td><td>R$ 68.812,92</td><td>R$ 68.484,61</td><td>R$ 28.564,81</td><td>41,71%</td><td>R$ 55.300,00</td><td>124,44%</td><td>7</td></tr><tr><td>Pet Feliz Moinhos</td><td>R$ 63.462,51</td><td>R$ 62.948,28</td><td>R$ 25.480,58</td><td>40,48%</td><td>R$ 54.400,00</td><td>116,66%</td><td>8</td></tr></table></div><div class="tw"><table class="t"><tr><th>Categoria</th><th>Faturamento</th><th>Margem bruta</th></tr><tr><td>Ração</td><td>R$ 304.683,71</td><td>35,68%</td></tr><tr><td>Acessórios</td><td>R$ 147.813,29</td><td>44,75%</td></tr><tr><td>Farmácia</td><td>R$ 94.984,75</td><td>43,04%</td></tr><tr><td>Higiene</td><td>R$ 80.661,11</td><td>50,87%</td></tr><tr><td>Brinquedos</td><td>R$ 50.102,69</td><td>50,19%</td></tr></table></div><figure><img src="img/dash_p1.png" alt="Página 1 · Visão Geral"><figcaption>Página 1 · Visão Geral</figcaption></figure><figure><img src="img/dash_p2.png" alt="Página 2 · Lojas e Metas"><figcaption>Página 2 · Lojas e Metas</figcaption></figure><figure><img src="img/dash_p3.png" alt="Página 3 · Produtos e Clientes"><figcaption>Página 3 · Produtos e Clientes</figcaption></figure></section><section id="set"><h2>6 · Teste de atualização</h2><p>Copiar <code>Novos_Dados\Vendas_2026_09.csv</code> para a pasta <code>Vendas\</code> e atualizar, sem editar nenhuma consulta. O arquivo de setembro traz as mesmas pegadinhas (duplicatas, loja 99, SKU sujo).</p>
+<div class="tw"><table class="t"><tr><th>Conferência</th><th>Esperado</th></tr><tr><td>Faturamento de Setembro/2026 depois de atualizar</td><td><b>R$ 88.541,17</b></td></tr><tr><td>Faturamento total (todos os anos) depois de atualizar</td><td><b>R$ 1.675.923,71</b></td></tr></table></div></section><section id="erros"><h2>7 · Erros comuns e o número que entregam</h2><div class="tw"><table class="t"><tr><th>Erro</th><th>O aluno verá</th></tr><tr><td>Não removeu as duplicatas</td><td>Linhas 17.977; faturamento total R$ 1.595.500,02</td></tr><tr><td>Não removeu a loja 99</td><td>Linhas 18.127; faturamento total R$ 1.605.810,54</td></tr><tr><td>Nenhum dos dois</td><td>Faturamento total R$ 1.614.067,92</td></tr><tr><td>Não padronizou o SKU</td><td>177 linhas sem custo; CMV 2026 R$ 392.434,65 (certo R$ 396.324,96)</td></tr><tr><td>DISTINCTCOUNT sem excluir vazio</td><td>Clientes 2026: 2.113 (certo 2.112)</td></tr><tr><td>Esqueceu o desconto</td><td>Faturamento 2026 R$ 687.793,01</td></tr><tr><td>Ticket por linha, não por pedido</td><td>Ticket 2026 R$ 89,31</td></tr><tr><td>Meta de 2026 sem limitar a Jan–Ago</td><td>Meta R$ 1.221.000,00; atingimento 55,55%</td></tr><tr><td>fMetas ligada a dProdutos</td><td>Meta diferente em cada categoria (teste r10)</td></tr><tr><td>Falta fDevolucoes → dLojas</td><td>Devolução idêntica em todas as lojas (teste r6)</td></tr></table></div></section><section id="nota"><h2>8 · Correção (100 pontos + 10 de bônus)</h2><div class="tw"><table class="t"><tr><th>Critério</th><th>Pontos</th><th>Como verificar</th></tr><tr><td>Importação com conectores certos (pasta de vendas)</td><td>15</td><td>Consulta fVendas usa Folder.Files; 6 fontes presentes</td></tr><tr><td>Tratamento: números das Etapas 1–2</td><td>15</td><td>c1 a c10</td></tr><tr><td>Modelo estrela: 9 relacionamentos, calendário marcado</td><td>15</td><td>c11, c12 e testes r1 a r16</td></tr><tr><td>DAX: fichas A a D e testes finais</td><td>25</td><td>d1 a d24 e r17 a r24</td></tr><tr><td>Dashboard: 3 páginas, clareza, consistência, interatividade</td><td>20</td><td>Comparar com as imagens e o mapa de campos</td></tr><tr><td>Atualização sem editar nada</td><td>10</td><td>f1 e f2</td></tr><tr><td>Bônus: drill-through, tooltip, parâmetro de campo, bookmarks</td><td>+10</td><td>Abrir o arquivo</td></tr></table></div></section></div>
+<script>
+(function(){
+  var R = document.documentElement;
+  function sv(k,v){ try{ localStorage.setItem('pf15_prof_'+k, v); }catch(e){} }
+  function ld(k){ try{ return localStorage.getItem('pf15_prof_'+k); }catch(e){ return null; } }
+  
+  var t = ld('theme');
+  if (t) R.setAttribute('data-theme', t);
+  
+  var btnTheme = document.getElementById('btnTema');
+  if (btnTheme) {
+    btnTheme.onclick = function() {
+      var curr = R.getAttribute('data-theme');
+      var isDark = curr === 'dark' || (!curr && window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches);
+      var next = isDark ? 'light' : 'dark';
+      R.setAttribute('data-theme', next);
+      sv('theme', next);
+    };
+  }
+
+  document.querySelectorAll('.cp').forEach(function(b){
+    b.onclick = function(){
+      var c = b.parentNode.querySelector('code').innerText;
+      var ok = function(){ b.textContent = 'Copiado!'; };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(c).then(ok, function(){ b.textContent = 'Selecione e copie'; });
+      } else {
+        b.textContent = 'Selecione e copie';
+      }
+      setTimeout(function(){ b.textContent = 'Copiar'; }, 1800);
+    };
+  });
+})();
+</script>
+</body>
+</html>

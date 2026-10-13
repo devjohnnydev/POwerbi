@@ -1,0 +1,10 @@
+CodLoja	NomeLoja	Cidade	UF	Regiao	Gerente	DataAbertura
+1	Pet Feliz Paulista	São Paulo	SP	Sudeste	Marina Costa	2019-03-10
+2	Pet Feliz Moema	São Paulo	SP	Sudeste	Rafael Lima	2020-08-22
+3	Pet Feliz Campinas	Campinas	SP	Sudeste	Juliana Prado	2021-02-15
+4	Pet Feliz Santos	Santos	SP	Sudeste	Carlos Menezes	2021-11-05
+5	Pet Feliz Barra	Rio de Janeiro	RJ	Sudeste	Patrícia Souza	2022-06-18
+6	Pet Feliz Savassi	Belo Horizonte	MG	Sudeste	Thiago Alves	2023-01-30
+7	Pet Feliz Batel	Curitiba	PR	Sul	Fernanda Rocha	2023-09-12
+8	Pet Feliz Moinhos	Porto Alegre	RS	Sul	Bruno Teixeira	2025-06-02
+99	LOJA TESTE	São Paulo	SP	Sudeste	TI	2025-01-01

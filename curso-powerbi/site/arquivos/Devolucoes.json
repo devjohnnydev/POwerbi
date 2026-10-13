@@ -1,0 +1,3422 @@
+{
+ "empresa": "Pet Feliz",
+ "periodo": "2025-01 a 2026-08",
+ "devolucoes": [
+  {
+   "idDevolucao": 5002,
+   "pedido": 107944,
+   "dataDevolucao": "2026-05-14",
+   "loja": 6,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 27.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5003,
+   "pedido": 106546,
+   "dataDevolucao": "2026-03-21",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 59.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5004,
+   "pedido": 101645,
+   "dataDevolucao": "2025-05-15",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 132.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5005,
+   "pedido": 109373,
+   "dataDevolucao": "2026-08-26",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 125.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5006,
+   "pedido": 109165,
+   "dataDevolucao": "2026-08-04",
+   "loja": 7,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 113.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5007,
+   "pedido": 100757,
+   "dataDevolucao": "2025-03-28",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5008,
+   "pedido": 108347,
+   "dataDevolucao": "2026-06-05",
+   "loja": 3,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0011",
+     "qtd": 1,
+     "valorReembolsado": 149.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5009,
+   "pedido": 101209,
+   "dataDevolucao": "2025-04-10",
+   "loja": 2,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0023",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5010,
+   "pedido": 107302,
+   "dataDevolucao": "2026-04-20",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0030",
+     "qtd": 1,
+     "valorReembolsado": 99.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5011,
+   "pedido": 102298,
+   "dataDevolucao": "2025-07-04",
+   "loja": 7,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0024",
+     "qtd": 1,
+     "valorReembolsado": 34.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5012,
+   "pedido": 102411,
+   "dataDevolucao": "2025-08-01",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.51
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5013,
+   "pedido": 104407,
+   "dataDevolucao": "2025-11-27",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0009",
+     "qtd": 1,
+     "valorReembolsado": 13.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5014,
+   "pedido": 105303,
+   "dataDevolucao": "2025-12-03",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0024",
+     "qtd": 1,
+     "valorReembolsado": 34.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5015,
+   "pedido": 105933,
+   "dataDevolucao": "2026-01-17",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 25.56
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5016,
+   "pedido": 103175,
+   "dataDevolucao": "2025-08-20",
+   "loja": 7,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0020",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5017,
+   "pedido": 102388,
+   "dataDevolucao": "2025-07-08",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0024",
+     "qtd": 1,
+     "valorReembolsado": 34.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5018,
+   "pedido": 109731,
+   "dataDevolucao": "2026-08-31",
+   "loja": 7,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0010",
+     "qtd": 1,
+     "valorReembolsado": 19.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5019,
+   "pedido": 101317,
+   "dataDevolucao": "2025-04-13",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 11.61
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5020,
+   "pedido": 103644,
+   "dataDevolucao": "2025-09-05",
+   "loja": 7,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 80.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5021,
+   "pedido": 102747,
+   "dataDevolucao": "2025-07-19",
+   "loja": 8,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 125.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5022,
+   "pedido": 103819,
+   "dataDevolucao": "2025-11-02",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 27.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5023,
+   "pedido": 104632,
+   "dataDevolucao": "2025-12-01",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 12.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5024,
+   "pedido": 100391,
+   "dataDevolucao": "2025-02-10",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5025,
+   "pedido": 102870,
+   "dataDevolucao": "2025-09-08",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0023",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5026,
+   "pedido": 108238,
+   "dataDevolucao": "2026-07-07",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5027,
+   "pedido": 108170,
+   "dataDevolucao": "2026-06-28",
+   "loja": 1,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 119.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5028,
+   "pedido": 106420,
+   "dataDevolucao": "2026-02-07",
+   "loja": 7,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 59.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5029,
+   "pedido": 103988,
+   "dataDevolucao": "2025-10-08",
+   "loja": 4,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0032",
+     "qtd": 1,
+     "valorReembolsado": 28.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5030,
+   "pedido": 105163,
+   "dataDevolucao": "2026-01-02",
+   "loja": 2,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.51
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5031,
+   "pedido": 104629,
+   "dataDevolucao": "2025-11-06",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5033,
+   "pedido": 106173,
+   "dataDevolucao": "2026-02-15",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0011",
+     "qtd": 1,
+     "valorReembolsado": 134.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5034,
+   "pedido": 103436,
+   "dataDevolucao": "2025-09-21",
+   "loja": 3,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0005",
+     "qtd": 1,
+     "valorReembolsado": 219.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5035,
+   "pedido": 100652,
+   "dataDevolucao": "2025-02-13",
+   "loja": 7,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0031",
+     "qtd": 1,
+     "valorReembolsado": 79.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5036,
+   "pedido": 107007,
+   "dataDevolucao": "2026-04-20",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5037,
+   "pedido": 107834,
+   "dataDevolucao": "2026-06-06",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5038,
+   "pedido": 100700,
+   "dataDevolucao": "2025-03-09",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5039,
+   "pedido": 104644,
+   "dataDevolucao": "2025-11-28",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0011",
+     "qtd": 1,
+     "valorReembolsado": 149.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5040,
+   "pedido": 105259,
+   "dataDevolucao": "2025-12-30",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5041,
+   "pedido": 106364,
+   "dataDevolucao": "2026-03-05",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5042,
+   "pedido": 105771,
+   "dataDevolucao": "2026-01-09",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0016",
+     "qtd": 1,
+     "valorReembolsado": 31.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5043,
+   "pedido": 108045,
+   "dataDevolucao": "2026-05-26",
+   "loja": 7,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5044,
+   "pedido": 109201,
+   "dataDevolucao": "2026-07-16",
+   "loja": 8,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 107.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5045,
+   "pedido": 109308,
+   "dataDevolucao": "2026-08-29",
+   "loja": 1,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 27.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5046,
+   "pedido": 103101,
+   "dataDevolucao": "2025-08-11",
+   "loja": 6,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 59.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5047,
+   "pedido": 109566,
+   "dataDevolucao": "2026-08-14",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 119.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5048,
+   "pedido": 104162,
+   "dataDevolucao": "2025-10-29",
+   "loja": 6,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0005",
+     "qtd": 1,
+     "valorReembolsado": 219.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5049,
+   "pedido": 100416,
+   "dataDevolucao": "2025-02-15",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 119.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5050,
+   "pedido": 100066,
+   "dataDevolucao": "2025-01-13",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 53.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5051,
+   "pedido": 107146,
+   "dataDevolucao": "2026-04-08",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5052,
+   "pedido": 102973,
+   "dataDevolucao": "2025-08-09",
+   "loja": 3,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 23.65
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5053,
+   "pedido": 102307,
+   "dataDevolucao": "2025-06-23",
+   "loja": 7,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 27.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5054,
+   "pedido": 106801,
+   "dataDevolucao": "2026-03-20",
+   "loja": 5,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0030",
+     "qtd": 1,
+     "valorReembolsado": 99.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5055,
+   "pedido": 107903,
+   "dataDevolucao": "2026-05-19",
+   "loja": 5,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5056,
+   "pedido": 108355,
+   "dataDevolucao": "2026-06-24",
+   "loja": 3,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0027",
+     "qtd": 1,
+     "valorReembolsado": 49.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5057,
+   "pedido": 109643,
+   "dataDevolucao": "2026-08-29",
+   "loja": 6,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0022",
+     "qtd": 1,
+     "valorReembolsado": 69.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5058,
+   "pedido": 108514,
+   "dataDevolucao": "2026-06-09",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0009",
+     "qtd": 1,
+     "valorReembolsado": 14.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5059,
+   "pedido": 109620,
+   "dataDevolucao": "2026-08-28",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0018",
+     "qtd": 1,
+     "valorReembolsado": 31.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5060,
+   "pedido": 107422,
+   "dataDevolucao": "2026-04-27",
+   "loja": 7,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 125.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5061,
+   "pedido": 103757,
+   "dataDevolucao": "2025-10-16",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5062,
+   "pedido": 100053,
+   "dataDevolucao": "2025-02-02",
+   "loja": 1,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0011",
+     "qtd": 1,
+     "valorReembolsado": 149.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5063,
+   "pedido": 107088,
+   "dataDevolucao": "2026-04-15",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5064,
+   "pedido": 106485,
+   "dataDevolucao": "2026-02-23",
+   "loja": 8,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 12.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5065,
+   "pedido": 106317,
+   "dataDevolucao": "2026-02-11",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0009",
+     "qtd": 1,
+     "valorReembolsado": 14.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5066,
+   "pedido": 101830,
+   "dataDevolucao": "2025-05-31",
+   "loja": 6,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5067,
+   "pedido": 108709,
+   "dataDevolucao": "2026-07-06",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5068,
+   "pedido": 103643,
+   "dataDevolucao": "2025-09-23",
+   "loja": 7,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0032",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5069,
+   "pedido": 100893,
+   "dataDevolucao": "2025-03-16",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 59.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5070,
+   "pedido": 107719,
+   "dataDevolucao": "2026-05-27",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5071,
+   "pedido": 108276,
+   "dataDevolucao": "2026-06-16",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5072,
+   "pedido": 104440,
+   "dataDevolucao": "2025-11-18",
+   "loja": 2,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 80.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5073,
+   "pedido": 108509,
+   "dataDevolucao": "2026-06-29",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0028",
+     "qtd": 1,
+     "valorReembolsado": 80.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5074,
+   "pedido": 108902,
+   "dataDevolucao": "2026-07-06",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0027",
+     "qtd": 1,
+     "valorReembolsado": 49.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5075,
+   "pedido": 101895,
+   "dataDevolucao": "2025-05-16",
+   "loja": 7,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0016",
+     "qtd": 1,
+     "valorReembolsado": 30.3
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5076,
+   "pedido": 104707,
+   "dataDevolucao": "2025-11-06",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0028",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5077,
+   "pedido": 106953,
+   "dataDevolucao": "2026-03-07",
+   "loja": 8,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 26.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5078,
+   "pedido": 106748,
+   "dataDevolucao": "2026-03-21",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0010",
+     "qtd": 1,
+     "valorReembolsado": 19.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5079,
+   "pedido": 109370,
+   "dataDevolucao": "2026-08-30",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0022",
+     "qtd": 1,
+     "valorReembolsado": 69.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5081,
+   "pedido": 108590,
+   "dataDevolucao": "2026-06-29",
+   "loja": 7,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0018",
+     "qtd": 1,
+     "valorReembolsado": 33.15
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5082,
+   "pedido": 103454,
+   "dataDevolucao": "2025-09-24",
+   "loja": 4,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0020",
+     "qtd": 1,
+     "valorReembolsado": 22.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5083,
+   "pedido": 107483,
+   "dataDevolucao": "2026-05-04",
+   "loja": 8,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0009",
+     "qtd": 1,
+     "valorReembolsado": 14.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5084,
+   "pedido": 109684,
+   "dataDevolucao": "2026-08-31",
+   "loja": 7,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0025",
+     "qtd": 1,
+     "valorReembolsado": 189.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5085,
+   "pedido": 105097,
+   "dataDevolucao": "2026-01-02",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0024",
+     "qtd": 1,
+     "valorReembolsado": 31.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5086,
+   "pedido": 102989,
+   "dataDevolucao": "2025-09-05",
+   "loja": 4,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5087,
+   "pedido": 102447,
+   "dataDevolucao": "2025-07-15",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0012",
+     "qtd": 1,
+     "valorReembolsado": 9.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5088,
+   "pedido": 108349,
+   "dataDevolucao": "2026-07-03",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 27.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5089,
+   "pedido": 103478,
+   "dataDevolucao": "2025-09-30",
+   "loja": 4,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5090,
+   "pedido": 101300,
+   "dataDevolucao": "2025-05-01",
+   "loja": 4,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0009",
+     "qtd": 1,
+     "valorReembolsado": 13.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5091,
+   "pedido": 107039,
+   "dataDevolucao": "2026-04-12",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0026",
+     "qtd": 1,
+     "valorReembolsado": 159.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5092,
+   "pedido": 106129,
+   "dataDevolucao": "2026-02-21",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0029",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5093,
+   "pedido": 105327,
+   "dataDevolucao": "2025-12-19",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 46.94
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5094,
+   "pedido": 100614,
+   "dataDevolucao": "2025-02-20",
+   "loja": 6,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0031",
+     "qtd": 1,
+     "valorReembolsado": 71.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5095,
+   "pedido": 104868,
+   "dataDevolucao": "2025-11-29",
+   "loja": 8,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0021",
+     "qtd": 1,
+     "valorReembolsado": 37.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5096,
+   "pedido": 102322,
+   "dataDevolucao": "2025-06-24",
+   "loja": 8,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 107.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5098,
+   "pedido": 109078,
+   "dataDevolucao": "2026-07-25",
+   "loja": 6,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 23.65
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5099,
+   "pedido": 103554,
+   "dataDevolucao": "2025-09-21",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0032",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5100,
+   "pedido": 103279,
+   "dataDevolucao": "2025-09-11",
+   "loja": 1,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0020",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5101,
+   "pedido": 105595,
+   "dataDevolucao": "2025-12-14",
+   "loja": 8,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0020",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5102,
+   "pedido": 106916,
+   "dataDevolucao": "2026-03-16",
+   "loja": 7,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5103,
+   "pedido": 101594,
+   "dataDevolucao": "2025-05-10",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.16
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5104,
+   "pedido": 104141,
+   "dataDevolucao": "2025-10-29",
+   "loja": 6,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0030",
+     "qtd": 1,
+     "valorReembolsado": 99.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5106,
+   "pedido": 109089,
+   "dataDevolucao": "2026-07-22",
+   "loja": 6,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0018",
+     "qtd": 1,
+     "valorReembolsado": 34.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5107,
+   "pedido": 104281,
+   "dataDevolucao": "2025-11-16",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 116.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5108,
+   "pedido": 107931,
+   "dataDevolucao": "2026-05-12",
+   "loja": 6,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0030",
+     "qtd": 1,
+     "valorReembolsado": 89.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5109,
+   "pedido": 107037,
+   "dataDevolucao": "2026-04-23",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0028",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5110,
+   "pedido": 107634,
+   "dataDevolucao": "2026-05-11",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 119.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5111,
+   "pedido": 102497,
+   "dataDevolucao": "2025-08-01",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 25.11
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5112,
+   "pedido": 108189,
+   "dataDevolucao": "2026-06-11",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0027",
+     "qtd": 1,
+     "valorReembolsado": 49.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5113,
+   "pedido": 107311,
+   "dataDevolucao": "2026-04-14",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 80.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5114,
+   "pedido": 101691,
+   "dataDevolucao": "2025-05-30",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 27.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5115,
+   "pedido": 106269,
+   "dataDevolucao": "2026-02-03",
+   "loja": 3,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.7
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5116,
+   "pedido": 101206,
+   "dataDevolucao": "2025-04-11",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5117,
+   "pedido": 103076,
+   "dataDevolucao": "2025-08-27",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0011",
+     "qtd": 1,
+     "valorReembolsado": 149.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5118,
+   "pedido": 109679,
+   "dataDevolucao": "2026-08-18",
+   "loja": 6,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0020",
+     "qtd": 1,
+     "valorReembolsado": 22.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5119,
+   "pedido": 109452,
+   "dataDevolucao": "2026-08-04",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5120,
+   "pedido": 102152,
+   "dataDevolucao": "2025-06-07",
+   "loja": 4,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5121,
+   "pedido": 107120,
+   "dataDevolucao": "2026-04-09",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 59.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5122,
+   "pedido": 103674,
+   "dataDevolucao": "2025-09-20",
+   "loja": 7,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5123,
+   "pedido": 100271,
+   "dataDevolucao": "2025-01-29",
+   "loja": 6,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 119.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5124,
+   "pedido": 107137,
+   "dataDevolucao": "2026-04-16",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0012",
+     "qtd": 1,
+     "valorReembolsado": 8.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5125,
+   "pedido": 103878,
+   "dataDevolucao": "2025-10-30",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.51
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5126,
+   "pedido": 102407,
+   "dataDevolucao": "2025-07-22",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 27.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5127,
+   "pedido": 100575,
+   "dataDevolucao": "2025-02-24",
+   "loja": 5,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.51
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5128,
+   "pedido": 109548,
+   "dataDevolucao": "2026-08-25",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0010",
+     "qtd": 1,
+     "valorReembolsado": 19.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5129,
+   "pedido": 103818,
+   "dataDevolucao": "2025-10-05",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0018",
+     "qtd": 1,
+     "valorReembolsado": 34.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5130,
+   "pedido": 108529,
+   "dataDevolucao": "2026-06-10",
+   "loja": 6,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0020",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5131,
+   "pedido": 109211,
+   "dataDevolucao": "2026-07-24",
+   "loja": 8,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0032",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5132,
+   "pedido": 107868,
+   "dataDevolucao": "2026-05-25",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 25.11
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5133,
+   "pedido": 107620,
+   "dataDevolucao": "2026-06-05",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0021",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5134,
+   "pedido": 100358,
+   "dataDevolucao": "2025-03-01",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0032",
+     "qtd": 1,
+     "valorReembolsado": 28.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5135,
+   "pedido": 103572,
+   "dataDevolucao": "2025-09-22",
+   "loja": 6,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0011",
+     "qtd": 1,
+     "valorReembolsado": 134.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5136,
+   "pedido": 100868,
+   "dataDevolucao": "2025-03-07",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0029",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5137,
+   "pedido": 103350,
+   "dataDevolucao": "2025-09-19",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 26.5
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5138,
+   "pedido": 102230,
+   "dataDevolucao": "2025-06-20",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 12.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5139,
+   "pedido": 102432,
+   "dataDevolucao": "2025-07-18",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.33
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5140,
+   "pedido": 105855,
+   "dataDevolucao": "2026-01-28",
+   "loja": 4,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 139.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5141,
+   "pedido": 108157,
+   "dataDevolucao": "2026-06-30",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0029",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5142,
+   "pedido": 107991,
+   "dataDevolucao": "2026-05-12",
+   "loja": 6,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0027",
+     "qtd": 1,
+     "valorReembolsado": 44.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5143,
+   "pedido": 108646,
+   "dataDevolucao": "2026-06-10",
+   "loja": 7,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 11.61
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5144,
+   "pedido": 101575,
+   "dataDevolucao": "2025-06-08",
+   "loja": 2,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0021",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5145,
+   "pedido": 105319,
+   "dataDevolucao": "2025-12-13",
+   "loja": 4,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0016",
+     "qtd": 1,
+     "valorReembolsado": 31.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5146,
+   "pedido": 105087,
+   "dataDevolucao": "2025-12-29",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 26.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5147,
+   "pedido": 108040,
+   "dataDevolucao": "2026-05-20",
+   "loja": 7,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5148,
+   "pedido": 105386,
+   "dataDevolucao": "2025-12-13",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0029",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5149,
+   "pedido": 105003,
+   "dataDevolucao": "2025-12-16",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0012",
+     "qtd": 1,
+     "valorReembolsado": 9.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5150,
+   "pedido": 101272,
+   "dataDevolucao": "2025-04-13",
+   "loja": 3,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 139.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5151,
+   "pedido": 104680,
+   "dataDevolucao": "2025-11-12",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0022",
+     "qtd": 1,
+     "valorReembolsado": 62.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5152,
+   "pedido": 102931,
+   "dataDevolucao": "2025-08-20",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 119.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5153,
+   "pedido": 101443,
+   "dataDevolucao": "2025-04-23",
+   "loja": 7,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0018",
+     "qtd": 1,
+     "valorReembolsado": 34.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5154,
+   "pedido": 105943,
+   "dataDevolucao": "2026-01-11",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 12.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5155,
+   "pedido": 106918,
+   "dataDevolucao": "2026-03-09",
+   "loja": 7,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0023",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5156,
+   "pedido": 104813,
+   "dataDevolucao": "2025-12-04",
+   "loja": 7,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0020",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5157,
+   "pedido": 102661,
+   "dataDevolucao": "2025-07-12",
+   "loja": 6,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0027",
+     "qtd": 1,
+     "valorReembolsado": 49.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5158,
+   "pedido": 109436,
+   "dataDevolucao": "2026-08-23",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 22.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5159,
+   "pedido": 100584,
+   "dataDevolucao": "2025-02-09",
+   "loja": 5,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0023",
+     "qtd": 1,
+     "valorReembolsado": 123.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5160,
+   "pedido": 101797,
+   "dataDevolucao": "2025-06-05",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0029",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5161,
+   "pedido": 103064,
+   "dataDevolucao": "2025-08-15",
+   "loja": 5,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5162,
+   "pedido": 104113,
+   "dataDevolucao": "2025-10-23",
+   "loja": 6,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 53.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5163,
+   "pedido": 100970,
+   "dataDevolucao": "2025-03-30",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0032",
+     "qtd": 1,
+     "valorReembolsado": 26.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5164,
+   "pedido": 107093,
+   "dataDevolucao": "2026-05-06",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 26.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5165,
+   "pedido": 100925,
+   "dataDevolucao": "2025-03-26",
+   "loja": 5,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 139.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5166,
+   "pedido": 106518,
+   "dataDevolucao": "2026-03-24",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0032",
+     "qtd": 1,
+     "valorReembolsado": 25.56
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5167,
+   "pedido": 106880,
+   "dataDevolucao": "2026-03-03",
+   "loja": 6,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0023",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5168,
+   "pedido": 106991,
+   "dataDevolucao": "2026-04-26",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 22.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5169,
+   "pedido": 108103,
+   "dataDevolucao": "2026-05-11",
+   "loja": 8,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0013",
+     "qtd": 1,
+     "valorReembolsado": 22.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5170,
+   "pedido": 100037,
+   "dataDevolucao": "2025-01-15",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5171,
+   "pedido": 103360,
+   "dataDevolucao": "2025-09-20",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0010",
+     "qtd": 1,
+     "valorReembolsado": 18.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5172,
+   "pedido": 104061,
+   "dataDevolucao": "2025-11-05",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0018",
+     "qtd": 1,
+     "valorReembolsado": 34.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5173,
+   "pedido": 100513,
+   "dataDevolucao": "2025-02-27",
+   "loja": 3,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5175,
+   "pedido": 104147,
+   "dataDevolucao": "2025-10-25",
+   "loja": 6,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0016",
+     "qtd": 1,
+     "valorReembolsado": 30.3
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5176,
+   "pedido": 100719,
+   "dataDevolucao": "2025-03-13",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5177,
+   "pedido": 105338,
+   "dataDevolucao": "2025-12-12",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0030",
+     "qtd": 1,
+     "valorReembolsado": 99.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5178,
+   "pedido": 105970,
+   "dataDevolucao": "2026-01-07",
+   "loja": 6,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 11.61
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5179,
+   "pedido": 102682,
+   "dataDevolucao": "2025-08-09",
+   "loja": 7,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5180,
+   "pedido": 106786,
+   "dataDevolucao": "2026-03-27",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0025",
+     "qtd": 1,
+     "valorReembolsado": 189.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5181,
+   "pedido": 101339,
+   "dataDevolucao": "2025-04-27",
+   "loja": 5,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0020",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5182,
+   "pedido": 106098,
+   "dataDevolucao": "2026-02-23",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0005",
+     "qtd": 1,
+     "valorReembolsado": 219.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5183,
+   "pedido": 107893,
+   "dataDevolucao": "2026-05-09",
+   "loja": 5,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 12.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5184,
+   "pedido": 106404,
+   "dataDevolucao": "2026-02-16",
+   "loja": 6,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5185,
+   "pedido": 101960,
+   "dataDevolucao": "2025-06-16",
+   "loja": 1,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0011",
+     "qtd": 1,
+     "valorReembolsado": 142.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5186,
+   "pedido": 107482,
+   "dataDevolucao": "2026-05-02",
+   "loja": 8,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0005",
+     "qtd": 1,
+     "valorReembolsado": 219.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5187,
+   "pedido": 106530,
+   "dataDevolucao": "2026-03-13",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 119.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5188,
+   "pedido": 104424,
+   "dataDevolucao": "2025-11-03",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0022",
+     "qtd": 1,
+     "valorReembolsado": 56.62
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5191,
+   "pedido": 105171,
+   "dataDevolucao": "2025-12-31",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 139.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5192,
+   "pedido": 103528,
+   "dataDevolucao": "2025-09-24",
+   "loja": 5,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 125.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5193,
+   "pedido": 104482,
+   "dataDevolucao": "2025-11-09",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5194,
+   "pedido": 105767,
+   "dataDevolucao": "2026-01-15",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0023",
+     "qtd": 1,
+     "valorReembolsado": 116.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5195,
+   "pedido": 103456,
+   "dataDevolucao": "2025-09-25",
+   "loja": 4,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5196,
+   "pedido": 109059,
+   "dataDevolucao": "2026-07-20",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5197,
+   "pedido": 109327,
+   "dataDevolucao": "2026-08-03",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0022",
+     "qtd": 1,
+     "valorReembolsado": 69.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5198,
+   "pedido": 106409,
+   "dataDevolucao": "2026-02-23",
+   "loja": 6,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5199,
+   "pedido": 108111,
+   "dataDevolucao": "2026-05-10",
+   "loja": 8,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0029",
+     "qtd": 1,
+     "valorReembolsado": 34.11
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5200,
+   "pedido": 100012,
+   "dataDevolucao": "2025-02-01",
+   "loja": 1,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0012",
+     "qtd": 1,
+     "valorReembolsado": 9.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5202,
+   "pedido": 106144,
+   "dataDevolucao": "2026-02-09",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0011",
+     "qtd": 1,
+     "valorReembolsado": 149.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5203,
+   "pedido": 105868,
+   "dataDevolucao": "2026-01-21",
+   "loja": 4,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5204,
+   "pedido": 103066,
+   "dataDevolucao": "2025-08-29",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5205,
+   "pedido": 105358,
+   "dataDevolucao": "2025-12-28",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0002",
+     "qtd": 1,
+     "valorReembolsado": 119.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5206,
+   "pedido": 100888,
+   "dataDevolucao": "2025-03-22",
+   "loja": 4,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 139.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5207,
+   "pedido": 105725,
+   "dataDevolucao": "2026-01-14",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0030",
+     "qtd": 1,
+     "valorReembolsado": 99.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5208,
+   "pedido": 106048,
+   "dataDevolucao": "2026-01-25",
+   "loja": 8,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0008",
+     "qtd": 1,
+     "valorReembolsado": 24.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5209,
+   "pedido": 103274,
+   "dataDevolucao": "2025-09-27",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 59.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5210,
+   "pedido": 108584,
+   "dataDevolucao": "2026-06-22",
+   "loja": 7,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0032",
+     "qtd": 1,
+     "valorReembolsado": 29.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5211,
+   "pedido": 102727,
+   "dataDevolucao": "2025-07-10",
+   "loja": 8,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0015",
+     "qtd": 1,
+     "valorReembolsado": 28.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5212,
+   "pedido": 107581,
+   "dataDevolucao": "2026-05-21",
+   "loja": 1,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.7
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5213,
+   "pedido": 101686,
+   "dataDevolucao": "2025-05-03",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0009",
+     "qtd": 1,
+     "valorReembolsado": 14.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5214,
+   "pedido": 103961,
+   "dataDevolucao": "2025-10-16",
+   "loja": 3,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5215,
+   "pedido": 108386,
+   "dataDevolucao": "2026-06-13",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 123.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5216,
+   "pedido": 104209,
+   "dataDevolucao": "2025-10-26",
+   "loja": 7,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 11.61
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5217,
+   "pedido": 108893,
+   "dataDevolucao": "2026-07-25",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5218,
+   "pedido": 108824,
+   "dataDevolucao": "2026-07-26",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0022",
+     "qtd": 1,
+     "valorReembolsado": 66.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5219,
+   "pedido": 107504,
+   "dataDevolucao": "2026-04-26",
+   "loja": 8,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0010",
+     "qtd": 1,
+     "valorReembolsado": 19.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5220,
+   "pedido": 106696,
+   "dataDevolucao": "2026-04-04",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0018",
+     "qtd": 1,
+     "valorReembolsado": 34.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5221,
+   "pedido": 109027,
+   "dataDevolucao": "2026-07-31",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0031",
+     "qtd": 1,
+     "valorReembolsado": 79.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5222,
+   "pedido": 106288,
+   "dataDevolucao": "2026-02-23",
+   "loja": 4,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 53.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5223,
+   "pedido": 108794,
+   "dataDevolucao": "2026-07-11",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0025",
+     "qtd": 1,
+     "valorReembolsado": 170.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5224,
+   "pedido": 103087,
+   "dataDevolucao": "2025-09-01",
+   "loja": 6,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0001",
+     "qtd": 1,
+     "valorReembolsado": 139.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5225,
+   "pedido": 100742,
+   "dataDevolucao": "2025-03-17",
+   "loja": 1,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0026",
+     "qtd": 1,
+     "valorReembolsado": 143.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5226,
+   "pedido": 102481,
+   "dataDevolucao": "2025-08-01",
+   "loja": 2,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 123.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5227,
+   "pedido": 107149,
+   "dataDevolucao": "2026-04-14",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0004",
+     "qtd": 1,
+     "valorReembolsado": 54.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5228,
+   "pedido": 106199,
+   "dataDevolucao": "2026-02-16",
+   "loja": 2,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0023",
+     "qtd": 1,
+     "valorReembolsado": 116.91
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5229,
+   "pedido": 105250,
+   "dataDevolucao": "2025-12-22",
+   "loja": 4,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 59.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5230,
+   "pedido": 107289,
+   "dataDevolucao": "2026-04-11",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0031",
+     "qtd": 1,
+     "valorReembolsado": 79.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5231,
+   "pedido": 103271,
+   "dataDevolucao": "2025-10-03",
+   "loja": 1,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0023",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5232,
+   "pedido": 100164,
+   "dataDevolucao": "2025-01-25",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0005",
+     "qtd": 1,
+     "valorReembolsado": 219.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5233,
+   "pedido": 101547,
+   "dataDevolucao": "2025-05-30",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0014",
+     "qtd": 1,
+     "valorReembolsado": 11.61
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5234,
+   "pedido": 101632,
+   "dataDevolucao": "2025-05-26",
+   "loja": 3,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0005",
+     "qtd": 1,
+     "valorReembolsado": 219.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5235,
+   "pedido": 108585,
+   "dataDevolucao": "2026-07-02",
+   "loja": 7,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0029",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5236,
+   "pedido": 103889,
+   "dataDevolucao": "2025-11-01",
+   "loja": 2,
+   "motivo": "Arrependimento",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 89.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5237,
+   "pedido": 103855,
+   "dataDevolucao": "2025-11-03",
+   "loja": 2,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5238,
+   "pedido": 104787,
+   "dataDevolucao": "2025-11-12",
+   "loja": 6,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0022",
+     "qtd": 1,
+     "valorReembolsado": 69.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5239,
+   "pedido": 101638,
+   "dataDevolucao": "2025-05-11",
+   "loja": 3,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0016",
+     "qtd": 1,
+     "valorReembolsado": 31.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5240,
+   "pedido": 103104,
+   "dataDevolucao": "2025-08-10",
+   "loja": 6,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5241,
+   "pedido": 104200,
+   "dataDevolucao": "2025-10-09",
+   "loja": 7,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0005",
+     "qtd": 1,
+     "valorReembolsado": 208.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5242,
+   "pedido": 108281,
+   "dataDevolucao": "2026-06-30",
+   "loja": 2,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0016",
+     "qtd": 1,
+     "valorReembolsado": 31.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5243,
+   "pedido": 102646,
+   "dataDevolucao": "2025-07-30",
+   "loja": 6,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0003",
+     "qtd": 1,
+     "valorReembolsado": 129.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5244,
+   "pedido": 103955,
+   "dataDevolucao": "2025-10-25",
+   "loja": 3,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0025",
+     "qtd": 1,
+     "valorReembolsado": 189.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5245,
+   "pedido": 105089,
+   "dataDevolucao": "2026-01-04",
+   "loja": 2,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0006",
+     "qtd": 1,
+     "valorReembolsado": 3.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5246,
+   "pedido": 104092,
+   "dataDevolucao": "2025-10-19",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0007",
+     "qtd": 1,
+     "valorReembolsado": 85.4
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5247,
+   "pedido": 101509,
+   "dataDevolucao": "2025-05-23",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0030",
+     "qtd": 1,
+     "valorReembolsado": 99.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5248,
+   "pedido": 109304,
+   "dataDevolucao": "2026-08-31",
+   "loja": 1,
+   "motivo": "Validade próxima",
+   "itens": [
+    {
+     "sku": "PF0029",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5249,
+   "pedido": 102195,
+   "dataDevolucao": "2025-06-07",
+   "loja": 5,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0005",
+     "qtd": 1,
+     "valorReembolsado": 178.12
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5250,
+   "pedido": 104304,
+   "dataDevolucao": "2025-11-13",
+   "loja": 1,
+   "motivo": "Produto danificado",
+   "itens": [
+    {
+     "sku": "PF0021",
+     "qtd": 1,
+     "valorReembolsado": 39.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5251,
+   "pedido": 102235,
+   "dataDevolucao": "2025-07-05",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0024",
+     "qtd": 1,
+     "valorReembolsado": 31.41
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5252,
+   "pedido": 108460,
+   "dataDevolucao": "2026-07-02",
+   "loja": 5,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0019",
+     "qtd": 1,
+     "valorReembolsado": 27.9
+    }
+   ]
+  },
+  {
+   "idDevolucao": 5253,
+   "pedido": 109666,
+   "dataDevolucao": "2026-08-24",
+   "loja": 6,
+   "motivo": "Produto errado",
+   "itens": [
+    {
+     "sku": "PF0017",
+     "qtd": 1,
+     "valorReembolsado": 59.9
+    }
+   ]
+  }
+ ]
+}
